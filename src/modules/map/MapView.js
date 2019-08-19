@@ -1,19 +1,10 @@
 import React, { Component } from 'react';
-import {
-  View,
-  TouchableOpacity,
-  ImageBackground,
-} from 'react-native';
 import MapView, { Marker, ProviderPropType } from 'react-native-maps';
 
 import styles from './styles';
 
-
-
 export default class MapScreen extends Component {
-// export default function MapScreen({locations}) {
   state = {
-    // mapRegion: { latitude: 37.78825, longitude: -122.4324, latitudeDelta: 0.0922, longitudeDelta: 0.0421 }
     region: {
       latitude: 37.321996988,
       longitude: -122.0325472123455,
@@ -69,3 +60,7 @@ export default class MapScreen extends Component {
     )
   };
 }
+
+MapScreen.propTypes = {
+  provider: ProviderPropType,
+};
