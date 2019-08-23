@@ -11,9 +11,9 @@
     ],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/images/png/logo.png",
     "splash": {
-      "image": "./assets/images/splash.png",
+      "image": "./assets/images/png/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -24,7 +24,14 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "bundleIdentifier": "com.ben.nono",
+      "supportsTablet": false,
+      "buildNumber": "1"
+    },
+    "android": {
+      "package": "com.ben.nono",
+      "versionCode": 1
+      
     }
   }
 }
