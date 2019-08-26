@@ -19,13 +19,16 @@ const FORM_STATES = {
   REGISTER: 1,
 };
 
-export default class AuthScreen extends React.Component {
+export default class SignupScreen extends React.Component {
   state = {
     anim: new Animated.Value(0),
 
     // Current visible form
-    formState: FORM_STATES.LOGIN,
+    formState: FORM_STATES.REGISTER,
     isKeyboardVisible: false,
+    userName: '',
+    email: '',
+    password: ''
   };
 
   componentWillMount() {
@@ -41,7 +44,6 @@ export default class AuthScreen extends React.Component {
 
   componentDidMount() {
     Animated.timing(this.state.anim, { toValue: 3000, duration: 3000 }).start();
-    this.props.setAppOpened();
   }
 
   componentWillUnmount() {
@@ -79,14 +81,24 @@ export default class AuthScreen extends React.Component {
     };
   }
 
+  onClickGotoAuth = () => {
+    LayoutAnimation.spring();
+    navigation.navigate('Auth');
+  };
+
+  onClickSignup = () => {
+    console.log('==== this.state: ', this.state);
+    const { userName, email, password } = this.state;
+    this.props.actionSignUp({userName, email, password})
+  };
+
   render() {
     const isRegister = this.state.formState === FORM_STATES.REGISTER;
-    const { auth, app, navigation, actionLoggingIn, actionLogOut } = this.props
-    const { isLoggedIn } = auth;
-    console.log('====== AuthView: props: ', this.props);
-    // if (!app.isFirstOpen && isLoggedIn) {
-    //   navigation.navigate('Home');
-    // }
+    const { signup, app, navigation } = this.props
+    const { isSignedUp } = signup;
+
+    console.log('====== SignupView: props: ', this.props);
+
     return (
       <ImageBackground
         source={require('../../../assets/images/background.png')}
@@ -114,6 +126,8 @@ export default class AuthScreen extends React.Component {
               style={styles.textInput}
               autoCapitalize="none"
               autoCorrect={false}
+              value={this.state.userName}
+              onChangeText={userName => this.setState({ userName })}
             />
 
             {this.state.formState === FORM_STATES.REGISTER && (
@@ -123,6 +137,8 @@ export default class AuthScreen extends React.Component {
                 autoCapitalize="none"
                 autoCorrect={false}
                 keyboardType="email-address"
+                value={this.state.email}
+                onChangeText={email => this.setState({ email })}
               />
             )}
 
@@ -130,6 +146,8 @@ export default class AuthScreen extends React.Component {
               placeholder="Password"
               secureTextEntry
               style={styles.textInput}
+              value={this.state.password}
+              onChangeText={password => this.setState({ password })}
             />
 
             <Animated.View
@@ -141,12 +159,8 @@ export default class AuthScreen extends React.Component {
                 secondary
                 rounded
                 style={{ alignSelf: 'stretch', marginBottom: 10 }}
-                caption={
-                  this.state.formState === FORM_STATES.LOGIN
-                    ? 'Login'
-                    : 'Register'
-                }
-                onPress={() => actionLoggingIn({userName: 'user1', password: '123456'})}
+                caption={'Register'}
+                onPress={this.onClickSignup}
               />
 
               {!this.state.isKeyboardVisible && (
@@ -177,15 +191,7 @@ export default class AuthScreen extends React.Component {
 
               {!this.state.isKeyboardVisible && (
                 <TouchableOpacity
-                  onPress={() => {
-                    LayoutAnimation.spring();
-                    navigation.navigate('Signup');
-                    // this.setState({
-                    //   formState: isRegister
-                    //     ? FORM_STATES.LOGIN
-                    //     : FORM_STATES.REGISTER,
-                    // });
-                  }}
+                  onPress={this.onClickGotoAuth}
                   style={{ paddingTop: 30, flexDirection: 'row' }}
                 >
                   <Text

@@ -5,6 +5,7 @@ import { createAppContainer, createStackNavigator, createSwitchNavigator } from 
 import MainTabNavigator from './MainTabNavigator';
 
 import AuthViewContainer from '../modules/auth/AuthViewContainer';
+import SignupViewContainer from '../modules/signup/SignupViewContainer';
 import HomeViewContainer from '../modules/home/HomeViewContainer';
 import MapScreen from '../modules/map/MapView';
 import LinksScreen from '../modules/links/LinksView';
@@ -103,12 +104,22 @@ const AuthStack = createStackNavigator({
     navigationOptions: {
       header: null,
     }
-  }
+  },
  });
+
+ const SignupStack = createStackNavigator({
+  Signup: {
+    screen: SignupViewContainer,
+    navigationOptions: {
+      header: null,
+    }
+  }
+});
 
 const AppNavigator = createSwitchNavigator(
   {
     Auth: AuthStack,
+    Signup: SignupStack,
     Home: homeStack,
   },
   {
