@@ -43,7 +43,7 @@ const homeStack = createStackNavigator(
         title: 'Map',
       },
     },
-    Settings: {
+    Profile: {
       screen: ProfileViewContainer,
       navigationOptions: {
         title: 'Profile',

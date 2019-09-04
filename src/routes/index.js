@@ -72,7 +72,7 @@ function Header(title) {
 class NonoRoutes extends Component {
 	componentDidMount() {
 		StatusBar.setBarStyle('light-content');
-		Actions['authorized'](); // for test
+		// Actions['authorized'](); // for test
 		if (this.props.isAuthenticated) {
 			Actions['authorized']();
 		}

@@ -49,7 +49,7 @@ export default class RentButterryScreen extends Component {
             <View style={styles.priceContainer}>
               <View style={{ flexDirection: 'row' }}>
                 <Text white bold size={50} style={styles.price}>
-                  {'$199.95'}
+                  {'$499.95'}
                 </Text>
               </View>
               <TouchableOpacity
