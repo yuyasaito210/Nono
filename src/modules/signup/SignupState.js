@@ -1,4 +1,3 @@
-import AuthAPI from '../../api/auth';
 import { Firebase, FirebaseRef } from '../../lib/firebase';
 import { statusMessage } from '../status/StatusState';
 

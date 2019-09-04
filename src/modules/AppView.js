@@ -14,52 +14,25 @@ import material from '../../native-base-theme/variables/material';
 
 
 export default function App(props) {
-// export default class App extends Component {
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     loadingExpo: true,
-  //     isLoading: true,
-  //     store: configureStore(() => this.setState({isLoading: false}))
-  //   };
-  // }
-
-  // async componentWillMount() {
-  //   await Font.loadAsync({
-  //     Roboto: require("native-base/Fonts/Roboto.ttf"),
-  //     Roboto_medium: require("native-base/Fonts/Roboto_medium.ttf"),
-  //     Ionicons: require('native-base/Fonts/Ionicons.ttf'),
-  //   });
-  //   this.setState({ loadingExpo: false });
-  // }
+  const [isLoadingComplete, setLoadingComplete] = useState(false);
   
-  // render() {
-    const [isLoadingComplete, setLoadingComplete] = useState(false);
-    
-    if (!isLoadingComplete && !props.skipLoadingScreen) {
-      return (
-        <AppLoading
-          startAsync={loadResourcesAsync}
-          onError={handleLoadingError}
-          onFinish={() => handleFinishLoading(setLoadingComplete)}
-        />
-      );
-    } else {
-      // return (
-      //   <View style={styles.container}>
-      //     {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-      //     <AppNavigator auth={props.auth}/>
-      //   </View>
-      // );
-      return (
-        <SafeAreaView style={styles.safeArea}>
-					<StyleProvider style={getTheme(material)}>
-	        	<Routes />
-					</StyleProvider>
-				</SafeAreaView>
-      )
-    }
-  // }
+  if (!isLoadingComplete && !props.skipLoadingScreen) {
+    return (
+      <AppLoading
+        startAsync={loadResourcesAsync}
+        onError={handleLoadingError}
+        onFinish={() => handleFinishLoading(setLoadingComplete)}
+      />
+    );
+  } else {
+    return (
+      <SafeAreaView style={styles.safeArea}>
+        <StyleProvider style={getTheme(material)}>
+          <Routes />
+        </StyleProvider>
+      </SafeAreaView>
+    )
+  }
 }
 
 

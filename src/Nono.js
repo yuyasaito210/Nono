@@ -40,7 +40,7 @@ import { Asset } from 'expo-asset';
 import { Ionicons } from '@expo/vector-icons';
 import React, {Component} from 'react';
 import { Provider } from 'react-redux';
-import { StyleSheet, SafeAreaView } from 'react-native';
+import { StyleSheet, SafeAreaView, View, StatusBar, Platform } from 'react-native';
 import store from './redux/store';
 import NonoRoutes from './routes/index';
 import { StyleProvider } from 'native-base';
@@ -48,6 +48,9 @@ import getTheme from '../native-base-theme/components';
 import material from '../native-base-theme/variables/material';
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  },
   safeArea: {
     flex: 1,
     backgroundColor: '#000'
@@ -103,7 +106,12 @@ export default class Nono extends Component {
       <Provider store={this.state.store}>
 				<SafeAreaView style={styles.safeArea}>
 					<StyleProvider style={getTheme(material)}>
-	        	<NonoRoutes />
+            <View style={ styles.container }>
+              <StatusBar
+                barStyle={ `${ Platform.OS === 'ios' ? 'dark-content' : 'light-content' }` }
+              />
+              <NonoRoutes />
+            </View>
 					</StyleProvider>
 				</SafeAreaView>
       </Provider>

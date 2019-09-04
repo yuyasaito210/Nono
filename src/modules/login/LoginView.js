@@ -15,18 +15,14 @@ import { fonts, colors } from '../../styles';
 import { TextInput, Button } from '../../components';
 import styles from './styles';
 
-const FORM_STATES = {
-  LOGIN: 0,
-  REGISTER: 1,
-};
 
-export default class AuthScreen extends React.Component {
+export default class LoginView extends React.Component {
   state = {
     anim: new Animated.Value(0),
-
-    // Current visible form
-    formState: FORM_STATES.LOGIN,
     isKeyboardVisible: false,
+    email: '',
+    password: '',
+    logining: false,
   };
 
   componentWillMount() {
@@ -42,7 +38,7 @@ export default class AuthScreen extends React.Component {
 
   componentDidMount() {
     Animated.timing(this.state.anim, { toValue: 3000, duration: 3000 }).start();
-    this.props.setAppOpened();
+    // this.props.setAppOpened();
   }
 
   componentWillUnmount() {
@@ -80,11 +76,20 @@ export default class AuthScreen extends React.Component {
     };
   }
 
+  onLogin = () => {
+    const { email, password } = this.state;
+    this.setState({ logining: true }, () => {
+      // this.props.loginActions.loginInit();
+      // this.props.loginActions.loginRequest(email, password);
+      this.props.actionLogin({email, password});
+    });
+  };
+
   render() {
-    const isRegister = this.state.formState === FORM_STATES.REGISTER;
-    const { auth, app, navigation, actionLoggingIn, actionLogOut } = this.props
-    const { isLoggedIn } = auth;
-    console.log('====== AuthView: props: ', this.props);
+    const { login, app, actionLoggingIn, actionLogOut } = this.props
+    const { isLoggedIn } = login;
+    const { email, password } = this.state;
+    console.log('====== LoginView: props: ', this.props);
     // if (!app.isFirstOpen && isLoggedIn) {
     //   navigation.navigate('Home');
     // }
@@ -111,26 +116,19 @@ export default class AuthScreen extends React.Component {
             style={[styles.section, styles.middle, this.fadeIn(700, -20)]}
           >
             <TextInput
-              placeholder="Username"
+              placeholder="Email"
               style={styles.textInput}
               autoCapitalize="none"
               autoCorrect={false}
+              value={email}
+              onChangeText={email => this.setState({email})}
             />
-
-            {this.state.formState === FORM_STATES.REGISTER && (
-              <TextInput
-                placeholder="Email"
-                style={styles.textInput}
-                autoCapitalize="none"
-                autoCorrect={false}
-                keyboardType="email-address"
-              />
-            )}
-
             <TextInput
               placeholder="Password"
               secureTextEntry
               style={styles.textInput}
+              value={password}
+              onChangeText={password => this.setState({password})}
             />
 
             <Animated.View
@@ -142,12 +140,8 @@ export default class AuthScreen extends React.Component {
                 secondary
                 rounded
                 style={{ alignSelf: 'stretch', marginBottom: 10 }}
-                caption={
-                  this.state.formState === FORM_STATES.LOGIN
-                    ? 'Login'
-                    : 'Register'
-                }
-                onPress={() => actionLoggingIn({userName: 'user1', password: '123456'})}
+                caption={'Login'}
+                onPress={() => this.onLogin()} 
               />
 
               {!this.state.isKeyboardVisible && (
@@ -180,13 +174,7 @@ export default class AuthScreen extends React.Component {
                 <TouchableOpacity
                   onPress={() => {
                     LayoutAnimation.spring();
-                    // navigation.navigate('Signup');
                     Actions['signup']();
-                    // this.setState({
-                    //   formState: isRegister
-                    //     ? FORM_STATES.LOGIN
-                    //     : FORM_STATES.REGISTER,
-                    // });
                   }}
                   style={{ paddingTop: 30, flexDirection: 'row' }}
                 >
@@ -196,9 +184,7 @@ export default class AuthScreen extends React.Component {
                       fontFamily: fonts.primaryRegular,
                     }}
                   >
-                    {isRegister
-                      ? 'Already have an account?'
-                      : "Don't have an account?"}
+                    {"Don't have an account?"}
                   </Text>
                   <Text
                     style={{
@@ -207,7 +193,7 @@ export default class AuthScreen extends React.Component {
                       marginLeft: 5,
                     }}
                   >
-                    {isRegister ? 'Login' : 'Register'}
+                    {'Register'}
                   </Text>
                 </TouchableOpacity>
               )}

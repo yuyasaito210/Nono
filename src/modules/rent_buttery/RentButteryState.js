@@ -1,14 +1,14 @@
 import * as types from '../../constants/ActionTypes'
 import { Firebase, FirebaseRef } from '../../lib/firebase';
 import { statusMessage } from '../status/StatusState';
-import * as mapActions from './MapAction';
+import * as rentButteryActions from './RentButteryAction';
 
 ///////////////////////////////////////////
 // Thunk
 /**
  * Listen for realtime updates on the current user
  */
-export const listenForStoreUpdates = () => {
+export const listenForButteryUpdates = () => {
   const UID = (
     FirebaseRef
     && Firebase
@@ -28,13 +28,27 @@ export const listenForStoreUpdates = () => {
   });
 };
 
-export function actionGetMap(data) {
+export function actionGetButteries(store) {
   if (Firebase === null) return new Promise(resolve => resolve);
   // Ensure token is up to date
   return new Promise((resolve) => {
     Firebase.auth().onAuthStateChanged((loggedIn) => {
       if (loggedIn) {
-        this.listenForStoreUpdates(dispatch);
+        this.listenForButteryUpdates(dispatch);
+        return resolve();
+      }
+      return new Promise(() => resolve);
+    });
+  });
+}
+
+export function actionSelectedButtery(selectedButtery) {
+  if (Firebase === null) return new Promise(resolve => resolve);
+  // Ensure token is up to date
+  return new Promise((resolve) => {
+    Firebase.auth().onAuthStateChanged((loggedIn) => {
+      if (loggedIn) {
+        this.listenForButteryUpdates(dispatch);
         return resolve();
       }
       return new Promise(() => resolve);
@@ -46,45 +60,40 @@ export function actionGetMap(data) {
 // Reducer state
 const initialState = {
   isFetching: false,
-  region: false,
-  places: false,
-  failure: false,
+  batteries: false,
+  selectedButtery: false,
   errorMessage: false,
 };
 
-export default function mapReducer(state = initialState, action) {
+export default function rentButteryReducer(state = initialState, action) {
   switch(action.type) {
-    case types.GET_STORE.REQUEST:
+    case types.RENT_BUTTERY.REQUEST:
       return Object.assign({}, state, {
         isFetching: true,
-        region: action.region || state.region,
-        places: action.region || state.region,
+        selectedButtery: action.selectedButtery || state.selectedButtery,
         failure: false,
         errorMessage: false,
       });
-    case types.GET_STORE.SUCCESS:
+    case types.RENT_BUTTERY.SUCCESS:
       return Object.assign({}, state, {
         isFetching: false,
         isAuthenticated: true,
         failure: false,
-        region: action.region || state.region,
-        places: action.region || state.region,
-				fromRegistration: false,
+        selectedButtery: action.selectedButtery || state.selectedButtery,
       });
-    case types.GET_STORE.FAILURE:
+    case types.RENT_BUTTERY.FAILURE:
       return Object.assign({}, state, {
         isFetching: false,
         isAuthenticated: false,
         failure: true,
         errorMessage: action.err,
-        fromRegistration: false
       });
-    case types.GET_STORE.INIT:
+    case types.RENT_BUTTERY.INIT:
       return Object.assign({}, state, {
         isAuthenticated: false,
         isFetching: false,
-        region: false,
-        places: false,
+        batteries: false,
+        selectedButtery: false,
         failure: false,
         errorMessage: false,
       });

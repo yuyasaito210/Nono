@@ -3,9 +3,7 @@ import { connect } from 'react-redux';
 import { compose, lifecycle } from 'recompose';
 
 import SignupView from './SignupView';
-import { 
-  actionSignUp,
-} from './SignupState';
+import { actionSignUp } from './SignupState';
 
 export default compose(
   connect(
