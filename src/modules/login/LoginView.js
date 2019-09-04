@@ -9,6 +9,7 @@ import {
   TouchableOpacity,
   ImageBackground,
 } from 'react-native';
+import { Actions } from 'react-native-router-flux'
 
 import { fonts, colors } from '../../styles';
 import { TextInput, Button } from '../../components';
@@ -179,7 +180,8 @@ export default class AuthScreen extends React.Component {
                 <TouchableOpacity
                   onPress={() => {
                     LayoutAnimation.spring();
-                    navigation.navigate('Signup');
+                    // navigation.navigate('Signup');
+                    Actions['signup']();
                     // this.setState({
                     //   formState: isRegister
                     //     ? FORM_STATES.LOGIN

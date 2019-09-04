@@ -2,19 +2,19 @@
 import { connect } from 'react-redux';
 import { compose, lifecycle } from 'recompose';
 
-import AuthView from './AuthView';
+import LoginView from './LoginView';
 import { 
   actionLoggingIn,
   actionSuccessLogIn,
   actionFailedLoggedIn,
   actionLogOut
-} from './AuthState';
+} from './LoginState';
 import { setAppOpened } from '../AppState';
 
 export default compose(
   connect(
     state => ({
-      auth: state.auth,
+      login: state.login,
       app: state.app
     }),
     dispatch => ({
@@ -30,4 +30,4 @@ export default compose(
   //     this.props.loadChartsData();
   //   },
   // }),
-)(AuthView);
+)(LoginView);

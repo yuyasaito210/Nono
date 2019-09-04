@@ -38,7 +38,7 @@ export function actionLoggingIn(data) {
   const { userName, email, password } = data;
   return dispatch => {
     dispatch(startLoggingIn(data));
-    dispatch()
+    dispatch(actionLogin(data));
   };
 }
 

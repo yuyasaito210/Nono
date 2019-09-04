@@ -4,7 +4,7 @@ import { createAppContainer, createStackNavigator, createSwitchNavigator } from 
 
 import MainTabNavigator from './MainTabNavigator';
 
-import AuthViewContainer from '../modules/auth/AuthViewContainer';
+import LoginViewContainer from '../modules/login/LoginViewContainer';
 import SignupViewContainer from '../modules/signup/SignupViewContainer';
 import HomeViewContainer from '../modules/home/HomeViewContainer';
 import MapScreen from '../modules/map/MapView';
@@ -100,7 +100,7 @@ const homeStack = createStackNavigator(
 
 const AuthStack = createStackNavigator({
   Auth: {
-    screen: AuthViewContainer,
+    screen: LoginViewContainer,
     navigationOptions: {
       header: null,
     }

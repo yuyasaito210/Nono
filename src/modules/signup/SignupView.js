@@ -9,6 +9,7 @@ import {
   TouchableOpacity,
   ImageBackground,
 } from 'react-native';
+import { Actions } from 'react-native-router-flux'
 
 import { fonts, colors } from '../../styles';
 import { TextInput, Button } from '../../components';
@@ -83,7 +84,7 @@ export default class SignupScreen extends React.Component {
 
   onClickGotoAuth = () => {
     LayoutAnimation.spring();
-    navigation.navigate('Auth');
+    Actions['login']();
   };
 
   onClickSignup = () => {
