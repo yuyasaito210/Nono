@@ -2,7 +2,7 @@ import * as RNLocalize from 'react-native-localize';
 import i18n from 'i18n-js';
 
 import en from './en.json';
-import ru from './ru.json';
+import fr from './fr.json';
 
 const translations = { en, ru };
 

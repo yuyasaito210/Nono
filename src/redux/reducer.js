@@ -1,9 +1,13 @@
 import { combineReducers } from 'redux';
 
-// ## Generator Reducer Imports
 import app from '../modules/AppState';
+import loginReducer from '../modules/login/LoginState';
+import signup from '../modules/signup/SignupState';
+import status from '../modules/status/StatusState';
 
 export default combineReducers({
-  // ## Generator Reducers
   app,
+  login: loginReducer,
+  signup,
+  status
 });

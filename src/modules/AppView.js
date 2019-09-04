@@ -1,22 +1,21 @@
-// import React from 'react';
 
-// import Navigator from '../navigation/Navigator';
-
-// export default function AppView() {
-//   return <Navigator onNavigationStateChange={() => {}} uriPrefix="/app" />;
-// }
 import { AppLoading } from 'expo';
 import { Asset } from 'expo-asset';
 import * as Font from 'expo-font';
 import React, { useState } from 'react';
-import { Platform, StatusBar, StyleSheet, View } from 'react-native';
+import { Platform, StatusBar, StyleSheet, SafeAreaView, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 import AppNavigator from '../navigation/AppNavigator';
+import Routes from '../routes/index';
+import { StyleProvider } from 'native-base';
+import getTheme from '../../native-base-theme/components';
+import material from '../../native-base-theme/variables/material';
+
 
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
-
+  
   if (!isLoadingComplete && !props.skipLoadingScreen) {
     return (
       <AppLoading
@@ -27,13 +26,15 @@ export default function App(props) {
     );
   } else {
     return (
-      <View style={styles.container}>
-        {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-        <AppNavigator />
-      </View>
-    );
+      <SafeAreaView style={styles.safeArea}>
+        <StyleProvider style={getTheme(material)}>
+          <Routes />
+        </StyleProvider>
+      </SafeAreaView>
+    )
   }
 }
+
 
 async function loadResourcesAsync() {
   await Promise.all([
@@ -50,7 +51,10 @@ async function loadResourcesAsync() {
       'Lato-Light': require('../../assets/fonts/Lato-Light.ttf'),
       'Lato-Regular': require('../../assets/fonts/Lato-Regular.ttf'),
       'Lato-Bold': require('../../assets/fonts/Lato-Bold.ttf'),
-      'Lato-SemiBold': require('../../assets/fonts/Lato-Semibold.ttf')
+      'Lato-SemiBold': require('../../assets/fonts/Lato-Semibold.ttf'),
+      // Roboto: require("native-base/Fonts/Roboto.ttf"),
+	    // Roboto_medium: require("native-base/Fonts/Roboto_medium.ttf"),
+      // Ionicons: require('native-base/Fonts/Ionicons.ttf'),
     }),
   ]);
 }
@@ -70,4 +74,8 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
+  safeArea: {
+    flex: 1,
+    backgroundColor: '#000'
+   }
 });

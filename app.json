@@ -24,12 +24,12 @@
       "**/*"
     ],
     "ios": {
-      "bundleIdentifier": "com.ben.nono",
+      "bundleIdentifier": "com.ben.nono.dev",
       "supportsTablet": false,
       "buildNumber": "1"
     },
     "android": {
-      "package": "com.ben.nono",
+      "package": "com.ben.nono.dev",
       "versionCode": 1
       
     }
