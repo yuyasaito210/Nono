@@ -15,17 +15,9 @@ import { fonts, colors } from '../../styles';
 import { TextInput, Button } from '../../components';
 import styles from './styles';
 
-const FORM_STATES = {
-  LOGIN: 0,
-  REGISTER: 1,
-};
-
 export default class SignupScreen extends React.Component {
   state = {
     anim: new Animated.Value(0),
-
-    // Current visible form
-    formState: FORM_STATES.REGISTER,
     isKeyboardVisible: false,
     userName: '',
     email: '',
@@ -88,17 +80,11 @@ export default class SignupScreen extends React.Component {
   };
 
   onClickSignup = () => {
-    console.log('==== this.state: ', this.state);
     const { userName, email, password } = this.state;
-    this.props.actionSignUp({userName, email, password})
+    this.props.signupActions.actionSignUp({userName, email, password})
   };
 
   render() {
-    const isRegister = this.state.formState === FORM_STATES.REGISTER;
-    const { signup, app, navigation } = this.props
-    const { isSignedUp } = signup;
-
-    console.log('====== SignupView: props: ', this.props);
 
     return (
       <ImageBackground
@@ -131,17 +117,15 @@ export default class SignupScreen extends React.Component {
               onChangeText={userName => this.setState({ userName })}
             />
 
-            {this.state.formState === FORM_STATES.REGISTER && (
-              <TextInput
-                placeholder="Email"
-                style={styles.textInput}
-                autoCapitalize="none"
-                autoCorrect={false}
-                keyboardType="email-address"
-                value={this.state.email}
-                onChangeText={email => this.setState({ email })}
-              />
-            )}
+            <TextInput
+              placeholder="Email"
+              style={styles.textInput}
+              autoCapitalize="none"
+              autoCorrect={false}
+              keyboardType="email-address"
+              value={this.state.email}
+              onChangeText={email => this.setState({ email })}
+            />
 
             <TextInput
               placeholder="Password"
@@ -201,9 +185,7 @@ export default class SignupScreen extends React.Component {
                       fontFamily: fonts.primaryRegular,
                     }}
                   >
-                    {isRegister
-                      ? 'Already have an account?'
-                      : "Don't have an account?"}
+                    {'Already have an account?'}
                   </Text>
                   <Text
                     style={{
@@ -212,7 +194,7 @@ export default class SignupScreen extends React.Component {
                       marginLeft: 5,
                     }}
                   >
-                    {isRegister ? 'Login' : 'Register'}
+                    {'Login'}
                   </Text>
                 </TouchableOpacity>
               )}

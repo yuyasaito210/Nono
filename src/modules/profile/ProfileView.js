@@ -9,7 +9,7 @@ import { colors } from '../../styles';
 import { Text } from '../../components/StyledText';
 import styles from './styles';
 
-export default class RentButterryScreen extends Component {
+export default class ProfileView extends Component {
   state = {
 
   }

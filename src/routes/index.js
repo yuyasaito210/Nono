@@ -39,10 +39,10 @@ class TabIcon extends Component {
 			case 'Map':
 				iconSource = iconCalendar;
 				break;
-			case 'Links':
+			case 'Rent Battery':
 				iconSource = iconGrids;
 				break;
-			case 'Settings':
+			case 'Profile':
 				iconSource = iconPages;
 				break;
 			default:
@@ -72,9 +72,9 @@ function Header(title) {
 class NonoRoutes extends Component {
 	componentDidMount() {
 		StatusBar.setBarStyle('light-content');
-		Actions['authrized'](); // for test
+		Actions['authorized'](); // for test
 		if (this.props.isAuthenticated) {
-			Actions['authrized']();
+			Actions['authorized']();
 		}
 	}
 
@@ -99,13 +99,13 @@ class NonoRoutes extends Component {
 						component={SignupViewContainer}
 					/>
 					<Stack
-						key={'authrized'}
+						key={'authorized'}
 						tabs={true}
 						tabBarIcon={TabIcon}
 					>
 						{/* <Drawer
 							key={ 'drawer' }
-							drawerWidth={ (50 * 0.8) }
+							drawerWidth={ (170 * 0.8) }
 							hideNavBar
 						> */}
 							<Stack
@@ -123,13 +123,13 @@ class NonoRoutes extends Component {
 							</Stack>
 							<Stack
 								key={'rent_battery'}
-								tabBarLabel="Rent battery"
+								tabBarLabel="Rent Battery"
 								iconSource={iconGrids}
-								header={Header('Rent battery')}
+								header={Header('Rent Battery')}
 							>
 								<Scene
 									key='_rent_battery'
-									title='Rent battery'
+									title='Rent Battery'
 									component={RentButteryViewContainer}
 								/>
 							</Stack>

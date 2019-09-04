@@ -1,19 +1,20 @@
-// @flow
 import { connect } from 'react-redux';
 import { compose, lifecycle } from 'recompose';
-
+import { bindActionCreators } from 'redux';
 import SignupView from './SignupView';
-import { actionSignUp } from './SignupState';
+import * as signupActions from './SignupAction';
+
+const mapStateToProps = state => ({
+  signup: state.signup || {},
+});
+
+const mapDispatchToProps = dispatch => ({
+  signupActions: bindActionCreators(signupActions, dispatch),
+});
 
 export default compose(
   connect(
-    state => ({
-      signup: state.signup,
-    }),
-    dispatch => ({
-      actionSignUp: (data) => dispatch(actionSignUp(data)),
-      actionSuccessSignUp: (data) => dispatch(actionSuccessLogIn(data)),
-      actionFailedLoggedIn: (data) => dispatch(actionFailedLoggedIn(data)),
-    }),
-  ),
+    mapStateToProps, 
+    mapDispatchToProps
+  )
 )(SignupView);

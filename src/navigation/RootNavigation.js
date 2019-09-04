@@ -8,8 +8,7 @@ import LoginViewContainer from '../modules/login/LoginViewContainer';
 import SignupViewContainer from '../modules/signup/SignupViewContainer';
 import HomeViewContainer from '../modules/home/HomeViewContainer';
 import MapScreen from '../modules/map/MapView';
-import LinksScreen from '../modules/links/LinksView';
-import SettingsScreen from '../modules/settings/SettingsView';
+import ProfileViewContainer from '../modules/profile/ProfileViewContainer';
 
 import { colors, fonts } from '../styles';
 
@@ -44,16 +43,10 @@ const homeStack = createStackNavigator(
         title: 'Map',
       },
     },
-    Links: {
-      screen: LinksScreen,
-      navigationOptions: {
-        title: 'Links',
-      },
-    },
     Settings: {
-      screen: SettingsScreen,
+      screen: ProfileViewContainer,
       navigationOptions: {
-        title: 'Settings',
+        title: 'Profile',
       },
     },
   },

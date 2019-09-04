@@ -6,9 +6,8 @@ import { colors } from '../styles';
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeViewContainer from '../modules/home/HomeViewContainer';
-import MapScreen from '../modules/map/MapView';
-import LinksScreen from '../modules/links/LinksView';
-import SettingsScreen from '../modules/settings/SettingsView';
+import MapViewContainer from '../modules/map/MapViewContainer';
+import ProfileViewContainer from '../modules/profile/ProfileViewContainer';
 
 import styles from './styles';
 
@@ -40,7 +39,7 @@ export default createBottomTabNavigator(
       },
     },
     Map: {
-      screen: MapScreen,
+      screen: MapViewContainer,
       navigationOptions: {
         tabBarLabel: 'Map',
         tabBarIcon: ({ focused }) => (
@@ -56,10 +55,10 @@ export default createBottomTabNavigator(
         header: null,
       },
     },
-    Links: {
-      screen: LinksScreen,
+    Porfile: {
+      screen: ProfileViewContainer,
       navigationOptions: {
-        tabBarLabel: 'Links',
+        tabBarLabel: 'Profile',
         tabBarIcon: ({ focused }) => (
           <TabBarIcon 
             focused={focused} name={
@@ -72,33 +71,11 @@ export default createBottomTabNavigator(
         header: (
           <View style={styles.headerContainer}>
             <Image style={styles.headerImage} source={hederBackground} />
-            <Text style={styles.headerCaption}>Calendar</Text>
+            <Text style={styles.headerCaption}>Profile</Text>
           </View>
         ),
       },
-    },
-    Settings: {
-      screen: SettingsScreen,
-      navigationOptions: {
-        tabBarLabel: 'Settings',
-        tabBarIcon: ({ focused }) => (
-          <TabBarIcon 
-            focused={focused} 
-            name={
-              Platform.OS === 'ios' 
-              ? 'ios-options' 
-              : 'md-options'
-            } 
-          />
-        ),
-        header: (
-          <View style={styles.headerContainer}>
-            <Image style={styles.headerImage} source={hederBackground} />
-            <Text style={styles.headerCaption}>Calendar</Text>
-          </View>
-        ),
-      },
-    },
+    }
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({
@@ -113,10 +90,7 @@ export default createBottomTabNavigator(
           case 'Map':
             iconSource = iconCalendar;
             break;
-          case 'Links':
-            iconSource = iconGrids;
-            break;
-          case 'Settings':
+          case 'Profile':
             iconSource = iconPages;
             break;
           default:

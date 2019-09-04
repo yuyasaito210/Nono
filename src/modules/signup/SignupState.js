@@ -1,93 +1,30 @@
-import { Firebase, FirebaseRef } from '../../lib/firebase';
-import { statusMessage } from '../status/StatusState';
+import * as types from '../../constants/ActionTypes'
 
-const SIGNNING_UP = 'AuthState/SIGNNING_UP';
-const SIGN_UP_SUCCESS = 'AuthState/SIGN_UP_SUCCESS';
-const SIGN_UP_FAILED = 'AuthState/SIGN_UP_FAILED';
-
-// Action creators
-function startSignup(data) {
-  console.log('===== startSignup: data: ', data);
-  return { 
-    type: SIGNNING_UP, 
-    data,
-  };
-}
-
-function successSignup(data) {
-  return {
-    type: SIGN_UP_SUCCESS,
-    data,
-  };
-}
-
-function failedSignup(data) {
-  return {
-    type: SIGN_UP_FAILED,
-    data,
-  };
-}
-
-export function actionSignUp(data) {
-  const {
-    email,
-    password,
-    userName,
-  } = data;
-
-  return dispatch => new Promise(async (resolve, reject) => {
-    // Validation rules
-    if (!userName) return reject('User name can\'t be empty!');
-    if (!email) return reject('Email can\'t be empty!');
-    if (!password) return reject('Password can\'t be empty!');
-    // Go to Firebase
-    return Firebase.auth().createUserWithEmailAndPassword(email, password)
-      .then((res) => {
-        // Send user details to Firebase database
-        if (res && res.user.uid) {
-          FirebaseRef.child(`users/${res.user.uid}`).set({
-            userName,
-            signedUp: Firebase.database.ServerValue.TIMESTAMP,
-            lastLoggedIn: Firebase.database.ServerValue.TIMESTAMP,
-          }).then(resolve);
-        }
-      }).catch(reject);
-  }).catch(async (err) => {
-    await statusMessage(dispatch, 'loading', false);
-    console.log('===== error: ', err);
-    throw err.message;
-  });
-}
-
+// Reducer state
 const initialState = {
-  data: null,
-  isLoading: false,
-  isSignedup: false,
-  errorMessage: null
+  isFetching: false,
+  signup: false,
+  errorMessage: false,
 };
 
-export default function SignupStateReducer(state = initialState, action) {
-  switch (action.type) {
-    case SIGNNING_UP:
+export default function signupReducer(state = initialState, action) {
+  switch(action.type) {
+    case types.SIGNUP.REQUEST:
       return Object.assign({}, state, {
-        isLoading: true,
-        isLoggedIn: false,
-        data: action.data,
-        errorMessage: null
+        isFetching: true,
+        signup: action.signup ? action.signup : state.signup,
+        errorMessage: false,
       });
-    case SIGN_UP_SUCCESS:
+    case types.SIGNUP.SUCCESS:
       return Object.assign({}, state, {
-        isLoading: false,
-        isSignedup: true,
-        data: action.data,
-        errorMessage: null
+        isFetching: false,
+        signup: action.signup ? action.signup : state.signup,
+        errorMessage: false,
       });
-    case SIGN_UP_FAILED:
+    case types.SIGNUP.FAILURE:
       return Object.assign({}, state, {
-        isLoading: false,
-        isSignedup: false,
-        data: action.data,
-        errorMessage: action.data.errorMessage
+        isFetching: false,
+        errorMessage: action.err,
       });
     default:
       return state;

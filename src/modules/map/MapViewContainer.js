@@ -11,15 +11,13 @@ import { compose } from 'recompose';
 import { bindActionCreators } from 'redux';
 import MapView from './MapView';
 import * as mapActions from './MapAction';
-import { actionGetMap } from './MapState';
 
 const mapStateToProps = state => ({
   map: state.map || {},
 });
 
 const mapDispatchToProps = dispatch => ({
-  mapActions: bindActionCreators(mapActions, dispatch),
-  actionGetMap: (data) => dispatch(actionGetMap(data)),
+  mapActions: bindActionCreators(mapActions, dispatch)
 });
 
 export default compose(

@@ -12,7 +12,7 @@ function createRequestTypes(base) {
 // Login events
 export const LOGIN = createRequestTypes('LOGIN');
 export const LOGOUT = createRequestTypes('LOGOUT');
-export const REGISTER = createRequestTypes('REGISTER');
+export const SIGNUP = createRequestTypes('SIGNUP');
 export const LOGIN_FROM_REGISTRATION = createRequestTypes('LOGIN_FROM_REGISTRATION');
 export const SET_USER_INFO = 'SET_USER_INFO';
 export const GET_STORE = createRequestTypes('GET_STORE');

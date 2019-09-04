@@ -76,12 +76,12 @@ export default class LoginView extends React.Component {
     };
   }
 
-  onLogin = () => {
+  onClickLogin = () => {
     const { email, password } = this.state;
     this.setState({ logining: true }, () => {
       // this.props.loginActions.loginInit();
       // this.props.loginActions.loginRequest(email, password);
-      this.props.actionLogin({email, password});
+      this.props.loginActions.actionLogin({email, password});
     });
   };
 
@@ -141,7 +141,7 @@ export default class LoginView extends React.Component {
                 rounded
                 style={{ alignSelf: 'stretch', marginBottom: 10 }}
                 caption={'Login'}
-                onPress={() => this.onLogin()} 
+                onPress={() => this.onClickLogin()} 
               />
 
               {!this.state.isKeyboardVisible && (
