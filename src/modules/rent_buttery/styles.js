@@ -3,10 +3,18 @@ import { fonts, colors } from '../../styles';
 
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      alignItems: 'center',
-      justifyContent: 'space-around',
+      flexGrow: 1
     },
+    spinner: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center'
+    },
+    // container: {
+    //   flex: 1,
+    //   alignItems: 'center',
+    //   justifyContent: 'space-around',
+    // },
     bgImage: {
       flex: 1,
       marginHorizontal: -20,
