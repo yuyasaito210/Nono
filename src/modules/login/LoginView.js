@@ -108,7 +108,7 @@ export default class LoginView extends React.Component {
                 this.state.isKeyboardVisible && { height: 90 },
                 this.fadeIn(0),
               ]}
-              source={require('../../../assets/images/white-logo.png')}
+              source={require('../../../assets/images/png/logo.png')}
             />
           </View>
 
@@ -143,32 +143,16 @@ export default class LoginView extends React.Component {
                 caption={'Login'}
                 onPress={() => this.onClickLogin()} 
               />
-
-              {!this.state.isKeyboardVisible && (
-                <View style={styles.socialLoginContainer}>
-                  <Button
-                    style={styles.socialButton}
-                    bordered
-                    rounded
-                    icon={require('../../../assets/images/google-plus.png')}
-                    onPress={() => this.props.navigation.goBack()}
-                  />
-                  <Button
-                    style={[styles.socialButton, styles.socialButtonCenter]}
-                    bordered
-                    rounded
-                    icon={require('../../../assets/images/twitter.png')}
-                    onPress={() => this.props.navigation.goBack()}
-                  />
-                  <Button
-                    style={styles.socialButton}
-                    bordered
-                    rounded
-                    icon={require('../../../assets/images/facebook.png')}
-                    onPress={() => this.props.navigation.goBack()}
-                  />
-                </View>
-              )}
+              <View style={styles.socialLoginContainer}>
+                <Button
+                  style={styles.socialButton}
+                  bordered
+                  rounded
+                  caption={'Continue with facebook'}
+                  icon={require('../../../assets/images/facebook.png')}
+                  onPress={() => this.props.navigation.goBack()}
+                />
+              </View>
 
               {!this.state.isKeyboardVisible && (
                 <TouchableOpacity
