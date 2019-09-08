@@ -86,7 +86,8 @@ export default class LoginView extends React.Component {
   };
 
   render() {
-    const { login, app, actionLoggingIn, actionLogOut } = this.props
+    const { login, app, actionLoggingIn, actionLogOut, appActions } = this.props;
+    const { _t } = appActions;
     const { isLoggedIn } = login;
     const { email, password } = this.state;
     console.log('====== LoginView: props: ', this.props);
@@ -148,7 +149,7 @@ export default class LoginView extends React.Component {
                   style={styles.socialButton}
                   bordered
                   rounded
-                  caption={'Continue with facebook'}
+                  caption={_t('Continue with facebook')}
                   icon={require('../../../assets/images/facebook.png')}
                   onPress={() => this.props.navigation.goBack()}
                 />

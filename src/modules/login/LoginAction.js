@@ -62,7 +62,7 @@ export function logoutFailure(payload) {
 /**
  * Listen for realtime updates on the current user
  */
-export const listenForMemberProfileUpdates = () => {
+export const listenForMemberProfileUpdates = (dispatch) => {
   const UID = (
     FirebaseRef
     && Firebase

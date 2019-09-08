@@ -9,11 +9,13 @@ function createRequestTypes(base) {
   return res;
 }
 
+export const SET_FIRST_OPEN = 'AppState/SET_FIRST_OPEN';
+export const SET_LANGUAGE = 'AppState/SET_LANGUAGE';
 // Login events
-export const LOGIN = createRequestTypes('LOGIN');
-export const LOGOUT = createRequestTypes('LOGOUT');
-export const SIGNUP = createRequestTypes('SIGNUP');
-export const LOGIN_FROM_REGISTRATION = createRequestTypes('LOGIN_FROM_REGISTRATION');
+export const LOGIN = createRequestTypes('Auth/LOGIN');
+export const LOGOUT = createRequestTypes('Auth/LOGOUT');
+export const SIGNUP = createRequestTypes('Auth/SIGNUP');
+export const LOGIN_FROM_REGISTRATION = createRequestTypes('AUTH/LOGIN_FROM_REGISTRATION');
 export const SET_USER_INFO = 'SET_USER_INFO';
 export const GET_STORE = createRequestTypes('GET_STORE');
 export const SET_PRODUCTION = 'SET_PRODUCTION';
