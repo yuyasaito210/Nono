@@ -1,11 +1,11 @@
 import english from './en';
-import franch from './fr';
+import french from './fr';
 
 export const DEFAULT_LOCALE = 'en';
 
 export const Translations = {
   en: english,
-  fr: franch,
+  fr: french,
 };
 
 export function translate(message, locale = DEFAULT_LOCALE) {
