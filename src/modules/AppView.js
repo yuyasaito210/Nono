@@ -16,9 +16,7 @@ const styles = StyleSheet.create({
 })
 
 export default class AppView extends Component {
-  state = {
-
-  };
+  state = {};
 
   componentWillMount() {
     this.props.appActions.setLanguage('fr');

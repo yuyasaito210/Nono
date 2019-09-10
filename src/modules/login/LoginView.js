@@ -12,7 +12,7 @@ import {
 import { Actions } from 'react-native-router-flux'
 
 import { fonts, colors } from '../../styles';
-import { TextInput, Button } from '../../components';
+import { TextInput, Button, Spacer } from '../../components';
 import styles from './styles';
 
 
@@ -96,26 +96,48 @@ export default class LoginView extends React.Component {
     // }
     return (
       <ImageBackground
-        source={require('../../../assets/images/background.png')}
+        source={require('../../../assets/images/png/mask-group-28-2x.png')}
         style={styles.backgroundImage}
         resizeMode="cover"
       >
         <View style={styles.container}>
-          <View style={[styles.section, { paddingTop: 30 }]}>
+          <Spacer size={100} />
+          <View style={styles.logoImageSectionContainer}>
             <Animated.Image
               resizeMode="contain"
               style={[
-                styles.logo,
+                styles.logoImageLeftSection,
                 this.state.isKeyboardVisible && { height: 90 },
                 this.fadeIn(0),
               ]}
-              source={require('../../../assets/images/png/logo.png')}
+              source={require('../../../assets/images/png/flash-left-2x.png')}
+            />
+            <Animated.Image
+              resizeMode="contain"
+              style={[
+                styles.logoImageSection,
+                this.state.isKeyboardVisible && { height: 90 },
+                this.fadeIn(0),
+              ]}
+              source={require('../../../assets/images/png/logo-nono-2x.png')}
+            />
+            <Animated.Image
+              resizeMode="contain"
+              style={[
+                styles.logoImageRightSection,,
+                this.state.isKeyboardVisible && { height: 90 },
+                this.fadeIn(0),
+              ]}
+              source={require('../../../assets/images/png/flash-right-2x.png')}
             />
           </View>
 
           <Animated.View
             style={[styles.section, styles.middle, this.fadeIn(700, -20)]}
           >
+            <Text style={styles.title}>
+              {_t("Register yourself")}
+            </Text>
             <TextInput
               placeholder="Email"
               style={styles.textInput}
@@ -141,7 +163,7 @@ export default class LoginView extends React.Component {
                 secondary
                 rounded
                 style={{ alignSelf: 'stretch', marginBottom: 10 }}
-                caption={'Login'}
+                caption={_t('Login')}
                 onPress={() => this.onClickLogin()} 
               />
               <View style={styles.socialLoginContainer}>
@@ -169,7 +191,7 @@ export default class LoginView extends React.Component {
                       fontFamily: fonts.primaryRegular,
                     }}
                   >
-                    {"Don't have an account?"}
+                    {_t("Don't have an account?")}
                   </Text>
                   <Text
                     style={{
@@ -178,7 +200,7 @@ export default class LoginView extends React.Component {
                       marginLeft: 5,
                     }}
                   >
-                    {'Register'}
+                    {_t('Register')}
                   </Text>
                 </TouchableOpacity>
               )}
