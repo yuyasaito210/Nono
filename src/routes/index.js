@@ -86,17 +86,17 @@ class NonoRoutes extends Component {
 			<Router>
 				<Stack key='root' hideNavBar>
 					<Scene
-						key='login'
-						component={LoginViewContainer}
-						analyticsDesc='Login'
-						hideNavBar
-					/>
-					<Scene
 						back
 						key='signup'
 						title='Create Account'
 						hideNavBar={true}
 						component={SignupViewContainer}
+					/>
+					<Scene
+						key='login'
+						component={LoginViewContainer}
+						analyticsDesc='Login'
+						hideNavBar
 					/>
 					<Stack
 						key={'authorized'}

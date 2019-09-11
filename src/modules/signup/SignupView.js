@@ -3,8 +3,6 @@ import {
   View,
   Text,
   Animated,
-  Keyboard,
-  Platform,
   LayoutAnimation,
   TouchableOpacity,
   ImageBackground,
@@ -12,27 +10,18 @@ import {
 import { Actions } from 'react-native-router-flux'
 
 import { fonts, colors } from '../../styles';
-import { TextInput, Button } from '../../components';
+import { Button, Spacer, PhoneNumberInput, LogoView } from '../../components';
 import styles from './styles';
 
-export default class SignupScreen extends React.Component {
+
+export default class SignupView extends React.Component {
   state = {
     anim: new Animated.Value(0),
-    isKeyboardVisible: false,
-    userName: '',
-    email: '',
-    password: ''
+    phoneNumber: '',
+    signingUp: false,
   };
 
   componentWillMount() {
-    this.keyboardDidShowListener = Keyboard.addListener(
-      Platform.select({ android: 'keyboardDidShow', ios: 'keyboardWillShow' }),
-      this._keyboardDidShow.bind(this),
-    );
-    this.keyboardDidHideListener = Keyboard.addListener(
-      Platform.select({ android: 'keyboardDidHide', ios: 'keyboardWillHide' }),
-      this._keyboardDidHide.bind(this),
-    );
   }
 
   componentDidMount() {
@@ -40,18 +29,6 @@ export default class SignupScreen extends React.Component {
   }
 
   componentWillUnmount() {
-    this.keyboardDidShowListener.remove();
-    this.keyboardDidHideListener.remove();
-  }
-
-  _keyboardDidShow() {
-    LayoutAnimation.easeInEaseOut();
-    this.setState({ isKeyboardVisible: true });
-  }
-
-  _keyboardDidHide() {
-    LayoutAnimation.easeInEaseOut();
-    this.setState({ isKeyboardVisible: false });
   }
 
   fadeIn(delay, from = 0) {
@@ -74,131 +51,79 @@ export default class SignupScreen extends React.Component {
     };
   }
 
-  onClickGotoAuth = () => {
-    LayoutAnimation.spring();
-    Actions['login']();
-  };
+  onClickNext = () => {
 
-  onClickSignup = () => {
-    const { userName, email, password } = this.state;
-    this.props.signupActions.actionSignUp({userName, email, password})
-  };
+  }
 
   render() {
+    const { app, signupActions, appActions } = this.props;
+    const { _t } = appActions;
 
     return (
       <ImageBackground
-        source={require('../../../assets/images/background.png')}
+        source={require('../../../assets/images/png/mask-group-28-2x.png')}
         style={styles.backgroundImage}
         resizeMode="cover"
       >
         <View style={styles.container}>
-          <View style={[styles.section, { paddingTop: 30 }]}>
-            <Animated.Image
-              resizeMode="contain"
-              style={[
-                styles.logo,
-                this.state.isKeyboardVisible && { height: 90 },
-                this.fadeIn(0),
-              ]}
-              source={require('../../../assets/images/white-logo.png')}
-            />
-          </View>
-
+          <LogoView style={styles.logoViewContainer}/>
           <Animated.View
-            style={[styles.section, styles.middle, this.fadeIn(700, -20)]}
+            style={[styles.buttonContainer, this.fadeIn(700, -20)]}
           >
-            <TextInput
-              placeholder="Username"
-              style={styles.textInput}
-              autoCapitalize="none"
-              autoCorrect={false}
-              value={this.state.userName}
-              onChangeText={userName => this.setState({ userName })}
+            <Text style={styles.title}>
+              {_t("Register yourself")}
+            </Text>
+            <Spacer size={30} />
+            <PhoneNumberInput />
+            <Spacer size={25} />
+            <Button
+              bgColor="white"
+              textColor={colors.primary}
+              secondary
+              rounded
+              style={styles.nextButton}
+              caption={_t('Next')}
+              onPress={() => this.onClickNext()}
             />
-
-            <TextInput
-              placeholder="Email"
-              style={styles.textInput}
-              autoCapitalize="none"
-              autoCorrect={false}
-              keyboardType="email-address"
-              value={this.state.email}
-              onChangeText={email => this.setState({ email })}
-            />
-
-            <TextInput
-              placeholder="Password"
-              secureTextEntry
-              style={styles.textInput}
-              value={this.state.password}
-              onChangeText={password => this.setState({ password })}
-            />
-
-            <Animated.View
-              style={[styles.section, styles.bottom, this.fadeIn(700, -20)]}
-            >
+            <Text style={styles.descriptionText}>
+              {_t("We will send you an SMS to check your number")}
+            </Text>
+            <Spacer size={10} />
+            <Text style={styles.descriptionText}>
+              {_t("or")}
+            </Text>
+            <Spacer size={10} />
+            <View style={styles.socialLoginContainer}>
               <Button
-                bgColor="white"
-                textColor={colors.primary}
-                secondary
+                style={styles.socialButton}
+                bordered
                 rounded
-                style={{ alignSelf: 'stretch', marginBottom: 10 }}
-                caption={'Register'}
-                onPress={this.onClickSignup}
+                caption={_t('Continue with facebook')}
+                icon={require('../../../assets/images/facebook.png')}
+                onPress={() => this.props.navigation.goBack()}
               />
-
-              {!this.state.isKeyboardVisible && (
-                <View style={styles.socialLoginContainer}>
-                  <Button
-                    style={styles.socialButton}
-                    bordered
-                    rounded
-                    icon={require('../../../assets/images/google-plus.png')}
-                    onPress={() => this.props.navigation.goBack()}
-                  />
-                  <Button
-                    style={[styles.socialButton, styles.socialButtonCenter]}
-                    bordered
-                    rounded
-                    icon={require('../../../assets/images/twitter.png')}
-                    onPress={() => this.props.navigation.goBack()}
-                  />
-                  <Button
-                    style={styles.socialButton}
-                    bordered
-                    rounded
-                    icon={require('../../../assets/images/facebook.png')}
-                    onPress={() => this.props.navigation.goBack()}
-                  />
-                </View>
-              )}
-
-              {!this.state.isKeyboardVisible && (
-                <TouchableOpacity
-                  onPress={this.onClickGotoAuth}
-                  style={{ paddingTop: 30, flexDirection: 'row' }}
-                >
-                  <Text
-                    style={{
-                      color: colors.white,
-                      fontFamily: fonts.primaryRegular,
-                    }}
-                  >
-                    {'Already have an account?'}
-                  </Text>
-                  <Text
-                    style={{
-                      color: colors.white,
-                      fontFamily: fonts.primaryBold,
-                      marginLeft: 5,
-                    }}
-                  >
-                    {'Login'}
-                  </Text>
-                </TouchableOpacity>
-              )}
-            </Animated.View>
+            </View>
+            <Spacer size={10} />
+            <TouchableOpacity
+              onPress={() => {
+                LayoutAnimation.spring();
+                Actions['login']();
+              }}
+              style={{ flexDirection: 'row' }}
+            >
+              <Text style={styles.descriptionText}>
+                {_t("Already have an account?")}
+              </Text>
+              <Text
+                style={{
+                  color: colors.white,
+                  fontFamily: fonts.primaryBold,
+                  marginLeft: 5,
+                }}
+              >
+                {_t('Connect yourself')}
+              </Text>
+            </TouchableOpacity>
           </Animated.View>
         </View>
       </ImageBackground>

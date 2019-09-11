@@ -12,7 +12,7 @@ import {
 
 import { colors, fonts } from '../styles';
 
-const borderRadius = 40;
+const borderRadius = 20;
 
 export default function RNSButton(props) {
   const caption = props.caption && props.caption.toUpperCase();

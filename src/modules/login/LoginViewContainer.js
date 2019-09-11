@@ -14,7 +14,6 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   loginActions: bindActionCreators(loginActions, dispatch),
   appActions: bindActionCreators(appActions, dispatch),
-  // _t: (message) => dispatch(appActions._t(message))
 });
 
 export default compose(

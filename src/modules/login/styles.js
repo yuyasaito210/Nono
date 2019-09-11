@@ -12,58 +12,47 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.primary
   },
-  section: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  middle: {
-    flex: 2,
-    justifyContent: 'flex-start',
-    alignSelf: 'stretch',
-  },
+  // section: {
+  //   flex: 1,
+  //   alignItems: 'center',
+  //   justifyContent: 'center',
+  // },
+  // middle: {
+  //   flex: 2,
+  //   justifyContent: 'flex-start',
+  //   alignSelf: 'stretch',
+  // },
   bottom: {
     flex: 1,
     alignSelf: 'stretch',
+    alignItems: 'center',
+    justifyContent: 'center',
     paddingBottom: Platform.OS === 'android' ? 30 : 0,
   },
-  last: {
-    justifyContent: 'flex-end',
+  logoViewContainer: {
+    flex: 2,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  textInput: {
+  buttonContainer: {
+    flex: 3,
+    justifyContent: 'center',
+    alignItems: 'center',
     alignSelf: 'stretch',
-    marginTop: 20,
-  },
-  logo: {
-    height: 150,
-  },
-  logoImageSectionContainer: {
-    flexDirection: 'row',
-    alignSelf: 'stretch',
-    height: 150,
-    justifyContent: 'space-between',
-  },
-  logoImageSection: {
-    flex: 1,
-    height: 170,
-  },
-  logoImageLeftSection: {
-    flex: 1,
-    left: -70,
-    top: -70,
-    height: 170,
-  },
-  logoImageRightSection: {
-    flex: 1,
-    right: -70,
-    top: -70,
-    height: 170,
   },
   title: {
     color: colors.white,
     fontFamily: fonts.primaryRegular,
-    fontSize: 19,
+    fontSize: 25,
     fontWeight: 'bold'
+  },
+  nextButton: {
+    alignSelf: 'stretch', 
+    marginBottom: 10
+  },
+  descriptionText: {
+    color: colors.white,
+    fontFamily: fonts.primaryRegular,
   },
   socialLoginContainer: {
     flexDirection: 'row',

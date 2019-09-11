@@ -6,14 +6,18 @@ import GridRow from './GridRow';
 import TextInput from './TextInput';
 import SegmentedControl from './SegmentedControl';
 import Spacer from './Spacer';
+import LogoView from './LogoView';
+import PhoneNumberInput from './PhoneNumberInput';
 
 export {
-  // ## Generator Components Exports
   Button,
   RadioGroup,
   Dropdown,
   GridRow,
   TextInput,
   SegmentedControl,
-  Spacer
+  Spacer,
+  LogoView,
+  PhoneNumberInput,
+  // CountryPickModal
 };
