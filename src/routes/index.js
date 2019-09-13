@@ -13,11 +13,22 @@ import { Router, Scene, Stack, Actions, Drawer } from 'react-native-router-flux'
 
 import LoginViewContainer from '../modules/login/LoginViewContainer';
 import SignupViewContainer from '../modules/signup/SignupViewContainer';
+import SetConfirmCodeViewContainer from '../modules/signup/SetConfirmCodeViewContainer';
+import SetUserNameViewContainer from '../modules/signup/SetUserNameViewContainer';
+import SetEmailViewContainer from '../modules/signup/SetEmailViewContainer';
+import SetBirthdayViewContainer from '../modules/signup/SetBirthdayViewContainer';
+import GuidAddPaymentViewContainer from '../modules/signup/GuidAddPaymentViewContainer';
+import GuidBringBackViewContainer from '../modules/signup/GuidBringBackViewContainer';
+import GuidFindStationViewContainer from '../modules/signup/GuidFindStationViewContainer';
+import GuidSaveViewContainer from '../modules/signup/GuidSaveViewContainer';
+import GuidScanViewContainer from '../modules/signup/GuidScanViewContainer';
+import GuidSponsorViewContainer from '../modules/signup/GuidSponsorViewContainer';
 import HomeViewContainer from '../modules/home/HomeViewContainer';
 import MapViewContainer from '../modules/map/MapViewContainer';
 import RentButteryViewContainer from '../modules/rent_buttery/RentButteryViewContainer';
 import ProfileViewContainer from '../modules/profile/ProfileViewContainer';
 
+import SignupStack from './signup';
 import { colors, fonts } from '../styles';
 import styles from './styles';
 
@@ -61,12 +72,16 @@ class TabIcon extends Component {
 }
 
 function Header(title) {
-		return (
-			<View style={styles.headerContainer}>
-				<Image style={styles.headerImage} source={hederBackground} />
-				<Text style={styles.headerCaption}>{title}</Text>
-			</View>
-		);
+	const containerStyle = [
+		styles.headerContainer,
+		{ marginTop: Platform.OS === 'ios' ? 0 : StatusBar.currentHeight },
+	];
+	return (
+		<View style={containerStyle}>
+			<Image style={styles.headerImage} source={hederBackground} />
+			<Text style={styles.headerCaption}>{title}</Text>
+		</View>
+	);
 }
 
 class NonoRoutes extends Component {
@@ -84,20 +99,17 @@ class NonoRoutes extends Component {
 	render() {
 		return (
 			<Router>
+			{/* <Router navigationBarStyle={styles.navBar} titleStyle={styles.navTitle} sceneStyle={styles.routerScene}> */}
 				<Stack key='root' hideNavBar>
-					<Scene
-						back
-						key='signup'
-						title='Create Account'
-						hideNavBar={true}
-						component={SignupViewContainer}
-					/>
+					{SignupStack}
+
 					<Scene
 						key='login'
 						component={LoginViewContainer}
 						analyticsDesc='Login'
 						hideNavBar
 					/>
+
 					<Stack
 						key={'authorized'}
 						tabs={true}

@@ -59,8 +59,27 @@ export default class LoginView extends React.Component {
   };
 
   onClickNext = () => {
-    this.props.loginActions.loginSuccess({phoneNumber: this.state.phoneNumber})
-  }
+    Actions['map']();
+  };
+
+  onClickFacebook = () => {
+    const { _t } = this.props.appActions;
+    Alert.alert(
+      _t('"Nono" wants to use "facebook.com" to connect'),
+      _t('This allows the app and the website to exchange information about you.'),
+      [
+        {
+          text: _t('Cancel'),
+          style: 'cancel'
+        },
+        {
+          text: _t('Continue'),
+          onPress: () => this.onClickNext()
+        }
+      ],
+      { cancelable: false }
+    );
+  };
 
   render() {
     const { login, app, actionLoggingIn, actionLogOut, appActions } = this.props;
@@ -98,13 +117,14 @@ export default class LoginView extends React.Component {
             />
             <Spacer size={10} />
             <View style={styles.socialLoginContainer}>
-              <Button
+            <Button
                 style={styles.socialButton}
-                bordered
+                bgColor={colors.primaryDark}
+                textColor={colors.white}
                 rounded
                 caption={_t('Continue with facebook')}
                 icon={require('../../../assets/images/facebook.png')}
-                onPress={() => this.props.navigation.goBack()}
+                onPress={() => this.onClickFacebook()}
               />
             </View>
             <Spacer size={10} />

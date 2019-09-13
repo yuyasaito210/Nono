@@ -10,33 +10,11 @@ class LogoView extends Component {
   }
 
   componentDidMount() {
-    Animated.timing(this.state.anim, { toValue: 3000, duration: 3000 }).start();
+    
   }
 
   componentWillUnmount() {
-    this.keyboardDidShowListener.remove();
-    this.keyboardDidHideListener.remove();
   }
-
-  fadeIn = (delay, from = 0) => {
-    const { anim } = this.state;
-    return {
-      opacity: anim.interpolate({
-        inputRange: [delay, Math.min(delay + 500, 3000)],
-        outputRange: [0, 1],
-        extrapolate: 'clamp',
-      }),
-      transform: [
-        {
-          translateY: anim.interpolate({
-            inputRange: [delay, Math.min(delay + 500, 3000)],
-            outputRange: [from, 0],
-            extrapolate: 'clamp',
-          }),
-        },
-      ],
-    };
-  };
 
   render() {
     const { style } = this.props;
@@ -45,23 +23,21 @@ class LogoView extends Component {
     ];
     return (
       <Animated.View
-        style={[finalStyle, styles.section, styles.middle, this.fadeIn(700, -20)]}
+        style={[finalStyle, styles.section, styles.middle]}
       >
         <Spacer size={150} />
         <View style={styles.logoImageSectionContainer}>
           <Animated.Image
             resizeMode="contain"
             style={[
-              styles.logoImageLeftSection,
-              this.fadeIn(0),
+              styles.logoImageLeftSection
             ]}
             source={require('../../assets/images/png/flash-left-2x.png')}
           />
           <Animated.Image
             resizeMode="contain"
             style={[
-              styles.logoImageSection,
-              this.fadeIn(0),
+              styles.logoImageSection
             ]}
             source={require('../../assets/images/png/logo-nono-2x.png')}
           />
@@ -69,7 +45,6 @@ class LogoView extends Component {
             resizeMode="contain"
             style={[
               styles.logoImageRightSection,
-              this.fadeIn(0),
             ]}
             source={require('../../assets/images/png/flash-right-2x.png')}
           />

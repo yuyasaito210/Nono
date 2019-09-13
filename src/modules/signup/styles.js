@@ -12,6 +12,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.primary
   },
+  keyboardScrollViewContainer: {
+    flex: 1,
+  },
   // section: {
   //   flex: 1,
   //   alignItems: 'center',
@@ -54,6 +57,23 @@ const styles = StyleSheet.create({
     color: colors.white,
     fontFamily: fonts.primaryRegular,
   },
+  textInput: {
+    color: colors.white,
+    fontFamily: fonts.primaryRegular,
+    color: colors.white,
+    backgroundColor: colors.textInputBackgroundColor,
+    ...Platform.select({
+      android: {
+        paddingLeft: 5,
+        opacity: 0.9,
+      },
+    }),
+    borderWidth: 0.5,
+    borderColor: colors.textInputBackgroundColor,
+    borderRadius: 20,
+    paddingHorizontal: 20,
+    paddingLeft: 20
+  },
   socialLoginContainer: {
     flexDirection: 'row',
     alignSelf: 'stretch',
@@ -66,6 +86,44 @@ const styles = StyleSheet.create({
   socialButtonCenter: {
     marginLeft: 10,
     marginRight: 10,
+  },
+  guidContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    paddingHorizontal: 20,
+    backgroundColor: colors.white
+  },
+  guidTopSection: {
+    flex: 4,
+    alignItems: 'center',
+    justifyContent: 'center',
+    alignSelf: 'stretch',
+  },
+  guidImageSection: {
+    // flexDirection: 'row',
+    flex: 1,
+    marginTop: 20,
+    alignSelf: 'stretch',
+    width: '100%'
+  },
+  guidBottomSection: {
+    flex: 2,
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    paddingHorizontal: 20,
+  },
+  guidTitle: {
+    color: colors.black,
+    fontFamily: fonts.primaryRegular,
+    textAlign: 'center',
+    fontSize: 25,
+    fontWeight: 'bold'
+  },
+  guidDescription: {
+    color: colors.black,
+    textAlign: 'center',
+    fontFamily: fonts.primaryRegular,
   },
 });
   

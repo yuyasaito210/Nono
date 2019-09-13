@@ -9,8 +9,8 @@ class PhoneNumberInput extends Component {
   constructor() {
     super();
 
-    this.onPressFlag = this.onPressFlag.bind(this);
-    this.selectCountry = this.selectCountry.bind(this);
+    // this.onPressFlag = this.onPressFlag.bind(this);
+    // this.selectCountry = this.selectCountry.bind(this);
     this.state = {
       cca2: 'FR',
     };
@@ -22,11 +22,15 @@ class PhoneNumberInput extends Component {
     });
   }
 
-  onPressFlag() {
+  onPressFlag = () => {
     this.countryPicker.openModal();
-  }
+  };
 
-  selectCountry(country) {
+  onChangePhoneNumber = (number) => {
+    if (this.props.onChangePhoneNumber) this.props.onChangePhoneNumber(number);
+  };
+
+  selectCountry = (country) => {
     this.phone.selectCountry(country.cca2.toLowerCase());
     this.setState({ cca2: country.cca2 });
   }
@@ -46,6 +50,7 @@ class PhoneNumberInput extends Component {
             this.phone = ref;
           }}
           onPressFlag={this.onPressFlag}
+          onChangePhoneNumber={(number) => this.onChangePhoneNumber(number)}
           style={finalStyle}
         />
 
@@ -65,7 +70,6 @@ class PhoneNumberInput extends Component {
 }
 
 const HEIGHT = 40;
-const INPUT_BACKGROUND_COLOR = '#FFFFFF2B'
 
 let styles = StyleSheet.create({
   container: {
@@ -76,7 +80,7 @@ let styles = StyleSheet.create({
     color: 'white',
     fontFamily: fonts.primaryRegular,
     color: colors.white,
-    backgroundColor: INPUT_BACKGROUND_COLOR,
+    backgroundColor: colors.textInputBackgroundColor,
     ...Platform.select({
       android: {
         paddingLeft: 5,
@@ -86,7 +90,7 @@ let styles = StyleSheet.create({
   },
   bordered: {
     borderWidth: 0.5,
-    borderColor: INPUT_BACKGROUND_COLOR, //colors.lightGray,
+    borderColor: colors.textInputBackgroundColor,
     borderRadius: 20,
     paddingHorizontal: 20,
     paddingLeft: 15
@@ -94,9 +98,12 @@ let styles = StyleSheet.create({
   dark: {
     color: colors.gray,
   },
+  light: {
+    color: colors.white
+  },
   primary: {
     borderRadius: HEIGHT / 2,
-    backgroundColor: INPUT_BACKGROUND_COLOR,
+    backgroundColor: colors.textInputBackgroundColor,
   },
 });
 

@@ -1,6 +1,7 @@
 const colors = {
   primary: '#35CDFA',
-  primaryLight: '#FF7F8F',
+  primaryLight: '#35CDFA',
+  primaryDark: '#00B1EC',
   primaryGradientStart: '#5ED8FC',
   primaryGradientEnd: '#35CDFA',
   secondaryGradientStart: '#FFDF00',
@@ -24,6 +25,7 @@ const colors = {
   labelOne: '#FDCB67',
   labelTwo: '#FE8B7C',
   textInputColor: '#ffffff',
+  textInputBackgroundColor: '#FFFFFF2B'
 };
 
 export default colors;

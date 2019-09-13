@@ -6,6 +6,7 @@ import {
   LayoutAnimation,
   TouchableOpacity,
   ImageBackground,
+  Alert
 } from 'react-native';
 import { Actions } from 'react-native-router-flux'
 
@@ -31,7 +32,7 @@ export default class SignupView extends React.Component {
   componentWillUnmount() {
   }
 
-  fadeIn(delay, from = 0) {
+  fadeIn = (delay, from = 0) => {
     const { anim } = this.state;
     return {
       opacity: anim.interpolate({
@@ -52,8 +53,27 @@ export default class SignupView extends React.Component {
   }
 
   onClickNext = () => {
+    Actions['setConfirmCode']();
+  };
 
-  }
+  onClickFacebook = () => {
+    const { _t } = this.props.appActions;
+    Alert.alert(
+      _t('"Nono" wants to use "facebook.com" to connect'),
+      _t('This allows the app and the website to exchange information about you.'),
+      [
+        {
+          text: _t('Cancel'),
+          style: 'cancel'
+        },
+        {
+          text: _t('Continue'),
+          onPress: () => this.onClickNext()
+        }
+      ],
+      { cancelable: false }
+    );
+  };
 
   render() {
     const { app, signupActions, appActions } = this.props;
@@ -96,11 +116,12 @@ export default class SignupView extends React.Component {
             <View style={styles.socialLoginContainer}>
               <Button
                 style={styles.socialButton}
-                bordered
+                bgColor={colors.primaryDark}
+                textColor={colors.white}
                 rounded
                 caption={_t('Continue with facebook')}
                 icon={require('../../../assets/images/facebook.png')}
-                onPress={() => this.props.navigation.goBack()}
+                onPress={() => this.onClickFacebook()}
               />
             </View>
             <Spacer size={10} />

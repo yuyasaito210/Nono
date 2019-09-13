@@ -6,10 +6,10 @@
     "sdkVersion": "34.0.0",
     "platforms": [
       "ios",
-      "android",
-      "web"
+      "android"
     ],
     "version": "1.0.0",
+    "description": "Nono rent a portable external battery in local shops (tobacco, bar, restaurant, ...).",
     "orientation": "portrait",
     "icon": "./assets/images/png/logo.png",
     "splash": {
@@ -21,7 +21,7 @@
       "fallbackToCacheTimeout": 0
     },
     "assetBundlePatterns": [
-      "**/*"
+      "assets/*"
     ],
     "ios": {
       "bundleIdentifier": "com.ben.nono.dev",
@@ -30,8 +30,7 @@
     },
     "android": {
       "package": "com.ben.nono.dev",
-      "versionCode": 1
-      
+      "versionCode": 10
     }
   }
 }

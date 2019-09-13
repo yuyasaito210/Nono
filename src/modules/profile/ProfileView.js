@@ -14,6 +14,10 @@ export default class ProfileView extends Component {
 
   }
   
+  componentDidMount() {
+    Actions['login']();
+  }
+  
   render() {
     return (
       <View style={styles.container}>
