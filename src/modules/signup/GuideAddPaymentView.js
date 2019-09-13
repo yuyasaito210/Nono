@@ -14,7 +14,7 @@ import { Button, Spacer, TextInput } from '../../components';
 import styles from './styles';
 
 
-export default class GuidAddPaymentView extends React.Component {
+export default class GuideAddPaymentView extends React.Component {
   state = {
     anim: new Animated.Value(0),
     birthday: null

@@ -1,28 +1,11 @@
 import React, { Component } from 'react';
-import {
-	Text,
-	View,
-	StatusBar,
-	Platform,
-	Image
-} from 'react-native';
+import { Text, View, StatusBar, Platform, Image } from 'react-native';
 import { connect } from 'react-redux';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Router, Scene, Stack, Actions, Drawer } from 'react-native-router-flux';
 
 import LoginViewContainer from '../modules/login/LoginViewContainer';
-import SignupViewContainer from '../modules/signup/SignupViewContainer';
-import SetConfirmCodeViewContainer from '../modules/signup/SetConfirmCodeViewContainer';
-import SetUserNameViewContainer from '../modules/signup/SetUserNameViewContainer';
-import SetEmailViewContainer from '../modules/signup/SetEmailViewContainer';
-import SetBirthdayViewContainer from '../modules/signup/SetBirthdayViewContainer';
-import GuidAddPaymentViewContainer from '../modules/signup/GuidAddPaymentViewContainer';
-import GuidBringBackViewContainer from '../modules/signup/GuidBringBackViewContainer';
-import GuidFindStationViewContainer from '../modules/signup/GuidFindStationViewContainer';
-import GuidSaveViewContainer from '../modules/signup/GuidSaveViewContainer';
-import GuidScanViewContainer from '../modules/signup/GuidScanViewContainer';
-import GuidSponsorViewContainer from '../modules/signup/GuidSponsorViewContainer';
 import HomeViewContainer from '../modules/home/HomeViewContainer';
 import MapViewContainer from '../modules/map/MapViewContainer';
 import RentButteryViewContainer from '../modules/rent_buttery/RentButteryViewContainer';
@@ -99,7 +82,6 @@ class NonoRoutes extends Component {
 	render() {
 		return (
 			<Router>
-			{/* <Router navigationBarStyle={styles.navBar} titleStyle={styles.navTitle} sceneStyle={styles.routerScene}> */}
 				<Stack key='root' hideNavBar>
 					{SignupStack}
 

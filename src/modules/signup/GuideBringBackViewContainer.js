@@ -2,7 +2,7 @@
 import { connect } from 'react-redux';
 import { compose, lifecycle } from 'recompose';
 import { bindActionCreators } from 'redux';
-import GuidBringBackView from './GuidBringBackView';
+import GuideBringBackView from './GuideBringBackView';
 import * as signupActions from './SignupAction';
 import * as appActions from '../AppAction';
 
@@ -21,4 +21,4 @@ export default compose(
     mapStateToProps, 
     mapDispatchToProps
   )
-)(GuidBringBackView);
+)(GuideBringBackView);

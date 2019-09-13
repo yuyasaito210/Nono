@@ -55,7 +55,7 @@ export default class SetBirthdayView extends React.Component {
   };
 
   onClickNext = () => {
-    Actions['guidFindStation']();
+    Actions['guideFindStation']();
   }
 
   render() {

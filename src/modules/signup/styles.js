@@ -87,40 +87,40 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     marginRight: 10,
   },
-  guidContainer: {
+  guideContainer: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'space-around',
     paddingHorizontal: 20,
     backgroundColor: colors.white
   },
-  guidTopSection: {
+  guideTopSection: {
     flex: 4,
     alignItems: 'center',
     justifyContent: 'center',
     alignSelf: 'stretch',
   },
-  guidImageSection: {
+  guideImageSection: {
     // flexDirection: 'row',
     flex: 1,
     marginTop: 20,
     alignSelf: 'stretch',
     width: '100%'
   },
-  guidBottomSection: {
+  guideBottomSection: {
     flex: 2,
     alignItems: 'center',
     justifyContent: 'flex-start',
     paddingHorizontal: 20,
   },
-  guidTitle: {
+  guideTitle: {
     color: colors.black,
     fontFamily: fonts.primaryRegular,
     textAlign: 'center',
     fontSize: 25,
     fontWeight: 'bold'
   },
-  guidDescription: {
+  guideDescription: {
     color: colors.black,
     textAlign: 'center',
     fontFamily: fonts.primaryRegular,

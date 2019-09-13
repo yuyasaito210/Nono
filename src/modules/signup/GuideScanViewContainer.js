@@ -2,7 +2,7 @@
 import { connect } from 'react-redux';
 import { compose, lifecycle } from 'recompose';
 import { bindActionCreators } from 'redux';
-import GuidSponsorView from './GuidSponsorView';
+import GuideScanView from './GuideScanView';
 import * as signupActions from './SignupAction';
 import * as appActions from '../AppAction';
 
@@ -21,4 +21,4 @@ export default compose(
     mapStateToProps, 
     mapDispatchToProps
   )
-)(GuidSponsorView);
+)(GuideScanView);

@@ -11,7 +11,7 @@ import { Button, Spacer } from '../../components';
 import styles from './styles';
 
 
-export default class GuidFindStationView extends React.Component {
+export default class GuideScanView extends React.Component {
   state = {
     anim: new Animated.Value(0)
   };
@@ -51,7 +51,7 @@ export default class GuidFindStationView extends React.Component {
   };
 
   onClickNext = () => {
-    Actions['guidScan']();
+    Actions['guideScan']();
   }
 
   render() {
@@ -59,26 +59,29 @@ export default class GuidFindStationView extends React.Component {
     const { _t } = appActions;
 
     return (
-      <View style={styles.guidContainer}>
-        <View style={styles.guidTopSection}>
+      <View style={styles.guideContainer}>
+        <View style={styles.guideTopSection}>
           <Animated.Image
             resizeMode="contain"
             style={[
-              styles.guidImageSection
+              styles.guideImageSection
             ]}
-            source={require('../../../assets/images/png/guid-find-station.png')}
+            source={require('../../../assets/images/png/guide-scan.png')}
           />
         </View>
         <Animated.View
-          style={[styles.guidBottomSection, this.fadeIn(700, -20)]}
+          style={[styles.guideBottomSection, this.fadeIn(700, -20)]}
         >
           <Spacer size={20} />
-          <Text style={styles.guidTitle}>
-            {_t("Find a station")}
+          <Text style={styles.guideTitle}>
+            {_t("Scan and unlock a nono")}
           </Text>
           <Spacer size={10} />
-          <Text style={styles.guidDescription}>
-            {_t("The app guides you to the nearest partner site")}
+          <Text style={styles.guideDescription}>
+            {_t('Scan the QR code on the station.')}
+          </Text>
+          <Text style={styles.guideDescription}>
+            {_t('Your nono is unlocked!')}
           </Text>
           <Spacer size={25} />
           <Button

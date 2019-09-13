@@ -19,7 +19,7 @@ export default class AppView extends Component {
   state = {};
 
   componentWillMount() {
-    this.props.appActions.setLanguage('fr');
+    this.props.appActions.setLanguage('en');
   }
 
   render() {

@@ -14,7 +14,7 @@ import { Button, Spacer, TextInput } from '../../components';
 import styles from './styles';
 
 
-export default class GuidBringBackView extends React.Component {
+export default class GuideSaveView extends React.Component {
   state = {
     anim: new Animated.Value(0),
     birthday: null

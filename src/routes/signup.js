@@ -7,12 +7,12 @@ import SetConfirmCodeViewContainer from '../modules/signup/SetConfirmCodeViewCon
 import SetUserNameViewContainer from '../modules/signup/SetUserNameViewContainer';
 import SetEmailViewContainer from '../modules/signup/SetEmailViewContainer';
 import SetBirthdayViewContainer from '../modules/signup/SetBirthdayViewContainer';
-import GuidAddPaymentViewContainer from '../modules/signup/GuidAddPaymentViewContainer';
-import GuidBringBackViewContainer from '../modules/signup/GuidBringBackViewContainer';
-import GuidFindStationViewContainer from '../modules/signup/GuidFindStationViewContainer';
-import GuidSaveViewContainer from '../modules/signup/GuidSaveViewContainer';
-import GuidScanViewContainer from '../modules/signup/GuidScanViewContainer';
-import GuidSponsorViewContainer from '../modules/signup/GuidSponsorViewContainer';
+import GuideAddPaymentViewContainer from '../modules/signup/GuideAddPaymentViewContainer';
+import GuideBringBackViewContainer from '../modules/signup/GuideBringBackViewContainer';
+import GuideFindStationViewContainer from '../modules/signup/GuideFindStationViewContainer';
+import GuideSaveViewContainer from '../modules/signup/GuideSaveViewContainer';
+import GuideScanViewContainer from '../modules/signup/GuideScanViewContainer';
+import GuideSponsorViewContainer from '../modules/signup/GuideSponsorViewContainer';
 
 import { Header, Left, Button, Icon, Body, Right, Text, Title } from 'native-base';
 
@@ -28,7 +28,7 @@ function SetInfoHeader(title) {
     <Header style={setHeaderContainerStyle}>
       <Left style={{ flex: 2 }}>
         <Button transparent onPress={() => Actions.pop()}>
-          <Icon name="arrow-back" style={styles.setHeaderCaption}/>
+          <Icon name="ios-arrow-back" style={styles.setHeaderCaption}/>
         </Button>
       </Left>
       <Body style={{ flex: 3 }}>
@@ -38,26 +38,31 @@ function SetInfoHeader(title) {
   );
 }
 
-function GuidHeader(title) {
-  const guidHeaderContainerStyle = [
-    styles.guidHeaderContainer,
+function GuideHeader(title) {
+  const guideHeaderContainerStyle = [
+    styles.guideHeaderCommon,
+    styles.guideHeaderContainer,
     { marginTop: Platform.OS === 'ios' ? 0 : StatusBar.currentHeight },
   ];
 
   return (
-    <Header style={guidHeaderContainerStyle}>
+    <Header style={guideHeaderContainerStyle}>
       <Left style={{ flex: 2 }}>
         <Button transparent onPress={() => Actions.pop()}>
-          <Icon name="arrow-back" style={styles.guidHeaderCaption}/>
+          <Icon name="ios-arrow-back" style={[styles.guideHeaderCommon, styles.guideHeaderLeft]}/>
         </Button>
       </Left>
       <Body style={{ flex: 3 }}>
-        <Title style={styles.guidHeaderCaption}>{title}</Title>
+        <Title style={[styles.guideHeaderCommon, styles.guideHeaderCaption]}>{title}</Title>
       </Body>
+      <Right style={{ flex: 2 }}>
+        <Button transparent onPress={() => Actions['map']()}>
+          <Icon name="close" style={[styles.guideHeaderCommon, styles.guideHeaderRight]}/>
+        </Button>
+      </Right>
     </Header>
   );
 }
-
 
 const SignupStack = (
         <Stack
@@ -101,45 +106,45 @@ const SignupStack = (
           />
           <Scene
             back
-            key='guidFindStation'
+            key='guideFindStation'
             title='nono'
-            header={GuidHeader('nono')}
-            component={GuidFindStationViewContainer}
+            header={GuideHeader('nono')}
+            component={GuideFindStationViewContainer}
           />
           <Scene
             back
-            key='guidScan'
+            key='guideScan'
             title='nono'
-            header={GuidHeader('nono')}
-            component={GuidScanViewContainer}
+            header={GuideHeader('nono')}
+            component={GuideScanViewContainer}
           />
           <Scene
             back
-            key='guidSave'
+            key='guideSave'
             title='nono'
-            header={GuidHeader('nono')}
-            component={GuidSaveViewContainer}
+            header={GuideHeader('nono')}
+            component={GuideSaveViewContainer}
           />
           <Scene
             back
-            key='guidBringBack'
+            key='guideBringBack'
             title='nono'
-            header={GuidHeader('nono')}
-            component={GuidBringBackViewContainer}
+            header={GuideHeader('nono')}
+            component={GuideBringBackViewContainer}
           />
           <Scene
             back
-            key='guidSponsor'
+            key='guideSponsor'
             title='nono'
-            header={GuidHeader('nono')}
-            component={GuidSponsorViewContainer}
+            header={GuideHeader('nono')}
+            component={GuideSponsorViewContainer}
           />
           <Scene
             back
-            key='guidAddPayment'
+            key='guideAddPayment'
             title='nono'
-            header={GuidHeader('nono')}
-            component={GuidAddPaymentViewContainer}
+            header={GuideHeader('nono')}
+            component={GuideAddPaymentViewContainer}
           />
         </Stack>
       );

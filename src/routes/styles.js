@@ -49,13 +49,16 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
   /////////////////////////
-  guidHeaderContainer: {
-    height: 70,
+  guideHeaderCommon: {
     alignItems: 'center',
     justifyContent: 'center',
+    alignSelf: 'center',
+  },
+  guideHeaderContainer: {
+    height: 70,
     backgroundColor: colors.white
   },
-  guidHeaderImage: {
+  guideHeaderImage: {
     position: 'absolute',
     top: 0,
     left: 0,
@@ -63,11 +66,20 @@ const styles = StyleSheet.create({
     bottom: 0,
     height: 70,
   },
-  guidHeaderCaption: {
-    fontFamily: fonts.primaryRegular,
+  guideHeaderLeft: {
     color: colors.primary,
     fontSize: 25,
     fontWeight: '600',
+  },
+  guideHeaderCaption: {
+    color: colors.primary,
+    fontSize: 25,
+    fontWeight: '600',
+  },
+  guideHeaderRight: {
+    color: colors.lightGray,
+    fontSize: 25,
+    fontWeight: '100',
   },
   ///////////////////////////
   setHeaderContainer: {
