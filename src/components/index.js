@@ -9,6 +9,7 @@ import Spacer from './Spacer';
 import LogoView from './LogoView';
 import PhoneNumberInput from './PhoneNumberInput';
 import ConfirmCodeInput from './ConfirmCodeInput';
+import GuideCommonView from './GuideCommonView';
 
 export {
   Button,
@@ -20,6 +21,6 @@ export {
   Spacer,
   LogoView,
   PhoneNumberInput,
-  ConfirmCodeInput
-  // CountryPickModal
+  ConfirmCodeInput,
+  GuideCommonView
 };

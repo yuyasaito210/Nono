@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
     color: colors.black,
     textAlign: 'center',
     fontFamily: fonts.primaryRegular,
-  },
+  }
 });
   
 export default styles;

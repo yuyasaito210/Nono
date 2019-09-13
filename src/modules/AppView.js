@@ -19,11 +19,10 @@ export default class AppView extends Component {
   state = {};
 
   componentWillMount() {
-    this.props.appActions.setLanguage('en');
+    this.props.appActions.setLanguage('fr');
   }
 
   render() {
-    
     return (
       <SafeAreaView style={styles.safeArea}>
         <StyleProvider style={getTheme(material)}>
