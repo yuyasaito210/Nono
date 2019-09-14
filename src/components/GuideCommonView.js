@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, Text, Animated, StyleSheet } from 'react-native';
-import { Actions } from 'react-native-router-flux';
 
 import { fonts, colors } from '../styles';
 import Button from './Button';
@@ -10,17 +9,7 @@ import Spacer from './Spacer';
 export default class GuideCommonView extends React.Component {
   state = {
     anim: new Animated.Value(0),
-    nextPath: 'map',
-    imageSource: require('../../assets/images/png/guide-find-station.png'),
-    guideTitle: '',
-    guideDescription: '',
-    nextButtonTitle: 'Next'
   };
-
-  componentWillMount() {
-    const { nextPath, imageSource, guideTitle, guideDescription, nextButtonTitle } = this.props;
-    this.setState({ nextPath, imageSource, guideTitle, guideDescription });
-  }
 
   componentDidMount() {
     Animated.timing(this.state.anim, { toValue: 3000, duration: 3000 }).start();
@@ -50,7 +39,7 @@ export default class GuideCommonView extends React.Component {
   }
 
   onClickNext = () => {
-    Actions[this.state.nextPath]();
+    if (this.props.onClickNext) this.props.onClickNext();
   }
 
   render() {

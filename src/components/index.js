@@ -10,6 +10,7 @@ import LogoView from './LogoView';
 import PhoneNumberInput from './PhoneNumberInput';
 import ConfirmCodeInput from './ConfirmCodeInput';
 import GuideCommonView from './GuideCommonView';
+import CreditCardScanner from './CreditCardScanner';
 
 export {
   Button,
@@ -22,5 +23,6 @@ export {
   LogoView,
   PhoneNumberInput,
   ConfirmCodeInput,
-  GuideCommonView
+  GuideCommonView,
+  CreditCardScanner
 };

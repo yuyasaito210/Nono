@@ -1,23 +1,15 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  Animated,
-  ImageBackground,
-  KeyboardAvoidingView
-} from 'react-native';
+import { View, Text, Animated } from 'react-native';
 import { Actions } from 'react-native-router-flux';
-import DatePicker from 'react-native-date-picker';
 
 import { fonts, colors } from '../../styles';
-import { Button, Spacer, TextInput } from '../../components';
+import { Button, Spacer, CreditCardScanner } from '../../components';
 import styles from './styles';
 
 
 export default class GuideAddPaymentView extends React.Component {
   state = {
     anim: new Animated.Value(0),
-    birthday: null
   };
 
   componentWillMount() {
@@ -50,70 +42,47 @@ export default class GuideAddPaymentView extends React.Component {
     };
   }
 
-  onFulFill = (confirmCode) => {
-    this.setState({confirmCode});
-  };
+  onClickAddLydia = () => {
+    
+  }
 
-  onClickNext = () => {
-    Actions['login']();
+  onClickAddApplePlay = () => {
+    
   }
 
   render() {
-    const { signup, app, signupActions, appActions } = this.props;
+    const { appActions } = this.props;
     const { _t } = appActions;
-    const { birthday } = this.state;
-    // if (!app.isFirstOpen && isLoggedIn) {
-    //   navigation.navigate('Home');
-    // }
-    return (
 
-        <ImageBackground
-          source={require('../../../assets/images/png/mask-group-28-2x.png')}
-          style={styles.backgroundImage}
-          resizeMode="cover"
+    return (
+      <View style={styles.guideContainer}>
+        <View style={styles.guideTopSection}>
+          <CreditCardScanner />
+        </View>
+        <Animated.View
+          style={[styles.guideBottomSection, this.fadeIn(700, -20)]}
         >
-          <KeyboardAvoidingView
-            style={styles.keyboardScrollViewContainer}
-            behavior="padding"
-            enabled>
-            <View style={styles.container}>
-            {/* <LogoView style={styles.logoViewContainer}/> */}
-            <Animated.View
-              style={[styles.buttonContainer, this.fadeIn(700, -20)]}
-            >
-              <Text style={styles.title}>
-                {_t('What is your date of birth?')}
-              </Text>
-              <Spacer size={110} />
-              {/* <DatePicker
-                date={birthday}
-                mode={'date'}
-                textColor={colors.white}
-                onDateChange={date => this.setState({ birthday: date })}
-                style={styles.textInput}
-              /> */}
-              <TextInput
-                placeholder={_t('Birthday')}
-                style={styles.textInput}
-                autoCapitalize="none"
-                autoCorrect={false}
-                value={birthday}
-                onChangeText={birthday => this.setState({birthday})}
-              />
-              <Spacer size={80} />
-              <Button
-                bgColor="white"
-                textColor={colors.primary}
-                secondary
-                rounded
-                style={styles.nextButton}
-                caption={_t('Next')}
-                onPress={() => this.onClickNext()}
-              />
-            </Animated.View>
-          </View>
-          </KeyboardAvoidingView>
-        </ImageBackground>
+          <Spacer size={20} />
+          <Button
+            bgColor={colors.primary}
+            textColor={colors.white}
+            secondary
+            rounded
+            style={styles.guideNextButton}
+            caption={_t('Add an account Lydia')}
+            onPress={() => this.onClickAddLydia()}
+          />
+          <Button
+            bgColor={colors.primary}
+            textColor={colors.white}
+            secondary
+            rounded
+            style={styles.guideNextButton}
+            caption={_t('Add Apple Pay')}
+            onPress={() => this.onClickAddApplePlay()}
+          />
+        </Animated.View>
+      </View>
     );
   }
 }
