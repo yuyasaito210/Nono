@@ -4,7 +4,7 @@ import { compose, lifecycle } from 'recompose';
 import { bindActionCreators } from 'redux';
 import LoginView from './LoginView';
 import * as loginActions from './LoginAction';
-import { setAppOpened } from '../AppState';
+import * as appActions from '../AppAction';
 
 const mapStateToProps = state => ({
   login: state.login || {},
@@ -13,6 +13,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   loginActions: bindActionCreators(loginActions, dispatch),
+  appActions: bindActionCreators(appActions, dispatch),
 });
 
 export default compose(

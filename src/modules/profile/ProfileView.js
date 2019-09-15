@@ -4,7 +4,7 @@ import {
   TouchableOpacity,
   ImageBackground,
 } from 'react-native';
-
+import { Actions } from 'react-native-router-flux';
 import { colors } from '../../styles';
 import { Text } from '../../components/StyledText';
 import styles from './styles';
@@ -12,6 +12,10 @@ import styles from './styles';
 export default class ProfileView extends Component {
   state = {
 
+  }
+  
+  componentDidMount() {
+    Actions['login']();
   }
   
   render() {
@@ -55,7 +59,7 @@ export default class ProfileView extends Component {
               <TouchableOpacity
                 style={styles.priceLink}
                 onPress={() =>
-                  console.log('===== clicked')
+                  Actions['login']()
                 }
               >
                 <Text white size={14}>

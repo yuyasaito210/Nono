@@ -33,13 +33,43 @@ export function signupFailure(err) {
   }
 }
 
+export function signupSetConfirmCode(confirmCode) {
+  return {
+    type: types.SINGUP_SET_CONFIRM_CODE,
+    confirmCode,
+  }
+}
+
+export function signupSetUserName(userName) {
+  return {
+    type: types.SINGUP_SET_USER_NAME,
+    userName,
+  }
+}
+
+export function signupSetEmail(email) {
+  return {
+    type: types.SINGUP_SET_EMAIL,
+    email,
+  }
+}
+
+export function signupSetBirthday(birthDay) {
+  return {
+    type: types.SINGUP_SET_BIRTHDAY,
+    birthDay,
+  }
+}
+
 ///////////////////////////////////////////
 // Thunk
 export function actionSignUp(signup) {
   const {
+    phoneNumber,
+    confirmCode,
     email,
-    password,
     userName,
+    birthDay
   } = signup;
 
   return dispatch => new Promise(async (resolve, reject) => {

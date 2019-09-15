@@ -10,6 +10,7 @@ import NonoRoutes from './routes/index';
 import { StyleProvider } from 'native-base';
 import getTheme from '../native-base-theme/components';
 import material from '../native-base-theme/variables/material';
+import AppViewContainer from './modules/AppViewContainer';
 
 const styles = StyleSheet.create({
   container: {
@@ -66,20 +67,26 @@ export default class Nono extends Component {
 			return null;
 		}
 
+    // return (
+    //   <Provider store={this.state.store}>
+		// 		<SafeAreaView style={styles.safeArea}>
+		// 			<StyleProvider style={getTheme(material)}>
+    //         <View style={ styles.container }>
+    //           <StatusBar
+    //             barStyle={ `${ Platform.OS === 'ios' ? 'dark-content' : 'light-content' }` }
+    //           />
+    //           <NonoRoutes />
+    //         </View>
+		// 			</StyleProvider>
+		// 		</SafeAreaView>
+    //   </Provider>
+    // );
     return (
       <Provider store={this.state.store}>
-				<SafeAreaView style={styles.safeArea}>
-					<StyleProvider style={getTheme(material)}>
-            <View style={ styles.container }>
-              <StatusBar
-                barStyle={ `${ Platform.OS === 'ios' ? 'dark-content' : 'light-content' }` }
-              />
-              <NonoRoutes />
-            </View>
-					</StyleProvider>
-				</SafeAreaView>
+				<AppViewContainer />
       </Provider>
     );
+
   }
 }
 

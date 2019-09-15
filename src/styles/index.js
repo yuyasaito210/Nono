@@ -10,7 +10,6 @@ import commonStyles from './common';
 
 const { width } = Dimensions.get('window');
 
-// Guideline sizes are based on standard ~5" screen mobile device
 const guidelineBaseWidth: number = 350;
 
 Colors.loadColors(colors);

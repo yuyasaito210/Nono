@@ -1,10 +1,11 @@
 const colors = {
-  primary: '#D87BA6',
-  primaryLight: '#FF7F8F',
-  primaryGradientStart: '#FF6C8E',
-  primaryGradientEnd: '#FE9078',
-  secondaryGradientStart: '#797BE6',
-  secondaryGradientEnd: '#797BE6',
+  primary: '#35CDFA',
+  primaryLight: '#35CDFA',
+  primaryDark: '#00B1EC',
+  primaryGradientStart: '#5ED8FC',
+  primaryGradientEnd: '#35CDFA',
+  secondaryGradientStart: '#FFDF00',
+  secondaryGradientEnd: '#FF52A8',
   profileGradientStart: '#FE9F7C',
   profileGradientEnd: '#FDB167',
   secondary: '#7A7BE6',
@@ -24,6 +25,7 @@ const colors = {
   labelOne: '#FDCB67',
   labelTwo: '#FE8B7C',
   textInputColor: '#ffffff',
+  textInputBackgroundColor: '#FFFFFF2B'
 };
 
 export default colors;

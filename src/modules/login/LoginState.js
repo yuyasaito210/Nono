@@ -118,15 +118,3 @@ export default function loginReducer(state = initialState, action) {
       return state;
   }
 }
-
-export function getAccessToken(state) {
-  if (state.access_token) {
-    return state.access_token
-  }
-}
-
-export function getTokenType(state) {
-  if (state.token_type) {
-    return state.token_type
-  }
-}

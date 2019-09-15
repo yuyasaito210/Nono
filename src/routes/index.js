@@ -1,23 +1,17 @@
 import React, { Component } from 'react';
-import {
-	Text,
-	View,
-	StatusBar,
-	Platform,
-	Image
-} from 'react-native';
+import { Text, View, StatusBar, Platform, Image } from 'react-native';
 import { connect } from 'react-redux';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Router, Scene, Stack, Actions, Drawer } from 'react-native-router-flux';
 
 import LoginViewContainer from '../modules/login/LoginViewContainer';
-import SignupViewContainer from '../modules/signup/SignupViewContainer';
 import HomeViewContainer from '../modules/home/HomeViewContainer';
 import MapViewContainer from '../modules/map/MapViewContainer';
 import RentButteryViewContainer from '../modules/rent_buttery/RentButteryViewContainer';
 import ProfileViewContainer from '../modules/profile/ProfileViewContainer';
 
+import SignupStack from './signup';
 import { colors, fonts } from '../styles';
 import styles from './styles';
 
@@ -61,18 +55,22 @@ class TabIcon extends Component {
 }
 
 function Header(title) {
-		return (
-			<View style={styles.headerContainer}>
-				<Image style={styles.headerImage} source={hederBackground} />
-				<Text style={styles.headerCaption}>{title}</Text>
-			</View>
-		);
+	const containerStyle = [
+		styles.headerContainer,
+		{ marginTop: Platform.OS === 'ios' ? 0 : StatusBar.currentHeight },
+	];
+	return (
+		<View style={containerStyle}>
+			<Image style={styles.headerImage} source={hederBackground} />
+			<Text style={styles.headerCaption}>{title}</Text>
+		</View>
+	);
 }
 
 class NonoRoutes extends Component {
 	componentDidMount() {
 		StatusBar.setBarStyle('light-content');
-		Actions['authorized'](); // for test
+		// Actions['authorized'](); // for test
 		if (this.props.isAuthenticated) {
 			Actions['authorized']();
 		}
@@ -85,19 +83,15 @@ class NonoRoutes extends Component {
 		return (
 			<Router>
 				<Stack key='root' hideNavBar>
+					{SignupStack}
+
 					<Scene
 						key='login'
 						component={LoginViewContainer}
 						analyticsDesc='Login'
 						hideNavBar
 					/>
-					<Scene
-						back
-						key='signup'
-						title='Create Account'
-						hideNavBar={true}
-						component={SignupViewContainer}
-					/>
+
 					<Stack
 						key={'authorized'}
 						tabs={true}
