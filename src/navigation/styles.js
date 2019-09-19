@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     height: 70,
   },
   headerCaption: {
-    fontFamily: fonts.primaryRegular,
+    //fontFamily: fonts.primaryRegular,
     color: colors.white,
     fontSize: 18,
   },

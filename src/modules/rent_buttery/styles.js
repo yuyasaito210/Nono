@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     titleDescription: {
       color: colors.introText,
       textAlign: 'center',
-      fontFamily: fonts.primaryRegular,
+      //fontFamily: fonts.primaryRegular,
       fontSize: 15,
     },
     title: {

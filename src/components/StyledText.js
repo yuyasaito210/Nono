@@ -64,13 +64,13 @@ export function Caption(props) {
 
 const styles = StyleSheet.create({
   default: {
-    fontFamily: fonts.primaryRegular,
+    //fontFamily: fonts.primaryRegular,
   },
   bold: {
-    fontFamily: fonts.primaryBold,
+    //fontFamily: fonts.primaryBold,
   },
   light: {
-    fontFamily: fonts.primaryLight,
+    //fontFamily: fonts.primaryLight,
   },
   title: {
     fontSize: 18,

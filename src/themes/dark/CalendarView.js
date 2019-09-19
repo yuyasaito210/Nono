@@ -41,14 +41,17 @@ class CalendarScreen extends React.Component {
           <Text
             style={{
               color: colors.primary,
-              fontFamily: fonts.primaryRegular,
+              //fontFamily: fonts.primaryRegular,
               marginBottom: 10,
             }}
           >
             {item.name}
           </Text>
           <Text
-            style={{ color: colors.white, fontFamily: fonts.primaryRegular }}
+            style={{ 
+              color: colors.white, 
+              //fontFamily: fonts.primaryRegular 
+            }}
           >
             {item.time}
           </Text>

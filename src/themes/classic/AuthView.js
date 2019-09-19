@@ -83,7 +83,7 @@ export default class AuthScreen extends React.Component {
 
     return (
       <ImageBackground
-        source={require('../../../assets/images/background.png')}
+        source={require('../../assets/images/background.png')}
         style={styles.backgroundImage}
         resizeMode="cover"
       >
@@ -96,7 +96,7 @@ export default class AuthScreen extends React.Component {
                 this.state.isKeyboardVisible && { height: 90 },
                 this.fadeIn(0),
               ]}
-              source={require('../../../assets/images/white-logo.png')}
+              source={require('../../assets/images/white-logo.png')}
             />
           </View>
 
@@ -148,7 +148,7 @@ export default class AuthScreen extends React.Component {
                     style={styles.socialButton}
                     bordered
                     bgColor={colors.primary}
-                    icon={require('../../../assets/images/google-plus.png')}
+                    icon={require('../../assets/images/google-plus.png')}
                     iconColor={colors.primary}
                     onPress={() => this.props.navigation.goBack()}
                   />
@@ -156,7 +156,7 @@ export default class AuthScreen extends React.Component {
                     style={[styles.socialButton, styles.socialButtonCenter]}
                     bordered
                     bgColor={colors.primary}
-                    icon={require('../../../assets/images/twitter.png')}
+                    icon={require('../../assets/images/twitter.png')}
                     iconColor={colors.primary}
                     onPress={() => this.props.navigation.goBack()}
                   />
@@ -164,7 +164,7 @@ export default class AuthScreen extends React.Component {
                     style={styles.socialButton}
                     bordered
                     bgColor={colors.primary}
-                    icon={require('../../../assets/images/facebook.png')}
+                    icon={require('../../assets/images/facebook.png')}
                     iconColor={colors.primary}
                     onPress={() => this.props.navigation.goBack()}
                   />
@@ -186,7 +186,7 @@ export default class AuthScreen extends React.Component {
                   <Text
                     style={{
                       color: colors.primary,
-                      fontFamily: fonts.primaryRegular,
+                      //fontFamily: fonts.primaryRegular,
                     }}
                   >
                     {isRegister
@@ -196,7 +196,7 @@ export default class AuthScreen extends React.Component {
                   <Text
                     style={{
                       color: colors.primary,
-                      fontFamily: fonts.primaryBold,
+                      //fontFamily: fonts.primaryBold,
                       marginLeft: 5,
                     }}
                   >

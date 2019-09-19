@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View } from 'react-native';
 import { Text } from '../../components/StyledText';
 import styles from './styles';
-import QRScanner from './QRScanner';
+// import QRScanner from './QRScanner';
 
 export default class RentButterryView extends Component {
   state = {}
@@ -10,7 +10,7 @@ export default class RentButterryView extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <QRScanner />
+        {/* <QRScanner /> */}
       </View>
     );
   }

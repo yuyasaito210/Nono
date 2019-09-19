@@ -359,7 +359,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   componentSectionHeader: {
-    fontFamily: fonts.primaryRegular,
+    //fontFamily: fonts.primaryRegular,
     color: '#686868',
     fontSize: 20,
     marginBottom: 20,

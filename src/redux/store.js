@@ -41,6 +41,8 @@ import createSagaMiddleware from 'redux-saga';
 import { createLogger } from 'redux-logger';
 import thunkMiddleware from 'redux-thunk';
 import * as storage from 'redux-storage';
+import { persistStore, persistReducer } from 'redux-persist';
+// import storage from 'redux-persist/lib/storage';
 import reducer from './reducer';
 import sagas from '../sagas';
 import createEngine from 'redux-storage-engine-reactnativeasyncstorage';
@@ -107,4 +109,3 @@ export default function configureStore(onComplete) {
   return store;
 }
 
-// export default Store;

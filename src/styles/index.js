@@ -19,11 +19,11 @@ Typography.loadTypographies({
     fontSize: 35,
     ...Platform.select({
       ios: {
-        fontFamily: fonts.primary,
+        //fontFamily: fonts.primary,
         fontWeight: 'bold',
       },
       android: {
-        fontFamily: fonts.primaryBold,
+        //fontFamily: fonts.primaryBold,
       },
     }),
   },
@@ -31,27 +31,27 @@ Typography.loadTypographies({
     fontSize: 34,
     ...Platform.select({
       ios: {
-        fontFamily: fonts.primary,
+        //fontFamily: fonts.primary,
         fontWeight: 'bold',
       },
       android: {
-        fontFamily: fonts.primaryBold,
+        //fontFamily: fonts.primaryBold,
       },
     }),
   },
   rubik18: {
-    fontFamily: fonts.primary,
+    //fontFamily: fonts.primary,
     fontSize: 18,
     lineHeight: 22,
   },
   rubik20Bold: {
-    fontFamily: fonts.primary,
+    //fontFamily: fonts.primary,
     fontSize: 20,
     lineHeight: 22,
     fontWeight: 'bold',
   },
   rubik24Bold: {
-    fontFamily: fonts.primary,
+    //fontFamily: fonts.primary,
     fontSize: 24,
     lineHeight: 22,
     fontWeight: 'bold',
@@ -60,60 +60,60 @@ Typography.loadTypographies({
     fontSize: 28,
     ...Platform.select({
       ios: {
-        fontFamily: fonts.primary,
+        //fontFamily: fonts.primary,
         fontWeight: '500',
       },
       android: {
-        fontFamily: fonts.primaryBold,
+        //fontFamily: fonts.primaryBold,
       },
     }),
   },
   h2: {
     fontSize: 18,
     lineHeight: 22,
-    fontFamily: fonts.primaryBold,
+    //fontFamily: fonts.primaryBold,
   },
   h3: {
     fontSize: 16,
     lineHeight: 22,
     ...Platform.select({
       ios: {
-        fontFamily: fonts.primary,
+        //fontFamily: fonts.primary,
         fontWeight: 'bold',
       },
       android: {
-        fontFamily: fonts.primaryBold,
+        //fontFamily: fonts.primaryBold,
       },
     }),
   },
   h4: {
     fontSize: 14,
     lineHeight: 22,
-    fontFamily: fonts.primary,
+    //fontFamily: fonts.primary,
   },
   p: {
     fontSize: 14,
     lineHeight: 20,
     ...Platform.select({
       ios: {
-        fontFamily: fonts.primary,
+        //fontFamily: fonts.primary,
         fontWeight: '400',
       },
       android: {
-        fontFamily: fonts.primaryAndroid,
+        //fontFamily: fonts.primaryAndroid,
       },
     }),
   },
   default: {
-    fontFamily: fonts.primary,
+    //fontFamily: fonts.primary,
     fontSize: 18,
   },
   defaultMedium: {
-    fontFamily: fonts.primaryMedium,
+    //fontFamily: fonts.primaryMedium,
     fontSize: 18,
   },
   defaultLight: {
-    fontFamily: fonts.primary,
+    //fontFamily: fonts.primary,
   },
 });
 

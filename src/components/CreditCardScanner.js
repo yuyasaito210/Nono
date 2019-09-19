@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, TouchableOpacity, Text, Platform, StyleSheet } from 'react-native';
-import { CardIOView, CardIOModule, CardIOUtilities } from 'react-native-awesome-card-io';
+// import { CardIOView, CardIOModule, CardIOUtilities } from 'react-native-awesome-card-io';
 
 import { fonts, colors } from '../styles';
 
@@ -14,9 +14,9 @@ export default class CreditCardScanner extends React.Component {
   }
 
   componentWillUnmount() {
-    if (Platform.OS === 'ios') {
-      CardIOUtilities.preload();
-    }
+    // if (Platform.OS === 'ios') {
+    //   CardIOUtilities.preload();
+    // }
   }
 
   onDidScanCard = (card) => {
@@ -25,22 +25,22 @@ export default class CreditCardScanner extends React.Component {
   }
 
   scanCard = () => {
-    CardIOModule
-      .scanCard()
-      .then(card => {
-        // the scanned card
-        console.log('===== card: ', card);
-      })
-      .catch((e) => {
-        // the user cancelled
-        console.log('=== error: ', e)
-      })
+    // CardIOModule
+    //   .scanCard()
+    //   .then(card => {
+    //     // the scanned card
+    //     console.log('===== card: ', card);
+    //   })
+    //   .catch((e) => {
+    //     // the user cancelled
+    //     console.log('=== error: ', e)
+    //   })
   }
 
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <TouchableOpacity onPress={this.scanCard.bind(this)}>
+        <TouchableOpacity onPress={this.scanCard}>
           <Text>Scan card!</Text>
         </TouchableOpacity>
       </View>
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
   },
   guideTitle: {
     color: colors.black,
-    fontFamily: fonts.primaryRegular,
+    //fontFamily: fonts.primaryRegular,
     textAlign: 'center',
     fontSize: 25,
     fontWeight: 'bold'
@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
   guideDescription: {
     color: colors.black,
     textAlign: 'center',
-    fontFamily: fonts.primaryRegular,
+    //fontFamily: fonts.primaryRegular,
   },
   guideNextButton: {
     alignSelf: 'stretch', 

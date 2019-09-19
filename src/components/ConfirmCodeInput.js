@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
   default: {
     height: HEIGHT,
     color: colors.white,
-    fontFamily: fonts.primaryRegular,
+    //fontFamily: fonts.primaryRegular,
     color: colors.white,
     backgroundColor: colors.textInputBackgroundColor,
     ...Platform.select({

@@ -63,7 +63,7 @@ export default class SetEmailView extends React.Component {
     return (
 
         <ImageBackground
-          source={require('../../../assets/images/png/mask-group-28-2x.png')}
+          source={require('../../assets/images/png/mask-group-28-2x.png')}
           style={styles.backgroundImage}
           resizeMode="cover"
         >

@@ -12,7 +12,7 @@ import ProfileViewContainer from '../modules/profile/ProfileViewContainer';
 
 import { colors, fonts } from '../styles';
 
-const headerBackground = require('../../assets/images/topBarBg.png');
+const headerBackground = require('../assets/images/topBarBg.png');
 
 const homeStack = createStackNavigator(
   {
@@ -53,7 +53,7 @@ const homeStack = createStackNavigator(
   {
     defaultNavigationOptions: () => ({
       titleStyle: {
-        fontFamily: fonts.primaryLight,
+        //fontFamily: fonts.primaryLight,
       },
       headerStyle: {
         backgroundColor: colors.primary,
@@ -68,7 +68,7 @@ const homeStack = createStackNavigator(
       ),
       headerTitleStyle: {
         color: colors.white,
-        fontFamily: fonts.primaryRegular,
+        //fontFamily: fonts.primaryRegular,
       },
       headerTintColor: '#222222',
       headerLeft: props => (
@@ -79,7 +79,7 @@ const homeStack = createStackNavigator(
           }}
         >
           <Image
-            source={require('../../assets/images/icons/arrow-back.png')}
+            source={require('../assets/images/icons/arrow-back.png')}
             resizeMode="contain"
             style={{
               height: 20,

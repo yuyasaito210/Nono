@@ -81,7 +81,7 @@ export default class SignupView extends React.Component {
 
     return (
       <ImageBackground
-        source={require('../../../assets/images/png/mask-group-28-2x.png')}
+        source={require('../../assets/images/png/mask-group-28-2x.png')}
         style={styles.backgroundImage}
         resizeMode="cover"
       >
@@ -120,7 +120,7 @@ export default class SignupView extends React.Component {
                 textColor={colors.white}
                 rounded
                 caption={_t('Continue with facebook')}
-                icon={require('../../../assets/images/facebook.png')}
+                icon={require('../../assets/images/facebook.png')}
                 onPress={() => this.onClickFacebook()}
               />
             </View>
@@ -138,7 +138,7 @@ export default class SignupView extends React.Component {
               <Text
                 style={{
                   color: colors.white,
-                  fontFamily: fonts.primaryBold,
+                  //fontFamily: fonts.primaryBold,
                   marginLeft: 5,
                 }}
               >

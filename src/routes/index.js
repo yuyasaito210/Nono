@@ -15,12 +15,12 @@ import SignupStack from './signup';
 import { colors, fonts } from '../styles';
 import styles from './styles';
 
-const iconHome = require('../../assets/images/tabbar/home.png');
-const iconCalendar = require('../../assets/images/tabbar/calendar.png');
-const iconGrids = require('../../assets/images/tabbar/grids.png');
-const iconPages = require('../../assets/images/tabbar/pages.png');
-const iconComponents = require('../../assets/images/tabbar/components.png');
-const hederBackground = require('../../assets/images/topBarBg.png');
+const iconHome = require('../assets/images/tabbar/home.png');
+const iconCalendar = require('../assets/images/tabbar/calendar.png');
+const iconGrids = require('../assets/images/tabbar/grids.png');
+const iconPages = require('../assets/images/tabbar/pages.png');
+const iconComponents = require('../assets/images/tabbar/components.png');
+const hederBackground = require('../assets/images/topBarBg.png');
 
 class TabIcon extends Component {
 	render() {

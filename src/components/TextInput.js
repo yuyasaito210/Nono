@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
   default: {
     height: HEIGHT,
     color: 'white',
-    fontFamily: fonts.primaryRegular,
+    //fontFamily: fonts.primaryRegular,
     ...Platform.select({
       android: {
         paddingLeft: 5,

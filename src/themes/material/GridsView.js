@@ -187,17 +187,17 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   itemOneTitle: {
-    fontFamily: fonts.primaryRegular,
+    //fontFamily: fonts.primaryRegular,
     fontSize: 15,
   },
   itemOneSubTitle: {
-    fontFamily: fonts.primaryRegular,
+    //fontFamily: fonts.primaryRegular,
     fontSize: 13,
     color: '#B2B2B2',
     marginVertical: 3,
   },
   itemOnePrice: {
-    fontFamily: fonts.primaryRegular,
+    //fontFamily: fonts.primaryRegular,
     fontSize: 15,
   },
   itemOneRow: {
@@ -222,18 +222,18 @@ const styles = StyleSheet.create({
   },
   itemTwoTitle: {
     color: colors.white,
-    fontFamily: fonts.primaryBold,
+    //fontFamily: fonts.primaryBold,
     fontSize: 20,
   },
   itemTwoSubTitle: {
     color: colors.white,
-    fontFamily: fonts.primaryRegular,
+    //fontFamily: fonts.primaryRegular,
     fontSize: 15,
     marginVertical: 5,
   },
   itemTwoPrice: {
     color: colors.white,
-    fontFamily: fonts.primaryBold,
+    //fontFamily: fonts.primaryBold,
     fontSize: 20,
   },
   itemTwoImage: {
@@ -280,17 +280,17 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   itemThreeBrand: {
-    fontFamily: fonts.primaryRegular,
+    //fontFamily: fonts.primaryRegular,
     fontSize: 14,
     color: '#617ae1',
   },
   itemThreeTitle: {
-    fontFamily: fonts.primaryBold,
+    //fontFamily: fonts.primaryBold,
     fontSize: 16,
     color: '#5F5F5F',
   },
   itemThreeSubtitle: {
-    fontFamily: fonts.primaryRegular,
+    //fontFamily: fonts.primaryRegular,
     fontSize: 12,
     color: '#a4a4a4',
   },
@@ -300,7 +300,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   itemThreePrice: {
-    fontFamily: fonts.primaryRegular,
+    //fontFamily: fonts.primaryRegular,
     fontSize: 15,
     color: '#5f5f5f',
     textAlign: 'right',
