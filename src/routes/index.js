@@ -94,8 +94,10 @@ class NonoRoutes extends Component {
 
 					<Stack
 						key={'authorized'}
-						tabs={true}
+						tabs={false}
 						tabBarIcon={TabIcon}
+						hideNavBar
+						initial
 					>
 						{/* <Drawer
 							key={ 'drawer' }
@@ -107,7 +109,7 @@ class NonoRoutes extends Component {
 								tabBarLabel="Map"
 								iconSource={iconCalendar}
 								hideNavBar
-								default
+								initial
 							>
 								<Scene
 									key='_map'

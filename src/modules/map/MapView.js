@@ -1,10 +1,19 @@
 import React, { Component } from 'react';
-import MapView, { Marker, ProviderPropType } from 'react-native-maps';
+import { View } from 'react-native';
+import MapSection from './components/MapSection';
+import MapButtonsLayer from './components/MapButtonsLayer';
+import UnlockBox from './components/UnlockBox';
+import LockDialog from './components/LockDialog';
+import SearchDialog from './components/SearchDialog';
+import ShowNearDialog from './components/ShowNearDialog';
 
 import styles from './styles';
 
+
+// openShowNearDialog
 export default class MapScreen extends Component {
   state = {
+    pageStatus: 'openShowNearDialog',
     region: {
       latitude: 37.321996988,
       longitude: -122.0325472123455,
@@ -17,8 +26,6 @@ export default class MapScreen extends Component {
         coords: {
           latitude: 37.351996988,
           longitude: -122.0425472123455,
-          latitudeDelta: 0.0922,
-          longitudeDelta: 0.0421
         }
       },
       {
@@ -26,12 +33,10 @@ export default class MapScreen extends Component {
         coords: {
           latitude: 37.301996988,
           longitude: -122.0525472123455,
-          latitudeDelta: 0.0922,
-          longitudeDelta: 0.0421
         }
       },
     ],
-    
+
   };
 
   componentWillReceiveProps = (nextProps) => {
@@ -39,28 +44,42 @@ export default class MapScreen extends Component {
     if (region && places) this.setState({region, places});
   };
 
-  renderMarkers() {
-    return this.state.places.map((place, i) => (
-      <Marker key={i} title={place.name} coordinate={place.coords} />
-    ))
-  };
-
   render = () => {
-    const { region } = this.state
+    const { pageStatus, region, places } = this.state
     return (
-      <MapView
-        style={styles.container}
-        provider={this.props.provider}
-        region={region}
-        showsUserLocation
-        showsMyLocationButton
-      >
-        {this.renderMarkers()}
-      </MapView>
+      <>
+        <View style={styles.container}>
+          <MapSection region={region} places={places} />
+          {pageStatus=='locked' && 
+            <>
+              <MapButtonsLayer 
+                profile
+                gift
+                search
+                refresh
+                target
+              />
+              <UnlockBox onUnlock={this.openLockDialog} />
+            </>
+          }
+          {pageStatus=='openLockDialog' && 
+            <LockDialog />
+          }
+          {pageStatus=='openSearchDialog' && 
+            <SearchDialog />
+          }
+          {pageStatus=='openShowNearDialog' && 
+            <ShowNearDialog />
+          }
+        </View>
+      </>
     )
   };
-}
 
-MapScreen.propTypes = {
-  provider: ProviderPropType,
-};
+  openLockDialog = () => {
+    this.setState({
+      ...this.state,
+      pageStatus: 'openLockDialog'
+    })
+  }
+}

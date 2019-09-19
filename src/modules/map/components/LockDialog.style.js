@@ -1,0 +1,73 @@
+import { StyleSheet } from 'react-native';
+import Layout, { em } from '../../../constants/Layout';
+
+export const styles = StyleSheet.create({
+  wrapperContainer: {
+    position: 'absolute',
+    left: 0, top: 0,
+    width: Layout.window.width,
+    height: Layout.window.height,
+    zIndex: 10,
+  },
+  wrapperBg: {
+    width: Layout.window.width,
+    height: Layout.window.height
+  },
+  topbarContainer: {
+    
+  },
+  topbarBackButton: {
+    backgroundColor: 'transparent', 
+    width: 40*em, height: 40*em, marginTop: 20*em,
+    alignItems: 'center', justifyContent: 'center',
+    borderWidth: 0
+  },
+  contentContainer: {
+    padding: 10*em
+  },
+  contentDeputeImageContainer: {
+    alignItems: 'center', justifyContent: 'center',
+    marginTop: 30*em, marginBottom: 30*em
+  },
+  contentTitleContainer: {
+  
+  },
+  contentTitle: {
+    textAlign: 'center', fontSize: 26*em, fontWeight: 'bold',
+ },
+  contentSubtitle: {
+    textAlign: 'center', fontSize: 17*em, 
+  },
+  contentDescContainer : {
+
+  },
+  contentDesc: {
+    textAlign: 'center', fontSize: 15*em, 
+  },
+  codeContainer: {
+    alignContent: "center"
+  },
+  codeTextContainer: {
+
+  },
+  codeShareContainer: {    
+    backgroundColor: '#07E28E',
+    borderRadius: 20*em,
+    position: 'relative',
+    flexDirection: 'row', justifyContent: 'center',
+    top: 20*em,
+  }, 
+  codeOverText: {
+    top: 20*em, textAlign: "center"
+  },  
+  codeShareText: {
+    fontSize: 16*em, lineHeight: 50*em, color: 'white'
+  },
+  codeShareButton: {
+    alignSelf: 'flex-end',
+    position: 'absolute', right: 10*em, top: 0,
+    backgroundColor: 'transparent',
+    width: 50*em, height: 50*em,
+    alignItems: 'center', justifyContent: 'center'
+  }
+})
