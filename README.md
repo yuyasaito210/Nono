@@ -46,6 +46,13 @@ open other console and run this command
 
 ### Troubleshooting
 
+* Failed `pod install`
+```
+  $ cd ios
+  $ pod update ReactNativeUiLib
+  $ pod install
+```
+
 * Clean cache 
 
 Close the iPhone simulation
