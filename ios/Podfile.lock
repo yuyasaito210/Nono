@@ -93,13 +93,13 @@ PODS:
     - React-Core (= 0.60.5)
   - React-RCTWebSocket (0.60.5):
     - React-Core (= 0.60.5)
-  - ReactNativeUiLib (3.38.2):
+  - ReactNativeUiLib (3.38.3):
     - React
   - RNAwesomeCardIO (0.8.2):
     - React
   - RNGestureHandler (1.4.1):
     - React
-  - RNLocalize (1.2.0):
+  - RNLocalize (1.2.1):
     - React
   - RNSVG (9.9.4):
     - React
@@ -237,11 +237,11 @@ SPEC CHECKSUMS:
   ReactNativeUiLib: 5ddfec22dda0da4c8f6383aeef1f64670f39b5f1
   RNAwesomeCardIO: 3a48cf16f3de5296d424a00e48c7932e5c888340
   RNGestureHandler: 311e3b1cef021a7c9ef31e97e7dc31970cc6288d
-  RNLocalize: 5b8988dda049506164e662fcb7256887372a11d2
+  RNLocalize: 5ba45baff82072a1954f5882b2a64d784d326b20
   RNSVG: 2e097b92aaa6d4e0f354fd7c49cbf3b17f8b3920
   RNVectorIcons: 66af4d5c8ff4f584c7b7cd9c4b0780920f27fce2
   yoga: 88c514f310aff89b94a14c5fbf44b95735af0cb7
 
-PODFILE CHECKSUM: 80bf708d232e63e8688ac7ea45a5da05cbf7e958
+PODFILE CHECKSUM: 08eb2606c29d14fdf5d7346c51f26f48517c9602
 
 COCOAPODS: 1.5.3
