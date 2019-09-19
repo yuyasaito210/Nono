@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
   },
   guideTitle: {
     color: colors.black,
-    fontFamily: fonts.primaryRegular,
+    //fontFamily: fonts.primaryRegular,
     textAlign: 'center',
     fontSize: 25,
     fontWeight: 'bold'
@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
   guideDescription: {
     color: colors.black,
     textAlign: 'center',
-    fontFamily: fonts.primaryRegular,
+    //fontFamily: fonts.primaryRegular,
   },
   guideNextButton: {
     alignSelf: 'stretch', 

@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
   },
   title: {
     color: colors.white,
-    fontFamily: fonts.primaryRegular,
+    //fontFamily: fonts.primaryRegular,
     fontSize: 25,
     fontWeight: 'bold'
   },
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
   },
   descriptionText: {
     color: colors.white,
-    fontFamily: fonts.primaryRegular,
+    //fontFamily: fonts.primaryRegular,
   },
   socialLoginContainer: {
     flexDirection: 'row',

@@ -78,7 +78,7 @@ let styles = StyleSheet.create({
   default: {
     height: HEIGHT,
     color: 'white',
-    fontFamily: fonts.primaryRegular,
+    //fontFamily: fonts.primaryRegular,
     color: colors.white,
     backgroundColor: colors.textInputBackgroundColor,
     ...Platform.select({

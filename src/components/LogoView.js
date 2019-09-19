@@ -32,21 +32,21 @@ class LogoView extends Component {
             style={[
               styles.logoImageLeftSection
             ]}
-            source={require('../../assets/images/png/flash-left-2x.png')}
+            source={require('../assets/images/png/flash-left-2x.png')}
           />
           <Animated.Image
             resizeMode="contain"
             style={[
               styles.logoImageSection
             ]}
-            source={require('../../assets/images/png/logo-nono-2x.png')}
+            source={require('../assets/images/png/logo-nono-2x.png')}
           />
           <Animated.Image
             resizeMode="contain"
             style={[
               styles.logoImageRightSection,
             ]}
-            source={require('../../assets/images/png/flash-right-2x.png')}
+            source={require('../assets/images/png/flash-right-2x.png')}
           />
         </View>
         

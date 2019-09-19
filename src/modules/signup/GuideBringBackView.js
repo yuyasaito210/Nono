@@ -10,7 +10,7 @@ export default class GuideSaveView extends React.Component {
     const { _t } = appActions;
     return (
       <GuideCommonView
-        imageSource={require('../../../assets/images/png/guide-bring-back.png')}  
+        imageSource={require('../../assets/images/png/guide-bring-back.png')}  
         guideTitle={_t("Bring back your nono")} 
         guideDescription={_t('Choose the nearest partner institution')} 
         nextButtonTitle={_t('Next')}

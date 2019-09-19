@@ -1,6 +1,5 @@
 import React from 'react';
-// import LinearGradient from 'react-native-linear-gradient';
-import { LinearGradient } from 'expo-linear-gradient';
+import LinearGradient from 'react-native-linear-gradient';
 import {
   Image,
   StyleSheet,
@@ -196,7 +195,7 @@ const styles = StyleSheet.create({
   caption: {
     letterSpacing: 1,
     fontSize: 15,
-    fontFamily: fonts.primaryBold,
+    //fontFamily: fonts.primaryBold,
   },
   captionSmall: {
     fontSize: 12,
