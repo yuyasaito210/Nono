@@ -67,23 +67,27 @@ export default class ProfileMenuView extends Component {
               <Text style={styles.title}>
                 {_t('Theo Rouilly')}
               </Text>
-              <View style={styles.listItemContainer}>              
+              <View style={styles.listContainer}>              
                 <List>
                   <ListItem
                     thumbnail 
                     onPress={() => {console.log('...')}} 
                   >
-                    <Left>
-                      <MaterialIcon name="group" style={styles.listItemLeftImage} />
-                    </Left>
-                    <Body>
-                      <Text style={styles.listItemTitle}>
-                        {_t('Charge Free')}
-                      </Text>
-                    </Body>
-                    <Right>
-                      <MaterialIcon name={"chevron-right"} style={styles.listItemRightImage} />
-                    </Right>
+                    <TouchableScale style={styles.listItemContainer}>
+                      <LinearGradient colors={['#07E28E', '#36F7AD']} style={styles.linearGradient}>
+                        <Left>
+                          <MaterialIcon name="flash-on" style={styles.linearImage} />
+                        </Left>
+                        <Body>
+                          <Text style={styles.linearTitle}>
+                            {_t('Charge Free')}
+                          </Text>
+                        </Body>
+                        <Right>
+                          <MaterialIcon name="chevron-right" style={styles.linearImage} />
+                        </Right>
+                      </LinearGradient>
+                    </TouchableScale>
                   </ListItem>
                   {
                     menuList.map((item, i) => (

@@ -3,22 +3,29 @@ import {
   View,
   TouchableOpacity,
   ImageBackground,
+  Modal,
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { colors } from '../../styles';
 import { Text } from '../../components/StyledText';
 import styles from './styles';
+import ProfileMenuViewContainer from './menu/ProfileMenuViewContainer'
 
 export default class ProfileView extends Component {
   state = {
+    menuVisible: true,
+  }
+  
+  componentWillMount() {
 
   }
   
-  componentDidMount() {
-    Actions['login']();
+  setMenuVisible(visible) {
+    this.setState({menuVisible: visible});
   }
-  
+
   render() {
+    const { menuVisible } = this.state
     return (
       <View style={styles.container}>
         <ImageBackground
@@ -69,6 +76,7 @@ export default class ProfileView extends Component {
             </View>
           </View>
         </ImageBackground>
+        <ProfileMenuViewContainer visiable={menuVisible} />
       </View>
     );
   }

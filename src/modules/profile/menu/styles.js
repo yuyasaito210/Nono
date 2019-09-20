@@ -29,20 +29,16 @@ const styles = StyleSheet.create({
       color: colors.primary,
       fontWeight: '600',
       paddingTop: 40,
-      paddingBottom: 20
+      paddingBottom: 20,
+      paddingLeft: 15,
+      paddingRight: 10
     },
-    description: {
-      padding: 15,
-      lineHeight: 25,
-    },
-    titleDescription: {
-      color: colors.introText,
-      textAlign: 'center',
-      //fontFamily: fonts.primaryRegular,
-      fontSize: 15,
+    listContainer: {
+      width: '100%',
+      paddingLeft: 0
     },
     listItemContainer: {
-      width: '100%'
+      flex: 1
     },
 
     listItemTitleContainer: {
@@ -50,7 +46,7 @@ const styles = StyleSheet.create({
     },
     listItemTitle: {
       alignItems: 'flex-start',
-      fontSize: 15,
+      fontSize: 16,
       fontWeight: '400',
       color: colors.black
     },
@@ -72,6 +68,23 @@ const styles = StyleSheet.create({
       backgroundColor: colors.white,
       fontSize: 24
     },
+    linearGradient: {
+      paddingLeft: 8,
+      borderRadius: 15,
+      flexDirection: 'row'
+    },
+    linearImage: {
+      alignSelf: 'center',
+      color: colors.white,
+      fontSize: 24,
+      backgroundColor: 'transparent',
+    },
+    linearTitle: {
+      alignItems: 'flex-end',
+      color: colors.white,
+      fontSize: 16,
+      fontWeight: '600'
+    }
   });
   
   export default styles;
