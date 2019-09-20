@@ -1,4 +1,5 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, StatusBar } from 'react-native';
+import Layout from '../../constants/Layout';
 import { fonts, colors } from '../../styles';
 
 const styles = StyleSheet.create({
@@ -47,6 +48,30 @@ const styles = StyleSheet.create({
       borderBottomWidth: 1,
       borderBottomColor: colors.primary,
     },
+    profileMenuContainer: {
+      flex: 1,
+      alignItems: 'flex-start',
+      justifyContent: 'flex-start',
+      marginTop:( Platform.OS === 'android') 
+                ? StatusBar.currentHeight 
+                : (Layout.isIPhoneX ? 45 : 0)
+    },
+    profileMenuContent: {
+      alignItems: 'flex-start',
+      justifyContent: 'flex-start',
+      height: '85%',
+      width: '85%',
+      borderWidth: 1,
+      backgroundColor: colors.white,
+      borderColor: '#CCC',
+      borderRadius: 8,
+      padding: 10
+    },
+    profileMenuTitle: {
+      fontSize: 23,
+      color: colors.primary,
+      
+    }
   });
   
   export default styles;

@@ -4,10 +4,11 @@ const dim = Dimensions.get('window');
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
 
+<<<<<<< HEAD
 export const W = width;
 export const H = height;
 export const em = width/375;
-
+=======
 export function isIPhoneXSize(dim) {
   return dim.height == 812 || dim.width == 812;
 }
@@ -19,6 +20,7 @@ export function isIPhoneXrSize(dim) {
 export function isIPhoneX() {
   return (Platform.OS === 'ios') && (isIPhoneXSize(dim) || isIPhoneXrSize(dim))
 }
+>>>>>>> 9b4fef22b702e0ef980792328b5a4b82343ade41
 
 export default {
   window: {
