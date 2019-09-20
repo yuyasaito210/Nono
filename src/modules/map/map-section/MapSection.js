@@ -9,7 +9,7 @@ export default class MapSection extends React.Component {
 		currentLocation: null
 	}
 	componentDidMount() {
-		// this.getCurrentPosition();
+		this.getCurrentPosition();
 	}
 	render() {
 		const { region } = this.props;
@@ -36,21 +36,24 @@ export default class MapSection extends React.Component {
     ))
 	}
 	getCurrentPosition() {
-		navigator.geolocation.watchPosition(
-			position => {
+		/*
+		navigator.geolocation.getCurrentPosition(
+      (position) => {
 				this.setState({
 					...this.state,
 					currentLocation: position.coords
 				})
+				
 			}
 		)
+		*/
 	}
 }
 
 const MarkerOfMine = ({currentLocation}) => {
 	return (
 		<Marker coordinate={currentLocation}>
-			<Image source={require('../assets/currentLocation.png')} style={styles.MarkerOfMine} />				
+			<Image source={require('images/currentLocation.png')} style={styles.MarkerOfMine} />				
 		</Marker>
 	)
 }

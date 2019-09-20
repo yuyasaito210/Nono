@@ -96,7 +96,6 @@ class NonoRoutes extends Component {
 						key={'authorized'}
 						tabs={false}
 						tabBarIcon={TabIcon}
-						hideNavBar
 						initial
 					>
 						{/* <Drawer

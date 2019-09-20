@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, ImageBackground, Text, Image, TouchableOpacity } from 'react-native';
 import { Button } from 'native-base';
-import { styles } from './LockDialog.style';
+import { styles } from './UnlockDialog.style';
 
 class LockDialog extends React.Component {
   render = () => {
@@ -11,7 +11,7 @@ class LockDialog extends React.Component {
           <Topbar />
           <View style={styles.contentContainer}>
             <View style={styles.contentDeputeImageContainer}>
-              <Image source={require('../assets/code-parrainage.png')}/>
+              <Image source={require('images/code-parrainage.png')}/>
             </View>
             <View style={styles.contentTitleContainer}>
               <Text style={styles.contentTitle}>Code de parrainage</Text>
@@ -36,7 +36,7 @@ class LockDialog extends React.Component {
                 THEO1827nono
                 </Text>
                 <TouchableOpacity style={styles.codeShareButton}>
-                  <Image source={require('../assets/code-share.png')}></Image>
+                  <Image source={require('images/code-share.png')}></Image>
                 </TouchableOpacity>
               </View>
             </View>
@@ -49,7 +49,7 @@ class LockDialog extends React.Component {
 
 const Wrapper = (props) => (
   <View style={styles.wrapperContainer}>
-    <ImageBackground source={require('../assets/LockDialogBg.png')} style={styles.wrapperBg}>
+    <ImageBackground source={require('images/LockDialogBg.png')} style={styles.wrapperBg}>
       {props.children}
     </ImageBackground>
   </View>
@@ -63,7 +63,7 @@ const Topbar = () => (
 
 const BackButton = () => (
   <TouchableOpacity style={styles.topbarBackButton}>
-    <Image source={require('../assets/arrow-blue.png')} />
+    <Image source={require('images/arrow-blue.png')} />
   </TouchableOpacity>
 )
 

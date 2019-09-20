@@ -14,7 +14,7 @@ import { colors, fonts } from '../styles';
 const borderRadius = 20;
 
 export default function RNSButton(props) {
-  const caption = props.caption && props.caption.toUpperCase();
+  const caption = props.caption && props.caption;
   let icon;
   if (props.icon) {
     icon = (

@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { em } from '../../../constants/Layout';
+import { em } from '~/constants/Layout';
 
 export const wrapperStyles = StyleSheet.create({
   container: {

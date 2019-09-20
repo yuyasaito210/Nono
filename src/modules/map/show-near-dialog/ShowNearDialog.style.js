@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import Layout, { em } from '../../../constants/Layout';
+import Layout, { em } from '~/constants/Layout';
 
 export const headerBarStyles = StyleSheet.create({
   container: {
@@ -24,12 +24,13 @@ export const itemStyles = StyleSheet.create({
     position: 'relative',
     width: 288*em, height: 120*em,
     marginLeft: 20*em, marginTop: 15*em, marginBottom: 15*em,
-    shadowColor: '#000', shadowOpacity: 0.20, shadowRadius: 1.41, 
-    shadowOffset: { width: 0, height: 1 }, elevation: 2, 
     flexDirection: 'row'
   },
+  containerBg: {
+    width: 288*em, height: 120*em,
+  },
   imageContainer: {
-
+    overflow: 'hidden'
   },
   image: {
     width: 40*em, height: 40*em,
@@ -57,7 +58,14 @@ export const itemStyles = StyleSheet.create({
 
 export const bottomBarStyles = StyleSheet.create({
   container: {
-    marginHorizontal: 20*em
+    marginHorizontal: 20*em,
+    flexDirection: 'row', justifyContent: 'space-between'
+  },
+  searchButtonContainer: {
+    width: 190*em
+  },
+  resetButtonContainer: {
+    width: 130*em
   }
 })
 
@@ -95,7 +103,7 @@ export const showNearWrapperStyles = StyleSheet.create({
   container: {
     borderTopLeftRadius: 20*em, borderTopRightRadius: 20*em,
     backgroundColor: '#fff',
-    height: 240*em,
+    height: 280*em,
     position: 'relative'
   },
   bgImageContainer: {

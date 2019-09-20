@@ -11,31 +11,31 @@ export default class MapButtonsLayer extends React.Component {
       <View style={wrapperStyles.container}>
         {profile && 
           <Button style={[buttonStyles.button, buttonStyles.profileButton]}>
-            <Image source={require('../assets/profile.png')}/>
+            <Image source={require('images/profile.png')}/>
           </Button>
         }
 
         {gift && 
           <Button style={[buttonStyles.button, buttonStyles.giftbutton]}>
-            <Image source={require('../assets/gift.png')}/>
+            <Image source={require('images/gift.png')}/>
           </Button>
         }
 
         {search && 
           <Button style={[buttonStyles.button, buttonStyles.searchbutton]}>
-            <Image source={require('../assets/search.png')}/>
+            <Image source={require('images/search.png')}/>
           </Button>
         }
 
         {refresh && 
           <Button style={[buttonStyles.button, buttonStyles.refreshbutton]}>
-            <Image source={require('../assets/refresh.png')}/>
+            <Image source={require('images/refresh.png')}/>
           </Button>
         }
 
         {target && 
           <Button style={[buttonStyles.button, buttonStyles.targetbutton]}>
-            <Image source={require('../assets/position.png')}/>
+            <Image source={require('images/position.png')}/>
           </Button>
         }
       </View>

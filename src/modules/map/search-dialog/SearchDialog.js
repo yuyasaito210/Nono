@@ -74,7 +74,7 @@ export default class SearchDialog extends React.Component {
 const Wrapper = ({ children, dialogStatus }) => (
   <View style={dialogStatus=='until'?wrapperStyles.container:[wrapperStyles.container, wrapperStyles.containerExpanded]}>
     <View style={wrapperStyles.bgImageContainer}>
-      <Image source={require('../assets/slide.png')} style={wrapperStyles.bgImage}/>
+      <Image source={require('images/slide.png')} style={wrapperStyles.bgImage}/>
     </View>
     {children}
   </View>
@@ -87,7 +87,7 @@ class SearchBar extends React.Component {
       <>
         <View style={barStyles.container}>
           <View style={barStyles.inputContainer}>
-            <Image source={require('../assets/search.png')} style={barStyles.searchIcon}/>
+            <Image source={require('images/search.png')} style={barStyles.searchIcon}/>
             <TextInput style={barStyles.searchText} placeholder='Rechercher' onChangeText={text => onChangeSearch(text)}/>
           </View>
           <View>
@@ -132,7 +132,7 @@ const SearchResultItem = ({searchResult}) => (
         <Text style={{left: 20, color: '#35CDFA'}}>6 places</Text>
       </View>
       <View style={resultStyles.itemGo}>
-        <Image source={require('../assets/go.png')} style={resultStyles.goImage}/>
+        <Image source={require('images/go.png')} style={resultStyles.goImage}/>
         <Text style={{color: '#35CDFA', marginLeft: 5, fontSize: 18}}>Go 2mn - 200m</Text>
       </View>
     </View>

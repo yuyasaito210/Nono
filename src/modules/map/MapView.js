@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
-import MapSection from './components/MapSection';
-import MapButtonsLayer from './components/MapButtonsLayer';
-import UnlockBox from './components/UnlockBox';
-import LockDialog from './components/LockDialog';
-import SearchDialog from './components/SearchDialog';
-import ShowNearDialog from './components/ShowNearDialog';
+import MapSection from './map-section/MapSection';
+import MapButtonsLayer from './map-buttons/MapButtonsLayer';
+import UnlockBox from './unlock-box/UnlockBox';
+import UnlockDialog from './unlock-dialog/UnlockDialog';
+import SearchDialog from './search-dialog/SearchDialog';
+import ShowNearDialog from './show-near-dialog/ShowNearDialog';
+import ReservableListDialog from './reservable-list-dialog/ReservableListDialog';
+import FilterDialog from './filter-dialog/FilterDialog';
 
 import styles from './styles';
 
@@ -13,7 +15,7 @@ import styles from './styles';
 // openShowNearDialog
 export default class MapScreen extends Component {
   state = {
-    pageStatus: 'openShowNearDialog',
+    pageStatus: 'openFilterDialog',
     region: {
       latitude: 37.321996988,
       longitude: -122.0325472123455,
@@ -34,9 +36,8 @@ export default class MapScreen extends Component {
           latitude: 37.301996988,
           longitude: -122.0525472123455,
         }
-      },
-    ],
-
+      }
+    ]
   };
 
   componentWillReceiveProps = (nextProps) => {
@@ -62,14 +63,20 @@ export default class MapScreen extends Component {
               <UnlockBox onUnlock={this.openLockDialog} />
             </>
           }
-          {pageStatus=='openLockDialog' && 
-            <LockDialog />
+          {pageStatus=='openUnlockDialog' && 
+            <UnlockDialog />
           }
           {pageStatus=='openSearchDialog' && 
             <SearchDialog />
           }
           {pageStatus=='openShowNearDialog' && 
             <ShowNearDialog />
+          }
+          {pageStatus=='openReservableListDialog' && 
+            <ReservableListDialog />
+          }
+          {pageStatus=='openFilterDialog' && 
+            <FilterDialog />
           }
         </View>
       </>
