@@ -544,8 +544,12 @@
 			files = (
 			);
 			inputPaths = (
+<<<<<<< HEAD
 				"${PODS_ROOT}/Target Support Files/Pods-nono/Pods-nono-resources.sh",
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+=======
+				"${SRCROOT}/Pods/Target Support Files/Pods-nono/Pods-nono-resources.sh",
+>>>>>>> 717fc8ff40662a1f8eecbbe44deeda5a8cd3585b
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf",
@@ -585,7 +589,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-nono/Pods-nono-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-nono/Pods-nono-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EDDA405A00EDFF74E8EED257 /* [CP] Check Pods Manifest.lock */ = {
