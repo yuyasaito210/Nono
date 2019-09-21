@@ -101,6 +101,8 @@ PODS:
     - React
   - RNLocalize (1.2.1):
     - React
+  - RNRangeSlider (1.2.8):
+    - React
   - RNSVG (9.9.4):
     - React
   - RNVectorIcons (6.6.0):
@@ -136,6 +138,7 @@ DEPENDENCIES:
   - RNAwesomeCardIO (from `../node_modules/react-native-awesome-card-io`)
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNLocalize (from `../node_modules/react-native-localize`)
+  - RNRangeSlider (from `../node_modules/rn-range-slider`)
   - RNSVG (from `../node_modules/react-native-svg`)
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - yoga (from `../node_modules/react-native/ReactCommon/yoga`)
@@ -201,6 +204,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-gesture-handler"
   RNLocalize:
     :path: "../node_modules/react-native-localize"
+  RNRangeSlider:
+    :path: "../node_modules/rn-range-slider"
   RNSVG:
     :path: "../node_modules/react-native-svg"
   RNVectorIcons:
@@ -238,10 +243,11 @@ SPEC CHECKSUMS:
   RNAwesomeCardIO: 3a48cf16f3de5296d424a00e48c7932e5c888340
   RNGestureHandler: 311e3b1cef021a7c9ef31e97e7dc31970cc6288d
   RNLocalize: 5ba45baff82072a1954f5882b2a64d784d326b20
+  RNRangeSlider: 5e7af8378cad86e50fc5c45b4e0b23388c0e3ea3
   RNSVG: 2e097b92aaa6d4e0f354fd7c49cbf3b17f8b3920
   RNVectorIcons: 66af4d5c8ff4f584c7b7cd9c4b0780920f27fce2
   yoga: 88c514f310aff89b94a14c5fbf44b95735af0cb7
 
-PODFILE CHECKSUM: 08eb2606c29d14fdf5d7346c51f26f48517c9602
+PODFILE CHECKSUM: aee094d4fcf512502b556da1338cc4a4e2281199
 
 COCOAPODS: 1.5.3

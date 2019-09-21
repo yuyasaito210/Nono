@@ -1,10 +1,23 @@
 import React, { Component } from 'react';
-import MapView, { Marker, ProviderPropType } from 'react-native-maps';
+import { View } from 'react-native';
+import MapSection from './map-section/MapSection';
+import MapButtonsLayer from './map-buttons/MapButtonsLayer';
+import UnlockBox from './unlock-box/UnlockBox';
+import UnlockDialog from './unlock-dialog/UnlockDialog';
+import SearchDialog from './search-dialog/SearchDialog';
+import ShowNearDialog from './show-near-dialog/ShowNearDialog';
+import ReservableListDialog from './reservable-list-dialog/ReservableListDialog';
+import FilterDialog from './filter-dialog/FilterDialog';
+import FinishDialog from './finish-dialog/FinishDialog';
+import StationDialog from './station-dialog/StationDialog';
 
 import styles from './styles';
 
+
+// openShowNearDialog
 export default class MapScreen extends Component {
   state = {
+    pageStatus: 'openStationDialog',
     region: {
       latitude: 37.321996988,
       longitude: -122.0325472123455,
@@ -17,8 +30,6 @@ export default class MapScreen extends Component {
         coords: {
           latitude: 37.351996988,
           longitude: -122.0425472123455,
-          latitudeDelta: 0.0922,
-          longitudeDelta: 0.0421
         }
       },
       {
@@ -26,12 +37,9 @@ export default class MapScreen extends Component {
         coords: {
           latitude: 37.301996988,
           longitude: -122.0525472123455,
-          latitudeDelta: 0.0922,
-          longitudeDelta: 0.0421
         }
-      },
-    ],
-    
+      }
+    ]
   };
 
   componentWillReceiveProps = (nextProps) => {
@@ -39,28 +47,113 @@ export default class MapScreen extends Component {
     if (region && places) this.setState({region, places});
   };
 
-  renderMarkers() {
-    return this.state.places.map((place, i) => (
-      <Marker key={i} title={place.name} coordinate={place.coords} />
-    ))
-  };
-
   render = () => {
-    const { region } = this.state
+    const { pageStatus, region, places } = this.state
     return (
-      <MapView
-        style={styles.container}
-        provider={this.props.provider}
-        region={region}
-        showsUserLocation
-        showsMyLocationButton
-      >
-        {this.renderMarkers()}
-      </MapView>
+      <>
+        <View style={styles.container}>
+          {pageStatus!='openUnlockDialog' &&
+            <MapSection region={region} places={places} />
+          }          
+          {pageStatus=='locked' && 
+            <>
+              <MapButtonsLayer 
+                profile
+                gift
+                search onSearch={this.openSearchDialog.bind(this)}
+                refresh
+                target
+                bottomExtra={80}
+              />
+              <UnlockBox onPressUnlockButton={this.openUnlockDialog.bind(this)} />
+            </>
+          }
+          {pageStatus=='openUnlockDialog' && 
+            <UnlockDialog onPressUnlockButton={this.openShowNearDialog.bind(this)}/>
+          }
+          {pageStatus=='openSearchDialog' && 
+            <>
+              <MapButtonsLayer 
+                profile
+                gift
+                bottomExtra={80}
+              />
+              <SearchDialog />
+            </>            
+          }
+          {pageStatus=='openShowNearDialog' && 
+            <>
+              <MapButtonsLayer 
+                profile
+                gift
+                search onSearch={this.openSearchDialog.bind(this)}
+                refresh
+                target
+                bottomExtra={320}
+              />
+              <ShowNearDialog />
+            </>            
+          }
+          {pageStatus=='openReservableListDialog' && 
+            <>
+              <MapButtonsLayer 
+                profile
+                gift
+                search onSearch={this.openSearchDialog.bind(this)}
+                refresh
+                target
+                bottomExtra={320}
+              />
+              <ReservableListDialog />
+            </>
+          }
+          {pageStatus=='openFilterDialog' && 
+            <>
+              <MapButtonsLayer 
+                profile
+                gift
+                search onSearch={this.openSearchDialog.bind(this)}
+                refresh
+                target
+                bottomExtra={320}
+              />
+              <FilterDialog />
+            </>            
+          }
+          {pageStatus=='openStationDialog' && 
+            <>
+              <MapButtonsLayer 
+                profile
+                gift
+                bottomExtra={80}
+              />
+              <StationDialog />
+            </>            
+          }
+          {pageStatus=='openFinishDialog' && 
+            <FinishDialog />
+          }
+        </View>
+      </>
     )
   };
-}
 
-MapScreen.propTypes = {
-  provider: ProviderPropType,
-};
+  openUnlockDialog = () => {
+    this.setState({
+      ...this.state,
+      pageStatus: 'openUnlockDialog'
+    })
+  }
+  openSearchDialog = () => {
+    this.setState({
+      ...this.state,
+      pageStatus: 'openSearchDialog'
+    })
+  }
+  openShowNearDialog = () => {
+    this.setState({
+      ...this.state,
+      pageStatus: 'openShowNearDialog'
+    })
+  }
+}

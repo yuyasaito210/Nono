@@ -1,7 +1,15 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 import { fonts, colors } from '../../styles';
+import { W, H, em } from '~/constants/Layout';
 
 const styles = StyleSheet.create({
+  container: {
+    position: 'relative',
+    width: W, height: H
+  }
+})
+/*
+const styles = StyleSheet.create({  
     container: {
       flex: 1,
       alignItems: 'center',
@@ -34,7 +42,7 @@ const styles = StyleSheet.create({
     titleDescription: {
       color: colors.introText,
       textAlign: 'center',
-      //fontFamily: fonts.primaryRegular,
+      fontFamily: fonts.primaryRegular,
       fontSize: 15,
     },
     title: {
@@ -48,5 +56,6 @@ const styles = StyleSheet.create({
       borderBottomColor: colors.primary,
     },
   });
+*/
   
 export default styles;

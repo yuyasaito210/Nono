@@ -10,6 +10,8 @@
   "dependencies": {
     "add": "^2.0.6",
     "axios": "^0.19.0",
+    "babel": "^6.23.0",
+    "babel-plugin-module-alias": "^1.6.0",
     "firebase": "^6.6.1",
     "i18n-js": "^3.3.0",
     "lodash": "^4.17.15",
@@ -56,6 +58,7 @@
     "redux-storage": "^4.1.2",
     "redux-storage-engine-reactnativeasyncstorage": "^1.0.5",
     "redux-thunk": "^2.3.0",
+    "rn-range-slider": "^1.2.8",
     "victory-native": "^33.0.0",
     "yarn": "^1.17.3"
   },
@@ -64,6 +67,7 @@
     "@babel/runtime": "^7.6.0",
     "@react-native-community/eslint-config": "^0.0.5",
     "babel-jest": "^24.9.0",
+    "babel-plugin-root-import": "^6.4.1",
     "eslint": "^6.4.0",
     "jest": "^24.9.0",
     "metro-react-native-babel-preset": "^0.56.0",
