@@ -38,7 +38,8 @@ export default class MapSection extends React.Component {
     ))
 	}
 	getCurrentPosition() {
-		return
+		console.log(navigator.geolocation);
+		return;
 		navigator.geolocation.getCurrentPosition(
 			(position) => {
 				console.log(position)

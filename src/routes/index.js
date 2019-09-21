@@ -120,7 +120,7 @@ class NonoRoutes extends Component {
 								key={'rent_battery'}
 								tabBarLabel="Rent Battery"
 								iconSource={iconGrids}
-								header={Header('Rent Battery')}
+								header={Header('Rent Battery')}								
 							>
 								<Scene
 									key='_rent_battery'
