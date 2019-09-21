@@ -8,6 +8,8 @@ import SearchDialog from './search-dialog/SearchDialog';
 import ShowNearDialog from './show-near-dialog/ShowNearDialog';
 import ReservableListDialog from './reservable-list-dialog/ReservableListDialog';
 import FilterDialog from './filter-dialog/FilterDialog';
+import FinishDialog from './finish-dialog/FinishDialog';
+import StationDialog from './station-dialog/StationDialog';
 
 import styles from './styles';
 
@@ -15,7 +17,7 @@ import styles from './styles';
 // openShowNearDialog
 export default class MapScreen extends Component {
   state = {
-    pageStatus: 'openFilterDialog',
+    pageStatus: 'openStationDialog',
     region: {
       latitude: 37.321996988,
       longitude: -122.0325472123455,
@@ -50,43 +52,108 @@ export default class MapScreen extends Component {
     return (
       <>
         <View style={styles.container}>
-          <MapSection region={region} places={places} />
+          {pageStatus!='openUnlockDialog' &&
+            <MapSection region={region} places={places} />
+          }          
           {pageStatus=='locked' && 
             <>
               <MapButtonsLayer 
                 profile
                 gift
-                search
+                search onSearch={this.openSearchDialog.bind(this)}
                 refresh
                 target
+                bottomExtra={80}
               />
-              <UnlockBox onUnlock={this.openLockDialog} />
+              <UnlockBox onPressUnlockButton={this.openUnlockDialog.bind(this)} />
             </>
           }
           {pageStatus=='openUnlockDialog' && 
-            <UnlockDialog />
+            <UnlockDialog onPressUnlockButton={this.openShowNearDialog.bind(this)}/>
           }
           {pageStatus=='openSearchDialog' && 
-            <SearchDialog />
+            <>
+              <MapButtonsLayer 
+                profile
+                gift
+                bottomExtra={80}
+              />
+              <SearchDialog />
+            </>            
           }
           {pageStatus=='openShowNearDialog' && 
-            <ShowNearDialog />
+            <>
+              <MapButtonsLayer 
+                profile
+                gift
+                search onSearch={this.openSearchDialog.bind(this)}
+                refresh
+                target
+                bottomExtra={320}
+              />
+              <ShowNearDialog />
+            </>            
           }
           {pageStatus=='openReservableListDialog' && 
-            <ReservableListDialog />
+            <>
+              <MapButtonsLayer 
+                profile
+                gift
+                search onSearch={this.openSearchDialog.bind(this)}
+                refresh
+                target
+                bottomExtra={320}
+              />
+              <ReservableListDialog />
+            </>
           }
           {pageStatus=='openFilterDialog' && 
-            <FilterDialog />
+            <>
+              <MapButtonsLayer 
+                profile
+                gift
+                search onSearch={this.openSearchDialog.bind(this)}
+                refresh
+                target
+                bottomExtra={320}
+              />
+              <FilterDialog />
+            </>            
+          }
+          {pageStatus=='openStationDialog' && 
+            <>
+              <MapButtonsLayer 
+                profile
+                gift
+                bottomExtra={80}
+              />
+              <StationDialog />
+            </>            
+          }
+          {pageStatus=='openFinishDialog' && 
+            <FinishDialog />
           }
         </View>
       </>
     )
   };
 
-  openLockDialog = () => {
+  openUnlockDialog = () => {
     this.setState({
       ...this.state,
-      pageStatus: 'openLockDialog'
+      pageStatus: 'openUnlockDialog'
+    })
+  }
+  openSearchDialog = () => {
+    this.setState({
+      ...this.state,
+      pageStatus: 'openSearchDialog'
+    })
+  }
+  openShowNearDialog = () => {
+    this.setState({
+      ...this.state,
+      pageStatus: 'openShowNearDialog'
     })
   }
 }

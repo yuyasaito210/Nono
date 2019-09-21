@@ -1,9 +1,16 @@
 import { StyleSheet } from 'react-native';
-import { em } from '~/constants/Layout';
+import { W, H, em } from '~/constants/Layout';
 
 export const wrapperStyles = StyleSheet.create({
-  container: {
-    zIndex: 10
+  outerContainer: {
+    position: 'absolute',    
+    left: 0, top: 0,
+    width: W, height: H,
+    zIndex: 10,
+  },
+  container: {    
+    position: 'relative',
+    width: '100%', height: '100%'
   }
 })
 
@@ -21,14 +28,14 @@ export const buttonStyles = StyleSheet.create({
     right: 20*em, top: 50*em 
   },
   searchbutton: { 
-    right: 20*em, top: 320*em 
+    right: 20*em, bottom: 140*em 
   },
   refreshbutton: { 
-    right: 20*em, top: 387*em,
+    right: 20*em, bottom: 71*em,
     borderTopLeftRadius:20*em,  borderTopRightRadius:20*em,  borderBottomLeftRadius:1*em, borderBottomRightRadius:1*em
   },
   targetbutton: { 
-    right: 20*em, top: 360*em, 
+    right: 20*em, bottom: 20*em, 
     borderTopLeftRadius:1*em,  borderTopRightRadius:1*em,  borderBottomLeftRadius:20*em, borderBottomRightRadius:20*em
   }
 })

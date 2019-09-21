@@ -9,5 +9,8 @@ export const mapStyles = StyleSheet.create({
   },
   markerOfMine: {
     width: 150*em, height: 150*em
+  },
+  marker: {
+    width: 40*em, height: 40*em
   }
 })

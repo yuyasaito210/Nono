@@ -1,11 +1,11 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 import { fonts, colors } from '../../styles';
-import Layout, { em } from '../../constants/Layout';
+import { W, H, em } from '~/constants/Layout';
 
 const styles = StyleSheet.create({
   container: {
     position: 'relative',
-    width: Layout.window.width, height: Layout.window.height
+    width: W, height: H
   }
 })
 /*

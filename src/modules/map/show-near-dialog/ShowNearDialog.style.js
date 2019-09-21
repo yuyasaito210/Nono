@@ -27,7 +27,8 @@ export const itemStyles = StyleSheet.create({
     flexDirection: 'row'
   },
   containerBg: {
-    width: 288*em, height: 120*em,
+    width: 288*em, height: 100*em,
+    flexDirection: 'row'
   },
   imageContainer: {
     overflow: 'hidden'
@@ -36,24 +37,41 @@ export const itemStyles = StyleSheet.create({
     width: 40*em, height: 40*em,
     borderRadius: 15, borderWidth: 1
   },
+
+  itemDesc: {
+    left: 10*em,  fontSize: 16*em, 
+  },
+
   title: {
-
+    fontSize: 16*em, fontWeight: "bold"
   },
-  openHour1: {
-
+  
+  desc: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    top: 5*em,
   },
-  openHour2: {
 
+  itemOuvert: {
+    color: '#07E28E', fontSize: 12*em,
   },
+
   batteriesAndPlaces: {
-    flexDirection: 'row'
+    top: 10*em, left: -15*em,
+    color: '#35CDFA',
+    flexDirection: 'row',
+    justifyContent: 'flex-end'
   },
   batteries: {
-
+    color: '#35CDFA'
   },
   places: {
+    color: '#35CDFA', left: 25*em,
+  },
 
-  }
+
+
+  
 })
 
 export const bottomBarStyles = StyleSheet.create({
@@ -72,7 +90,7 @@ export const bottomBarStyles = StyleSheet.create({
 export const filterWrapperStyles = StyleSheet.create({
   container: {
     borderTopLeftRadius: 30*em, borderTopRightRadius: 30 *em,
-    position: 'absolute', left: 0, bottom: 80*em, zIndex: 20,
+    position: 'absolute', left: 0, bottom: 0, zIndex: 20,
     width: Layout.window.width, 
     backgroundColor: '#35CDFA'
   },
@@ -103,7 +121,7 @@ export const showNearWrapperStyles = StyleSheet.create({
   container: {
     borderTopLeftRadius: 20*em, borderTopRightRadius: 20*em,
     backgroundColor: '#fff',
-    height: 280*em,
+    height: 260*em,
     position: 'relative'
   },
   bgImageContainer: {

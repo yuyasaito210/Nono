@@ -2,6 +2,7 @@ import React from 'react';
 import { View, TextInput, Image, Text, ImageBackground, TouchableOpacity } from 'react-native';
 import { Button } from 'native-base';
 import { wrapperStyles, barStyles, resultStyles } from './SearchDialog.style'
+import { em } from '~/constants/Layout';
 
 export default class SearchDialog extends React.Component {
   // searchResults - temporary variable to hold station infos
@@ -26,14 +27,17 @@ export default class SearchDialog extends React.Component {
     if (searchText == '') {
       this.setState({
         ...this.state,
-        dialogStatus: 'until'
+        dialogStatus: 'until',
+        searchResults: []
       })
       return
     }
+    /*
     this.setState({
       ...this.state,
       dialogStatus: 'searching'
-    })
+    })    
+    */   
 
     // after searched
     // just for test
@@ -63,6 +67,7 @@ export default class SearchDialog extends React.Component {
         distance: 'Go 2min-200m'
       }
     ]
+
     this.setState({
       ...this.state,
       searchResults,
@@ -103,8 +108,7 @@ class SearchBar extends React.Component {
 
 class SearchResultList extends React.Component {
   render = () => {
-    const { searchResults } = this.props;
-    console.log(searchResults)
+    const { searchResults, dialogStatus } = this.props;
     return (
       <View style={resultStyles.container}>
         {searchResults.map((searchResult, key) => (
@@ -124,8 +128,8 @@ const SearchResultItem = ({searchResult}) => (
       <Text style={resultStyles.itemTitle}>{searchResult.title}</Text>
       <View style={{flexDirection: 'row', justifyContent: 'flex-end'}}>
         <Text style={resultStyles.itemOuvert}>Ouvert</Text>
-        <Text style={resultStyles.itemOuvDesc}> · Ferme à </Text>
-        <Text>22:00</Text>
+        <Text style={{color: '#C9C9CE'}}> · Ferme à </Text>
+        <Text style={{color: '#C9C9CE'}}>22:00</Text>
       </View>
       <View style={resultStyles.itemBattery}>
         <Text style={{color: '#35CDFA'}}>{searchResult.batteries} batteries</Text>
@@ -133,7 +137,7 @@ const SearchResultItem = ({searchResult}) => (
       </View>
       <View style={resultStyles.itemGo}>
         <Image source={require('images/go.png')} style={resultStyles.goImage}/>
-        <Text style={{color: '#35CDFA', marginLeft: 5, fontSize: 18}}>Go 2mn - 200m</Text>
+        <Text style={resultStyles.itemGoText}>Go 2mn - 200m</Text>
       </View>
     </View>
   </View>

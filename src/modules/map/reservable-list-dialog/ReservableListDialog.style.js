@@ -1,10 +1,11 @@
 import { StyleSheet } from 'react-native';
 import { em, W, H } from '~/constants/Layout';
+import { bold } from 'ansi-colors';
 
 const wrapperStyles = StyleSheet.create({
   container: {
     position: 'absolute',
-    left: 0, bottom: 80*em, zIndex: 20,
+    left: 0, bottom: 0, zIndex: 20,
     width: W, height: 320*em,
     borderTopLeftRadius: 30*em, borderTopRightRadius: 30 *em,
     backgroundColor: '#fff'
@@ -21,13 +22,12 @@ const wrapperStyles = StyleSheet.create({
 
 const descStyles = StyleSheet.create({
   container: {
-
   },
   title: {
-    color: '#313131', fontSize: 22*em, fontWeight: 'bold'
+    top: -40*em, color: '#313131', fontSize: 22*em, fontWeight: 'bold', textAlign: "center"
   },
   content: {
-    color: '#313131', fontSize: 14*em
+    top: -30, color: '#313131', fontSize: 14*em, textAlign: "center"
   }
 })
 
@@ -45,7 +45,8 @@ export const itemStyles = StyleSheet.create({
     flexDirection: 'row'
   },
   containerBg: {
-    width: 288*em, height: 120*em,
+    width: 288*em, height: 100*em,
+    flexDirection: 'row'
   },
   imageContainer: {
     overflow: 'hidden'
@@ -54,24 +55,41 @@ export const itemStyles = StyleSheet.create({
     width: 40*em, height: 40*em,
     borderRadius: 15, borderWidth: 1
   },
+
+  itemDesc: {
+    left: 10*em,  fontSize: 16*em, 
+  },
+
   title: {
-
+    fontSize: 16*em, fontWeight: "bold"
   },
-  openHour1: {
-
+  
+  desc: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    top: 5*em,
   },
-  openHour2: {
 
+  itemOuvert: {
+    color: '#07E28E', fontSize: 12*em,
   },
+
   batteriesAndPlaces: {
-    flexDirection: 'row'
+    top: 10*em, left: -15*em,
+    color: '#35CDFA',
+    flexDirection: 'row',
+    justifyContent: 'flex-end'
   },
   batteries: {
-
+    color: '#35CDFA'
   },
   places: {
+    color: '#35CDFA', left: 25*em,
+  },
 
-  }
+
+
+  
 })
 
 const actionBarStyles = StyleSheet.create({

@@ -1,21 +1,22 @@
 import { StyleSheet } from 'react-native';
-import Layout, { em } from '~/constants/Layout';
+import { W, H, em } from '~/constants/Layout';
 
 export const wrapperStyles = StyleSheet.create({
   container: {
     position: 'absolute',
-    left: 0, top: Layout.window.height - 250*em,
-    width: Layout.window.width, height: 250*em,
+    left: 0, bottom: 0,
+    width: W, height: 250*em,
     zIndex: 20,
     backgroundColor: '#fff',
     borderTopLeftRadius: 25*em, borderTopRightRadius: 25*em,
     paddingHorizontal: 20*em
   },
   containerExpanded: {
+    height: 600*em
   },
   bgImageContainer: {
     justifyContent: 'center', alignItems: 'center',
-    width: Layout.window.width, height: 20*em
+    width: W, height: 20*em
   },
   bgImage: {
     width: 40*em, height: 5*em
@@ -84,22 +85,21 @@ export const resultStyles = StyleSheet.create({
   },
 
   itemBattery: {
-    top: 10*em, 
+    top: 10*em, left: -10*em,
     color: '#35CDFA',
     flexDirection: 'row',
     justifyContent: 'flex-end'
   },
 
   itemGo: {
-    left: -25*em, top: 20*em, height: 50*em,
-    color: '#35CDFA',
+    top: 10*em, height: 30*em, color: '#0000',
     flexDirection: 'row',
-    justifyContent: 'flex-end',
-    justifyContent: 'center',
     alignItems: 'center',
   },
   goImage: {
-    // width:15*em, height: 15*em,
-    flex: 1
+  },
+  itemGoText: {
+    left: 5*em,
   }
+  
 })

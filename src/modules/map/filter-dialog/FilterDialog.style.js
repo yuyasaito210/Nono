@@ -4,7 +4,7 @@ import { W, H, em } from '~/constants/Layout';
 const wrapperStyles = StyleSheet.create({
   container: {
     borderTopLeftRadius: 30*em, borderTopRightRadius: 30 *em,
-    position: 'absolute', left: 0, bottom: 80*em, zIndex: 20,
+    position: 'absolute', left: 0, bottom: 0, zIndex: 20,
     width: W, height: 320*em,
     backgroundColor: '#35CDFA'
   },
@@ -31,6 +31,37 @@ const wrapperStyles = StyleSheet.create({
   }
 })
 
+const filterOptionStyles = StyleSheet.create({
+  container: {
+    flexDirection: 'row', justifyContent: 'space-between',
+    marginVertical: 5*em
+  },
+  comboBox: {
+    width: 54*em, height: 30*em
+  },
+  comboBoxInverted: {
+    
+  },
+  text: {
+    fontSize: 20*em, color: '#fff'
+  }
+})
+
+export const bottomBarStyles = StyleSheet.create({
+  container: {
+    flexDirection: 'row', justifyContent: 'space-between',
+    marginTop: 20*em
+  },
+  searchButtonContainer: {
+    width: 120*em
+  },
+  resetButtonContainer: {
+    width: 200*em
+  }
+})
+
 export default {
-  wrapper: wrapperStyles
+  wrapper: wrapperStyles,
+  filterOption: filterOptionStyles,
+  bottomBar: bottomBarStyles
 }

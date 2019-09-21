@@ -5,6 +5,8 @@ import { styles } from './UnlockDialog.style';
 
 class LockDialog extends React.Component {
   render = () => {
+    const { onPressUnlockButton } = this.props;
+
     return (
       <>
         <Wrapper>
@@ -35,8 +37,8 @@ class LockDialog extends React.Component {
                 <Text style={styles.codeShareText}>
                 THEO1827nono
                 </Text>
-                <TouchableOpacity style={styles.codeShareButton}>
-                  <Image source={require('images/code-share.png')}></Image>
+                <TouchableOpacity style={styles.codeShareButton} onPress={onPressUnlockButton}>
+                  <Image source={require('images/code-share.png')} style={{tintColor: '#fff'}}></Image>
                 </TouchableOpacity>
               </View>
             </View>

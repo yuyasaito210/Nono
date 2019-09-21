@@ -74,14 +74,26 @@ const StationItem = ({ item }) => {
         <View style={styles.item.imageContainer}>
           <Image source={{uri: item.image}} style={styles.item.image} />
         </View>
-        <View>
-          <Text style={styles.item.title}>{item.title}</Text>
-          <Text style={styles.item.openHour1}>Ouvert</Text>
-          <Text style={styles.item.openHour2}> · Ferme à {item.openHour}</Text>
+        <View style={styles.item.itemDesc}>
+          <View style={{flexDirection: 'row'}}>
+            <Text style={styles.item.title}>{item.title}</Text>
+            
+            <TouchableOpacity style={{left: 170}}>
+              <Image source={require('images/options.png')} />
+            </TouchableOpacity>
+          </View>
+
+          <View style={styles.item.desc}>
+            <Text style={styles.item.itemOuvert}>Ouvert</Text>
+            <Text style={{color: '#C9C9CE'}}> · Ferme à </Text>
+            <Text style={{color: '#C9C9CE'}}>22:00</Text>
+          </View>
+
           <View style={styles.item.batteriesAndPlaces}>
             <Text style={styles.item.batteries}>{item.batteries} batteries</Text>
             <Text style={styles.item.places}>{item.places} places</Text>
-          </View>
+          </View> 
+
         </View>
       </ImageBackground>
     </View>    

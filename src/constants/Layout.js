@@ -5,7 +5,7 @@ const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
 
 export const W = width;
-export const H = height;
+export const H = Platform.OS === 'ios'?height-80:height;
 export const em = width/375;
 
 export function isIPhoneXSize(dim) {
