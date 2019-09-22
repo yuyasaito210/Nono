@@ -5,8 +5,8 @@ import LinearGradient from 'react-native-linear-gradient';
 import { Left, Right, Title, Body } from 'native-base';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 
-
 import { Button } from 'native-base';
+import { Spacer } from '../../../components';
 import { styles } from './UnlockDialog.style';
 
 class UnlockDialog extends React.Component {
@@ -21,14 +21,17 @@ class UnlockDialog extends React.Component {
             <View style={styles.contentDeputeImageContainer}>
               <Image source={require('images/code-parrainage.png')}/>
             </View>
+            <Spacer size={20}/>
             <View style={styles.contentTitleContainer}>
               <Text style={styles.contentTitle}>{_t('Referral Code')}</Text>
               <Text style={styles.contentSubtitle}>{_t('Charge your phone for free')}</Text>
             </View>
+            <Spacer size={20}/>
             <View style={styles.contentDescContainer}>
               <Text style={styles.contentDesc}>
                 {_t('Invite a friend to use nono and win 24h free charge after first use')} 
               </Text>
+              <Spacer size={5}/>
               <Text style={[styles.contentDesc, {marginTop: 20}]}>
                 {_t('Your battery goes down!')}
 
@@ -37,8 +40,10 @@ class UnlockDialog extends React.Component {
                 {_t('Share your code quickly')}
               </Text>
             </View>
+            <Spacer size={20}/>
             <View style={styles.codeContainer}>
               <Text style={styles.codeOverText}>{_t('Share your code')}</Text>
+              <Spacer size={5}/>
               <TouchableScale style={styles.codeShareContainer} onPress={onPressUnlockButton}>
                 <LinearGradient colors={['#07E28E', '#36F7AD']} style={styles.linearGradient}>
                   <Left/>

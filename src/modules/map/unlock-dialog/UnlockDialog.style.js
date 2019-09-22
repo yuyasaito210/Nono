@@ -6,8 +6,8 @@ export const styles = StyleSheet.create({
   wrapperContainer: {
     position: 'absolute',
     left: 0, top: 0,
-    width: Layout.window.width,
-    height: Layout.window.height,
+    width: '100%',
+    height: '100%',
     zIndex: 10,
   },
   wrapperBg: {
@@ -26,7 +26,7 @@ export const styles = StyleSheet.create({
     borderWidth: 0
   },
   contentContainer: {
-    padding: 10*em
+    padding: 20
   },
   contentDeputeImageContainer: {
     alignItems: 'center', justifyContent: 'center',
