@@ -48,7 +48,8 @@ export default function RNSButton(props) {
       styles.caption,
       props.small && styles.captionSmall,
       styles.secondaryCaption,
-      icon && styles.captionWithIcon,
+      icon && !props.rightIcon && styles.captionWithIcon,
+      icon && props.rightIcon && styles.captionWithRightIcon,
       props.primary && {
         color: colors.primary,
       },
@@ -65,12 +66,13 @@ export default function RNSButton(props) {
 
     content = (
       <View style={borderedStyle}>
-        {icon && <View>{icon}</View>}
+        {icon && !props.rightIcon && <View>{icon}</View>}
         {props.loading && <ActivityIndicator color="white" />}
         {!props.loading && props.caption && (
           <Text style={textStyle}>{caption}</Text>
         )}
         {props.children && props.children}
+        {props.rightIcon && <View>{icon}</View>}
       </View>
     );
   } else {
@@ -103,14 +105,15 @@ export default function RNSButton(props) {
           props.action && styles.action,
         ]}
       >
-        {icon && <View>{icon}</View>}
+        {icon && !props.rightIcon && <View>{icon}</View>}
         {props.loading && <ActivityIndicator color="white" />}
         {!props.loading && props.caption && (
           <Text
             style={[
               styles.caption,
               props.small && styles.captionSmall,
-              icon && styles.captionWithIcon,
+              icon && !props.rightIcon && styles.captionWithIcon,
+              icon && props.rightIcon && styles.captionWithRightIcon,
               styles.primaryCaption,
               props.primary && {
                 color: colors.primaryButtonText,
@@ -130,6 +133,7 @@ export default function RNSButton(props) {
           </Text>
         )}
         {!props.loading && props.children && props.children}
+        {props.rightIcon && <View>{icon}</View>}
       </LinearGradient>
     );
   }
@@ -203,6 +207,9 @@ const styles = StyleSheet.create({
   },
   captionWithIcon: {
     marginLeft: 12,
+  },
+  captionWithRightIcon: {
+    marginRight: 12,
   },
   primaryCaption: {
     color: 'white',

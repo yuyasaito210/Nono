@@ -32,20 +32,35 @@ target 'nono' do
   pod 'GoogleMaps'
   pod 'Google-Maps-iOS-Utils'
 
-  target 'nonoTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
+  
+pod 'react-native-camera', :path => '../node_modules/react-native-camera'
 
-  use_native_modules!
-end
+pod 'RNCAsyncStorage', :path => '../node_modules/@react-native-community/async-storage'
 
-target 'nono-tvOS' do
-  # Pods for nono-tvOS
+pod 'ReactNativePermissions', :path => '../node_modules/react-native-permissions'
 
-  target 'nono-tvOSTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
+pod 'RNSVG', :path => '../node_modules/react-native-svg'
+
+pod 'react-native-maps', :path => '../node_modules/react-native-maps'
+
+pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
+
+pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
+
+#  target 'nonoTests' do
+#    inherit! :search_paths
+#    # Pods for testing
+#  end
+#
+#  use_native_modules!
+#end
+#
+#target 'nono-tvOS' do
+#  # Pods for nono-tvOS
+#
+#  target 'nono-tvOSTests' do
+#    inherit! :search_paths
+#    # Pods for testing
+#  end
 
 end

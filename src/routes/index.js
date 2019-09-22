@@ -108,24 +108,27 @@ class NonoRoutes extends Component {
 								tabBarLabel="Map"
 								iconSource={iconCalendar}
 								hideNavBar
-								initial
+								
 							>
 								<Scene
 									key='_map'
 									title='Map'
 									component={MapViewContainer}
+									
 								/>
 							</Stack>
 							<Stack
 								key={'rent_battery'}
 								tabBarLabel="Rent Battery"
 								iconSource={iconGrids}
-								header={Header('Rent Battery')}								
+								hideNavBar
+								initial
 							>
 								<Scene
 									key='_rent_battery'
 									title='Rent Battery'
 									component={RentButteryViewContainer}
+									initial
 								/>
 							</Stack>
 							<Stack

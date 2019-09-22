@@ -17,7 +17,7 @@ import styles from './styles';
 // openShowNearDialog
 export default class MapScreen extends Component {
   state = {
-    pageStatus: 'openSearchDialog',
+    pageStatus: 'openShowNearDialog',
     region: {
       latitude: 37.321996988,
       longitude: -122.0325472123455,
