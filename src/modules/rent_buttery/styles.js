@@ -99,7 +99,7 @@ const mapStyles = StyleSheet.create({
 
 const rentBoxStyles = StyleSheet.create({
   text: {
-    color: '#fff', fontSize: 20*em, textAlign: 'center',
+    color: '#fff', fontSize: 15*em, textAlign: 'center',
     width: W
   },
   row: {
@@ -108,15 +108,47 @@ const rentBoxStyles = StyleSheet.create({
   },
   leftCol: {
     width: 200*em,
-    color: '#fff', fontSize: 18*em
+    color: '#fff', fontSize: 15*em
   },
   rightCol: {
     width: 125*em,
-    color: '#fff', fontSize: 18*em
+    color: '#fff', fontSize: 15*em
   },
   rightColSmall: {
     marginLeft: 180*em,
-    color: '#fff', fontSize: 12*em
+    color: '#fff', fontSize: 10*em
+  }
+})
+
+const feedbackDialogStyles = StyleSheet.create({
+  container: {
+    position: 'absolute', zIndex: 15,
+    left: 25*em, bottom: 30*em,
+    width: 325*em,
+    backgroundColor: '#fff',
+    borderRadius: 25*em,
+    padding: 25*em
+  },
+  fancyImageContainer: {
+    flex: 1, alignItems: 'center', justifyContent: 'center'
+  },
+  textContainer: {
+    flex: 1, alignItems: 'center', justifyContent: 'center'
+  },
+  title: {
+    fontSize: 20*em, fontWeight: 'bold',
+    textAlign: 'center', marginVertical: 10*em
+  },
+  desc: {
+    fontSize: 14*em, textAlign: 'center', width: 200*em, marginLeft: 'auto', marginRight: 'auto', lineHeight: 22*em
+  },
+  buttonContainer: {
+    flex: 1, alignItems: 'center',
+    marginVertical: 10*em
+  },
+  starContainer: {
+    flex:1, alignItems: 'center',
+    marginHorizontal: 20*em, marginVertical: 10*em
   }
 })
 
@@ -126,7 +158,8 @@ export default {
   actionLayer: actionLayerStyles,
   enterCode: enterCodeStyles,
   map: mapStyles,
-  rentBox: rentBoxStyles
+  rentBox: rentBoxStyles,
+  feedbackDialog: feedbackDialogStyles
 }
 
 

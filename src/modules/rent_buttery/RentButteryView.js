@@ -7,10 +7,12 @@ import EnterQRCode from './enter-code/EnterQRCode';
 import MapSection from './map-section/MapSection';
 import MapButtonsLayer from './map-buttons/MapButtonsLayer';
 import RentBox from './rent/RentBox';
+import UnlockBox from './rent/UnlockBox';
+import FeedbackDialog from './feedback/FeedbackDialog';
 
 export default class RentButterryView extends Component {
   state = {
-    pageStatus: 'openRentBox',
+    pageStatus: 'openFeedbackDialog',
     region: {
       latitude: 37.321996988,
       longitude: -122.0325472123455,
@@ -59,6 +61,32 @@ export default class RentButterryView extends Component {
               target
             />
             <RentBox />
+          </>
+        }
+        {pageStatus=='openUnlockBox' && 
+          <>
+            <MapSection region={region} places={places} />
+            <MapButtonsLayer 
+              profile
+              gift
+              search
+              refresh
+              target
+            />
+            <UnlockBox />
+          </>
+        }
+        {pageStatus=='openFeedbackDialog' && 
+          <>
+            <MapSection region={region} places={places} />
+            <MapButtonsLayer 
+              profile
+              gift
+              search
+              refresh
+              target
+            />
+            <FeedbackDialog />
           </>
         }
       </>

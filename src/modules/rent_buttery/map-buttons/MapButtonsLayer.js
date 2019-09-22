@@ -61,7 +61,7 @@ const Button = ({ icon, containerStyle }) => (
     >
       <TouchableOpacity>
         <Image source={icon} />
-      </TouchableOpacity>      
+      </TouchableOpacity>
     </View>
   </>
 )
