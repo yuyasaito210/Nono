@@ -15,7 +15,9 @@ export const styles = StyleSheet.create({
     height: Layout.window.height
   },
   topbarContainer: {
-    
+    marginTop:( Platform.OS === 'android') 
+              ? StatusBar.currentHeight 
+              : (Layout.isIPhoneX ? 25 : 0), 
   },
   topbarBackButton: {
     backgroundColor: 'transparent', 

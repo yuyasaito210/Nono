@@ -18,33 +18,9 @@ import styles from './styles';
 export default class MapScreen extends Component {
   state = {
     pageStatus: 'locked',
-    region: {
-      latitude: 37.321996988,
-      longitude: -122.0325472123455,
-      latitudeDelta: 0.0922,
-      longitudeDelta: 0.0421
-    },
-    places: [
-      {
-        name: 'Place 1',
-        coords: {
-          latitude: 37.351996988,
-          longitude: -122.0425472123455,
-        }
-      },
-      {
-        name: 'Place 2',
-        coords: {
-          latitude: 37.301996988,
-          longitude: -122.0525472123455,
-        }
-      }
-    ]
   };
 
   componentWillReceiveProps = (nextProps) => {
-    const { region, places } = nextProps;
-    if (region && places) this.setState({region, places});
   };
 
   setPageStatus = (pageStatus) => this.setState({pageStatus});
@@ -55,7 +31,7 @@ export default class MapScreen extends Component {
       <>
         <View style={styles.container}>
           {pageStatus!='openUnlockDialog' &&
-            <MapSection region={region} places={places} />
+            <MapSection />
           }          
           {pageStatus=='locked' && 
             <>

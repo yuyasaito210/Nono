@@ -12,6 +12,7 @@ import RentButteryViewContainer from '../modules/rent_buttery/RentButteryViewCon
 import ProfileViewContainer from '../modules/profile/ProfileViewContainer';
 
 import SignupStack from './signup';
+import { GeneralHeader } from './header/header';
 import { colors, fonts } from '../styles';
 import styles from './styles';
 
@@ -54,19 +55,6 @@ class TabIcon extends Component {
 	}
 }
 
-function CommonHeader(title) {
-	const containerStyle = [
-		styles.headerContainer,
-		// { marginTop: Platform.OS === 'ios' ? 0 : StatusBar.currentHeight },
-	];
-	return (
-		<View style={containerStyle}>
-			<Image style={styles.headerImage} source={hederBackground} />
-			<Text style={styles.headerCaption}>{title}</Text>
-		</View>
-	);
-}
-
 class NonoRoutes extends Component {
 	componentDidMount() {
 		// StatusBar.setBarStyle('light-content');
@@ -106,7 +94,7 @@ class NonoRoutes extends Component {
 								key={'map'}
 								tabBarLabel="Map"
 								iconSource={iconCalendar}
-								header={CommonHeader('Map')}
+								header={GeneralHeader('Map')}
 								hideNavBar
 								default
 							>
@@ -120,7 +108,7 @@ class NonoRoutes extends Component {
 								key={'rent_battery'}
 								tabBarLabel="Rent Battery"
 								iconSource={iconGrids}
-								header={CommonHeader('Rent Battery')}
+								header={GeneralHeader('Rent Battery')}
 							>
 								<Scene
 									key='_rent_battery'
@@ -132,11 +120,12 @@ class NonoRoutes extends Component {
 								key={'profile'}
 								tabBarLabel="Profile"
 								iconSource={iconPages}
-								header={CommonHeader('Profile')}
+								header={GeneralHeader('Profile')}
 							>
 								<Scene
 									key='_profile'
 									title='Profile'
+									hideNavBar
 									component={ProfileViewContainer}
 								/>
 							</Stack>
