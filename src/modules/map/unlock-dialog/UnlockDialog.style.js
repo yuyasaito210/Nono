@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 import Layout, { em } from '~/constants/Layout';
+import { fonts, colors } from '../../../styles';
 
 export const styles = StyleSheet.create({
   wrapperContainer: {
@@ -51,23 +52,40 @@ export const styles = StyleSheet.create({
 
   },
   codeShareContainer: {    
-    backgroundColor: '#07E28E',
-    borderRadius: 20*em,
-    position: 'relative',
-    flexDirection: 'row', justifyContent: 'center',
-    top: 20*em,
+    // backgroundColor: '#07E28E',
+    // borderRadius: 20*em,
+    // position: 'relative',
+    // flexDirection: 'row', justifyContent: 'center',
+    // top: 20*em,
+    flex: 1
   }, 
   codeOverText: {
-    top: 20*em, textAlign: "center"
+    textAlign: "center",
+    marginBottom: 10,
   },  
   codeShareText: {
     fontSize: 16*em, lineHeight: 50*em, color: 'white'
   },
   codeShareButton: {
     alignSelf: 'flex-end',
-    position: 'absolute', right: 10*em, top: 0,
+    // position: 'absolute', 
+    // right: 10*em, top: 0,
     backgroundColor: 'transparent',
     width: 50*em, height: 50*em,
-    alignItems: 'center', justifyContent: 'center'
-  }
+    // alignItems: 'center', justifyContent: 'center'
+  },
+  linearGradient: {
+    paddingLeft: 8,
+    paddingRight: 20,
+    borderRadius: 20,
+    flexDirection: 'row',
+    height: 50
+  },
+  linearImage: {
+    alignSelf: 'flex-end',
+    color: colors.white,
+    fontSize: 24,
+    backgroundColor: 'transparent',
+    tintColor: '#fff'
+  },
 })

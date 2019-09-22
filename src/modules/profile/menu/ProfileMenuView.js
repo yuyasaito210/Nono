@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {Modal, Text, TouchableHighlight, TouchableOpacity, View, Alert} from 'react-native';
 import TouchableScale from 'react-native-touchable-scale';
 import LinearGradient from 'react-native-linear-gradient';
-// import { ListItem, Icon, Image } from 'react-native-elements';
 import { Left, Right, Title, Icon, Body, List, ListItem } from 'native-base';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import styles from './styles';

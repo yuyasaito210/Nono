@@ -2,6 +2,8 @@
 import { StyleSheet, StatusBar } from 'react-native';
 import { colors, fonts } from '../styles';
 
+HEADER_HEIGHT = 70;
+
 const styles = StyleSheet.create({
   navBar: {
     flex: 1,
@@ -31,9 +33,10 @@ const styles = StyleSheet.create({
     tintColor: colors.primary,
   },
   headerContainer: {
-    height: 70,
+    height: HEADER_HEIGHT,
     alignItems: 'center',
     justifyContent: 'center',
+    padding: 0
   },
   headerImage: {
     position: 'absolute',
@@ -41,7 +44,7 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     bottom: 0,
-    height: 70,
+    // height: HEADER_HEIGHT,
   },
   headerCaption: {
     //fontFamily: fonts.primaryRegular,
@@ -55,7 +58,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   guideHeaderContainer: {
-    height: 70,
+    height: HEADER_HEIGHT,
     backgroundColor: colors.white
   },
   guideHeaderImage: {
@@ -64,7 +67,7 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     bottom: 0,
-    height: 70,
+    height: HEADER_HEIGHT,
   },
   guideHeaderLeft: {
     color: colors.primary,
@@ -83,18 +86,19 @@ const styles = StyleSheet.create({
   },
   ///////////////////////////
   setHeaderContainer: {
-    height: 70,
+    height: HEADER_HEIGHT,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: colors.primary
+    backgroundColor: colors.primary,
+    padding: 0
   },
   setHeaderImage: {
-    position: 'absolute',
+    // position: 'absolute',
     top: 0,
     left: 0,
     right: 0,
     bottom: 0,
-    height: 70,
+    height: HEADER_HEIGHT,
   },
   setHeaderCaption: {
     //fontFamily: fonts.primaryRegular,

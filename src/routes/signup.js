@@ -21,7 +21,7 @@ import styles from './styles';
 function SetInfoHeader(title) {
   const setHeaderContainerStyle = {
     ...styles.setHeaderContainer,
-    marginTop: Platform.OS === 'ios' ? 0 : StatusBar.currentHeight
+    // marginTop: Platform.OS === 'ios' ? 0 : StatusBar.currentHeight
   };
 
   return (
@@ -42,7 +42,7 @@ function GuideHeader(title) {
   const guideHeaderContainerStyle = [
     styles.guideHeaderCommon,
     styles.guideHeaderContainer,
-    { marginTop: Platform.OS === 'ios' ? 0 : StatusBar.currentHeight },
+    // { marginTop: Platform.OS === 'ios' ? 0 : StatusBar.currentHeight },
   ];
 
   return (
@@ -56,7 +56,7 @@ function GuideHeader(title) {
         <Title style={[styles.guideHeaderCommon, styles.guideHeaderCaption]}>{title}</Title>
       </Body>
       <Right style={{ flex: 2 }}>
-        <Button transparent onPress={() => Actions['map']()}>
+        <Button transparent onPress={() => Actions['authorized']()}>
           <Icon name="close" style={[styles.guideHeaderCommon, styles.guideHeaderRight]}/>
         </Button>
       </Right>

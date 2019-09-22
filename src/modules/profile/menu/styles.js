@@ -9,7 +9,8 @@ const styles = StyleSheet.create({
       justifyContent: 'flex-start',
       marginTop:( Platform.OS === 'android') 
                 ? StatusBar.currentHeight 
-                : (Layout.isIPhoneX ? 45 : 0)
+                : (Layout.isIPhoneX ? 45 : 0),
+      flexDirection: 'column',
     },
     content: {
       alignItems: 'flex-start',
@@ -21,8 +22,10 @@ const styles = StyleSheet.create({
       borderColor: '#CCC',
       borderRadius: 8,
       padding: 10,
-      flexDirection: 'column',
-      flex: 1,
+      top: 0
+      // flexDirection: 'column',
+      // flex: 1,
+      
     },
     title: {
       fontSize: 23,

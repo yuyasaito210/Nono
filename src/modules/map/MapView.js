@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { View } from 'react-native';
 import MapSection from './map-section/MapSection';
 import MapButtonsLayer from './map-buttons/MapButtonsLayer';
-import UnlockBox from './unlock-box/UnlockBox';
-import UnlockDialog from './unlock-dialog/UnlockDialog';
+import UnlockBoxContainer from './unlock-box/UnlockBoxContainer';
+import UnlockDialogContainer from './unlock-dialog/UnlockDialogContainer';
 import SearchDialog from './search-dialog/SearchDialog';
 import ShowNearDialog from './show-near-dialog/ShowNearDialog';
 import ReservableListDialog from './reservable-list-dialog/ReservableListDialog';
@@ -17,7 +17,7 @@ import styles from './styles';
 // openShowNearDialog
 export default class MapScreen extends Component {
   state = {
-    pageStatus: 'openStationDialog',
+    pageStatus: 'locked',
     region: {
       latitude: 37.321996988,
       longitude: -122.0325472123455,
@@ -47,6 +47,8 @@ export default class MapScreen extends Component {
     if (region && places) this.setState({region, places});
   };
 
+  setPageStatus = (pageStatus) => this.setState({pageStatus});
+
   render = () => {
     const { pageStatus, region, places } = this.state
     return (
@@ -60,16 +62,21 @@ export default class MapScreen extends Component {
               <MapButtonsLayer 
                 profile
                 gift
-                search onSearch={this.openSearchDialog.bind(this)}
+                search onSearch={() => this.setPageStatus('openSearchDialog')}
                 refresh
                 target
                 bottomExtra={80}
               />
-              <UnlockBox onPressUnlockButton={this.openUnlockDialog.bind(this)} />
+              <UnlockBoxContainer 
+                onPressUnlockButton={() => this.setPageStatus('openUnlockDialog')}
+              />
             </>
           }
           {pageStatus=='openUnlockDialog' && 
-            <UnlockDialog onPressUnlockButton={this.openShowNearDialog.bind(this)}/>
+            <UnlockDialogContainer 
+              onPressUnlockButton={() => this.setPageStatus('openShowNearDialog')}
+              onClickBack={() => this.setPageStatus('locked')}
+            />
           }
           {pageStatus=='openSearchDialog' && 
             <>
@@ -86,7 +93,7 @@ export default class MapScreen extends Component {
               <MapButtonsLayer 
                 profile
                 gift
-                search onSearch={this.openSearchDialog.bind(this)}
+                search onSearch={() => this.setPageStatus('openSearchDialog')}
                 refresh
                 target
                 bottomExtra={320}
@@ -99,7 +106,7 @@ export default class MapScreen extends Component {
               <MapButtonsLayer 
                 profile
                 gift
-                search onSearch={this.openSearchDialog.bind(this)}
+                search onSearch={() => this.setPageStatus('openSearchDialog')}
                 refresh
                 target
                 bottomExtra={320}
@@ -112,7 +119,7 @@ export default class MapScreen extends Component {
               <MapButtonsLayer 
                 profile
                 gift
-                search onSearch={this.openSearchDialog.bind(this)}
+                search onSearch={() => this.setPageStatus('openSearchDialog')}
                 refresh
                 target
                 bottomExtra={320}
@@ -137,23 +144,4 @@ export default class MapScreen extends Component {
       </>
     )
   };
-
-  openUnlockDialog = () => {
-    this.setState({
-      ...this.state,
-      pageStatus: 'openUnlockDialog'
-    })
-  }
-  openSearchDialog = () => {
-    this.setState({
-      ...this.state,
-      pageStatus: 'openSearchDialog'
-    })
-  }
-  openShowNearDialog = () => {
-    this.setState({
-      ...this.state,
-      pageStatus: 'openShowNearDialog'
-    })
-  }
 }

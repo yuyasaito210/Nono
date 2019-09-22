@@ -54,10 +54,10 @@ class TabIcon extends Component {
 	}
 }
 
-function Header(title) {
+function CommonHeader(title) {
 	const containerStyle = [
 		styles.headerContainer,
-		{ marginTop: Platform.OS === 'ios' ? 0 : StatusBar.currentHeight },
+		// { marginTop: Platform.OS === 'ios' ? 0 : StatusBar.currentHeight },
 	];
 	return (
 		<View style={containerStyle}>
@@ -69,7 +69,7 @@ function Header(title) {
 
 class NonoRoutes extends Component {
 	componentDidMount() {
-		StatusBar.setBarStyle('light-content');
+		// StatusBar.setBarStyle('light-content');
 		// Actions['authorized'](); // for test
 		if (this.props.isAuthenticated) {
 			Actions['authorized']();
@@ -94,9 +94,8 @@ class NonoRoutes extends Component {
 
 					<Stack
 						key={'authorized'}
-						tabs={false}
+						tabs={true}
 						tabBarIcon={TabIcon}
-						initial
 					>
 						{/* <Drawer
 							key={ 'drawer' }
@@ -107,8 +106,9 @@ class NonoRoutes extends Component {
 								key={'map'}
 								tabBarLabel="Map"
 								iconSource={iconCalendar}
+								header={CommonHeader('Map')}
 								hideNavBar
-								initial
+								default
 							>
 								<Scene
 									key='_map'
@@ -120,7 +120,7 @@ class NonoRoutes extends Component {
 								key={'rent_battery'}
 								tabBarLabel="Rent Battery"
 								iconSource={iconGrids}
-								header={Header('Rent Battery')}
+								header={CommonHeader('Rent Battery')}
 							>
 								<Scene
 									key='_rent_battery'
@@ -132,7 +132,7 @@ class NonoRoutes extends Component {
 								key={'profile'}
 								tabBarLabel="Profile"
 								iconSource={iconPages}
-								header={Header('Profile')}
+								header={CommonHeader('Profile')}
 							>
 								<Scene
 									key='_profile'
