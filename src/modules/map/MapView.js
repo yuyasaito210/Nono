@@ -8,8 +8,8 @@ import SearchDialogContainer from './search-dialog/SearchDialogContainer';
 import ShowNearDialogContainer from './show-near-dialog/ShowNearDialogContainer';
 import ReservableListDialogContainer from './reservable-list-dialog/ReservableListDialogContainer';
 import FilterDialogContainer from './filter-dialog/FilterDialogContainer';
-import FinishDialog from './finish-dialog/FinishDialog';
-import StationDialog from './station-dialog/StationDialog';
+import FinishDialogContainer from './finish-dialog/FinishDialogContainer';
+import StationDialogContainer from './station-dialog/StationDialogContainer';
 
 import styles from './styles';
 
@@ -25,16 +25,32 @@ export default class MapScreen extends Component {
 
   setPageStatus = (pageStatus) => this.setState({pageStatus});
 
+  // Callbacks for locked
+  onGoToSearch = () => this.setPageStatus('openSearchDialog');
+
+  // Callbacks for UnlockBoxContainer
+  onGoToUnlock = () => this.setPageStatus('openUnlockDialog');
+  
+  // Callbacks for UnlockDialogContainer
+  onUnlock = () => this.setPageStatus('locked'); //'openShowNearDialog'
+  onGoToBack = () => this.setPageStatus('locked');
+
+  // Callbacks for FilterDialogContainer
   onCancelFilter = () => this.setState({pageStatus: 'openUnlockDialog'});
   
   onSeeFilter = () => {
     this.setState({pageStatus: 'openStationDialog'});
   };
 
+  // Callbacks for SearchDialogContainer
   onCancelSearch = () => this.setState({pageStatus: 'locked'});
+  onSelectStation = (station) => {
+    this.setState({pageStatus: 'openShowNearDialog'});
+  };
 
+  // Callbacks for ShowNearDialogContainer
   onCloseSearchNearDialog = () => this.setState({pageStatus: 'locked'});
-
+  
   onGoTostation = (station) => {
     console.log('===== Goto station: ', station);
   };
@@ -45,11 +61,28 @@ export default class MapScreen extends Component {
 
   onGotoBook = (station) => {
     this.setState({pageStatus: 'openReservableListDialog'});
-  }
+  };
 
+  // Callbacks for ReservableListDialogContainer
   onBook = (station, bookCount) => {
     this.setState({pageStatus: 'openFilterDialog'});
+  };
+
+  // Callbacks for StationDialogContainer
+  onCloseStation = () => this.setState({pageStatus: 'openReservableListDialog'});
+
+  onGoToStation = (station) => {
+    this.setState({pageStatus: 'openFinishDialog'});
+  };
+
+  onBook = (station) => {
+    this.setState({pageStatus: 'openFinishDialog'});
   }
+
+  // Callbacks for FinishDialog
+  onLeaveStation = (station) => {
+    this.setState({pageStatus: 'locked'});
+  } 
 
   render = () => {
     const { pageStatus, region, places } = this.state
@@ -64,20 +97,20 @@ export default class MapScreen extends Component {
               <MapButtonsLayer 
                 profile
                 gift
-                search onSearch={() => this.setPageStatus('openSearchDialog')}
+                search onSearch={this.onGoToSearch}
                 refresh
                 target
                 bottomExtra={80}
               />
               <UnlockBoxContainer 
-                onPressUnlockButton={() => this.setPageStatus('openUnlockDialog')}
+                onPressUnlockButton={this.onGoToUnlock}
               />
             </>
           }
           {pageStatus=='openUnlockDialog' && 
             <UnlockDialogContainer 
-              onPressUnlockButton={() => this.setPageStatus('openShowNearDialog')}
-              onClickBack={() => this.setPageStatus('locked')}
+              onPressUnlockButton={this.onUnlock}
+              onClickBack={this.onGoToBack}
             />
           }
           {pageStatus=='openSearchDialog' && 
@@ -87,7 +120,10 @@ export default class MapScreen extends Component {
                 gift
                 bottomExtra={80}
               />
-              <SearchDialogContainer onCancel={this.onCancelSearch} />
+              <SearchDialogContainer
+                onCancel={this.onCancelSearch}
+                onSelectStation={this.onSelectStation}
+              />
             </>            
           }
           {pageStatus=='openShowNearDialog' && 
@@ -141,11 +177,15 @@ export default class MapScreen extends Component {
                 gift
                 bottomExtra={80}
               />
-              <StationDialog />
+              <StationDialogContainer
+                onCloseStation={this.onCloseStation}
+                onGoToStation={this.onGoToStation}
+                onBook={this.onBook}
+              />
             </>            
           }
           {pageStatus=='openFinishDialog' && 
-            <FinishDialog />
+            <FinishDialogContainer onLeaveStation={this.onLeaveStation} />
           }
         </View>
       </>

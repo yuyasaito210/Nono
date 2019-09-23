@@ -5,10 +5,11 @@ import { Button } from '~/components';
 
 export default class FinishDialog extends React.Component {
   render = () => {
+    const { onLeaveStation, appActions } = this.props;
     return (
       <>
-        <TopBox />
-        <BottomBox />
+        <TopBox/>
+        <BottomBox onPress={onLeaveStation}/>
       </>
     )
   }
@@ -35,7 +36,7 @@ const TopBox = () => {
   )
 }
 
-const BottomBox = () => {
+const BottomBox = ({onPress}) => {
   return (
     <View style={styles.bottomBox.container}>
       <View style={styles.bottomBox.bgImageContainer}>
@@ -49,7 +50,8 @@ const BottomBox = () => {
         <View>
           <Button 
             rounded bgColor='#FA6868' textColor='#fff'
-            caption='Quitter' 
+            caption='Quitter'
+            onPress={onPress}
           />
         </View>
       </View>

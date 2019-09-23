@@ -26,14 +26,21 @@ export default class StationDialog extends React.Component {
   }
 
   render = () => {
-    const { stations } = this.state;
-    const { stateTimes } = this.state;
+    const { stations, stateTimes } = this.state;
+    const { onCloseStation, onGoToStation, onBook, appActions } = this.props;
+    const { _t } = appActions;
+
 
     return (
-      <Wrapper>
+      <Wrapper onClose={onCloseStation}>
 
         <View style={styles.list.container}>
-          <FlatList data={stations} renderItem={({ item }) => <StationItem item={item} />} />
+          <FlatList
+            data={stations}
+            renderItem={({ item }) => 
+              <StationItem item={item} appActions={appActions}/>
+            }
+          />
         </View>
 
         <View style={styles.desc.container}>
@@ -87,14 +94,16 @@ export default class StationDialog extends React.Component {
                 icon={require('images/go.png')} iconColor='#fff' 
                 primary rounded 
                 bgGradientStart='#FF52A8' bgGradientEnd='#FFDF00' 
-                caption='Go 2 mn · 200m' 
+                caption='Go 2 mn · 200m'
+                onPress={(station) => onGoToStation(station)}
               />
             </View>
             <View style={styles.bottomBar.resetButtonContainer}>
               <Button 
-                rounded textColor='#FF52A8' 
-                bgColor='transparent'    
-                caption='Réserver' 
+                rounded textColor='#FF52A8'
+                bgColor='transparent'
+                caption='Réserver'
+                onPress={(station) => onBook(station)}
               />
             </View>
         </View>
@@ -140,17 +149,17 @@ const StationTime = ({ item }) => {
 	)
 }
   
-const Wrapper = ({ children }) => (
+const Wrapper = ({ onClose, children }) => (
   <View style={styles.wrapper.container}>
     <View style={styles.wrapper.headerBar}>
-      <CloseDialogButton style={styles.wrapper.closeButton}/>
+      <CloseDialogButton style={styles.wrapper.closeButton} onClose={onClose}/>
     </View>
     {children}
   </View>
 )
 
-const CloseDialogButton = ({ style  }) => (
-  <TouchableOpacity>
+const CloseDialogButton = ({ onClose, style }) => (
+  <TouchableOpacity onPress={onClose}>
     <Image source={require('images/cross.png')} style={style} />
   </TouchableOpacity>
 )
