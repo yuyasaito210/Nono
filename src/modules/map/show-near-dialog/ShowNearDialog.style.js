@@ -79,11 +79,7 @@ export const itemStyles = StyleSheet.create({
   },
   places: {
     color: '#35CDFA', left: 25,
-  },
-
-
-
-  
+  }
 })
 
 export const bottomBarStyles = StyleSheet.create({

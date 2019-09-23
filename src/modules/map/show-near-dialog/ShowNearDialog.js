@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity, FlatList, ImageBackground } from 'react-native';
 import styles from './ShowNearDialog.style';
-import { Button } from '~/components';
+import { Button, StationItem } from '~/components';
 
 export default class ShowNearDialog extends React.Component {
   state = {
@@ -32,9 +32,9 @@ export default class ShowNearDialog extends React.Component {
   }
 
   render = () => {
-    const { appActions, onGoToStation, onResetFilter, onClose} = this.props;
+    const { appActions, onGoToStation, onGotoBook, onResetFilter, onClose} = this.props;
     const { searchLimit, stations } = this.state;
-    console.log('===== ShowNearDialog: props: ', this.props);
+    
     return (
       <>
         <FilterWrapper appActions={appActions} onResetFilter={onResetFilter}>
@@ -74,6 +74,7 @@ export default class ShowNearDialog extends React.Component {
                   rounded textColor='#FF52A8' 
                   bgColor='transparent'    
                   caption={appActions._t('Book')}
+                  onPress={() => onGotoBook(null)}
                 />
               </View>
             </View>
@@ -82,49 +83,6 @@ export default class ShowNearDialog extends React.Component {
       </>
     )
   }
-}
-
-const StationItem = ({item, appActions}) => {
-  return (
-    <View style={styles.item.container}>
-      <ImageBackground 
-        source={require('images/nearSearchDialogItemBg.png')}
-        style={styles.item.containerBg}
-        resizeMode={'stretch'}
-      >      
-        <View style={styles.item.imageContainer}>
-          <Image source={{uri: item.image}} style={styles.item.image} />
-        </View>
-        <View style={styles.item.itemDesc}>
-          <View style={{flexDirection: 'row'}}>
-            <Text style={styles.item.title}>{item.title}</Text>
-            
-            <TouchableOpacity style={{left: 170}}>
-              <Image source={require('images/options.png')} />
-            </TouchableOpacity>
-          </View>
-
-          <View style={styles.item.desc}>
-            <Text style={styles.item.itemOuvert}>{appActions._t('Ouvert')}</Text>
-            <Text style={{color: '#C9C9CE'}}>
-              {`· ${appActions._t('Ferme')} ${appActions._t('à')}`}
-            </Text>
-            <Text style={{color: '#C9C9CE'}}>22:00</Text>
-          </View>
-
-          <View style={styles.item.batteriesAndPlaces}>
-            <Text style={styles.item.batteries}>
-              {item.batteries} {appActions._t('batteries')}
-            </Text>
-            <Text style={styles.item.places}>
-              {item.places} {appActions._t('places')}
-            </Text>
-          </View> 
-
-        </View>
-      </ImageBackground>
-    </View>    
-  )
 }
 
 const FilterWrapper = ({appActions, onResetFilter, children}) => {

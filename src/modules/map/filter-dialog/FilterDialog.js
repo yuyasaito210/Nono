@@ -12,7 +12,7 @@ export default class FilterDialog extends React.Component {
     isOpened: false
   }
   render = () => {
-    const { onCancel, onSeem, appActions } = this.props;
+    const { onCancel, onSee, appActions } = this.props;
     const { _t } = appActions;
 
     let { fromHour, toHour } = this.state;

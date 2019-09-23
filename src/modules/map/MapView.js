@@ -6,8 +6,8 @@ import UnlockBoxContainer from './unlock-box/UnlockBoxContainer';
 import UnlockDialogContainer from './unlock-dialog/UnlockDialogContainer';
 import SearchDialogContainer from './search-dialog/SearchDialogContainer';
 import ShowNearDialogContainer from './show-near-dialog/ShowNearDialogContainer';
-import ReservableListDialog from './reservable-list-dialog/ReservableListDialog';
-import FilterDialog from './filter-dialog/FilterDialog';
+import ReservableListDialogContainer from './reservable-list-dialog/ReservableListDialogContainer';
+import FilterDialogContainer from './filter-dialog/FilterDialogContainer';
 import FinishDialog from './finish-dialog/FinishDialog';
 import StationDialog from './station-dialog/StationDialog';
 
@@ -25,10 +25,10 @@ export default class MapScreen extends Component {
 
   setPageStatus = (pageStatus) => this.setState({pageStatus});
 
-  onCancelFilter = () => this.seState({pageStatus: 'openUnlockDialog'});
+  onCancelFilter = () => this.setState({pageStatus: 'openUnlockDialog'});
   
   onSeeFilter = () => {
-    this.seState({pageStatus: 'openUnlockDialog'});
+    this.setState({pageStatus: 'openStationDialog'});
   };
 
   onCancelSearch = () => this.setState({pageStatus: 'locked'});
@@ -41,6 +41,14 @@ export default class MapScreen extends Component {
 
   onResetFilter = () => {
     this.setState({pageStatus: 'openSearchDialog'});
+  };
+
+  onGotoBook = (station) => {
+    this.setState({pageStatus: 'openReservableListDialog'});
+  }
+
+  onBook = (station, bookCount) => {
+    this.setState({pageStatus: 'openFilterDialog'});
   }
 
   render = () => {
@@ -94,6 +102,7 @@ export default class MapScreen extends Component {
               />
               <ShowNearDialogContainer
                 onGoToStation={(station) => this.onGoTostation(station)}
+                onGotoBook={(station) => this.onGotoBook(station)}
                 onClose={this.onCloseSearchNearDialog}
                 onResetFilter={this.onResetFilter}
               />
@@ -109,7 +118,7 @@ export default class MapScreen extends Component {
                 target
                 bottomExtra={320}
               />
-              <ReservableListDialog />
+              <ReservableListDialogContainer onBook={this.onBook}/>
             </>
           }
           {pageStatus=='openFilterDialog' && 
@@ -122,7 +131,7 @@ export default class MapScreen extends Component {
                 target
                 bottomExtra={320}
               />
-              <FilterDialog onCancel={this.onCancelFilter} onSee={this.onSeeFilter}/>
+              <FilterDialogContainer onCancel={this.onCancelFilter} onSee={this.onSeeFilter}/>
             </>            
           }
           {pageStatus=='openStationDialog' && 
