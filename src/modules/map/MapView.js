@@ -4,8 +4,8 @@ import MapSection from './map-section/MapSection';
 import MapButtonsLayer from './map-buttons/MapButtonsLayer';
 import UnlockBoxContainer from './unlock-box/UnlockBoxContainer';
 import UnlockDialogContainer from './unlock-dialog/UnlockDialogContainer';
-import SearchDialog from './search-dialog/SearchDialog';
-import ShowNearDialog from './show-near-dialog/ShowNearDialog';
+import SearchDialogContainer from './search-dialog/SearchDialogContainer';
+import ShowNearDialogContainer from './show-near-dialog/ShowNearDialogContainer';
 import ReservableListDialog from './reservable-list-dialog/ReservableListDialog';
 import FilterDialog from './filter-dialog/FilterDialog';
 import FinishDialog from './finish-dialog/FinishDialog';
@@ -24,6 +24,24 @@ export default class MapScreen extends Component {
   };
 
   setPageStatus = (pageStatus) => this.setState({pageStatus});
+
+  onCancelFilter = () => this.seState({pageStatus: 'openUnlockDialog'});
+  
+  onSeeFilter = () => {
+    this.seState({pageStatus: 'openUnlockDialog'});
+  };
+
+  onCancelSearch = () => this.setState({pageStatus: 'locked'});
+
+  onCloseSearchNearDialog = () => this.setState({pageStatus: 'locked'});
+
+  onGoTostation = (station) => {
+    console.log('===== Goto station: ', station);
+  };
+
+  onResetFilter = () => {
+    this.setState({pageStatus: 'openSearchDialog'});
+  }
 
   render = () => {
     const { pageStatus, region, places } = this.state
@@ -61,7 +79,7 @@ export default class MapScreen extends Component {
                 gift
                 bottomExtra={80}
               />
-              <SearchDialog />
+              <SearchDialogContainer onCancel={this.onCancelSearch} />
             </>            
           }
           {pageStatus=='openShowNearDialog' && 
@@ -74,7 +92,11 @@ export default class MapScreen extends Component {
                 target
                 bottomExtra={320}
               />
-              <ShowNearDialog />
+              <ShowNearDialogContainer
+                onGoToStation={(station) => this.onGoTostation(station)}
+                onClose={this.onCloseSearchNearDialog}
+                onResetFilter={this.onResetFilter}
+              />
             </>            
           }
           {pageStatus=='openReservableListDialog' && 
@@ -100,7 +122,7 @@ export default class MapScreen extends Component {
                 target
                 bottomExtra={320}
               />
-              <FilterDialog />
+              <FilterDialog onCancel={this.onCancelFilter} onSee={this.onSeeFilter}/>
             </>            
           }
           {pageStatus=='openStationDialog' && 

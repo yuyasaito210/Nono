@@ -5,12 +5,24 @@ export const headerBarStyles = StyleSheet.create({
   container: {
     marginHorizontal: 20*em
   },
+  topSection: {
+    flexDirection: 'row'
+  },
   searchLimit: {
-    fontSize: 12*em, color: '#bfbfc4'
+    fontSize: 12*em, color: '#bfbfc4',
+    flex: 2,
+    alignItems: 'flex-start'
+  },
+  closeButton: {
+    flex: 1,
+    alignItems: 'flex-end',
+    width: 12,
+    height: 12
   },
   stations: {
     fontSize: 20*em, color: '#36384A', fontWeight: 'bold'
-  }
+  },
+
 })
 
 export const listStyles = StyleSheet.create({
@@ -132,7 +144,7 @@ export const showNearWrapperStyles = StyleSheet.create({
     width: 40*em, height: 5*em
   },
   closeButton: {
-    position: 'absolute', right: 20*em, top: 0
+    right: 20*em, top: 0
   }
 })
 

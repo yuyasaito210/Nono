@@ -12,12 +12,18 @@ export default class SearchDialog extends React.Component {
   };
 
   render = () => {
-    const { dialogStatus } = this.state
-    // just for test
-    const { searchResults } = this.state
+    const { onCancel, appActions } = this.props;
+    const { _t } = appActions;
+    const { dialogStatus, searchResults } = this.state;
+    
     return (
       <Wrapper dialogStatus={dialogStatus}>
-        <SearchBar dialogStatus={dialogStatus} onChangeSearch={this.onChangeSearch}/>
+        <SearchBar
+          dialogStatus={dialogStatus}
+          onChangeSearch={this.onChangeSearch}
+          onCancel={onCancel}
+          appActions={appActions}
+        />
         <SearchResultList dialogStatus={dialogStatus} searchResults={searchResults}/>
       </Wrapper>
     )
@@ -87,17 +93,25 @@ const Wrapper = ({ children, dialogStatus }) => (
 
 class SearchBar extends React.Component {
   render = () => {
-    const { onChangeSearch, dialogStatus } = this.props
+    const { onChangeSearch, dialogStatus, onCancel, appActions } = this.props;
+    const { _t } = appActions;
+    console.log('===== SearchBar: props: ', this.props);
     return (
       <>
         <View style={barStyles.container}>
           <View style={barStyles.inputContainer}>
             <Image source={require('images/search.png')} style={barStyles.searchIcon}/>
-            <TextInput style={barStyles.searchText} placeholder='Rechercher' onChangeText={text => onChangeSearch(text)}/>
+            <TextInput 
+              style={barStyles.searchText}
+              placeholder={_t('Rechercher')}
+              onChangeText={text => onChangeSearch(text)}
+            />
           </View>
           <View>
-            <TouchableOpacity style={barStyles.searchButton}>
-              <Text style={dialogStatus=='until'?barStyles.searchButtonText:barStyles.searchButtonTextOnSearched}>Annuler</Text>
+            <TouchableOpacity style={barStyles.searchButton} onPress={onCancel}>
+              <Text style={dialogStatus=='until' ? barStyles.searchButtonText : barStyles.searchButtonTextOnSearched}>
+                {_t('Annuler')}
+              </Text>
             </TouchableOpacity>
           </View>
         </View>
