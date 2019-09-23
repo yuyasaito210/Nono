@@ -6,17 +6,17 @@ const wrapperStyles = StyleSheet.create({
   container: {
     position: 'absolute',
     left: 0, bottom: 0, zIndex: 20,
-    width: W, height: 680*em,
-    borderTopLeftRadius: 30*em, borderTopRightRadius: 30 *em,
+    width: W, height: 680,
+    borderTopLeftRadius: 30, borderTopRightRadius: 30 ,
     backgroundColor: '#fff'
   },
   headerBar: {
     position: 'relative',
     width: W, 
-    margin: 20 *em
+    margin: 20 
   },
   closeButton: {
-    position: 'absolute', top: 0, right: 35*em
+    position: 'absolute', top: 0, right: 35
   }
 })
 
@@ -24,14 +24,14 @@ const descStyles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     justifyContent: 'flex-end',
-    left: -120*em, height: 50*em,
+    left: -120, height: 50,
   },  
   imageContainer: {
       
   },
   itemOuvert: {
-    fontSize: 16*em, height: 25*em,
-    left: 20*em, marginTop: -5*em
+    fontSize: 16, height: 25,
+    left: 20, marginTop: -5
   }
 })
 
@@ -39,11 +39,11 @@ const phoneStyles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     justifyContent: 'flex-end',
-    left: -235*em, height: 50*em,
+    left: -235, height: 50,
   },
   itemView: {
-    fontSize: 16*em, height: 25*em,
-    left: 20*em,
+    fontSize: 16, height: 25,
+    left: 20,
   }
 })
 
@@ -51,11 +51,11 @@ const urlStyles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     justifyContent: 'flex-end',
-    left: -180*em, height: 50*em,
+    left: -180, height: 50,
   },
   item: {
-    fontSize: 16*em, height: 25*em,
-    left: 20*em,
+    fontSize: 16, height: 25,
+    left: 20,
   }
 })
 
@@ -63,11 +63,11 @@ const partaStyles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     justifyContent: 'flex-end',
-    left: -265*em, height: 50*em,
+    left: -265, height: 50,
   },
   item: {
-    fontSize: 16*em, height: 25*em,
-    left: 20*em,
+    fontSize: 16, height: 25,
+    left: 20,
   }
 })
 
@@ -75,11 +75,11 @@ const timeStyles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     justifyContent: 'flex-end',
-    left: -265*em, height: 50*em,
+    left: -265, height: 50,
   },
   item: {
-    fontSize: 16*em, height: 25*em,
-    left: 20*em,
+    fontSize: 16, height: 25,
+    left: 20,
   }
 })
 
@@ -94,41 +94,41 @@ export const listStyles = StyleSheet.create({
 export const itemStyles = StyleSheet.create({
   container: {    
     position: 'relative',
-    width: 288*em, height: 80*em,
-    marginLeft: 20*em, marginTop: 15*em, marginBottom: 15*em,
+    width: 288, height: 80,
+    marginLeft: 20, marginTop: 15, marginBottom: 15,
     flexDirection: 'row'
   },
   containerBg: {
-    width: 288*em, height: 100*em,
+    width: 288, height: 100,
     flexDirection: 'row'
   },
   imageContainer: {
     overflow: 'hidden'
   },
   image: {
-    width: 40*em, height: 40*em,
+    width: 40, height: 40,
     borderRadius: 15, borderWidth: 1
   },
 
   itemDesc: {
-    left: 10*em,  fontSize: 25*em, 
+    left: 10,  fontSize: 25, 
   },
 
   title: {
-    fontSize: 20*em, fontWeight: "bold", marginTop: -5*em
+    fontSize: 20, fontWeight: "bold", marginTop: -5
   },
   desc: {
     flexDirection: 'row',
     justifyContent: 'flex-end',
-    top: 5*em, fontSize: 20*em, 
+    top: 5, fontSize: 20, 
   },
 
   itemOuvert: {
-    color: '#07E28E', fontSize: 12*em,
+    color: '#07E28E', fontSize: 12,
   },
 
   batteriesAndPlaces: {
-    top: 10*em, left: -15*em,
+    top: 10, left: -15,
     color: '#35CDFA',
     flexDirection: 'row',
     justifyContent: 'flex-end'
@@ -137,20 +137,20 @@ export const itemStyles = StyleSheet.create({
     color: '#35CDFA'
   },
   places: {
-    color: '#35CDFA', left: 25*em,
+    color: '#35CDFA', left: 25,
   },
 })
 
 const bottomBarStyles = StyleSheet.create({
   container: {
-    marginHorizontal: 20*em,
+    marginHorizontal: 20,
     flexDirection: 'row', justifyContent: 'space-between'
   },
   searchButtonContainer: {
-    width: 190*em
+    width: 190
   },
   resetButtonContainer: {
-    width: 130*em
+    width: 130
   }
 })
 

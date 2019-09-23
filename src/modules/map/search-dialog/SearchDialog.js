@@ -1,5 +1,14 @@
 import React from 'react';
-import { View, TextInput, Image, Text, ImageBackground, TouchableOpacity } from 'react-native';
+import {
+  View,
+  TextInput,
+  Image,
+  Text,
+  ImageBackground,
+  TouchableOpacity,
+  LayoutAnimation,
+  Keyboard
+} from 'react-native';
 import { Button } from 'native-base';
 import { wrapperStyles, barStyles, resultStyles } from './SearchDialog.style'
 import { em } from '~/constants/Layout';
@@ -8,16 +17,51 @@ export default class SearchDialog extends React.Component {
   // searchResults - temporary variable to hold station infos
   state = {
     dialogStatus: 'until',
-    searchResults: []
+    searchResults: [],
+    isKeyboardVisible: false
   };
 
+  componentWillMount() {
+    this.keyboardDidShowListener = Keyboard.addListener(
+      Platform.select({ android: 'keyboardDidShow', ios: 'keyboardWillShow' }),
+      this._keyboardDidShow.bind(this),
+    );
+    this.keyboardDidHideListener = Keyboard.addListener(
+      Platform.select({ android: 'keyboardDidHide', ios: 'keyboardWillHide' }),
+      this._keyboardDidHide.bind(this),
+    );
+  }
+
+  componentWillUnmount() {
+    this.keyboardDidShowListener.remove();
+    this.keyboardDidHideListener.remove();
+  }
+
+  _keyboardDidShow() {
+    LayoutAnimation.easeInEaseOut();
+    this.setState({ isKeyboardVisible: true });
+    console.log('==== _keyboardDidShow');
+  }
+
+  _keyboardDidHide() {
+    LayoutAnimation.easeInEaseOut();
+    this.setState({ isKeyboardVisible: false });
+    console.log('==== _keyboardDidHide');
+  }
+
   render = () => {
-    const { dialogStatus } = this.state
-    // just for test
-    const { searchResults } = this.state
+    const { onCancel, appActions } = this.props;
+    const { _t } = appActions;
+    const { dialogStatus, searchResults, isKeyboardVisible } = this.state;
+    
     return (
-      <Wrapper dialogStatus={dialogStatus}>
-        <SearchBar dialogStatus={dialogStatus} onChangeSearch={this.onChangeSearch}/>
+      <Wrapper dialogStatus={dialogStatus} isShowKeyboard={isKeyboardVisible}>
+        <SearchBar
+          dialogStatus={dialogStatus}
+          onChangeSearch={this.onChangeSearch}
+          onCancel={onCancel}
+          appActions={appActions}
+        />
         <SearchResultList dialogStatus={dialogStatus} searchResults={searchResults}/>
       </Wrapper>
     )
@@ -76,28 +120,43 @@ export default class SearchDialog extends React.Component {
   }
 }
 
-const Wrapper = ({ children, dialogStatus }) => (
-  <View style={dialogStatus=='until'?wrapperStyles.container:[wrapperStyles.container, wrapperStyles.containerExpanded]}>
+const Wrapper = ({ children, dialogStatus, isShowKeyboard }) => {
+  keyboardStyle = isShowKeyboard ? {bottom: 100} : {bottom: 0}
+  return (
+  <View 
+    style={
+      dialogStatus=='until' 
+      ? [wrapperStyles.container, keyboardStyle] 
+      : [wrapperStyles.container, wrapperStyles.containerExpanded, keyboardStyle]}
+    >
     <View style={wrapperStyles.bgImageContainer}>
       <Image source={require('images/slide.png')} style={wrapperStyles.bgImage}/>
     </View>
     {children}
   </View>
-)
+)}
 
 class SearchBar extends React.Component {
   render = () => {
-    const { onChangeSearch, dialogStatus } = this.props
+    const { onChangeSearch, dialogStatus, onCancel, appActions } = this.props;
+    const { _t } = appActions;
+    console.log('===== SearchBar: props: ', this.props);
     return (
       <>
         <View style={barStyles.container}>
           <View style={barStyles.inputContainer}>
             <Image source={require('images/search.png')} style={barStyles.searchIcon}/>
-            <TextInput style={barStyles.searchText} placeholder='Rechercher' onChangeText={text => onChangeSearch(text)}/>
+            <TextInput 
+              style={barStyles.searchText}
+              placeholder={_t('Rechercher')}
+              onChangeText={text => onChangeSearch(text)}
+            />
           </View>
           <View>
-            <TouchableOpacity style={barStyles.searchButton}>
-              <Text style={dialogStatus=='until'?barStyles.searchButtonText:barStyles.searchButtonTextOnSearched}>Annuler</Text>
+            <TouchableOpacity style={barStyles.searchButton} onPress={onCancel}>
+              <Text style={dialogStatus=='until' ? barStyles.searchButtonText : barStyles.searchButtonTextOnSearched}>
+                {_t('Annuler')}
+              </Text>
             </TouchableOpacity>
           </View>
         </View>

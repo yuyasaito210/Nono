@@ -24,16 +24,16 @@ export default class AppView extends Component {
 
   render() {
     return (
-      <SafeAreaView style={styles.safeArea}>
+      <View style={styles.safeArea}>
         <StyleProvider style={getTheme(material)}>
           <View style={ styles.container }>
-            <StatusBar
+            {/* <StatusBar
               barStyle={ `${ Platform.OS === 'ios' ? 'dark-content' : 'light-content' }` }
-            />
+            /> */}
             <NonoRoutes />
           </View>
         </StyleProvider>
-      </SafeAreaView>
+      </View>
     );
   }
 }

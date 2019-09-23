@@ -4,17 +4,52 @@ import MapView, { Marker } from 'react-native-maps';
 import { mapStyles } from './MapSection.style';
 import styles from '../styles';
 
+const defaultRegion = {
+	latitude: 37.321996988,
+	longitude: -122.0325472123455,
+	latitudeDelta: 0.0922,
+	longitudeDelta: 0.0421
+};
+const defaultPlaces= [
+	{
+		name: 'Place 1',
+		coords: {
+			latitude: 37.351996988,
+			longitude: -122.0425472123455,
+		}
+	},
+	{
+		name: 'Place 2',
+		coords: {
+			latitude: 37.301996988,
+			longitude: -122.0525472123455,
+		}
+	}
+];
+
 export default class MapSection extends React.Component {
 	state = {
-		currentLocation: null
+		currentLocation: null,
+		region: {},
+    places: []
 	}
+	
+	componentWillMount() {
+		this.setState({region: defaultRegion, places: defaultPlaces})
+	}
+
 	componentDidMount() {
 		this.getCurrentPosition();
 	}
+
+  componentWillReceiveProps = (nextProps) => {
+    const { region, places } = nextProps;
+    if (region && places) this.setState({region, places});
+  };
+
 	render() {
-		const { region } = this.props;
-		const { currentLocation } = this.state;
-		
+		const { currentLocation, region, places } = this.state;
+
 		return (
 			<>
 				<MapView
@@ -30,7 +65,8 @@ export default class MapSection extends React.Component {
 		)
 	}
 	renderMarkers() {
-		const { places } = this.props
+		const { places } = this.state;
+
 		return places.map((place, i) => (
       <Marker key={i} title={place.name} coordinate={place.coords}>
 				<Image source={require('images/pin-open.png')} style={mapStyles.marker}/>

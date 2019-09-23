@@ -38,14 +38,14 @@ export default compose(
     mapStateToProps, 
     mapDispatchToProps
   ),
-  lifecycle({
-    componentWillMount() {
-      StatusBar.setBarStyle('light-content');
-      if (Platform.OS === 'android') {
-        // eslint-disable-next-line no-unused-expressions
-        UIManager.setLayoutAnimationEnabledExperimental &&
-          UIManager.setLayoutAnimationEnabledExperimental(true);
-      }
-    },
-  }),
+  // lifecycle({
+  //   componentWillMount() {
+  //     StatusBar.setBarStyle('light-content');
+  //     if (Platform.OS === 'android') {
+  //       // eslint-disable-next-line no-unused-expressions
+  //       UIManager.setLayoutAnimationEnabledExperimental &&
+  //         UIManager.setLayoutAnimationEnabledExperimental(true);
+  //     }
+  //   },
+  // }),
 )(AppView);

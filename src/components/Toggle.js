@@ -20,7 +20,7 @@ export default class Toggle extends React.Component {
 
 const styles = StyleSheet.create({
   image: {
-    width: 54*em, height: 30*em
+    width: 54, height: 30
   },
   imageOn: {
     transform: [{ rotate: '180deg' }]

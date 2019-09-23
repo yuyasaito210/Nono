@@ -7,22 +7,27 @@ const styles = StyleSheet.create({
       flex: 1,
       alignItems: 'flex-start',
       justifyContent: 'flex-start',
-      marginTop:( Platform.OS === 'android') 
-                ? StatusBar.currentHeight 
-                : (Layout.isIPhoneX ? 45 : 0)
-    },
-    content: {
-      alignItems: 'flex-start',
-      justifyContent: 'flex-start',
-      height: '85%',
+      // marginTop:( Platform.OS === 'android') 
+      //           ? StatusBar.currentHeight 
+      //           : (Layout.isIPhoneX ? 45 : 0),
+      flexDirection: 'column',
+      height: '100%',
       width: '85%',
       borderWidth: 1,
       backgroundColor: colors.white,
       borderColor: '#CCC',
-      borderRadius: 8,
+      borderTopRightRadius: 15,
+      borderBottomRightRadius: 15,
       padding: 10,
-      flexDirection: 'column',
-      flex: 1,
+      top: 0,
+      left: 0,
+      position: 'absolute',
+      zIndex: 99
+    },
+    content: {
+      alignItems: 'flex-start',
+      justifyContent: 'flex-start',
+      width: '100%'
     },
     title: {
       fontSize: 23,
