@@ -52,7 +52,7 @@ export default {
   'Open': 'Ouvert',
   'Open now': 'Ouvert maintenant',
   'Open from': 'Ouvert de',
-  'Ferme': 'Ferme',
+  'Closed': 'Ferme',
   'at': 'à',
   'batteries': 'batteries',
   'places': 'places',

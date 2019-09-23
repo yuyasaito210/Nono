@@ -50,7 +50,7 @@ export default class SearchDialog extends React.Component {
   }
 
   render = () => {
-    const { onCancel, appActions } = this.props;
+    const { onCancel, onSelectStation, appActions } = this.props;
     const { _t } = appActions;
     const { dialogStatus, searchResults, isKeyboardVisible } = this.state;
     
@@ -62,7 +62,12 @@ export default class SearchDialog extends React.Component {
           onCancel={onCancel}
           appActions={appActions}
         />
-        <SearchResultList dialogStatus={dialogStatus} searchResults={searchResults}/>
+        <SearchResultList
+          dialogStatus={dialogStatus}
+          searchResults={searchResults}
+          onSelectStation={onSelectStation}
+          appActions={appActions}
+        />
       </Wrapper>
     )
   }
@@ -140,7 +145,6 @@ class SearchBar extends React.Component {
   render = () => {
     const { onChangeSearch, dialogStatus, onCancel, appActions } = this.props;
     const { _t } = appActions;
-    console.log('===== SearchBar: props: ', this.props);
     return (
       <>
         <View style={barStyles.container}>
@@ -148,14 +152,14 @@ class SearchBar extends React.Component {
             <Image source={require('images/search.png')} style={barStyles.searchIcon}/>
             <TextInput 
               style={barStyles.searchText}
-              placeholder={_t('Rechercher')}
+              placeholder={_t('Search')}
               onChangeText={text => onChangeSearch(text)}
             />
           </View>
           <View>
             <TouchableOpacity style={barStyles.searchButton} onPress={onCancel}>
               <Text style={dialogStatus=='until' ? barStyles.searchButtonText : barStyles.searchButtonTextOnSearched}>
-                {_t('Annuler')}
+                {_t('Cancel')}
               </Text>
             </TouchableOpacity>
           </View>
@@ -171,33 +175,38 @@ class SearchResultList extends React.Component {
     return (
       <View style={resultStyles.container}>
         {searchResults.map((searchResult, key) => (
-          <SearchResultItem searchResult={searchResult} key={key}/>
+          <SearchResultItem
+            searchResult={searchResult}
+            key={key}
+            onSelectStation={this.props.onSelectStation}
+            appActions={this.props.appActions}
+          />
         ))}
       </View>
     )
   }
 }
 
-const SearchResultItem = ({searchResult}) => (
-  <View style={resultStyles.itemContainer}>
+const SearchResultItem = ({searchResult, onSelectStation, appActions}) => (
+  <TouchableOpacity style={resultStyles.itemContainer} onPress={() => onSelectStation(searchResult)}>
     <View style={resultStyles.itemImageContainer}>
       <Image source={{uri: searchResult.image}} style={resultStyles.itemImage} />
     </View>
     <View style={resultStyles.itemDesc}>
       <Text style={resultStyles.itemTitle}>{searchResult.title}</Text>
       <View style={{flexDirection: 'row', justifyContent: 'flex-end'}}>
-        <Text style={resultStyles.itemOuvert}>Ouvert</Text>
-        <Text style={{color: '#C9C9CE'}}> · Ferme à </Text>
+        <Text style={resultStyles.itemOuvert}>{appActions._t('Open')}</Text>
+        <Text style={{color: '#C9C9CE'}}> {`· ${appActions._t('Closed')} ${appActions._t('at')} `}</Text>
         <Text style={{color: '#C9C9CE'}}>22:00</Text>
       </View>
       <View style={resultStyles.itemBattery}>
-        <Text style={{color: '#35CDFA'}}>{searchResult.batteries} batteries</Text>
-        <Text style={{left: 20, color: '#35CDFA'}}>6 places</Text>
+        <Text style={{color: '#35CDFA'}}>{`${searchResult.batteries} ${appActions._t('batteries')}`}</Text>
+        <Text style={{left: 20, color: '#35CDFA'}}>{`6 ${appActions._t('places')}`}</Text>
       </View>
       <View style={resultStyles.itemGo}>
         <Image source={require('images/go.png')} style={resultStyles.goImage}/>
         <Text style={resultStyles.itemGoText}>Go 2mn - 200m</Text>
       </View>
     </View>
-  </View>
+  </TouchableOpacity>
 )

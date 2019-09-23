@@ -5,16 +5,17 @@ import { Button } from '~/components';
 
 export default class FinishDialog extends React.Component {
   render = () => {
+    const { onLeaveStation, appActions } = this.props;
     return (
       <>
-        <TopBox />
-        <BottomBox />
+        <TopBox appActions={appActions}/>
+        <BottomBox onPress={onLeaveStation} appActions={appActions}/>
       </>
     )
   }
 }
 
-const TopBox = () => {
+const TopBox = ({appActions}) => {
   return (
     <View style={styles.topBox.container}>
       <View style={styles.topBox.topBarContainer}>
@@ -25,17 +26,17 @@ const TopBox = () => {
             <Text style={[styles.topBox.topBarDistance, {opacity: 0.5}]}>m</Text>
           </View>
         </View>
-        <Text style={styles.topBox.topBarDesc}>Continuer tout droit</Text>
+        <Text style={styles.topBox.topBarDesc}>{appActions._t('Go straight ahead')}</Text>
       </View>
       <View style={styles.topBox.bottomBarContainer}>
-        <Text style={styles.topBox.bottomBarDesc}>En suite</Text>
+        <Text style={styles.topBox.bottomBarDesc}>{appActions._t('In later')}</Text>
         <Image source={require('images/icons8-left_up2.png')} style={styles.topBox.bottomBarImage}/>
       </View>
     </View>
   )
 }
 
-const BottomBox = () => {
+const BottomBox = ({onPress, appActions}) => {
   return (
     <View style={styles.bottomBox.container}>
       <View style={styles.bottomBox.bgImageContainer}>
@@ -49,7 +50,8 @@ const BottomBox = () => {
         <View>
           <Button 
             rounded bgColor='#FA6868' textColor='#fff'
-            caption='Quitter' 
+            caption={appActions._t('Leave')}
+            onPress={onPress}
           />
         </View>
       </View>

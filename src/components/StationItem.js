@@ -35,7 +35,7 @@ export default class StationItem extends React.Component {
             <View style={styles.desc}>
               <Text style={styles.itemOuvert}>{appActions._t('Ouvert')}</Text>
               <Text style={{color: '#C9C9CE'}}>
-                {`· ${appActions._t('Ferme')} ${appActions._t('à')}`}
+                {`· ${appActions._t('Closed')} ${appActions._t('at')}`}
               </Text>
               <Text style={{color: '#C9C9CE'}}>22:00</Text>
             </View>
@@ -45,7 +45,7 @@ export default class StationItem extends React.Component {
                 {item.batteries} {appActions._t('batteries')}
               </Text>
               <Text style={styles.places}>
-                {item.places} {appActions._t('places')}
+                {`${item.places} ${appActions._t('places')}`}
               </Text>
             </View> 
   

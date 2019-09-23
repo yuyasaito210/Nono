@@ -85,11 +85,7 @@ export const itemStyles = StyleSheet.create({
   },
   places: {
     color: '#35CDFA', left: 25,
-  },
-
-
-
-  
+  }, 
 })
 
 const actionBarStyles = StyleSheet.create({
@@ -103,7 +99,7 @@ const actionBarStyles = StyleSheet.create({
     paddingVertical: 10
   },
   title: {
-    fontSize: 16, color: '#fff', lineHeight: 24
+    fontSize: 16, color: '#fff', lineHeight: 24, paddingLeft: 15
   },
   actContainer: {
     flexDirection: 'row',
