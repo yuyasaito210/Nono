@@ -16,53 +16,9 @@ import GuideSponsorViewContainer from '../modules/signup/GuideSponsorViewContain
 
 import { Header, Left, Button, Icon, Body, Right, Text, Title } from 'native-base';
 
+import { SetInfoHeader, GuideHeader } from './header/header';
 import styles from './styles';
 
-function SetInfoHeader(title) {
-  const setHeaderContainerStyle = {
-    ...styles.setHeaderContainer,
-    marginTop: Platform.OS === 'ios' ? 0 : StatusBar.currentHeight
-  };
-
-  return (
-    <Header style={setHeaderContainerStyle}>
-      <Left style={{ flex: 2 }}>
-        <Button transparent onPress={() => Actions.pop()}>
-          <Icon name="ios-arrow-back" style={styles.setHeaderCaption}/>
-        </Button>
-      </Left>
-      <Body style={{ flex: 3 }}>
-        <Title style={styles.setHeaderCaption}>{title}</Title>
-      </Body>
-    </Header>
-  );
-}
-
-function GuideHeader(title) {
-  const guideHeaderContainerStyle = [
-    styles.guideHeaderCommon,
-    styles.guideHeaderContainer,
-    { marginTop: Platform.OS === 'ios' ? 0 : StatusBar.currentHeight },
-  ];
-
-  return (
-    <Header style={guideHeaderContainerStyle}>
-      <Left style={{ flex: 2 }}>
-        <Button transparent onPress={() => Actions.pop()}>
-          <Icon name="ios-arrow-back" style={[styles.guideHeaderCommon, styles.guideHeaderLeft]}/>
-        </Button>
-      </Left>
-      <Body style={{ flex: 3 }}>
-        <Title style={[styles.guideHeaderCommon, styles.guideHeaderCaption]}>{title}</Title>
-      </Body>
-      <Right style={{ flex: 2 }}>
-        <Button transparent onPress={() => Actions['map']()}>
-          <Icon name="close" style={[styles.guideHeaderCommon, styles.guideHeaderRight]}/>
-        </Button>
-      </Right>
-    </Header>
-  );
-}
 
 const SignupStack = (
         <Stack

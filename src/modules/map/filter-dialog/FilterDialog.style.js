@@ -3,13 +3,13 @@ import { W, H, em } from '~/constants/Layout';
 
 const wrapperStyles = StyleSheet.create({
   container: {
-    borderTopLeftRadius: 30*em, borderTopRightRadius: 30 *em,
+    borderTopLeftRadius: 30, borderTopRightRadius: 30 ,
     position: 'absolute', left: 0, bottom: 0, zIndex: 20,
-    width: W, height: 320*em,
+    width: W, height: 320,
     backgroundColor: '#35CDFA'
   },
   headerBar: {
-    paddingVertical: 20*em, paddingHorizontal: 20*em,
+    paddingVertical: 20, paddingHorizontal: 20,
     flexDirection: 'row',
     justifyContent: 'space-between'
   },
@@ -17,46 +17,46 @@ const wrapperStyles = StyleSheet.create({
     flexDirection: 'row'
   },
   filterImage: {
-    width: 16*em, height: 16*em
+    width: 16, height: 16
   },
   filterText: {
-    fontSize: 14*em, color: '#fff', fontWeight: 'bold',
-    marginLeft: 10*em
+    fontSize: 14, color: '#fff', fontWeight: 'bold',
+    marginLeft: 10
   },
   resetFilterButtonContainer: {
     opacity: 0.5
   },
   resetFilterButton: {
-    fontSize: 14*em, color: '#fff', fontWeight: 'bold'
+    fontSize: 14, color: '#fff', fontWeight: 'bold'
   }
 })
 
 const filterOptionStyles = StyleSheet.create({
   container: {
     flexDirection: 'row', justifyContent: 'space-between',
-    marginVertical: 5*em
+    marginVertical: 5
   },
   comboBox: {
-    width: 54*em, height: 30*em
+    width: 54, height: 30
   },
   comboBoxInverted: {
     
   },
   text: {
-    fontSize: 20*em, color: '#fff'
+    fontSize: 20, color: '#fff'
   }
 })
 
 export const bottomBarStyles = StyleSheet.create({
   container: {
     flexDirection: 'row', justifyContent: 'space-between',
-    marginTop: 20*em
+    marginTop: 20
   },
   searchButtonContainer: {
-    width: 120*em
+    width: 120
   },
   resetButtonContainer: {
-    width: 200*em
+    width: 200
   }
 })
 

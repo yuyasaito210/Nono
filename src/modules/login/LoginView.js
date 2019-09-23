@@ -6,6 +6,7 @@ import {
   LayoutAnimation,
   TouchableOpacity,
   ImageBackground,
+  Alert,
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
@@ -59,7 +60,7 @@ export default class LoginView extends React.Component {
   };
 
   onClickNext = () => {
-    Actions['map']();
+    Actions['authorized'](); // for test
   };
 
   onClickFacebook = () => {

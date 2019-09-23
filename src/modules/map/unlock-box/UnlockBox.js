@@ -6,13 +6,14 @@ import { Button } from '~/components';
 
 export default class UnlockBox extends React.Component {
   render() {
-    const { onPressUnlockButton } = this.props;
+    const { onPressUnlockButton, appActions } = this.props;
+    const { _t } = appActions;
     return (
       <View style={wrapperStyles.container}>
         <Button 
           icon={require('images/qr-code.png')} iconColor='#fff'
           rounded bgColor='#5ED8FC' textColor='#fff'
-          caption='Déverrouille une nono' 
+          caption={_t('Déverrouille une nono')}
           onPress={onPressUnlockButton}
         />
       </View>

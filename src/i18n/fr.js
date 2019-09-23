@@ -50,6 +50,8 @@ export default {
   'THEO1827nono': 'THEO1827nono',
   'Search': 'Rechercher',
   'Open': 'Ouvert',
+  'Open now': 'Ouvert maintenant',
+  'Open from': 'Ouvert de',
   'Ferme': 'Ferme',
   'at': 'à',
   'batteries': 'batteries',

@@ -8,62 +8,62 @@ const topBoxStyles = StyleSheet.create({
   },
   topBarContainer: {
     backgroundColor: '#35cdfa',
-    height: 80*em,
+    height: 80,
     flexDirection: 'row'
   },
   topBarImageContainer: {
-    marginTop: 20*em, marginLeft: 20*em
+    marginTop: 20, marginLeft: 20
   },
   topBarDistanceContainer: {
     flexDirection: 'row'
   },
   topBarDistance: {
-    fontSize: 18*em, color: '#fff', fontWeight: 'bold'
+    fontSize: 18, color: '#fff', fontWeight: 'bold'
   },  
   topBarDesc: {
-    fontSize: 24*em, color: '#fff', fontWeight: 'bold',
-    marginTop: 30*em, marginLeft: 10*em
+    fontSize: 24, color: '#fff', fontWeight: 'bold',
+    marginTop: 30, marginLeft: 10
   },
   topBarImage: {
-    marginTop: 1*em, marginLeft: 10*em
+    marginTop: 1, marginLeft: 10
   },
   bottomBarContainer: {
     backgroundColor: '#00b1ec',
-    height: 40*em, 
-    paddingHorizontal: 20*em, paddingVertical: 10*em,
+    height: 40, 
+    paddingHorizontal: 20, paddingVertical: 10,
     flexDirection: 'row'
   },
   bottomBarDesc: {
-    fontSize: 16*em, color: '#fff'
+    fontSize: 16, color: '#fff'
   },
   bottomBarImage: {
-    marginTop: 3*em, marginLeft: 10*em
+    marginTop: 3, marginLeft: 10
   }
 })
 
 const bottomBoxStyles = StyleSheet.create({
   container: {
-    position: 'absolute', left: 0, bottom: 80*em, zIndex: 20,
-    width: W, height: 100*em,
-    paddingHorizontal: 20*em, 
+    position: 'absolute', left: 0, bottom: 80, zIndex: 20,
+    width: W, height: 100,
+    paddingHorizontal: 20, 
     backgroundColor: '#fff',
-    borderTopLeftRadius: 20*em, borderTopRightRadius: 20*em
+    borderTopLeftRadius: 20, borderTopRightRadius: 20
   },
   bgImageContainer: {
     justifyContent: 'center', alignItems: 'center',
-    width: W, height: 20*em
+    width: W, height: 20
   },
   bgImage: {
-    width: 40*em, height: 5*em
+    width: 40, height: 5
   },
   innerContainer: {
     flexDirection: 'row', justifyContent: 'space-between'
   },
   descTitle: {
-    color: '#35CDFA', fontSize: 20*em, fontWeight: 'bold'
+    color: '#35CDFA', fontSize: 20, fontWeight: 'bold'
   },
   descText: {
-    color: '#7E888D', fontSize: 14*em
+    color: '#7E888D', fontSize: 14
   }
 })
 

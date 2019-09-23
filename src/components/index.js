@@ -11,6 +11,7 @@ import PhoneNumberInput from './PhoneNumberInput';
 import ConfirmCodeInput from './ConfirmCodeInput';
 import GuideCommonView from './GuideCommonView';
 import CreditCardScanner from './CreditCardScanner';
+import StationItem from './StationItem';
 
 export {
   Button,
@@ -24,5 +25,6 @@ export {
   PhoneNumberInput,
   ConfirmCodeInput,
   GuideCommonView,
-  CreditCardScanner
+  CreditCardScanner,
+  StationItem
 };
