@@ -13,7 +13,7 @@ export default class EnterQRCode extends React.Component{
       <View style={[styles.page.container, styles.enterCode.pageWrapper]}>
         <CodeForm codeCharacters={codeCharacters}/>
         <ActionButtons />
-      </View>      
+      </View>
     )
   }
 }
@@ -34,7 +34,7 @@ class CodeForm extends React.Component {
   }
 }
 
-const ActionButtons = ({ onClickClose }) => (
+const ActionButtons = ({ onClickClose }) => ( 
   <>
     <View style={styles.actionLayer.container}>
       <Text style={[

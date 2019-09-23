@@ -147,17 +147,3 @@ export default class FeedbackDialog extends React.Component {
     })
   }
 }
-
-/*
-Tu aimes notre service ?
-Clique sur les étoiles pour noter notre application.
-Plus tard
-
-Écrire un commentaire
-
-Envoyer
-
-Nous sommes désolés.
-Dites nous comment améliorer
-notre service
-*/

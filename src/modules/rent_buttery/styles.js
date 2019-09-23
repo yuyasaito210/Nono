@@ -149,6 +149,9 @@ const feedbackDialogStyles = StyleSheet.create({
   starContainer: {
     flex:1, alignItems: 'center',
     marginHorizontal: 20*em, marginVertical: 10*em
+  },
+  textInputContainer: {
+    
   }
 })
 
