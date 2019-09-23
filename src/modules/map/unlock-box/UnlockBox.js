@@ -13,7 +13,7 @@ export default class UnlockBox extends React.Component {
         <Button 
           icon={require('images/qr-code.png')} iconColor='#fff'
           rounded bgColor='#5ED8FC' textColor='#fff'
-          caption={_t('Déverrouille une nono')}
+          caption={_t('Unlocks a nono')}
           onPress={onPressUnlockButton}
         />
       </View>

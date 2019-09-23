@@ -152,14 +152,14 @@ class SearchBar extends React.Component {
             <Image source={require('images/search.png')} style={barStyles.searchIcon}/>
             <TextInput 
               style={barStyles.searchText}
-              placeholder={_t('Rechercher')}
+              placeholder={_t('Search')}
               onChangeText={text => onChangeSearch(text)}
             />
           </View>
           <View>
             <TouchableOpacity style={barStyles.searchButton} onPress={onCancel}>
               <Text style={dialogStatus=='until' ? barStyles.searchButtonText : barStyles.searchButtonTextOnSearched}>
-                {_t('Annuler')}
+                {_t('Cancel')}
               </Text>
             </TouchableOpacity>
           </View>
