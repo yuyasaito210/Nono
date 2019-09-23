@@ -14,7 +14,7 @@ export default class FilterDialog extends React.Component {
   render = () => {
     const { onCancel, onSeem, appActions } = this.props;
     const { _t } = appActions;
-    
+
     let { fromHour, toHour } = this.state;
     const { isOpened } = this.state;
 
@@ -40,7 +40,7 @@ export default class FilterDialog extends React.Component {
             </View>
           </View>
 
-          <View style={{paddingHorizontal: 20*em}}>
+          <View style={{paddingHorizontal: 20}}>
             {/* <OpenNow onToggle={this.onToggleOpened)} on={isOpened} /> */}
             <View style={styles.filterOption.container}>
               <Text style={styles.filterOption.text}>{_t('Open now')}</Text>
@@ -61,7 +61,7 @@ export default class FilterDialog extends React.Component {
               <View style={styles.filterOption.container}>
                 <HourRangeSlider hours={hours} onChangeHours={this.onChangeHours} 
                   fromHour={fromHour} toHour={toHour}
-                  style={{width: W-20*em, height: 40*em, marginHorizontal: 10*em}}
+                  style={{width: W-20, height: 40, marginHorizontal: 10}}
                 />
               </View>
             </>
@@ -127,7 +127,7 @@ export default class FilterDialog extends React.Component {
 //       <View style={styles.filterOption.container}>
 //         <HourRangeSlider hours={hours} onChangeHours={onChangeHours} 
 //           fromHour={fromHour} toHour={toHour}
-//           style={{width: W-20*em, height: 40*em, marginHorizontal: 10*em}}
+//           style={{width: W-20, height: 40, marginHorizontal: 10}}
 //         />
 //       </View>
 //     </>

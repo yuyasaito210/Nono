@@ -6,9 +6,9 @@ export const wrapperStyles = StyleSheet.create({
     position: 'absolute',
     bottom: 0, left: 0,
     zIndex: 15,
-    width: Layout.window.width, height: 80*em,
+    width: Layout.window.width, height: 80,
     backgroundColor: '#fff',
-    paddingTop: 20*em, paddingHorizontal: 20*em, 
-    borderTopLeftRadius: 25*em, borderTopRightRadius: 25*em
+    paddingTop: 20, paddingHorizontal: 20, 
+    borderTopLeftRadius: 25, borderTopRightRadius: 25
   }
 })

@@ -1,5 +1,14 @@
 import React from 'react';
-import { View, TextInput, Image, Text, ImageBackground, TouchableOpacity } from 'react-native';
+import {
+  View,
+  TextInput,
+  Image,
+  Text,
+  ImageBackground,
+  TouchableOpacity,
+  LayoutAnimation,
+  Keyboard
+} from 'react-native';
 import { Button } from 'native-base';
 import { wrapperStyles, barStyles, resultStyles } from './SearchDialog.style'
 import { em } from '~/constants/Layout';
@@ -8,16 +17,45 @@ export default class SearchDialog extends React.Component {
   // searchResults - temporary variable to hold station infos
   state = {
     dialogStatus: 'until',
-    searchResults: []
+    searchResults: [],
+    isKeyboardVisible: false
   };
+
+  componentWillMount() {
+    this.keyboardDidShowListener = Keyboard.addListener(
+      Platform.select({ android: 'keyboardDidShow', ios: 'keyboardWillShow' }),
+      this._keyboardDidShow.bind(this),
+    );
+    this.keyboardDidHideListener = Keyboard.addListener(
+      Platform.select({ android: 'keyboardDidHide', ios: 'keyboardWillHide' }),
+      this._keyboardDidHide.bind(this),
+    );
+  }
+
+  componentWillUnmount() {
+    this.keyboardDidShowListener.remove();
+    this.keyboardDidHideListener.remove();
+  }
+
+  _keyboardDidShow() {
+    LayoutAnimation.easeInEaseOut();
+    this.setState({ isKeyboardVisible: true });
+    console.log('==== _keyboardDidShow');
+  }
+
+  _keyboardDidHide() {
+    LayoutAnimation.easeInEaseOut();
+    this.setState({ isKeyboardVisible: false });
+    console.log('==== _keyboardDidHide');
+  }
 
   render = () => {
     const { onCancel, appActions } = this.props;
     const { _t } = appActions;
-    const { dialogStatus, searchResults } = this.state;
+    const { dialogStatus, searchResults, isKeyboardVisible } = this.state;
     
     return (
-      <Wrapper dialogStatus={dialogStatus}>
+      <Wrapper dialogStatus={dialogStatus} isShowKeyboard={isKeyboardVisible}>
         <SearchBar
           dialogStatus={dialogStatus}
           onChangeSearch={this.onChangeSearch}
@@ -82,14 +120,21 @@ export default class SearchDialog extends React.Component {
   }
 }
 
-const Wrapper = ({ children, dialogStatus }) => (
-  <View style={dialogStatus=='until'?wrapperStyles.container:[wrapperStyles.container, wrapperStyles.containerExpanded]}>
+const Wrapper = ({ children, dialogStatus, isShowKeyboard }) => {
+  keyboardStyle = isShowKeyboard ? {bottom: 100} : {bottom: 0}
+  return (
+  <View 
+    style={
+      dialogStatus=='until' 
+      ? [wrapperStyles.container, keyboardStyle] 
+      : [wrapperStyles.container, wrapperStyles.containerExpanded, keyboardStyle]}
+    >
     <View style={wrapperStyles.bgImageContainer}>
       <Image source={require('images/slide.png')} style={wrapperStyles.bgImage}/>
     </View>
     {children}
   </View>
-)
+)}
 
 class SearchBar extends React.Component {
   render = () => {

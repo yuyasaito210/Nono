@@ -21,7 +21,7 @@ export const styles = StyleSheet.create({
   },
   topbarBackButton: {
     backgroundColor: 'transparent', 
-    width: 40*em, height: 40*em, marginTop: 20*em,
+    width: 40, height: 40, marginTop: 20,
     alignItems: 'center', justifyContent: 'center',
     borderWidth: 0
   },
@@ -30,22 +30,22 @@ export const styles = StyleSheet.create({
   },
   contentDeputeImageContainer: {
     alignItems: 'center', justifyContent: 'center',
-    marginTop: 30*em, marginBottom: 30*em
+    marginTop: 30, marginBottom: 30
   },
   contentTitleContainer: {
   
   },
   contentTitle: {
-    textAlign: 'center', fontSize: 26*em, fontWeight: 'bold',
+    textAlign: 'center', fontSize: 26, fontWeight: 'bold',
  },
   contentSubtitle: {
-    textAlign: 'center', fontSize: 17*em, 
+    textAlign: 'center', fontSize: 17, 
   },
   contentDescContainer : {
 
   },
   contentDesc: {
-    textAlign: 'center', fontSize: 15*em, 
+    textAlign: 'center', fontSize: 15, 
   },
   codeContainer: {
     alignContent: "center"
@@ -55,10 +55,10 @@ export const styles = StyleSheet.create({
   },
   codeShareContainer: {    
     // backgroundColor: '#07E28E',
-    // borderRadius: 20*em,
+    // borderRadius: 20,
     // position: 'relative',
     // flexDirection: 'row', justifyContent: 'center',
-    // top: 20*em,
+    // top: 20,
     flex: 1
   }, 
   codeOverText: {
@@ -66,14 +66,14 @@ export const styles = StyleSheet.create({
     marginBottom: 10,
   },  
   codeShareText: {
-    fontSize: 16*em, lineHeight: 50*em, color: 'white'
+    fontSize: 16, lineHeight: 50, color: 'white'
   },
   codeShareButton: {
     alignSelf: 'flex-end',
     // position: 'absolute', 
-    // right: 10*em, top: 0,
+    // right: 10, top: 0,
     backgroundColor: 'transparent',
-    width: 50*em, height: 50*em,
+    width: 50, height: 50,
     // alignItems: 'center', justifyContent: 'center'
   },
   linearGradient: {
