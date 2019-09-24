@@ -27,42 +27,21 @@ target 'nono' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
-  rn_maps_path = '../node_modules/react-native-maps'
-  pod 'react-native-google-maps', :path => rn_maps_path
-  pod 'GoogleMaps'
-  pod 'Google-Maps-iOS-Utils'
 
-  
-pod 'react-native-camera', :path => '../node_modules/react-native-camera'
+  target 'nonoTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
 
-pod 'RNCAsyncStorage', :path => '../node_modules/@react-native-community/async-storage'
+  use_native_modules!
+end
 
-pod 'ReactNativePermissions', :path => '../node_modules/react-native-permissions'
+target 'nono-tvOS' do
+  # Pods for nono-tvOS
 
-pod 'RNSVG', :path => '../node_modules/react-native-svg'
-
-pod 'react-native-maps', :path => '../node_modules/react-native-maps'
-
-pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
-
-pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
-
-pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
-
-#  target 'nonoTests' do
-#    inherit! :search_paths
-#    # Pods for testing
-#  end
-#
-#  use_native_modules!
-#end
-#
-#target 'nono-tvOS' do
-#  # Pods for nono-tvOS
-#
-#  target 'nono-tvOSTests' do
-#    inherit! :search_paths
-#    # Pods for testing
-#  end
+  target 'nono-tvOSTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
 
 end
