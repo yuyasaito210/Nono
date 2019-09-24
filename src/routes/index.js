@@ -102,6 +102,7 @@ class NonoRoutes extends Component {
 									key='_map'
 									title='Map'
 									component={MapViewContainer}
+									
 								/>
 							</Stack>
 							<Stack
@@ -114,6 +115,7 @@ class NonoRoutes extends Component {
 									key='_rent_battery'
 									title='Rent Battery'
 									component={RentButteryViewContainer}
+									initial
 								/>
 							</Stack>
 							<Stack
