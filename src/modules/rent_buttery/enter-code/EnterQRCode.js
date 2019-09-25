@@ -7,12 +7,14 @@ export default class EnterQRCode extends React.Component{
   state = {
     codeCharacters: ['', '', '', '', '', '']
   }
+
   render = () => {
     const { codeCharacters } = this.state;
+    const { appActions } = this.props.appActions;
     return (
       <View style={[styles.page.container, styles.enterCode.pageWrapper]}>
         <CodeForm codeCharacters={codeCharacters}/>
-        <ActionButtons />
+        <ActionButtons appActions={appActions}/>
       </View>
     )
   }
@@ -34,20 +36,20 @@ class CodeForm extends React.Component {
   }
 }
 
-const ActionButtons = ({ onClickClose }) => ( 
+const ActionButtons = ({ onClickClose, appActions }) => ( 
   <>
     <View style={styles.actionLayer.container}>
       <Text style={[
         styles.actionLayer.text, 
         {top: 80*em, fontSize: 24*em, fontWeight: 'bold'}
       ]}>
-        Entre le code
+        {appActions._t('Enter the code')}
       </Text>
       <Text style={[
         styles.actionLayer.text, 
         {top: 120*em}
       ]}>
-        Le code est situé sous le QR Code
+        {appActions._t('The code is located under the QR Code')}
       </Text>
       <TouchableOpacity
         style={[
@@ -66,6 +68,7 @@ const ActionButtons = ({ onClickClose }) => (
           styles.enterCode.button,
           {bottom: 280*em, right: 15*em}
         ]}
+        onPress={onGoToLocation}
       >
         <Image source={require('images/qr-code.png')} style={styles.actionLayer.buttonImage} />
       </TouchableOpacity>

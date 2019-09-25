@@ -76,6 +76,7 @@ export default {
   'In later': 'En suite',
   'Leave': 'Quitter',
 
+  'Last step': 'Dernière étape',
   'Enter the number under the QR Code': 'Rentre le numéro sous le QR Code',
   'QR code not detected?': 'QR code non détecté ?',
   'Enter the number of the station': 'Rentre le numéro de la station',
