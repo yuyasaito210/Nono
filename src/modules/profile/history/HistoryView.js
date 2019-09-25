@@ -4,49 +4,69 @@ import styles from './styles';
 import { Actions } from 'react-native-router-flux';
 import { Button } from '~/components';
 import { W, H, em } from '~/constants/Layout';
-import { ProfileWrapper } from '../wallet/WalletView';
+import { ProfileWrapper, PageTitle, PageOption } from '../wallet/WalletView';
 
 export default class HistoryView extends React.Component {
-
+  state = {
+    histories: [
+      {
+        date: '30/06/2019',
+        price: '15.6€'
+      },
+      {
+        date: '22/06/2019',
+        price: '3€'
+      },
+      {
+        date: '19/06/2019',
+        price: '37€'
+      },
+      {
+        date: '27/05/2019',
+        price: '16€'
+      },
+      {
+        date: '15/04/2019',
+        price: '21€'
+      },
+      {
+        date: '03/04/2019',
+        price: '24€'
+      },
+    ]
+  }
   render = () => {
     const { _t } = this.props.appActions;
+    const { histories } = this.state;
     return (
       <ProfileWrapper>
         <BackButton onBack={() => this.goBack()}/>
-        <Text style={styles.paramTitle}>{_t('Historical')}</Text>
-
-        <View style={{marginTop: 30*em, flexDirection: 'row', alignItem: 'center'}}>
-          <TouchableOpacity  >
-            <Image source={require('images/guide-utilisation.png')} style={{tintColor: '#49D2FB'}}/>
-          </TouchableOpacity>
-          
-          <Text style={{marginLeft: 10*em, fontSize: 16*em}}>{_t('User manual')}</Text>
-        </View>
-
-        <View style={{marginTop: 30*em, flexDirection: 'row', alignItem: 'center'}}>
-          <TouchableOpacity  >
-            <Image source={require('images/signaler-problème.png')} style={{tintColor: '#49D2FB'}}/>
-          </TouchableOpacity>
-          
-          <Text style={{marginLeft: 10*em, fontSize: 16*em}}>{_t('to report a problem')}</Text>
-        </View>
-
-        <View style={{marginTop: 30*em, flexDirection: 'row', alignItem: 'center'}}>
-          <TouchableOpacity  >
-            <Image source={require('images/discutez-avec-nous.png')} style={{tintColor: '#49D2FB'}}/>
-          </TouchableOpacity>
-          
-          <Text style={{marginLeft: 10*em, fontSize: 16*em}}>{_t('Chat with us')}</Text>
-        </View>
-
-        <View style={{marginTop: 30*em, flexDirection: 'row', alignItem: 'center'}}>
-          <TouchableOpacity  >
-            <Image source={require('images/star.png')} style={{tintColor: '#49D2FB', width: 23*em, height: 23*em}}/>
-          </TouchableOpacity>
-          
-          <Text style={{marginLeft: 10*em, fontSize: 16*em}}>{_t('Notez notre Application ')}</Text>
-        </View>
-
+        <PageTitle title={_t('History')} />
+        <PageOption />
+        {histories.map((history, ind) => (
+          <View style={[
+            styles.row,
+            {marginVertical: 13*em}
+          ]}>
+            <Text style={{color: '#9f9f9f'}}>
+              {history.date}
+            </Text>
+            <TouchableOpacity>
+              <View style={[
+                styles.row,
+                {flexDirection: 'row', justifyContent: 'flex-end'}
+              ]}>
+                <Text>
+                  {history.price}
+                </Text>
+                <Image source={require('images/arrow.png')} style={[
+                  styles.nextArrow,
+                  {marginLeft: 10*em}
+                ]} />
+              </View>
+            </TouchableOpacity>            
+          </View>
+        ))}
       </ProfileWrapper>
     )
   }
