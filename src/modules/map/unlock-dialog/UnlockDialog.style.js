@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, StatusBar } from 'react-native';
 import Layout, { em } from '~/constants/Layout';
 import { fonts, colors } from '../../../styles';
 

@@ -1,5 +1,5 @@
 import * as FirebaseModule from 'firebase';
-import firebaseConfig from '../constants/Firebase';
+import firebaseConfig from '~/constants/Firebase';
 
 const {
   apiKey,
@@ -18,6 +18,7 @@ if (
   && storageBucket !== 'null'
   && messagingSenderId !== 'null'
 ) {
+  console.log('====== logging inn to Firebase: ', firebaseConfig);
   FirebaseModule.initializeApp({
     apiKey,
     authDomain,
