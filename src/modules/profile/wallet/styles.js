@@ -3,8 +3,10 @@ import { W, H, em } from '~/constants/Layout';
 
 const styles = StyleSheet.create({
   pageWrapper: {
-    position: 'relative',
-    paddingTop: 50*em, paddingHorizontal: 15*em
+    position: 'relative', zIndex: 5,
+    paddingTop: 50*em, paddingHorizontal: 15*em,
+    backgroundColor: '#fff',
+    width: W, height: H
   }
 })
 

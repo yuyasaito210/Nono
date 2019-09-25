@@ -29,7 +29,7 @@ export default class PaymentView extends React.Component {
           </View>
           
           <TouchableOpacity style={{left: 130*em}} >
-            <Image source={require('images/1.png')} style={{ marginTop: 5*em, width:20*em, height:20*em, color: '#FFF', tintColor: '#DFDFE6'}}/>
+            <Image source={require('images/remove.png')} style={{ marginTop: 5*em}}/>
           </TouchableOpacity>
 
         </View>
@@ -43,7 +43,7 @@ export default class PaymentView extends React.Component {
           <Text style={{marginLeft: 10*em, fontSize: 16*em}}>{_t('Ajoute une carte de crédit')}</Text>
 
           <TouchableOpacity style={{left: 95*em}} >
-            <Image source={require('images/arrow.png')} style={{ marginTop: 5*em, width:15*em, height:15*em, color: '#FFF', tintColor: '#DFDFE6'}}/>
+            <Image source={require('images/arrow.png')} style={{ marginTop: 5*em, width:15*em, height:15*em, color: '#FFF', tintColor: '#DFDFE6', transform: [{rotate: '180deg'}]}}/>
           </TouchableOpacity>
         </View>
 

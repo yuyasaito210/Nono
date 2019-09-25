@@ -39,23 +39,29 @@ export default class SettingView extends React.Component {
           </View>
         </View>
 
-        <View style={{left: 5*em, marginTop: 70*em, flexDirection: 'row'}}>
-          <Text style={{fontSize: 18*em}}>{_t('Terms of use')}</Text>
+        <View style={[
+          styles.row,
+          {marginTop: 70*em}
+        ]}>
+          <Text style={styles.paramInfo2}>{_t('Terms of use')}</Text>
           
-          <TouchableOpacity style={{left: 190*em}}>
-            <Image source={require('images/arrow.png')} />
+          <TouchableOpacity>
+            <Image source={require('images/arrow.png')} style={styles.arrowStyle}/>
           </TouchableOpacity>
         </View>
 
-        <View style={{left: 5*em, marginTop: 30*em, flexDirection: 'row'}}>
-          <Text style={{fontSize: 18*em}}>{_t('privacy policy')}</Text>
+        <View style={[
+          styles.row,
+          {marginTop: 30*em}
+        ]}>
+          <Text style={styles.paramInfo2}>{_t('privacy policy')}</Text>
           
-          <TouchableOpacity style={{left: 185*em}}>
-            <Image source={require('images/arrow.png')} />
+          <TouchableOpacity>
+            <Image source={require('images/arrow.png')} style={styles.arrowStyle} />
           </TouchableOpacity>
         </View>
 
-        <Text style={{marginTop: 150*em, textAlign: 'center', color: '#FE000C', fontSize: 18*em}}>{_t('Sign Out')}</Text>
+        <Text style={{marginTop: 120*em, textAlign: 'center', color: '#FE000C', fontSize: 18*em}}>{_t('Sign Out')}</Text>
 
 
       </ProfileWrapper>
