@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image } from 'react-native';
+import { Image, Platform } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import { mapStyles } from './MapSection.style';
 import styles from '../styles';
@@ -55,6 +55,7 @@ export default class MapSection extends React.Component {
 				<MapView
 					style={mapStyles.container}
 					region={region}
+					// mapType={Platform.OS == "android" ? "none" : "standard"}
 				>
 					{this.renderMarkers()}
 					{

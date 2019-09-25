@@ -1,4 +1,4 @@
-package com.nono;
+package com.ben.nono;
 
 import android.app.Application;
 import android.util.Log;
@@ -7,13 +7,6 @@ import com.facebook.react.PackageList;
 import com.facebook.hermes.reactexecutor.HermesExecutorFactory;
 import com.facebook.react.bridge.JavaScriptExecutorFactory;
 import com.facebook.react.ReactApplication;
-import com.oblador.vectoricons.VectorIconsPackage;
-import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
-import com.BV.LinearGradient.LinearGradientPackage;
-import com.airbnb.android.react.maps.MapsPackage;
-import com.horcrux.svg.SvgPackage;
-import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
-import org.reactnative.camera.RNCameraPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.soloader.SoLoader;

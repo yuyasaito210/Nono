@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "3300133003",
+    "firebase_url": "https://nono-81379.firebaseio.com",
+    "project_id": "nono-81379",
+    "storage_bucket": "nono-81379.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:3300133003:android:ea07ec688d769e3ca6ec8e",
+        "android_client_info": {
+          "package_name": "com.ben.nono"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "3300133003-fdv4sg7raq0vkcdmcsg60u73n5ch49mf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCRuvEw-E-PO2tM9cH210t78ZUwod-xNns"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "3300133003-fdv4sg7raq0vkcdmcsg60u73n5ch49mf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

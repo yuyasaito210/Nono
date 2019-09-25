@@ -1,4 +1,4 @@
-package com.nono;
+package com.ben.nono;
 
 import com.facebook.react.ReactActivity;
 
