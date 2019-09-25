@@ -23,6 +23,8 @@ const iconPages = require('../assets/images/tabbar/pages.png');
 const iconComponents = require('../assets/images/tabbar/components.png');
 const hederBackground = require('../assets/images/topBarBg.png');
 
+import ProfileStack from './profile';
+
 class TabIcon extends Component {
 	render() {
 		focused = this.props.focused;
@@ -84,6 +86,7 @@ class NonoRoutes extends Component {
 						key={'authorized'}
 						tabs={true}
 						tabBarIcon={TabIcon}
+						initial
 					>
 						{/* <Drawer
 							key={ 'drawer' }
@@ -115,22 +118,10 @@ class NonoRoutes extends Component {
 									key='_rent_battery'
 									title='Rent Battery'
 									component={RentButteryViewContainer}
-									initial
+									
 								/>
 							</Stack>
-							<Stack
-								key={'profile'}
-								tabBarLabel="Profile"
-								iconSource={iconPages}
-								header={GeneralHeader('Profile')}
-							>
-								<Scene
-									key='_profile'
-									title='Profile'
-									hideNavBar
-									component={ProfileViewContainer}
-								/>
-							</Stack>
+							{ProfileStack}
 						{/* </Drawer> */}
 					</Stack>
 
