@@ -40,8 +40,7 @@ export default class HistoryView extends React.Component {
     const { histories } = this.state;
     return (
       <ProfileWrapper>
-        <PageTitle title={_t('History')} />
-        <PageOption />
+        <PageTitle title={_t('History')}  optionLink={'summary'}/>
         {histories.map((history, ind) => (
           <TouchableOpacity 
             style={[
