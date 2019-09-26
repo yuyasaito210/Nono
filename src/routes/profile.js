@@ -9,6 +9,7 @@ import HistoryViewContainer from '../modules/profile/history/HistoryViewContaine
 import SummaryViewContainer from '../modules/profile/history/SummaryViewContainer';
 import WalletViewContainer from '../modules/profile/wallet/WalletViewContainer';
 import AddPromoCodeViewContainer from '../modules/profile/wallet/AddPromoCodeViewContainer';
+import PayViewContainer from '../modules/profile/wallet/PayViewContainer';
 
 const ProfileStack = (
   <Stack
@@ -31,6 +32,12 @@ const ProfileStack = (
       key='add_promocode'
       hideNavBar
       component={AddPromoCodeViewContainer}
+      
+    />
+    <Scene
+      key='pay'
+      hideNavBar
+      component={PayViewContainer}
       initial
     />
     <Scene
