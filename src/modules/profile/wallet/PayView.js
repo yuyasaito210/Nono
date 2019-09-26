@@ -78,10 +78,10 @@ export default class PayView extends React.Component {
             </TouchableOpacity>
           </View>
           <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-            <View style={{width: 165}}>
+            <View style={{width: '49%'}}>
               <PriceBox title='5€' subtitle='No bonus' />
             </View>
-            <View style={{width: 165}}>
+            <View style={{width: '49%'}}>
               <PriceBox title='10€' subtitle='No bonus' />
             </View>
           </View>

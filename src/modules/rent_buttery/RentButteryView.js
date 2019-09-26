@@ -6,9 +6,9 @@ import ScanQRCodeContainer from './qrscanner/ScanQRCodeContainer';
 import EnterQRCodeContainer from './enter-code/EnterQRCodeContainer';
 import MapSection from './map-section/MapSection';
 import MapButtonsLayer from './map-buttons/MapButtonsLayer';
-import RentBox from './rent/RentBox';
+import RentBoxContainer from './rent/RentBoxContainer';
 import UnlockBox from './rent/UnlockBox';
-import FeedbackDialog from './feedback/FeedbackDialog';
+import FeedbackDialogContainer from './feedback/FeedbackDialogContainer';
 
 export default class RentButterryView extends Component {
   state = {
@@ -60,7 +60,7 @@ export default class RentButterryView extends Component {
           <ScanQRCodeContainer onSwitchToQRCodeInput={this.onSwitchToQRCodeInput}/>
         }
         {pageStatus=='enterQRCode' && 
-          <EnterQRCodeContainer onSwitchToQRScanner={onSwitchToQRScanner} onGoToLocation={onGoToLocation}/>
+          <EnterQRCodeContainer onSwitchToQRScanner={this.onSwitchToQRScanner} onGoToLocation={this.onGoToLocation}/>
         }
         {pageStatus=='openRentBox' && 
           <>
@@ -72,7 +72,7 @@ export default class RentButterryView extends Component {
               refresh
               target
             />
-            <RentBox />
+            <RentBoxContainer />
           </>
         }
         {pageStatus=='openUnlockBox' && 
@@ -98,7 +98,7 @@ export default class RentButterryView extends Component {
               refresh
               target
             />
-            <FeedbackDialog />
+            <FeedbackDialogContainer />
           </>
         }
       </>

@@ -16,43 +16,48 @@ import { ProfileHeader } from './header/header';
 const ProfileStack = (
   <Stack
     key={'profile'}
+    initial
   >
     <Scene
       key='profile_menu'
       hideNavBar
-      component={ProfileViewContainer}
-      default
+      component={ProfileViewContainer}      
     />
     <Scene
       key='wallet'
       component={WalletViewContainer}
-      header={ProfileHeader('')}
+      header={ProfileHeader('')}      
     />
     <Scene
       key='add_promocode'
       component={AddPromoCodeViewContainer}
       header={ProfileHeader('')}
+      
     />
     <Scene
       key='pay'
       hideNavBar
       component={PayViewContainer}
       header={ProfileHeader('')}
+      
     />
     <Scene
       key='payment'
       component={PaymentViewContainer}
       header={ProfileHeader('')}
+      
     />
     <Scene
       key='history'
       component={HistoryViewContainer}
       header={ProfileHeader('')}
+      
     />
     <Scene
       key='summary'
       component={SummaryViewContainer}
       header={ProfileHeader('')}
+      initial
     />
     <Scene
       key='setting'

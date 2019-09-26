@@ -103,8 +103,8 @@ const rentBoxStyles = StyleSheet.create({
     width: W
   },
   row: {
-    marginLeft: 25,
-    flexDirection: 'row'
+    marginLeft: 25, marginVertical: 10,
+    flexDirection: 'row', 
   },
   leftCol: {
     width: 200,
@@ -116,7 +116,7 @@ const rentBoxStyles = StyleSheet.create({
   },
   rightColSmall: {
     marginLeft: 180,
-    color: '#fff', fontSize: 10
+    color: 'rgba(255, 255, 255, 0.7)', fontSize: 11
   }
 })
 

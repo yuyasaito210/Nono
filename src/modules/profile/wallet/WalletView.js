@@ -194,7 +194,7 @@ export const PageOption = ({link}) => (
   <View style={styles.pageOptionContainer}>
     <TouchableOpacity onPress={() => link && Actions[link]()}>
       <Image source={require('images/option3.png')} />
-    </TouchableOpacity>    
+    </TouchableOpacity>
   </View>
 )
 

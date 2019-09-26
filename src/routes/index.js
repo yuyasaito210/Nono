@@ -115,7 +115,6 @@ class NonoRoutes extends Component {
 									key='_rent_battery'
 									title='Rent Battery'
 									component={RentButteryViewContainer}
-									
 								/>
 							</Stack>
 							{ProfileStack}
