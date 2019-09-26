@@ -14,12 +14,12 @@ export default class AboutView extends React.Component {
     const { _t } = this.props.appActions;
     return (
       <ProfileWrapper>
-        <ScrollView style={{height: 700*em}}>
+        <ScrollView style={{height: 700}}>
           <Text style={styles.paramTitle}>{_t('About us')}</Text>
 
           <View  style={styles.imgSetting} >
-            <Image source={require('images/logo-color.png')} style={{marginTop: 20*em}}/>
-            <Image source={require('images/Union-32.png')} style={{marginTop: 10*em, width: 50*em, height: 10*em}}/>
+            <Image source={require('images/logo-color.png')} style={{marginTop: 20}}/>
+            <Image source={require('images/Union-32.png')} style={{marginTop: 10, width: 50, height: 10}}/>
           </View>
 
           <View style={styles.paraSection}>
@@ -29,19 +29,19 @@ export default class AboutView extends React.Component {
             <Text style={styles.paramInfo}> {_t('We have developed this activity while trying to deal with the climate issues of our time. This is why we have surrounded ourselves with stakeholders at different levels of our business to make it as environmentally responsible as possible.')}</Text>
           </View>
 
-          <View style = {{flex: 1, flexDirection: 'row', justifyContent: 'center', top: 15*em}}>
-            <Image source={require('images/Bio-bee-box.png')} style={{margin: 15*em}} />
-            <Image source={require('images/beeandgo.png')} style={{margin: 15*em}} />
-            <Image source={require('images/tree-nation.png')} style={{margin: 15*em}}/>
+          <View style = {{flex: 1, flexDirection: 'row', justifyContent: 'center', top: 15}}>
+            <Image source={require('images/Bio-bee-box.png')} style={{margin: 15}} />
+            <Image source={require('images/beeandgo.png')} style={{margin: 15}} />
+            <Image source={require('images/tree-nation.png')} style={{margin: 15}}/>
           </View>
           <View style = {{flex: 1, flexDirection: 'row', justifyContent: 'center'}}>
-            <Image source={require('images/screlec.png')} style={{margin: 15*em }}/>
-            <Image source={require('images/batribox.png')} style={{margin: 15*em}}/>
+            <Image source={require('images/screlec.png')} style={{margin: 15 }}/>
+            <Image source={require('images/batribox.png')} style={{margin: 15}}/>
           </View>
 
           <View style={styles.paraSection}>
             <Text style={styles.paramInfo}> {_t('Discover more about our partners on our website.')}</Text>
-            <Text style={{textAlign: 'center', marginTop: 15*em, fontSize: 14*em, color: '#35CDFA'}}> {_t('www.nono.fr')}</Text>
+            <Text style={{textAlign: 'center', marginTop: 15, fontSize: 14, color: '#35CDFA'}}> {_t('www.nono.fr')}</Text>
           </View>
 
         </ScrollView>
