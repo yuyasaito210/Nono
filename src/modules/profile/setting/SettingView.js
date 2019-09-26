@@ -23,17 +23,17 @@ export default class SettingView extends React.Component {
             <Text style={styles.paramInfo2}> {_t('Théo Rouilly')}</Text>
           </View>
 
-          <View style={{marginTop: 20}}> 
+          <View style={{marginTop: 20*em}}> 
             <Text style={styles.paramInfo1}> {_t('Phone')}</Text>
             <Text style={styles.paramInfo1}> {_t('00 00 00 00 00')}</Text>
           </View>
 
-          <View style={{marginTop: 20}}> 
+          <View style={{marginTop: 20*em}}> 
             <Text style={styles.paramInfo1}> {_t('Email')}</Text>
             <Text style={styles.paramInfo2}> {_t('theorouilly@nono.fr')}</Text>
           </View>
 
-          <View style={{marginTop: 20}}> 
+          <View style={{marginTop: 20*em}}> 
             <Text style={styles.paramInfo1}> {_t('Birth date')}</Text>
             <Text style={styles.paramInfo2}> {_t('18/06/2000')}</Text>
           </View>
@@ -59,7 +59,7 @@ export default class SettingView extends React.Component {
 
         <Spacer size={50}/>
         <TouchableOpacity onPress={() => Actions['login']()}>
-          <Text style={{textAlign: 'center', color: '#FE000C', fontSize: 18}}>{_t('Sign Out')}</Text>
+          <Text style={{textAlign: 'center', color: '#FE000C', fontSize: 18*em}}>{_t('Sign Out')}</Text>
         </TouchableOpacity>
 
       </ProfileWrapper>

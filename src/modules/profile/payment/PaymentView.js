@@ -17,36 +17,36 @@ export default class PaymentView extends React.Component {
         <Text style={styles.payInfo}>{_t('Mode de paiement actif')}</Text>
 
 
-        <View style={{marginTop: 50, flexDirection: 'row', alignItem: 'center'}}>
+        <View style={{marginTop: 50*em, flexDirection: 'row', alignItem: 'center'}}>
           <TouchableOpacity  >
             <Image source={require('images/Lydia-add.png')} />
           </TouchableOpacity>
           
-          <View style={{marginLeft: 15, alignItem: 'center'}}>
+          <View style={{marginLeft: 15*em, alignItem: 'center'}}>
             <Text style={styles.addInfo1}>{_t('Lydia')}</Text>
             <Text style={styles.addInfo2}>{_t('theorouilly@nono.fr')}</Text>
           </View>
           
-          <TouchableOpacity style={{left: 130}} >
-            <Image source={require('images/remove.png')} style={{ marginTop: 5}}/>
+          <TouchableOpacity style={{left: 130*em}} >
+            <Image source={require('images/remove.png')} style={{ marginTop: 5*em}}/>
           </TouchableOpacity>
 
         </View>
 
 
-        <View style={{marginTop: 30, flexDirection: 'row', alignItem: 'center'}}>
+        <View style={{marginTop: 30*em, flexDirection: 'row', alignItem: 'center'}}>
           <TouchableOpacity  >
             <Image source={require('images/add-card.png')} />
           </TouchableOpacity>
           
-          <Text style={{marginLeft: 10, fontSize: 16}}>{_t('Ajoute une carte de crédit')}</Text>
+          <Text style={{marginLeft: 10*em, fontSize: 16*em}}>{_t('Ajoute une carte de crédit')}</Text>
 
-          <TouchableOpacity style={{left: 95}} >
-            <Image source={require('images/arrow.png')} style={{ marginTop: 5, width:15, height:15, color: '#FFF', tintColor: '#DFDFE6', transform: [{rotate: '180deg'}]}}/>
+          <TouchableOpacity style={{left: 95*em}} >
+            <Image source={require('images/arrow.png')} style={{ marginTop: 5*em, width:15*em, height:15*em, color: '#FFF', tintColor: '#DFDFE6', transform: [{rotate: '180deg'}]}}/>
           </TouchableOpacity>
         </View>
 
-        <View style={{top: 330}}>
+        <View style={{top: 330*em}}>
           <Button rounded
             caption='Ajoute un compte Lydia'
             bgColor='#06A2F1' textColor='#FFFFFF'
@@ -56,7 +56,7 @@ export default class PaymentView extends React.Component {
             caption='Ajoute un compte Lydia'
             bgColor='#36384A' textColor='#FFFFFF'
             icon={require('images/apple.png')} iconColor='#FFFFFF'
-            style={{ marginTop: 10}}
+            style={{ marginTop: 10*em}}
           />
         </View>
       </ProfileWrapper>

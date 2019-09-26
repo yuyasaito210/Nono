@@ -24,23 +24,23 @@ export default class WalletView extends React.Component {
     return (
       <ProfileWrapper>
         <PageTitle title={_t('Wallet')} optionLink={'pay'}/>
-        <Text style={{marginVertical: 10, fontSize: 14, color: '#36394a'}}>
+        <Text style={{marginVertical: 10*em, fontSize: 14*em, color: '#36394a'}}>
           {_t('Charge your account for benefits')}
         </Text>
 
         {/* Box 1 */}
         <View style={[
           styles.boxContainer,
-          {backgroundColor: '#35cdfa', marginTop: 20}
+          {backgroundColor: '#35cdfa', marginTop: 20*em}
         ]}>
           <Image source={require('images/bg17.png')} style={styles.boxBg} />
           <Text style={styles.box1Title}>0,00€</Text>
           <Text style={styles.box1Subtitle}>{_t('Current balance')}</Text>
           <View style={{
-            flexDirection: 'row', justifyContent: 'space-between', borderTopWidth: 1, borderTopColor: 'rgba(255, 255, 255, 0.18)', paddingTop: 10
+            flexDirection: 'row', justifyContent: 'space-between', borderTopWidth: 1, borderTopColor: 'rgba(255, 255, 255, 0.18)', paddingTop: 10*em
           }}>
             <Text style={styles.box1Text}>{_t('Load my account for to have advantages')}</Text>
-            <View style={{width: 100}}>
+            <View style={{width: 100*em}}>
               <Button caption={_t('GO')}
                 bgColor='white' textColor='#35cdfa'
                 onPress={() => Actions['pay']()}
@@ -55,21 +55,21 @@ export default class WalletView extends React.Component {
             {/* Box 2-actived */}
             <View style={[
               styles.boxContainer,
-              {backgroundColor: '#07e28e', marginTop: 10}
+              {backgroundColor: '#07e28e', marginTop: 10*em}
             ]}>
               <Image source={require('images/flash.png')} style={[styles.boxBg, {tintColor: 'rgba(255, 255, 255, 0.68)'}]} />
               <View style={{
                 flexDirection: 'row', justifyContent: 'space-between'
               }}>
                 <View>
-                  <Text style={{fontSize: 26, color: '#fff', fontWeight: 'bold'}}>
+                  <Text style={{fontSize: 26*em, color: '#fff', fontWeight: 'bold'}}>
                     {_t('CODE PROMO')}
                   </Text>
                   <Text style={[styles.box1Subtitle, {color: '#fff'}]}>
                     {_t('Promo code actived')}
                   </Text>
                 </View>
-                <View style={{width: 100, paddingTop: 20}}>
+                <View style={{width: 100*em, paddingTop: 20*em}}>
                   <Button caption={_t('View')}
                     bgColor='rgba(255, 255, 255, 0.5)' textColor='#fff'
                     onPress={() => Actions['add_promocode']()}
@@ -84,21 +84,21 @@ export default class WalletView extends React.Component {
             {/* Box 2 */}
             <View style={[
               styles.boxContainer,
-              {backgroundColor: '#fff', marginTop: 10, borderWidth: 1, borderColor: '#07e2be'}
+              {backgroundColor: '#fff', marginTop: 10*em, borderWidth: 1, borderColor: '#07e2be'}
             ]}>
               <Image source={require('images/flash.png')} style={[styles.boxBg, {tintColor: 'rgba(7, 226, 190, 0.48)'}]} />
               <View style={{
                 flexDirection: 'row', justifyContent: 'space-between'
               }}>
                 <View>
-                  <Text style={{fontSize: 26, color: '#07e2be', fontWeight: 'bold'}}>
+                  <Text style={{fontSize: 26*em, color: '#07e2be', fontWeight: 'bold'}}>
                     {_t('CODE PROMO')}
                   </Text>
                   <Text style={[styles.box1Subtitle, {color: '#9f9f9f'}]}>
                     {_t('Add a promo code')}
                   </Text>
                 </View>
-                <View style={{width: 100, paddingTop: 20}}>
+                <View style={{width: 100*em, paddingTop: 20*em}}>
                   <Button caption={_t('Add')}
                     bgColor='#07e28e' textColor='#fff'
                   />
@@ -111,18 +111,18 @@ export default class WalletView extends React.Component {
         {/* Pay box */}
         <Spacer size={140} />
         <View>
-          <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginVertical: 5}}>
-            <Text style={{color: '#9f9f9f', fontSize: 14}}>
+          <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginVertical: 5*em}}>
+            <Text style={{color: '#9f9f9f', fontSize: 14*em}}>
               {_t('Current method of payment')}:
             </Text>
-            <TouchableOpacity style={{flexDirection: 'row', marginLeft: 5}}>
+            <TouchableOpacity style={{flexDirection: 'row', marginLeft: 5*em}}>
               <Text style={{
-                color: '#35cdfa', fontSize: 14
+                color: '#35cdfa', fontSize: 14*em
               }}>
                 CHANGER
               </Text>
               <Image source={require('images/arrow2.png')} style={{
-                tintColor: '#35cdfa', marginTop: 5, marginLeft: 8
+                tintColor: '#35cdfa', marginTop: 5*em, marginLeft: 8*em
               }} />
             </TouchableOpacity>
           </View>
@@ -141,26 +141,26 @@ export default class WalletView extends React.Component {
               </View>
               <View style={styles.bottomRow}>
                 <Image source={require('images/plant.png')} 
-                  style={{marginVertical: 15}} />
+                  style={{marginVertical: 15*em}} />
               </View>
               <View style={styles.bottomRow}>
-                <Text style={{fontSize: 20, color: '#313131', fontWeight: 'bold'}}>
+                <Text style={{fontSize: 20*em, color: '#313131', fontWeight: 'bold'}}>
                   {_t('You chose to plant a tree.')}
                 </Text>
               </View>
               <View style={styles.bottomRow}>
-                <Text style={{fontSize: 14, color: '#313131', marginVertical: 10, width: 230, textAlign: 'center'}}>
+                <Text style={{fontSize: 14*em, color: '#313131', marginVertical: 10*em, width: 230*em, textAlign: 'center'}}>
                   {_t('Nono and his partner Tree-Nation thank you!')}
                 </Text>
               </View>
               <View style={styles.bottomRow}>
-                <Text style={{fontSize: 12, color: '#6a6a7c', marginVertical: 10}}>
+                <Text style={{fontSize: 12*em, color: '#6a6a7c', marginVertical: 10*em}}>
                   {_t('Enter your email address and see where your tree will be planted.')}
                 </Text>
               </View>
               <TextInput placeholder='Email'
-                style={{backgroundColor: '#dfdfe6', borderRadius: 10, padding: 10, fontSize: 16}}/>
-              <View style={[styles.bottomRow, {marginTop: 10, marginBottom: 20}]}>
+                style={{backgroundColor: '#dfdfe6', borderRadius: 10*em, padding: 10*em, fontSize: 16*em}}/>
+              <View style={[styles.bottomRow, {marginTop: 10*em, marginBottom: 20*em}]}>
                 <Button bgColor='transparent' textColor='#35cdfa'
                   caption={_t('No thanks')}
                   onPress={() => this.setState({successPaid: false})}
@@ -194,7 +194,7 @@ export const PageOption = ({link}) => (
   <View style={styles.pageOptionContainer}>
     <TouchableOpacity onPress={() => link && Actions[link]()}>
       <Image source={require('images/option3.png')} />
-    </TouchableOpacity>
+    </TouchableOpacity>    
   </View>
 )
 

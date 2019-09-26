@@ -40,13 +40,12 @@ export default class HistoryView extends React.Component {
     const { histories } = this.state;
     return (
       <ProfileWrapper>
-        <PageTitle title={_t('History')} />
-        <PageOption />
+        <PageTitle title={_t('History')}  optionLink={'summary'}/>
         {histories.map((history, ind) => (
           <TouchableOpacity 
             style={[
               styles.row,
-              {marginVertical: 13}
+              {marginVertical: 13*em}
             ]}
             onPress={(history) => Actions['summary']({history})}
           >
@@ -63,7 +62,7 @@ export default class HistoryView extends React.Component {
                 </Text>
                 <Image source={require('images/arrow.png')} style={[
                   styles.nextArrow,
-                  {marginLeft: 10}
+                  {marginLeft: 10*em}
                 ]} />
               </View>
             </TouchableOpacity>            

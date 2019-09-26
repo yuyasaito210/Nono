@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
         tintColor: '#35CDFA'
         },
     paramTitle: {
-        textAlign: 'center', fontSize: 24, fontWeight: 'bold',
+        textAlign: 'center', fontSize: 24*em, fontWeight: 'bold',
     },
 
     imgSetting: {
@@ -15,11 +15,11 @@ const styles = StyleSheet.create({
     }, 
 
     paraSection: {
-        top: 10, fontSize: 18,
+        top: 10*em, fontSize: 18*em,
     },
 
     paramInfo: {
-        textAlign: 'center', marginTop: 15, fontSize: 14,
+        textAlign: 'center', marginTop: 15*em, fontSize: 14*em,
     }
 })
 

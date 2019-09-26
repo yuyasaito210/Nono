@@ -7,19 +7,19 @@ const styles = StyleSheet.create({
 		tintColor: '#35CDFA'
 	},
 	paramTitle: {
-		fontSize: 24, fontWeight: 'bold', 
-		marginTop: 20, marginBottom: 30
+		fontSize: 24*em, fontWeight: 'bold', 
+		marginTop: 20*em, marginBottom: 30*em
 	},
 
 	paramInfo: {
-		marginVertical: 25, fontSize: 18,
+		marginVertical: 25*em, fontSize: 18*em,
 	},
 
 	paramInfo1: {
-		color: '#BDBDBD', fontSize: 16, 
+		color: '#BDBDBD', fontSize: 16*em, 
 	},
 	paramInfo2: {
-		marginTop: 5, fontSize: 16, color: '#36384a'
+		marginTop: 5*em, fontSize: 16*em, color: '#36384a'
 	},
 	arrowStyle: {
 		transform: [{rotate: '180deg'}], 

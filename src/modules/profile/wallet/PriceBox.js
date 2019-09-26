@@ -16,9 +16,9 @@ export default class PriceBox extends React.Component {
       <>
         {selected?
           <View style={{
-            borderRadius: 20, padding: 20,
+            borderRadius: 20*em, padding: 20*em,
             alignItems: 'center',
-            marginVertical: 5,
+            marginVertical: 5*em,
             backgroundColor: '#5ed8fc',
             overflow: 'hidden'
           }}>
@@ -27,13 +27,13 @@ export default class PriceBox extends React.Component {
               tintColor: 'rgba(255, 255, 255, 0.5)'
             }} />
             <Text style={{
-              fontSize: 36, color: '#fff', fontWeight: 'bold'
+              fontSize: 36*em, color: '#fff', fontWeight: 'bold'
             }}>
               {title}
             </Text>
             {options.map((option, index) => (
-              <View style={{flexDirection: 'row', justifyContent: 'space-between', width: '100%', marginVertical: 10}}>
-                <Text style={{color: 'white', fontSize: 14}}>{option.title}</Text>
+              <View style={{flexDirection: 'row', justifyContent: 'space-between', width: '100%', marginVertical: 10*em}}>
+                <Text style={{color: 'white', fontSize: 14*em}}>{option.title}</Text>
                 {index==selectedIndex?
                   <Image source={require('images/selected.png')} style={{tintColor: 'white'}} />
                 :
@@ -44,18 +44,18 @@ export default class PriceBox extends React.Component {
           </View>
         :
           <View style={{
-            borderRadius: 20, padding: 20,
+            borderRadius: 20*em, padding: 20*em,
             backgroundColor: '#f2f2f2',
             alignItems: 'center',
-            marginVertical: 5
+            marginVertical: 5*em
           }}>
             <Text style={{
-              fontSize: 36, color: '#36384a', fontWeight: 'bold'
+              fontSize: 36*em, color: '#36384a', fontWeight: 'bold'
             }}>
               {title}
             </Text>
             <Text style={{
-              fontSize: 14, color: hasBonus?'#35cdfa':'#bfbfc4'
+              fontSize: 14*em, color: hasBonus?'#35cdfa':'#bfbfc4'
             }}>
               {subtitle}
             </Text>
