@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View } from 'react-native';
 import { Text } from '../../components/StyledText';
 import styles from './styles';
-import ScanQRCodeContainer from './scan-qr/ScanQRCodeContainer';
+import ScanQRCodeContainer from './qrscanner/ScanQRCodeContainer';
 import EnterQRCodeContainer from './enter-code/EnterQRCodeContainer';
 import MapSection from './map-section/MapSection';
 import MapButtonsLayer from './map-buttons/MapButtonsLayer';
@@ -39,11 +39,14 @@ export default class RentButterryView extends Component {
 
   // pageStatus  - scanQRcode, enterQRCode, openRentBox, openUnlockBox, openFeedbackDialog
   // ScanQRCode
-  onSwitchQRCodeInput = () => this.setState({pageStatus: 'enterQRCode'});
+  onSwitchToQRCodeInput = () => this.setState({pageStatus: 'enterQRCode'});
   onReadQRCode = (qrCode) => {
     this.setState({pageStatus: 'openRentBox'});
   };
   // EnterQRCode
+  onSwitchToQRScanner = () => {
+    this.setState({pageStatus: 'scanQRCode'});
+  }
   onGoToLocation = (qrCode) => {
     this.setState({pageStatus: 'openRentBox'});
   }
@@ -54,10 +57,10 @@ export default class RentButterryView extends Component {
     return (
       <>        
         {pageStatus=='scanQRCode' && 
-          <ScanQRCodeContainer onSwitchQRCodeInput={this.onSwitchQRCodeInput}/>
+          <ScanQRCodeContainer onSwitchToQRCodeInput={this.onSwitchToQRCodeInput}/>
         }
         {pageStatus=='enterQRCode' && 
-          <EnterQRCodeContainer />
+          <EnterQRCodeContainer onSwitchToQRScanner={onSwitchToQRScanner} onGoToLocation={onGoToLocation}/>
         }
         {pageStatus=='openRentBox' && 
           <>

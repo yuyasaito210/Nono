@@ -10,11 +10,15 @@ export default class EnterQRCode extends React.Component{
 
   render = () => {
     const { codeCharacters } = this.state;
-    const { appActions } = this.props.appActions;
+    const { onSwitchToQRScanner, onGoToLocation, appActions } = this.props;
     return (
       <View style={[styles.page.container, styles.enterCode.pageWrapper]}>
         <CodeForm codeCharacters={codeCharacters}/>
-        <ActionButtons appActions={appActions}/>
+        <ActionButtons 
+          onClickClose={onSwitchToQRScanner}
+          onGoToLocation={onGoToLocation}
+          appActions={appActions}
+        />
       </View>
     )
   }
@@ -36,7 +40,7 @@ class CodeForm extends React.Component {
   }
 }
 
-const ActionButtons = ({ onClickClose, appActions }) => ( 
+const ActionButtons = ({ onClickClose, onGoToLocation, appActions }) => ( 
   <>
     <View style={styles.actionLayer.container}>
       <Text style={[
@@ -70,7 +74,10 @@ const ActionButtons = ({ onClickClose, appActions }) => (
         ]}
         onPress={onGoToLocation}
       >
-        <Image source={require('images/qr-code.png')} style={styles.actionLayer.buttonImage} />
+        <Image
+          source={require('images/qr-code.png')}
+          style={styles.actionLayer.buttonImage} 
+        />
       </TouchableOpacity>
       <TouchableOpacity 
         style={[
@@ -79,7 +86,10 @@ const ActionButtons = ({ onClickClose, appActions }) => (
           {bottom: 350*em, right: 15*em}
         ]}
       >
-        <Image source={require('images/flash-QR-code.png')} style={styles.actionLayer.buttonImage} />
+        <Image
+          source={require('images/flash-QR-code.png')}
+          style={styles.actionLayer.buttonImage}
+        />
       </TouchableOpacity>      
     </View>
   </>
