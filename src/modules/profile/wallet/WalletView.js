@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity, TextInput } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 import { W, H, em } from '~/constants/Layout';
 import styles from './styles';
 import { _t } from '../../AppAction';

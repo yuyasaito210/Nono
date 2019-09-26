@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Modal, Text, TouchableHighlight, TouchableOpacity, View, Alert} from 'react-native';
+import { Actions } from 'react-native-router-flux';
 import TouchableScale from 'react-native-touchable-scale';
 import LinearGradient from 'react-native-linear-gradient';
 import { Left, Right, Title, Icon, Body, List, ListItem } from 'native-base';
@@ -15,32 +16,38 @@ export default class ProfileMenuView extends Component {
         name: 'Wallet',
         imageUrl: require('../../../assets/images/png/free-charge-2x.png'),
         subTitle: '0,00 €',
-        icon: 'payment'
+        icon: 'payment',
+        route: 'wallet'
       },
       {
         name: 'Historical',
         imageUrl: require('../../../assets/images/png/free-charge-2x.png'),
-        icon: 'history'
+        icon: 'history',
+        route: 'history'
       },
       {
         name: 'Payment',
         imageUrl: require('../../../assets/images/png/free-charge-2x.png'),
-        icon: 'credit-card'
+        icon: 'credit-card',
+        route: 'payment'
       },
       {
         name: 'Settings',
         imageUrl: require('../../../assets/images/png/free-charge-2x.png'),
-        icon: 'settings'
+        icon: 'settings',
+        route: 'setting'
       },
       {
         name: 'About us',
         imageUrl: require('../../../assets/images/png/free-charge-2x.png'),
-        icon: 'details'
+        icon: 'details',
+        route: 'about_us'
       },
       {
         name: 'Need help?',
         imageUrl: require('../../../assets/images/png/free-charge-2x.png'),
-        icon: 'help'
+        icon: 'help',
+        route: 'help'
       },
     ]
   };
@@ -85,7 +92,7 @@ export default class ProfileMenuView extends Component {
                   <ListItem 
                     key={i} 
                     thumbnail 
-                    onPress={() => {console.log('...')}} 
+                    onPress={() => {Actions[item.route]()}} 
                   >
                     <Left>
                       <MaterialIcon name={item.icon} style={styles.listItemLeftImage} />

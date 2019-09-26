@@ -70,3 +70,30 @@ export function GuideHeader(title) {
   );
 }
 
+export function ProfileHeader(title) {
+  const guideHeaderContainerStyle = [
+    styles.headerCommon,
+    styles.guideHeaderContainer,
+    // { marginTop: Platform.OS === 'ios' ? 0 : StatusBar.currentHeight },
+  ];
+
+  return (
+    <Header style={guideHeaderContainerStyle}>
+      <Left style={styles.commonLeftSection}>
+        <Button transparent onPress={() => Actions.pop()}>
+          <Icon name="ios-arrow-back" style={[styles.guideHeaderCommon, styles.guideHeaderLeft]}/>
+        </Button>
+      </Left>
+      <Body style={styles.commonBodySection}>
+        <Title style={[styles.guideHeaderCommon, styles.guideHeaderCaption]}>{title}</Title>
+      </Body>
+      <Right style={styles.commonRightSection}>
+        {/* <Button transparent onPress={() => Actions['authorized']()}>
+          <Icon name="close" style={[styles.guideHeaderCommon, styles.guideHeaderRight]}/>
+        </Button> */}
+      </Right>
+    </Header>
+  );
+}
+
+

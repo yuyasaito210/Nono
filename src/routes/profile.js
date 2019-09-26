@@ -10,71 +10,63 @@ import SummaryViewContainer from '../modules/profile/history/SummaryViewContaine
 import WalletViewContainer from '../modules/profile/wallet/WalletViewContainer';
 import AddPromoCodeViewContainer from '../modules/profile/wallet/AddPromoCodeViewContainer';
 import PayViewContainer from '../modules/profile/wallet/PayViewContainer';
+import { ProfileHeader } from './header/header';
+
 
 const ProfileStack = (
   <Stack
     key={'profile'}
-    initial
   >
     <Scene
       key='profile_menu'
       hideNavBar
       component={ProfileViewContainer}
-      
+      default
     />
     <Scene
       key='wallet'
-      hideNavBar
       component={WalletViewContainer}
-      
+      header={ProfileHeader('')}
     />
     <Scene
       key='add_promocode'
-      hideNavBar
       component={AddPromoCodeViewContainer}
-      
+      header={ProfileHeader('')}
     />
     <Scene
       key='pay'
       hideNavBar
       component={PayViewContainer}
-      initial
+      header={ProfileHeader('')}
     />
     <Scene
       key='payment'
-      hideNavBar
       component={PaymentViewContainer}
-      
+      header={ProfileHeader('')}
     />
     <Scene
       key='history'
-      hideNavBar
       component={HistoryViewContainer}
-      
+      header={ProfileHeader('')}
     />
     <Scene
       key='summary'
-      hideNavBar
       component={SummaryViewContainer}
-      
+      header={ProfileHeader('')}
     />
     <Scene
       key='setting'
-      hideNavBar
       component={SettingViewContainer}
-      
+      header={ProfileHeader('')}
     />
     <Scene
       key='about_us'
-      hideNavBar
       component={AboutViewContainer}
-      
+      header={ProfileHeader('')}
     />
     <Scene
       key='help'
-      hideNavBar
       component={HelpViewContainer}
-      
     />
   </Stack>
 )
