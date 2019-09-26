@@ -40,14 +40,16 @@ export default class HistoryView extends React.Component {
     const { histories } = this.state;
     return (
       <ProfileWrapper>
-        <BackButton onBack={() => this.goBack()}/>
         <PageTitle title={_t('History')} />
         <PageOption />
         {histories.map((history, ind) => (
-          <View style={[
-            styles.row,
-            {marginVertical: 13*em}
-          ]}>
+          <TouchableOpacity 
+            style={[
+              styles.row,
+              {marginVertical: 13*em}
+            ]}
+            onPress={(history) => Actions['summary']({history})}
+          >
             <Text style={{color: '#9f9f9f'}}>
               {history.date}
             </Text>
@@ -65,24 +67,9 @@ export default class HistoryView extends React.Component {
                 ]} />
               </View>
             </TouchableOpacity>            
-          </View>
+          </TouchableOpacity>
         ))}
       </ProfileWrapper>
     )
   }
-  
-  goBack = () => {
-    Actions['profile']();
-  }
 }
-
-const BackButton = ({ onBack }) => (
-  <>
-    <TouchableOpacity 
-      onPress={onBack}
-    >
-      <Image source={require('images/arrow.png')} 
-        style={styles.backButton} />
-    </TouchableOpacity>
-  </>
-)

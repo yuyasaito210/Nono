@@ -5,6 +5,7 @@ import styles from './styles';
 import { _t } from '../../AppAction';
 import { Button } from '~/components';
 import { ProfileWrapper, PageTitle } from './WalletView';
+import { ActionConst, Actions } from 'react-native-router-flux';
 
 export default class WalletView extends React.Component {
   render = () => {
@@ -12,7 +13,6 @@ export default class WalletView extends React.Component {
 
     return (
       <ProfileWrapper>
-        <BackButton onBack={() => this.goBack()} />
         <PageTitle title={_t('Add a promo code')} />
         <View>
           <TextInput placeholder='CODE PROMO' style={{
@@ -24,24 +24,10 @@ export default class WalletView extends React.Component {
         <View style={{marginTop: 160*em}}>
           <Button rounded caption={_t('Validate')}
             bgColor='rgba(7, 226, 142, 0.5)' textColor='white'
+            onPress={() => Actions.pop()}
           />
         </View>
       </ProfileWrapper>
     )
   }
-
-  goBack = () => {
-    Actions['profile']();
-  }
 }
-
-const BackButton = ({ onBack }) => (
-  <>
-    <TouchableOpacity 
-      onPress={onBack}
-    >
-      <Image source={require('images/cross.png')} 
-        style={[styles.backButton, {tintColor: '#9f9f9f'}]} />
-    </TouchableOpacity>
-  </>
-)

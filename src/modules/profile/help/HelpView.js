@@ -14,7 +14,7 @@ export default class HelpView extends React.Component {
     const { _t } = this.props.appActions;
     return (
       <ProfileWrapper>
-        <BackButton onBack={() => this.goBack()}/>
+
         <Text style={styles.paramTitle}>{_t('Need help ?')}</Text>
 
         <View style={{marginTop: 30*em, flexDirection: 'row', alignItem: 'center'}}>
@@ -52,19 +52,4 @@ export default class HelpView extends React.Component {
       </ProfileWrapper>
     )
   }
-  
-  goBack = () => {
-    Actions['profile']();
-  }
 }
-
-const BackButton = ({ onBack }) => (
-  <>
-    <TouchableOpacity 
-      onPress={onBack}
-    >
-      <Image source={require('images/arrow.png')} 
-        style={styles.backButton} />
-    </TouchableOpacity>
-  </>
-)
