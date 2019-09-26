@@ -13,8 +13,7 @@ export default class SummaryView extends React.Component {
     const { _t } = this.props.appActions;
     return (
       <ProfileWrapper>
-        <PageTitle title={_t('Summary')} />
-        <PageOption />
+        <PageTitle title={_t('Summary')}/>
         <View>
           <View style={styles.summaryRow}>
             <View style={styles.summaryCol1}>
