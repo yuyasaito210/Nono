@@ -86,6 +86,7 @@ class NonoRoutes extends Component {
 						key={'authorized'}
 						tabs={true}
 						tabBarIcon={TabIcon}
+						initial
 					>
 						{/* <Drawer
 							key={ 'drawer' }
@@ -97,7 +98,7 @@ class NonoRoutes extends Component {
 								tabBarLabel="Map"
 								iconSource={iconCalendar}
 								header={GeneralHeader('Map')}
-								hideNavBar
+								hideNavBar								
 							>
 								<Scene
 									key='_map'
@@ -109,7 +110,7 @@ class NonoRoutes extends Component {
 								key={'rent_battery'}
 								tabBarLabel="Rent Battery"
 								iconSource={iconGrids}
-								header={GeneralHeader('Rent Battery')}
+								header={GeneralHeader('Rent Battery')}								
 							>
 								<Scene
 									key='_rent_battery'
