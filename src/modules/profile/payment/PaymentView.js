@@ -12,7 +12,6 @@ export default class PaymentView extends React.Component {
     const { _t } = this.props.appActions;
     return (
       <ProfileWrapper>
-        <BackButton onBack={() => this.goBack()}/>
         <Text style={styles.paramTitle}>{_t('Payment')}</Text>
 
         <Text style={styles.payInfo}>{_t('Mode de paiement actif')}</Text>
@@ -60,24 +59,7 @@ export default class PaymentView extends React.Component {
             style={{ marginTop: 10*em}}
           />
         </View>
-        
-
       </ProfileWrapper>
     )
   }
-  
-  goBack = () => {
-    Actions['profile']();
-  }
 }
-
-const BackButton = ({ onBack }) => (
-  <>
-    <TouchableOpacity 
-      onPress={onBack}
-    >
-      <Image source={require('images/arrow.png')} 
-        style={styles.backButton} />
-    </TouchableOpacity>
-  </>
-)

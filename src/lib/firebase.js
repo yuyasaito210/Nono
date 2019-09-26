@@ -18,7 +18,6 @@ if (
   && storageBucket !== 'null'
   && messagingSenderId !== 'null'
 ) {
-  console.log('====== logging inn to Firebase: ', firebaseConfig);
   FirebaseModule.initializeApp({
     apiKey,
     authDomain,

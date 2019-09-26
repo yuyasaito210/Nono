@@ -4,12 +4,18 @@ import { Actions } from 'react-native-router-flux';
 import { W, H, em } from '~/constants/Layout';
 import styles from './styles';
 import { _t } from '../../AppAction';
-import { Button } from '~/components';
+import { Button, Spacer } from '~/components';
 
 export default class WalletView extends React.Component {
   state = {
     promoActived: true,
     successPaid: false,
+  }
+
+  applePay = () => {
+    // TODO
+    
+    this.setState({successPaid: true})
   }
   render = () => {
     const { _t } = this.props.appActions;
@@ -17,9 +23,7 @@ export default class WalletView extends React.Component {
 
     return (
       <ProfileWrapper>
-        <BackButton onBack={() => this.goBack()}/>
-        <PageTitle title={_t('Wallet')} />
-        <PageOption />
+        <PageTitle title={_t('Wallet')} optionLink={'pay'}/>
         <Text style={{marginVertical: 10*em, fontSize: 14*em, color: '#36394a'}}>
           {_t('Charge your account for benefits')}
         </Text>
@@ -39,6 +43,7 @@ export default class WalletView extends React.Component {
             <View style={{width: 100*em}}>
               <Button caption={_t('GO')}
                 bgColor='white' textColor='#35cdfa'
+                onPress={() => Actions['pay']()}
               />
             </View>            
           </View>          
@@ -67,6 +72,7 @@ export default class WalletView extends React.Component {
                 <View style={{width: 100*em, paddingTop: 20*em}}>
                   <Button caption={_t('View')}
                     bgColor='rgba(255, 255, 255, 0.5)' textColor='#fff'
+                    onPress={() => Actions['add_promocode']()}
                   />
                 </View>
               </View>
@@ -103,7 +109,8 @@ export default class WalletView extends React.Component {
           </>
         }
         {/* Pay box */}
-        <View style={{marginTop: 170*em}}>
+        <Spacer size={140} />
+        <View>
           <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginVertical: 5*em}}>
             <Text style={{color: '#9f9f9f', fontSize: 14*em}}>
               {_t('Current method of payment')}:
@@ -122,6 +129,7 @@ export default class WalletView extends React.Component {
           <Button rounded caption='Pay'
             bgColor='#36384a' textColor='#fff'
             icon={require('images/apple.png')} iconColor='#fff'
+            onPress={() => this.applePay()}
           />
         </View>
         {/* Pay box (end) */}
@@ -155,6 +163,7 @@ export default class WalletView extends React.Component {
               <View style={[styles.bottomRow, {marginTop: 10*em, marginBottom: 20*em}]}>
                 <Button bgColor='transparent' textColor='#35cdfa'
                   caption={_t('No thanks')}
+                  onPress={() => this.setState({successPaid: false})}
                 />
               </View>
             </View>
@@ -163,29 +172,27 @@ export default class WalletView extends React.Component {
       </ProfileWrapper>
     )
   }
-
-  goBack = () => {
-    Actions['profile']();
-  }
 }
 
 export const ProfileWrapper = ({ children }) => (
   <View style={styles.pageWrapper}>
+    {/* <BackButton onBack={() => Actions.pop()}/> */}
     {children}
   </View>
 )
 
-export const PageTitle = ({ title }) => (
-  <View>
+export const PageTitle = ({ title, optionLink }) => (
+  <View style={styles.pageTitleContainer}>
     <Text style={styles.pageTitle}>
       {title}
     </Text>
+    { optionLink && <PageOption link={optionLink} />}
   </View>
 )
 
-export const PageOption = () => (
+export const PageOption = ({link}) => (
   <View style={styles.pageOptionContainer}>
-    <TouchableOpacity>
+    <TouchableOpacity onPress={() => link && Actions[link]()}>
       <Image source={require('images/option3.png')} />
     </TouchableOpacity>    
   </View>
@@ -193,9 +200,7 @@ export const PageOption = () => (
 
 const BackButton = ({ onBack }) => (
   <>
-    <TouchableOpacity 
-      onPress={onBack}
-    >
+    <TouchableOpacity onPress={onBack}>
       <Image source={require('images/arrow.png')} 
         style={styles.backButton} />
     </TouchableOpacity>
