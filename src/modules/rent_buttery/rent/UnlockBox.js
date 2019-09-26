@@ -13,7 +13,7 @@ export default class UnlockBox extends React.Component {
         <Text 
           style={[
             styles.rentBox.text,
-            {marginVertical: 10*em, fontSize: 24*em, fontWeight: 'bold'}
+            {marginVertical: 10, fontSize: 24, fontWeight: 'bold'}
           ]}
         >
           00:02
@@ -34,19 +34,19 @@ export default class UnlockBox extends React.Component {
 
 const ForwardButton = () => (
   <View style={{
-    position: 'absolute', top: 20*em, right: 20*em
+    position: 'absolute', top: 20, right: 20
   }}>
     <TouchableOpacity 
       style={{
-        width: 30*em, height: 30*em,
-        borderRadius: 10*em,
+        width: 30, height: 30,
+        borderRadius: 10,
         alignItems: 'center', justifyContent: 'center',
         backgroundColor: '#fff'
       }}
     >
       <Image source={require('images/arrow-direction.png')} 
         style={{
-          tintColor: '#ff52a8', width: 10*em, height: 10*em
+          tintColor: '#ff52a8', width: 10, height: 10
         }}
       />
     </TouchableOpacity>
@@ -56,8 +56,8 @@ const ForwardButton = () => (
 const InnerBoxWrapper = ({ children }) => (
   <View style={{
     backgroundColor: '#fff',
-    borderTopLeftRadius: 20*em, borderTopRightRadius: 20*em,
-    paddingTop: 20*em, paddingBottom: 40*em, paddingHorizontal: 20*em
+    borderTopLeftRadius: 20, borderTopRightRadius: 20,
+    paddingTop: 20, paddingBottom: 40, paddingHorizontal: 20
   }}>
     {children}
   </View>

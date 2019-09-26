@@ -8,18 +8,18 @@ const styles = StyleSheet.create({
         },
 
     paramTitle: {
-        top: 10*em, fontSize: 24*em, fontWeight: 'bold',
+        top: 10, fontSize: 24, fontWeight: 'bold',
     },
 
     paramInfo: {
-        top: 30*em, fontSize: 18*em,
+        top: 30, fontSize: 18,
     },
 
     paramInfo1: {
-        color: '#BDBDBD', fontSize: 16*em, 
+        color: '#BDBDBD', fontSize: 16, 
     },
     paramInfo2: {
-        marginTop: 5*em, fontSize: 16*em,
+        marginTop: 5, fontSize: 16,
     }
 })
 

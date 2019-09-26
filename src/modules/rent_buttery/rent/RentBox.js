@@ -13,7 +13,7 @@ export default class RentBox extends React.Component {
         <Text 
           style={[
             styles.rentBox.text, 
-            {marginVertical: 10*em}
+            {marginVertical: 10}
           ]}
         >
           Durée de location
@@ -21,7 +21,7 @@ export default class RentBox extends React.Component {
         <Text 
           style={[
             styles.rentBox.text,
-            {marginVertical: 10*em, fontSize: 34*em, fontWeight: 'bold'}
+            {marginVertical: 10, fontSize: 34, fontWeight: 'bold'}
           ]}
         >
           00:02
@@ -56,11 +56,11 @@ export default class RentBox extends React.Component {
       <View 
         style={{
           flexDirection: 'row', justifyContent: 'center',
-          marginVertical: 20*em
+          marginVertical: 20
         }}
       >
         <TouchableOpacity>
-          <Text style={{fontSize: 20*em, fontWeight: 'bold', color: '#fff'}}>
+          <Text style={{fontSize: 20, fontWeight: 'bold', color: '#fff'}}>
             Loue une autre batterie
           </Text>
         </TouchableOpacity>
@@ -68,16 +68,16 @@ export default class RentBox extends React.Component {
       <View 
         style={{
           flexDirection: 'row', justifyContent: 'space-between',
-          marginTop: 10*em, marginBottom: 30*em, marginHorizontal: 25*em
+          marginTop: 10, marginBottom: 30, marginHorizontal: 25
         }}
       >
-        <View style={{width: 140*em}}>
+        <View style={{width: 140}}>
           <Button 
             rounded bgColor='transparent' textColor='#fff'
             caption='Acheter' 
           />
         </View>
-        <View style={{width: 180*em}}>
+        <View style={{width: 180}}>
           <Button 
             rounded bgColor='#fff' textColor='#ff52a8'
             caption='Déposer' 

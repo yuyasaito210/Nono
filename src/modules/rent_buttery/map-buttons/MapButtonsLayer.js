@@ -53,9 +53,9 @@ const Button = ({ icon, containerStyle }) => (
     <View 
       style={[{
         position: 'absolute', 
-        borderRadius: 15*em, backgroundColor: '#fff', 
+        borderRadius: 15, backgroundColor: '#fff', 
         alignItems: 'center', justifyContent: 'center', 
-        width: 40*em, height: 40*em
+        width: 40, height: 40
       }, containerStyle
       ]}
     >

@@ -46,7 +46,7 @@ export default class HistoryView extends React.Component {
           <TouchableOpacity 
             style={[
               styles.row,
-              {marginVertical: 13*em}
+              {marginVertical: 13}
             ]}
             onPress={(history) => Actions['summary']({history})}
           >
@@ -63,7 +63,7 @@ export default class HistoryView extends React.Component {
                 </Text>
                 <Image source={require('images/arrow.png')} style={[
                   styles.nextArrow,
-                  {marginLeft: 10*em}
+                  {marginLeft: 10}
                 ]} />
               </View>
             </TouchableOpacity>            

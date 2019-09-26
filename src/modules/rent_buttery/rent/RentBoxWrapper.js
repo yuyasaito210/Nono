@@ -9,7 +9,7 @@ const RentBoxWrapper = ({ children }) => (
     position: 'absolute', zIndex: 15,
     bottom: 0, left: 0, 
     width: W,
-    borderTopLeftRadius: 30*em, borderTopRightRadius: 30*em,
+    borderTopLeftRadius: 30, borderTopRightRadius: 30,
     overflow: 'hidden'
   }}>
     <LinearGradient
@@ -18,7 +18,7 @@ const RentBoxWrapper = ({ children }) => (
       colors={['#ffdf00', '#ff52a8']}
     >
       <View style={{
-        width: W, height: 20*em, 
+        width: W, height: 20, 
         alignItems: 'center', justifyContent: 'center'
       }}>
         <Image source={require('images/slide.png')} 

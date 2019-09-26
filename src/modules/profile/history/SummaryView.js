@@ -21,11 +21,11 @@ export default class SummaryView extends React.Component {
               <Image source={require('images/hours.png')} style={{tintColor: '#35cdfa'}} />
             </View>
             <View style={styles.summaryCol2}>
-              <Text style={{color: '#bfbfc4', marginVertical: 5*em}}>
+              <Text style={{color: '#bfbfc4', marginVertical: 5}}>
                 {_t('Duration')}
               </Text>
-              <Text style={{color: '#36384a', fontSize: 22*em, fontWeight: 'bold' ,
-                marginVertical: 5*em
+              <Text style={{color: '#36384a', fontSize: 22, fontWeight: 'bold' ,
+                marginVertical: 5
               }}>
                 30 min
               </Text>
@@ -36,17 +36,17 @@ export default class SummaryView extends React.Component {
               <Image source={require('images/line21.png')} />
             </View>
             <View style={styles.summaryCol2}>
-              <Text style={{color: '#bfbfc4', fontSize: 14*em, marginVertical: 5*em}}>
+              <Text style={{color: '#bfbfc4', fontSize: 14, marginVertical: 5}}>
                 {_t('Place of taking')}
               </Text>
-              <Text style={{color: '#36384a', fontSize: 16*em
+              <Text style={{color: '#36384a', fontSize: 16
               }}>
                 79 Rue de Seine, 75006 Paris
               </Text>
-              <Text style={{color: '#bfbfc4', marginTop: 14*em, marginBottom: 5*em}}>
+              <Text style={{color: '#bfbfc4', marginTop: 14, marginBottom: 5}}>
                 {_t('Place of deposit')}
               </Text>
-              <Text style={{color: '#36384a', fontSize: 16*em
+              <Text style={{color: '#36384a', fontSize: 16
               }}>
                 155 Boulevard Saint-Germain 75006 Paris
               </Text>
@@ -55,18 +55,18 @@ export default class SummaryView extends React.Component {
         </View>
         <View style={{
           position: 'absolute', left: 0, bottom: 0, width: W, 
-          borderTopLeftRadius: 20*em, borderTopRightRadius: 20*em, overflow: 'hidden'
+          borderTopLeftRadius: 20, borderTopRightRadius: 20, overflow: 'hidden'
         }}>
           <LinearGradient 
             start={{ x:1, y:0 }} end={{ x:1, y:1 }}
             colors={['#ffdf00', '#ff5248']}
-            style={{ paddingHortizontal: 20*em, paddingBottom: 20*em, paddingTop: 5*em }}
+            style={{ paddingHortizontal: 20, paddingBottom: 20, paddingTop: 5 }}
           >
-            <View style={{flex: 1, alignItems: 'center', marginVertical: 3*em}}>
+            <View style={{flex: 1, alignItems: 'center', marginVertical: 3}}>
               <Image source={require('images/slide.png')} style={{tintColor: 'white'}} />
             </View>
-            <View style={{flex: 1, alignItems: 'center', marginVertical: 20*em }}>
-              <Text style={[styles.whiteText, {fontSize: 24*em, fontWeight: 'bold'}]}>
+            <View style={{flex: 1, alignItems: 'center', marginVertical: 20 }}>
+              <Text style={[styles.whiteText, {fontSize: 24, fontWeight: 'bold'}]}>
                 {_t('Consumption')}
               </Text>
             </View>
@@ -108,7 +108,7 @@ export default class SummaryView extends React.Component {
             </View>
             <View style={[
               styles.consumeRow,
-              {paddingVertical: 20*em, borderWidth: 1, borderColor: 'rgba(255, 255, 255, 0.2)', marginHorizontal: 0, paddingHorizontal: 20*em}
+              {paddingVertical: 20, borderWidth: 1, borderColor: 'rgba(255, 255, 255, 0.2)', marginHorizontal: 0, paddingHorizontal: 20}
             ]}>
               <View style={styles.consumeCol1}>
                 <Text style={styles.whiteText}>
