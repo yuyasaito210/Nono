@@ -11,34 +11,32 @@ export default class ScanQRCode extends React.Component {
   }
   render = () => {
     const { qrCode } = this.state;
+    const { onSwitchQRCodeInput, appActions } = this.props;
     return (
       <View style={styles.page.container}>
         <Scanner qrCode={qrCode} onRead={this.onReadQRCode} />        
         <ActionButtons 
           onClickClose={this.onClickClose}
-          onGoDirectInputCode={this.onGoDirectInputCode}
+          onGoDirectInputCode={onSwitchQRCodeInput}
+          appActions={appActions}
         />
       </View>
     )
   }
 
   onReadQRCode = (e) => {
-    this.setState({
-      ...this.state,
-      qrCode: e.data
-    })
+    this.setState({qrCode: e.data}, () => {
+      this.props.onReadQRCode && this.props.onReadQRCode(qrCode);
+    });
+    
   }
 
   onClickClose = () => {
-    // temp
-    this.setState({
-      ...this.state,
-      qrCode: 'ROT1219-10'
-    })
+    this.setState({qrCode: 'ROT1219-10'});
   }
 
   onGoDirectInputCode = () => {
-    
+    this.props.onSwitchQRCodeInput && this.props.onSwitchQRCodeInput();
   }
 }
 
@@ -66,25 +64,26 @@ const Scanner = ({ qrCode, onReadQRCode }) => (
   </>
 )
 
-const ActionButtons = ({ onClickClose }) => (
+const ActionButtons = ({ onClickClose, onGoDirectInputCode, appActions }) => (
   <>
     <View style={styles.actionLayer.container}>
       <Text style={[styles.actionLayer.text, {top: 60*em}]}>
-        Dernière étape
+        {appActions._t('Last step')}
       </Text>
+
       <Text style={[styles.actionLayer.text, {top: 200*em}]}>
-        Rentre le numéro sous le QR Code
+        {appActions._t('Enter the number under the QR Code')}
       </Text>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={onGoDirectInputCode} style={{zIndex: 99}}>
         <Text style={[styles.actionLayer.smallText, {top: 520*em}]}>
-          QR code non détecté ?
+          {appActions._t('QR code not detected?')}
         </Text>
         <Text style={[styles.actionLayer.smallText, {top: 540*em}]}>
-          Rentre le numéro de la station
+          {appActions._t('Enter the number of the station')}
         </Text>
       </TouchableOpacity>
       <TouchableOpacity
-        style={[styles.actionLayer.button, {bottom: 40*em, left: 15*em}]}
+        style={[styles.actionLayer.button, {bottom: 40*em, left: 15*em, zIndex: 99}]}
         onPress={onClickClose}
       >
         <Image source={require('images/cross.png')} style={styles.actionLayer.buttonImage} />
@@ -98,7 +97,7 @@ const ActionButtons = ({ onClickClose }) => (
         style={[styles.actionLayer.button, {bottom: 110*em, right: 15*em}]}
       >
         <Image source={require('images/flash-QR-code.png')} style={styles.actionLayer.buttonImage} />
-      </TouchableOpacity>      
+      </TouchableOpacity>
     </View>
   </>
 )

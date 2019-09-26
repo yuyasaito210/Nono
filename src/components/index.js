@@ -12,6 +12,7 @@ import ConfirmCodeInput from './ConfirmCodeInput';
 import GuideCommonView from './GuideCommonView';
 import CreditCardScanner from './CreditCardScanner';
 import StationItem from './StationItem';
+import QRScannerView, { QRScannerRectView } from './QRScanner';
 
 export {
   Button,
@@ -26,5 +27,7 @@ export {
   ConfirmCodeInput,
   GuideCommonView,
   CreditCardScanner,
-  StationItem
+  StationItem,
+  QRScannerView,
+  QRScannerRectView
 };

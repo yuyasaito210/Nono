@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { View } from 'react-native';
 import { Text } from '../../components/StyledText';
 import styles from './styles';
-import ScanQRCode from './scan-qr/ScanQRCode';
-import EnterQRCode from './enter-code/EnterQRCode';
+import ScanQRCodeContainer from './qrscanner/ScanQRCodeContainer';
+import EnterQRCodeContainer from './enter-code/EnterQRCodeContainer';
 import MapSection from './map-section/MapSection';
 import MapButtonsLayer from './map-buttons/MapButtonsLayer';
 import RentBox from './rent/RentBox';
@@ -12,7 +12,7 @@ import FeedbackDialog from './feedback/FeedbackDialog';
 
 export default class RentButterryView extends Component {
   state = {
-    pageStatus: 'openFeedbackDialog',
+    pageStatus: 'scanQRCode',
     region: {
       latitude: 37.321996988,
       longitude: -122.0325472123455,
@@ -38,6 +38,18 @@ export default class RentButterryView extends Component {
   }
 
   // pageStatus  - scanQRcode, enterQRCode, openRentBox, openUnlockBox, openFeedbackDialog
+  // ScanQRCode
+  onSwitchToQRCodeInput = () => this.setState({pageStatus: 'enterQRCode'});
+  onReadQRCode = (qrCode) => {
+    this.setState({pageStatus: 'openRentBox'});
+  };
+  // EnterQRCode
+  onSwitchToQRScanner = () => {
+    this.setState({pageStatus: 'scanQRCode'});
+  }
+  onGoToLocation = (qrCode) => {
+    this.setState({pageStatus: 'openRentBox'});
+  }
   
   render() {
     const { pageStatus } = this.state;
@@ -45,10 +57,10 @@ export default class RentButterryView extends Component {
     return (
       <>        
         {pageStatus=='scanQRCode' && 
-          <ScanQRCode />
+          <ScanQRCodeContainer onSwitchToQRCodeInput={this.onSwitchToQRCodeInput}/>
         }
         {pageStatus=='enterQRCode' && 
-          <EnterQRCode />
+          <EnterQRCodeContainer onSwitchToQRScanner={onSwitchToQRScanner} onGoToLocation={onGoToLocation}/>
         }
         {pageStatus=='openRentBox' && 
           <>
