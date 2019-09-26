@@ -13,7 +13,6 @@ export default class SummaryView extends React.Component {
     const { _t } = this.props.appActions;
     return (
       <ProfileWrapper>
-        <BackButton onBack={() => this.goBack()}/>
         <PageTitle title={_t('Summary')} />
         <PageOption />
         <View>
@@ -127,19 +126,4 @@ export default class SummaryView extends React.Component {
       </ProfileWrapper>
     )
   }
-
-  goBack = () => {
-    Actions['profile']();
-  }
 }
-
-const BackButton = ({ onBack }) => (
-  <>
-    <TouchableOpacity 
-      onPress={onBack}
-    >
-      <Image source={require('images/arrow.png')} 
-        style={styles.backButton} />
-    </TouchableOpacity>
-  </>
-)

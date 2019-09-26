@@ -1,24 +1,35 @@
 import { StyleSheet } from 'react-native';
 import { W, H, em } from '~/constants/Layout';
 import replacePathSepForGlob from 'jest-util/build/replacePathSepForGlob';
+import { colors } from '../../../styles';
 
 const styles = StyleSheet.create({
   backButton: {
-		tintColor: '#35CDFA'
+    flex: 1,
+    tintColor: colors.white,
+    marginLeft: 15*em,
+    marginBottom: 22*em
 	},
   pageWrapper: {
-    position: 'relative', zIndex: 5,
-    paddingTop: 50*em, paddingHorizontal: 15*em,
+    // position: 'relative', zIndex: 5,
+    paddingHorizontal: 15*em,
     backgroundColor: '#fff',
-    width: W, height: H
+    flex: 1,
+    // width: W, height: H
+  },
+  pageTitleContainer: {
+    flexDirection: 'row',
+    marginTop: 20*em, marginBottom: 20*em,
   },
   pageTitle: {
-    marginTop: 10*em, marginBottom: 20*em,
+    flex: 3,
     fontSize: 24*em, fontWeight: 'bold', color: '#36384a'
   },
   pageOptionContainer: {
-    position: 'absolute',
-    right: 20*em, top: 80*em
+    flex: 1,
+    alignItems: 'flex-end',
+    alignSelf: 'center',
+    justifyContent: 'center'
   },
   boxContainer: {
     borderRadius: 20*em, padding: 20*em,
@@ -44,7 +55,8 @@ const styles = StyleSheet.create({
   },
   bottomBox: {
     zIndex: 10, position: 'absolute',
-    left: 0, bottom: 0, width: W,
+    left: 0, bottom: 50, // For bottom bar
+    width: W,
     backgroundColor: 'white', overflow: 'hidden',
     borderTopLeftRadius: 20*em, borderTopRightRadius: 20*em,
     paddingTop: 7*em, paddingBottom: 20*em, paddingHorizontal: 15*em

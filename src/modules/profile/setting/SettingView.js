@@ -5,6 +5,7 @@ import { Actions } from 'react-native-router-flux';
 import { Button } from '~/components';
 import { W, H, em } from '~/constants/Layout';
 import { ProfileWrapper } from '../wallet/WalletView';
+import { Spacer } from '../../../components';
 
 export default class SettingView extends React.Component {
   state = {
@@ -14,7 +15,6 @@ export default class SettingView extends React.Component {
     const { _t } = this.props.appActions;
     return (
       <ProfileWrapper>
-        <BackButton onBack={() => this.goBack()}/>
         <Text style={styles.paramTitle}>{_t('Settings')}</Text>
 
         <View style={styles.paramInfo}>
@@ -39,47 +39,30 @@ export default class SettingView extends React.Component {
           </View>
         </View>
 
-        <View style={[
-          styles.row,
-          {marginTop: 70*em}
-        ]}>
+        <Spacer size={50}/>
+        <TouchableOpacity style={styles.row} onPress={() => Actions['about_us']()}>
           <Text style={styles.paramInfo2}>{_t('Terms of use')}</Text>
           
           <TouchableOpacity>
             <Image source={require('images/arrow.png')} style={styles.arrowStyle}/>
           </TouchableOpacity>
-        </View>
+        </TouchableOpacity>
 
-        <View style={[
-          styles.row,
-          {marginTop: 30*em}
-        ]}>
+        <Spacer size={20}/>
+        <TouchableOpacity style={styles.row} onPress={() => Actions['about_us']()}>
           <Text style={styles.paramInfo2}>{_t('privacy policy')}</Text>
           
           <TouchableOpacity>
             <Image source={require('images/arrow.png')} style={styles.arrowStyle} />
           </TouchableOpacity>
-        </View>
+        </TouchableOpacity>
 
-        <Text style={{marginTop: 120*em, textAlign: 'center', color: '#FE000C', fontSize: 18*em}}>{_t('Sign Out')}</Text>
-
+        <Spacer size={50}/>
+        <TouchableOpacity onPress={() => Actions['login']()}>
+          <Text style={{textAlign: 'center', color: '#FE000C', fontSize: 18*em}}>{_t('Sign Out')}</Text>
+        </TouchableOpacity>
 
       </ProfileWrapper>
     )
   }
-  
-  goBack = () => {
-    Actions['profile']();
-  }
 }
-
-const BackButton = ({ onBack }) => (
-  <>
-    <TouchableOpacity 
-      onPress={onBack}
-    >
-      <Image source={require('images/arrow.png')} 
-        style={styles.backButton} />
-    </TouchableOpacity>
-  </>
-)

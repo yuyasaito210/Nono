@@ -5,6 +5,7 @@ import styles from './styles';
 import { _t } from '../../AppAction';
 import { Button } from '~/components';
 import PriceBox from './PriceBox';
+import { Actions } from 'react-native-router-flux';
 
 export default class PayView extends React.Component {
   state = {
@@ -41,14 +42,20 @@ export default class PayView extends React.Component {
         position: 'relative', backgroundColor: '#5ed8fc', paddingTop: 50*em,
         width: W, height: H
       }}>
-        <BackButton onBack={() => this.goBack()} />
-        <View style={{alignItems: 'center'}}>
-          <Text style={{fontSize: 34*em, color: 'white', fontWeight: 'bold'}}>
-            0,00€
-          </Text>
-          <Text style={{fontSize: 16*em, color: 'white'}}>
-            {_t('Current balance')}
-          </Text>
+        <View style={{flexDirection: 'row'}}>
+          <TouchableOpacity style={{flex: 1}} onPress={() => Actions.pop()}>
+            <Image source={require('images/arrow.png')} resizeMode='center'
+              style={styles.backButton} />
+          </TouchableOpacity>
+          <View style={{flex: 4, alignItems: 'center'}}>
+            <Text style={{fontSize: 34*em, color: 'white', fontWeight: 'bold'}}>
+              0,00€
+            </Text>
+            <Text style={{fontSize: 16*em, color: 'white'}}>
+              {_t('Current balance')}
+            </Text>
+          </View>
+          <View style={{flex: 1}}/>
         </View>
         <View style={{
           position: 'relative', overflow: 'hidden', marginTop: 20*em,
@@ -125,14 +132,3 @@ export default class PayView extends React.Component {
     )
   }
 }
-
-const BackButton = ({ onBack }) => (
-  <>
-    <TouchableOpacity 
-      onPress={onBack}
-    >
-      <Image source={require('images/arrow.png')} 
-        style={{tintColor: '#fff', position: 'absolute', top: 10*em, left: 15*em}} />
-    </TouchableOpacity>
-  </>
-)
