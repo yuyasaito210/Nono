@@ -27,7 +27,7 @@ export default class HelpView extends React.Component {
 
         <View style={{marginTop: 30*em, flexDirection: 'row', alignItem: 'center'}}>
           <TouchableOpacity  >
-            <Image source={require('images/signaler-problème.png')} style={{tintColor: '#49D2FB'}}/>
+            <Image source={require('images/signaler-problem.png')} style={{tintColor: '#49D2FB'}}/>
           </TouchableOpacity>
           
           <Text style={{marginLeft: 10*em, fontSize: 16*em}}>{_t('to report a problem')}</Text>

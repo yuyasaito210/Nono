@@ -1,7 +1,6 @@
 import React from 'react';
-import {Scene, Stack, Actions } from 'react-native-router-flux';
-import { View, Image, StatusBar, Platform } from 'react-native';
-
+import {Scene, Stack } from 'react-native-router-flux';
+``
 import SignupViewContainer from '../modules/signup/SignupViewContainer';
 import SetConfirmCodeViewContainer from '../modules/signup/SetConfirmCodeViewContainer';
 import SetUserNameViewContainer from '../modules/signup/SetUserNameViewContainer';
@@ -13,11 +12,7 @@ import GuideFindStationViewContainer from '../modules/signup/GuideFindStationVie
 import GuideSaveViewContainer from '../modules/signup/GuideSaveViewContainer';
 import GuideScanViewContainer from '../modules/signup/GuideScanViewContainer';
 import GuideSponsorViewContainer from '../modules/signup/GuideSponsorViewContainer';
-
-import { Header, Left, Button, Icon, Body, Right, Text, Title } from 'native-base';
-
 import { SetInfoHeader, GuideHeader } from './header/header';
-import styles from './styles';
 
 
 const SignupStack = (
