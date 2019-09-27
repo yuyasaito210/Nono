@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
-import MapSection from './map-section/MapSection';
+import { Actions } from 'react-native-router-flux';
+import MapSectionContainer from './map-section/MapSectionContainer';
 import MapButtonsLayer from './map-buttons/MapButtonsLayer';
 import UnlockBoxContainer from './unlock-box/UnlockBoxContainer';
 import UnlockDialogContainer from './unlock-dialog/UnlockDialogContainer';
@@ -81,7 +82,8 @@ export default class MapScreen extends Component {
 
   // Callbacks for FinishDialog
   onLeaveStation = (station) => {
-    this.setState({pageStatus: 'locked'});
+    Actions['rent_buttery']();
+    // this.setState({pageStatus: 'locked'});
   } 
 
   render = () => {
@@ -90,8 +92,8 @@ export default class MapScreen extends Component {
       <>
         <View style={styles.container}>
           {pageStatus!='openUnlockDialog' &&
-            <MapSection />
-          }          
+            <MapSectionContainer />
+          }
           {pageStatus=='locked' && 
             <>
               <MapButtonsLayer 

@@ -7,6 +7,17 @@ import { Button } from '~/components'
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export default class RentBox extends React.Component {
+  
+  onClickBuy = () => {
+    const { onClickBuy } = this.props;
+    onClickBuy && onClickBuy();
+  }
+
+  onClickDeposit = () => {
+    const { onClickDiposite } = this.props;
+    onClickDiposite && onClickDiposite();
+  };
+
   render = () => {
     return (
       <RentBoxWrapper>
@@ -74,7 +85,8 @@ export default class RentBox extends React.Component {
         <View style={{width: 140*em}}>
           <Button 
             rounded bgColor='transparent' textColor='#fff'
-            caption='Acheter' 
+            caption='Acheter'
+            onPress={() => this.onClickBuy()}
           />
         </View>
         <View style={{width: 180*em}}>
@@ -82,6 +94,7 @@ export default class RentBox extends React.Component {
             rounded bgColor='#fff' textColor='#ff52a8'
             caption='Déposer' 
             icon={require('images/arrow-direction.png')} iconColor='#ff52a8' rightIcon
+            onPress={() => this.onClickDeposit()}
           />
         </View>
       </View>
