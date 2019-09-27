@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
     width: W
   },
   topbarContainer: {
-    position: 'absolute', left: 20, top: Platform.os==='ios'?40:20
+    position: 'absolute', left: 20, top: Platform.OS==='ios'?40:20
   },
   topbarBackButton: {
     backgroundColor: 'transparent', 
