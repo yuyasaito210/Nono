@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 import Layout, { em } from '~/constants/Layout';
 
 export const wrapperStyles = StyleSheet.create({

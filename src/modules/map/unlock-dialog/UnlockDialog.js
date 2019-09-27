@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, ImageBackground, Text, Image, TouchableOpacity } from 'react-native';
+import { View, ImageBackground, Text, Image, TouchableOpacity, ScrollView } from 'react-native';
 import TouchableScale from 'react-native-touchable-scale';
 import LinearGradient from 'react-native-linear-gradient';
 import { Left, Right, Title, Body } from 'native-base';
@@ -17,7 +17,8 @@ class UnlockDialog extends React.Component {
       <>
         <Wrapper>
           <Topbar onClickBack={onClickBack}/>
-          <View style={styles.contentContainer}>
+          <ScrollView style={styles.contentContainer}>
+            <Spacer size={90}/>
             <View style={styles.contentDeputeImageContainer}>
               <Image source={require('images/code-parrainage.png')}/>
             </View>
@@ -31,22 +32,22 @@ class UnlockDialog extends React.Component {
               <Text style={styles.contentDesc}>
                 {_t('Invite a friend to use nono and win 24h free charge after first use')} 
               </Text>
-              <Spacer size={5}/>
-              <Text style={[styles.contentDesc, {marginTop: 20}]}>
+              <Spacer size={25}/>
+              <Text style={styles.contentDesc}>
                 {_t('Your battery goes down!')}
 
               </Text>
               <Text style={[styles.contentDesc, {fontWeight: 'bold'}]}>
                 {_t('Share your code quickly')}
-              </Text>
+              </Text>              
             </View>
             <Spacer size={20}/>
             <View style={styles.codeContainer}>
               <Text style={styles.codeOverText}>{_t('Share your code')}</Text>
-              <Spacer size={5}/>
+              <Spacer size={15}/>
               <TouchableScale style={styles.codeShareContainer} onPress={onPressUnlockButton}>
                 <LinearGradient colors={['#07E28E', '#36F7AD']} style={styles.linearGradient}>
-                  <Left/>
+                <Left/>
                   <Body>
                     <Text style={styles.codeShareText}>
                       {'THEO1827nono'}
@@ -56,9 +57,10 @@ class UnlockDialog extends React.Component {
                     <Image source={require('images/code-share.png')} style={styles.linearImage} />
                   </Right>
                 </LinearGradient>
-              </TouchableScale>
+              </TouchableScale>              
             </View>
-          </View>
+            <Spacer size={40}/>
+          </ScrollView>
         </Wrapper>
       </>
     )
@@ -67,9 +69,8 @@ class UnlockDialog extends React.Component {
 
 const Wrapper = (props) => (
   <View style={styles.wrapperContainer}>
-    <ImageBackground source={require('images/LockDialogBg.png')} style={styles.wrapperBg}>
-      {props.children}
-    </ImageBackground>
+    <Image source={require('images/LockDialogBg.png')} style={styles.wrapperBg} />
+    {props.children}
   </View>
 )
 
