@@ -14,7 +14,7 @@ export default class AboutView extends React.Component {
     const { _t } = this.props.appActions;
     return (
       <ProfileWrapper>
-        <ScrollView style={{height: H}}>
+        <ScrollView style={{paddingTop: 20, paddingLeft: 20}}>
           <Text style={styles.paramTitle}>{_t('About us')}</Text>
 
           <View  style={styles.imgSetting} >
