@@ -5,7 +5,7 @@ import { Text } from '../../components/StyledText';
 import styles from './styles';
 import MapSectionContainer from '~/modules/map/map-section/MapSectionContainer';
 import MapButtonsLayer from '~/modules/map/map-buttons/MapButtonsLayer';
-import RentBox from './rent/RentBox';
+import RentBoxContainer from './rent/RentBoxContainer';
 import UnlockBox from './rent/UnlockBox';
 import FeedbackDialog from './feedback/FeedbackDialog';
 
@@ -68,7 +68,7 @@ export default class RentButterryView extends Component {
           target
           bottomExtra={80}
         />
-        {pageStatus=='openRentBox' && <RentBox onClickDiposite={this.onClickDiposite} />}
+        {pageStatus=='openRentBox' && <RentBoxContainer onClickDiposite={this.onClickDiposite} />}
         {pageStatus=='openUnlockBox' && <UnlockBox onGotoFeedback={this.onGotoFeedback}/>}
         {pageStatus=='openFeedbackDialog' && <FeedbackDialog onClickRaiting={this.onClickRaiting}/>}
       </>
