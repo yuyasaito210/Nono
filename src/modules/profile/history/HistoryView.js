@@ -65,7 +65,7 @@ export default class HistoryView extends React.Component {
                   {marginLeft: 10}
                 ]} />
               </View>
-            </TouchableOpacity>            
+            </TouchableOpacity>
           </TouchableOpacity>
         ))}
       </ProfileWrapper>
