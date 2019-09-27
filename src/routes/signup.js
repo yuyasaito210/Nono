@@ -19,13 +19,13 @@ const SignupStack = (
         <Stack
           key={'signup'}
           tabBarLabel="Sign Up"
-          default
         >
           <Scene
-            key='signup'
+            key='createAccount'
             title='Create Account'
             hideNavBar
             component={SignupViewContainer}
+            default
           />
           <Scene
             back
