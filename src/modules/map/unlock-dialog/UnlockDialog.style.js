@@ -1,4 +1,4 @@
-import { StyleSheet, StatusBar } from 'react-native';
+import { StyleSheet, StatusBar, Platform } from 'react-native';
 import Layout, { W, H, em } from '~/constants/Layout';
 import { fonts, colors } from '../../../styles';
 
@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
     width: W
   },
   topbarContainer: {
-    position: 'absolute', left: 20, top: 20
+    position: 'absolute', left: 20, top: Platform.os==='ios'?40:20
   },
   topbarBackButton: {
     backgroundColor: 'transparent', 
