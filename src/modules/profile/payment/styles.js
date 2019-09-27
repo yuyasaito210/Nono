@@ -8,11 +8,13 @@ const styles = StyleSheet.create({
         },
 
     paramTitle: {
-        top: 10, fontSize: 24, fontWeight: 'bold',
+        fontSize: 24, fontWeight: 'bold',
+        alignItems: 'center',
     },
 
     payInfo: {
-        top: 20, color: '#35CDFA', 
+        color: '#35CDFA',
+        alignItems: 'center',
     },
 
     addInfo1: {

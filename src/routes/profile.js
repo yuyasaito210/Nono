@@ -10,6 +10,7 @@ import SummaryViewContainer from '../modules/profile/history/SummaryViewContaine
 import WalletViewContainer from '../modules/profile/wallet/WalletViewContainer';
 import AddPromoCodeViewContainer from '../modules/profile/wallet/AddPromoCodeViewContainer';
 import PayViewContainer from '../modules/profile/wallet/PayViewContainer';
+import AddCreditCardViewContainer from '../modules/profile/add_credit_card/AddCreditCardViewContainer';
 import { ProfileHeader } from './header/header';
 
 
@@ -47,13 +48,16 @@ const ProfileStack = (
       key='payment'
       component={PaymentViewContainer}
       header={ProfileHeader('')}
-      
+    />
+    <Scene
+      key='addCreditCard'
+      component={AddCreditCardViewContainer}
+      header={ProfileHeader('')}
     />
     <Scene
       key='history'
       component={HistoryViewContainer}
       header={ProfileHeader('')}
-      
     />
     <Scene
       key='summary'

@@ -138,6 +138,8 @@ export default {
   'Cost': 'Coût',
   'Credits': 'Crédits',
   'TOTAL': 'TOTAL',
+  'Add a Lydia account': 'Ajoute un compte Lydia',
+  'Add Apple Pay': 'Ajoute Apple Pay',
 
   'Settings': 'Paramètres',
   'Telephone': 'Téléphone',
