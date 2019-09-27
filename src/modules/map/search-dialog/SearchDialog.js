@@ -40,13 +40,11 @@ export default class SearchDialog extends React.Component {
   _keyboardDidShow() {
     LayoutAnimation.easeInEaseOut();
     this.setState({ isKeyboardVisible: true });
-    console.log('==== _keyboardDidShow');
   }
 
   _keyboardDidHide() {
     LayoutAnimation.easeInEaseOut();
     this.setState({ isKeyboardVisible: false });
-    console.log('==== _keyboardDidHide');
   }
 
   render = () => {

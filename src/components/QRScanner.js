@@ -14,7 +14,7 @@ import { RNCamera } from 'react-native-camera';
 const defaultRectStyle = { height: 300, width: 300, borderWidth: 0, borderColor: '#000000', marginBottom: 0 };
 const defaultCornerStyle = { height: 32, width: 32, borderWidth: 2, borderColor: '#35CDFA' };
 const defaultScanBarStyle = { marginHorizontal: 4, borderWidth: 1, borderRadius: 2, backgroundColor: '#35CDFA' };
-const defaultHintTextStyle = { color: '#fff', fontSize: 14, backgroundColor: 'transparent', marginTop: 32 };
+const defaultHintTextStyle = { color: '#fff', fontSize: 14, backgroundColor: 'transparent', marginTop: 32, paddingLeft: 60, paddingRight: 60, textAlign: 'center' };
 
 
 export class QRScannerRectView extends Component {
@@ -249,7 +249,7 @@ export default class QRScannerView extends Component {
     hintTextStyle: PropTypes.object,
     
     renderHeaderView: PropTypes.func,
-    renderFooterView: PropTypes.func,
+    renderFooterView: PropTypes.object,
     
     onScanResult: PropTypes.func,
     scanInterval: PropTypes.number,
@@ -327,7 +327,7 @@ export default class QRScannerView extends Component {
         
         { renderHeaderView && <View style={ [ styles.topContainer ] }>{ renderHeaderView() }</View> }
         
-        { renderFooterView && <View style={ [ styles.bottomContainer ] }>{ renderFooterView() }</View> }
+        { renderFooterView && <View style={ [ styles.bottomContainer ] }>{ renderFooterView }</View> }
       
       </RNCamera>
     );

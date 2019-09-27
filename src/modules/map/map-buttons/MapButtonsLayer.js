@@ -11,7 +11,7 @@ export default class MapButtonsLayer extends React.Component {
     const { bottomExtra } = this.props;
 
     return (
-      <View style={[wrapperStyles.outerContainer, {height: H-bottomExtra}]}>
+      <View style={[wrapperStyles.outerContainer, {height: H-(bottomExtra ? bottomExtra : 0)}]}>
         <View style={wrapperStyles.container}>
           {profile && 
             <Button style={[buttonStyles.button, buttonStyles.profileButton]}>

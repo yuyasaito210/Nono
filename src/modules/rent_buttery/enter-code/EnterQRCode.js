@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from '../styles';
 import { View, Text, TouchableOpacity, Image, TextInput } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 import { W, H, em } from '~/constants/Layout';
 
 export default class EnterQRCode extends React.Component{
@@ -8,15 +9,23 @@ export default class EnterQRCode extends React.Component{
     codeCharacters: ['', '', '', '', '', '']
   }
 
+  onSwitchToQRScanner = () => {
+    Actions.pop();
+  };
+  
+  onGoToLocation = () => {
+    Actions['rent_buttery_feedback']();
+  };
+
   render = () => {
     const { codeCharacters } = this.state;
-    const { onSwitchToQRScanner, onGoToLocation, appActions } = this.props;
+    const { appActions } = this.props;
     return (
       <View style={[styles.page.container, styles.enterCode.pageWrapper]}>
         <CodeForm codeCharacters={codeCharacters}/>
         <ActionButtons 
-          onClickClose={onSwitchToQRScanner}
-          onGoToLocation={onGoToLocation}
+          onClickClose={this.onSwitchToQRScanner}
+          onGoToLocation={this.onGoToLocation}
           appActions={appActions}
         />
       </View>

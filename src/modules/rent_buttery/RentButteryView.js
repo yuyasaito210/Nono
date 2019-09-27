@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
+import { Actions } from 'react-native-router-flux';
 import { View } from 'react-native';
 import { Text } from '../../components/StyledText';
 import styles from './styles';
-import ScanQRCodeContainer from './qrscanner/ScanQRCodeContainer';
-import EnterQRCodeContainer from './enter-code/EnterQRCodeContainer';
-import MapSection from './map-section/MapSection';
-import MapButtonsLayer from './map-buttons/MapButtonsLayer';
+import MapSectionContainer from '~/modules/map/map-section/MapSectionContainer';
+import MapButtonsLayer from '~/modules/map/map-buttons/MapButtonsLayer';
 import RentBox from './rent/RentBox';
 import UnlockBox from './rent/UnlockBox';
 import FeedbackDialog from './feedback/FeedbackDialog';
 
 export default class RentButterryView extends Component {
   state = {
-    pageStatus: 'scanQRCode',
+    pageStatus: 'openRentBox',
     region: {
       latitude: 37.321996988,
       longitude: -122.0325472123455,
@@ -38,69 +37,40 @@ export default class RentButterryView extends Component {
   }
 
   // pageStatus  - scanQRcode, enterQRCode, openRentBox, openUnlockBox, openFeedbackDialog
-  // ScanQRCode
-  onSwitchToQRCodeInput = () => this.setState({pageStatus: 'enterQRCode'});
-  onReadQRCode = (qrCode) => {
-    this.setState({pageStatus: 'openRentBox'});
+  onClickBuy = () => {
+    this.setState({pageStatus: 'openUnlockBox'});
   };
-  // EnterQRCode
-  onSwitchToQRScanner = () => {
-    this.setState({pageStatus: 'scanQRCode'});
+
+  onClickDiposite = () => {
+    this.setState({pageStatus: 'openUnlockBox'});
+  };
+
+  onGotoFeedback = () => {
+    this.setState({pageStatus: 'openFeedbackDialog'});
+  };
+
+  onClickRaiting = () => {
+    Actions.reset('authorized');
+    // Actions['scan_qr']();
   }
-  onGoToLocation = (qrCode) => {
-    this.setState({pageStatus: 'openRentBox'});
-  }
-  
+
   render() {
     const { pageStatus } = this.state;
     const { region, places } = this.state;
     return (
-      <>        
-        {pageStatus=='scanQRCode' && 
-          <ScanQRCodeContainer onSwitchToQRCodeInput={this.onSwitchToQRCodeInput}/>
-        }
-        {pageStatus=='enterQRCode' && 
-          <EnterQRCodeContainer onSwitchToQRScanner={onSwitchToQRScanner} onGoToLocation={onGoToLocation}/>
-        }
-        {pageStatus=='openRentBox' && 
-          <>
-            <MapSection region={region} places={places} />
-            <MapButtonsLayer 
-              profile
-              gift
-              search
-              refresh
-              target
-            />
-            <RentBox />
-          </>
-        }
-        {pageStatus=='openUnlockBox' && 
-          <>
-            <MapSection region={region} places={places} />
-            <MapButtonsLayer 
-              profile
-              gift
-              search
-              refresh
-              target
-            />
-            <UnlockBox />
-          </>
-        }
-        {pageStatus=='openFeedbackDialog' && 
-          <>
-            <MapSection region={region} places={places} />
-            <MapButtonsLayer 
-              profile
-              gift
-              search
-              refresh
-              target
-            />
-            <FeedbackDialog />
-          </>
-        }
+      <>
+        <MapSectionContainer region={region} places={places} />
+        <MapButtonsLayer 
+          profile
+          gift
+          search
+          refresh
+          target
+          bottomExtra={80}
+        />
+        {pageStatus=='openRentBox' && <RentBox onClickDiposite={this.onClickDiposite} />}
+        {pageStatus=='openUnlockBox' && <UnlockBox onGotoFeedback={this.onGotoFeedback}/>}
+        {pageStatus=='openFeedbackDialog' && <FeedbackDialog onClickRaiting={this.onClickRaiting}/>}
       </>
     );
   }
