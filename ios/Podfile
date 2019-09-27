@@ -34,7 +34,9 @@ target 'nono' do
   pod 'react-native-maps', :path => rn_maps_path
   pod 'GoogleMaps'
   pod 'Google-Maps-iOS-Utils'
-
+  # Geo location
+  pod 'react-native-geolocation', path: '../node_modules/@react-native-community/geolocation'
+  
   target 'nonoTests' do
     inherit! :search_paths
     # Pods for testing

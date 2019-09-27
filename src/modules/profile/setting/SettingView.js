@@ -11,6 +11,10 @@ export default class SettingView extends React.Component {
   state = {
 
   }
+  onSignOut = () => {
+    Actions.reset('authorized');
+    Actions['login']();
+  }
   render = () => {
     const { _t } = this.props.appActions;
     return (
@@ -58,7 +62,7 @@ export default class SettingView extends React.Component {
         </TouchableOpacity>
 
         <Spacer size={50}/>
-        <TouchableOpacity onPress={() => Actions['login']()}>
+        <TouchableOpacity onPress={() => this.onSignOut()}>
           <Text style={{textAlign: 'center', color: '#FE000C', fontSize: 18*em}}>{_t('Sign Out')}</Text>
         </TouchableOpacity>
 

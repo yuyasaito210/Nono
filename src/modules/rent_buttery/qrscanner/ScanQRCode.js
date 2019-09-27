@@ -14,13 +14,6 @@ export default class ScanQRCode extends React.Component {
     scanBarAnimateReverse: true
   }
 
-  onReadQRCode = (e) => {
-    _this = this;
-    this.setState({qrCode: e.data, scanBarAnimateReverse: false}, () => {
-      Actions['rent_buttery_feedback']();
-    });
-  }
-
   onClickClose = () => {
     Actions.pop();
     // this.setState({qrCode: 'ROT1219-10'});
@@ -28,7 +21,12 @@ export default class ScanQRCode extends React.Component {
 
   renderTitleBar = () => {
     const { _t } = this.props.appActions;
-    return (
+    const { qrCode } = this.state;
+    return qrCode ? (
+      <Text style={{color:'white',textAlign:'center',padding:16}}>
+        {qrCode}
+      </Text>
+    ) :(
       <View>
         <Text style={{color:'white',textAlign:'center',padding:16}}>
           {_t('Last step')}
@@ -69,11 +67,10 @@ export default class ScanQRCode extends React.Component {
     )
   }
 
-  barcodeReceived = (event) => {
-    console.log('==== Type: ' + event.type + '\nData: ' + event.data)
-    _this = this;
-    this.setState({qrCode: e.data, scanBarAnimateReverse: false}, () => {
-      // _this.props.onReadQRCode && _this.props.onReadQRCode(qrCode);
+  onReceivedQRCode = (event) => {
+    
+    this.setState({qrCode: event.data, scanBarAnimateReverse: false}, () => {
+      Actions['rent_buttery_feedback']();
     });
   };
 
@@ -84,9 +81,9 @@ export default class ScanQRCode extends React.Component {
     return (
       <View style={{flex:1}}>
         < QRScannerView
-          onScanResult={ this.barcodeReceived }
+          onScanResult={ this.onReceivedQRCode }
           renderHeaderView={ this.renderTitleBar }
-          renderFooterView={ <this.renderBottom onSwitchToQRCodeInput={this.props.onSwitchToQRCodeInput}/>}
+          renderFooterView={ <this.renderBottom onSwitchToQRCodeInput={onSwitchToQRCodeInput}/>}
           scanBarAnimateReverse={ true }
           hintText={`${_t('QR code not detected?')} ${_t('Enter the number of the station')}`}
         />

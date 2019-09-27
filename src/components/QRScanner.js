@@ -291,8 +291,9 @@ export default class QRScannerView extends Component {
   
   onScanResult = (e) => {
     _this = this;
+    console.log('==== Type: ' + e.type + '\nData: ' + e.data);
     this.setState({qrCode: e ? `${e.type}: ${e.data}` : ''}, () => {
-      _this.props.onScanResult(e);
+      if (RNCamera.Constants.BarCodeType.qr === e.type) _this.props.onScanResult(e);
     })
   }
   

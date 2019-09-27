@@ -153,6 +153,8 @@ PODS:
     - React
   - react-native-date-picker (2.7.0):
     - React
+  - react-native-geolocation (1.4.2):
+    - React
   - react-native-maps (0.25.0):
     - React
   - React-RCTActionSheet (0.60.5):
@@ -215,6 +217,7 @@ DEPENDENCIES:
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
   - react-native-camera (from `../node_modules/react-native-camera`)
   - react-native-date-picker (from `../node_modules/react-native-date-picker`)
+  - "react-native-geolocation (from `../node_modules/@react-native-community/geolocation`)"
   - react-native-maps (from `../node_modules/react-native-maps`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
   - React-RCTAnimation (from `../node_modules/react-native/Libraries/NativeAnimation`)
@@ -281,6 +284,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-camera"
   react-native-date-picker:
     :path: "../node_modules/react-native-date-picker"
+  react-native-geolocation:
+    :path: "../node_modules/@react-native-community/geolocation"
   react-native-maps:
     :path: "../node_modules/react-native-maps"
   React-RCTActionSheet:
@@ -352,6 +357,7 @@ SPEC CHECKSUMS:
   React-jsinspector: 044105eea064aec81adc5e4d777a8f6589e7d094
   react-native-camera: 9c50d7def800895e7991ccda6203929553ceec9c
   react-native-date-picker: e6ce9225e56a3aeaddc01847be02c7ed1477de58
+  react-native-geolocation: 8710b1bae31e734191273344d52141151b94bb3f
   react-native-maps: bb480348a3fe1e5a811fed1ba3387b329161c5cc
   React-RCTActionSheet: 08864c609d9f959abf3d51fdd93f8bc6e91f21eb
   React-RCTAnimation: a4547e9fac2627ded3df9d302f5558b475faf819
@@ -374,6 +380,6 @@ SPEC CHECKSUMS:
   RNVectorIcons: 66af4d5c8ff4f584c7b7cd9c4b0780920f27fce2
   yoga: 88c514f310aff89b94a14c5fbf44b95735af0cb7
 
-PODFILE CHECKSUM: b2126d117db5b496347c1bc7e229d1a6f24b9012
+PODFILE CHECKSUM: 37a0b374ab1990cfac193e37cd9fb5da385b6291
 
 COCOAPODS: 1.5.3
