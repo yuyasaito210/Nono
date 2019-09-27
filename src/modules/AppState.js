@@ -12,7 +12,7 @@ type ActionType = {
 
 export const initialState: AppStateType = {
   isFirstOpen: true,
-  language: 'en'
+  language: 'fr'
 };
 
 export default function AppStateReducer(

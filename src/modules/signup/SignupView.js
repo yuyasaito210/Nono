@@ -76,13 +76,14 @@ export default class SignupView extends React.Component {
   };
 
   onSelectCountry = (country) => {
+    console.log('====== SignUp: onSelectCountry: country: ', country);
     this.props.appActions.setLanguage(country.toLowerCase());
-    this.setState({...this.state});
   }
 
   render() {
     const { app, signupActions, appActions } = this.props;
     const { _t } = appActions;
+    const country = app.language;
 
     return (
       <ImageBackground
@@ -99,7 +100,7 @@ export default class SignupView extends React.Component {
               {_t("Register yourself")}
             </Text>
             <Spacer size={30} />
-            <PhoneNumberInput onSelectCountry={this.onSelectCountry}/>
+            <PhoneNumberInput initialCountry={country} onSelectCountry={this.onSelectCountry}/>
             <Spacer size={25} />
             <Button
               bgColor="white"

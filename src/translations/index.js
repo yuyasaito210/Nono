@@ -8,7 +8,7 @@ const translations = { en, fr };
 
 const { languageTag } = RNLocalize.findBestAvailableLanguage(
   Object.keys(translations),
-) || { languageTag: 'en' };
+) || { languageTag: 'fr' };
 
 i18n.locale = languageTag;
 i18n.fallbacks = true;

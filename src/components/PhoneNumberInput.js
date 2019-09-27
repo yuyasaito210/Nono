@@ -11,22 +11,20 @@ class PhoneNumberInput extends Component {
   constructor() {
     super();
 
-    const userCountryData = getAllCountries()
-      .filter(country => VALID_COUNTRIES.includes(country.cca2))
-      .pop()
-    let callingCode = null
-    let cca2 = VALID_COUNTRIES[0]
-    if (!cca2 || !userCountryData) {
-      cca2 = 'FR'
-      callingCode = '33'
-    } else {
-      callingCode = userCountryData.callingCode
-    }
-
     this.state = {
-      cca2,
-      callingCode
+      cca2: 'FR',
+      callingCode: '33'
     };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    console.log('=====  PhoneNumberInput: nextProps: ', nextProps);
+    const { initialCountry } = nextProps;
+    if (initialCountry) {
+      this.setState({cca2: initialCountry}, () => {
+        this.phone.selectCountry(this.state.cca2.toLowerCase());
+      })
+    }
   }
 
   componentDidMount() {
@@ -44,16 +42,14 @@ class PhoneNumberInput extends Component {
   };
 
   selectCountry = (country) => {
+    console.log('===== PhoneNumberInput: selectCountry: country: ', country)
     this.phone.selectCountry(country.cca2.toLowerCase());
-    this.setState({ cca2: country.cca2, callingCode: country.callingCode }, () => {
-      const { onSelectCountry } = this.props;
-      onSelectCountry && onSelectCountry(this.state.cca2)
-    });
-    
+    const { onSelectCountry } = this.props;
+    onSelectCountry && onSelectCountry(country.cca2);
   }
 
   render() {
-    const { dark, style } = this.props;
+    const { dark, style, initialCountry } = this.props;
     const finalStyle = [
       styles.default,
       styles.bordered,
@@ -61,15 +57,18 @@ class PhoneNumberInput extends Component {
       style && style,
     ];
 
+    const { cca2 } = this.state;
+
     return (
       <View style={styles.container}>
         <PhoneInput
           ref={(ref) => {
             this.phone = ref;
           }}
+          initialCountry={initialCountry ? initialCountry : cca2.toLowerCase()}
           onPressFlag={this.onPressFlag}
           onChangePhoneNumber={(number) => this.onChangePhoneNumber(number)}
-          // style={finalStyle}
+          style={finalStyle}
         />
 
         <CountryPicker
