@@ -82,6 +82,11 @@ export default class LoginView extends React.Component {
     );
   };
 
+  onSelectCountry = (country) => {
+    this.props.appActions.setLanguage(country.toLowerCase());
+    this.setState({...this.state});
+  };
+
   render() {
     const { login, app, actionLoggingIn, actionLogOut, appActions } = this.props;
     const { _t } = appActions;
@@ -105,7 +110,7 @@ export default class LoginView extends React.Component {
               {_t("Connect yourself")}
             </Text>
             <Spacer size={30} />
-            <PhoneNumberInput />
+            <PhoneNumberInput onSelectCountry={this.onSelectCountry}/>
             <Spacer size={25} />
             <Button
               bgColor="white"

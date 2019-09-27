@@ -1,18 +1,31 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Platform } from 'react-native';
 import PhoneInput from 'react-native-phone-input';
-import CountryPicker from 'react-native-country-picker-modal';
+import CountryPicker, { getAllCountries } from 'react-native-country-picker-modal';
 
 import { fonts, colors } from '../styles';
+
+const VALID_COUNTRIES = ['FR', 'US']
 
 class PhoneNumberInput extends Component {
   constructor() {
     super();
 
-    // this.onPressFlag = this.onPressFlag.bind(this);
-    // this.selectCountry = this.selectCountry.bind(this);
+    const userCountryData = getAllCountries()
+      .filter(country => VALID_COUNTRIES.includes(country.cca2))
+      .pop()
+    let callingCode = null
+    let cca2 = VALID_COUNTRIES[0]
+    if (!cca2 || !userCountryData) {
+      cca2 = 'FR'
+      callingCode = '33'
+    } else {
+      callingCode = userCountryData.callingCode
+    }
+
     this.state = {
-      cca2: 'FR',
+      cca2,
+      callingCode
     };
   }
 
@@ -32,7 +45,11 @@ class PhoneNumberInput extends Component {
 
   selectCountry = (country) => {
     this.phone.selectCountry(country.cca2.toLowerCase());
-    this.setState({ cca2: country.cca2 });
+    this.setState({ cca2: country.cca2, callingCode: country.callingCode }, () => {
+      const { onSelectCountry } = this.props;
+      onSelectCountry && onSelectCountry(this.state.cca2)
+    });
+    
   }
 
   render() {
@@ -43,6 +60,7 @@ class PhoneNumberInput extends Component {
       dark && styles.dark,
       style && style,
     ];
+
     return (
       <View style={styles.container}>
         <PhoneInput
@@ -51,13 +69,14 @@ class PhoneNumberInput extends Component {
           }}
           onPressFlag={this.onPressFlag}
           onChangePhoneNumber={(number) => this.onChangePhoneNumber(number)}
-          style={finalStyle}
+          // style={finalStyle}
         />
 
         <CountryPicker
           ref={(ref) => {
             this.countryPicker = ref;
           }}
+          countryList={VALID_COUNTRIES}
           onChange={value => this.selectCountry(value)}
           translation="eng"
           cca2={this.state.cca2}

@@ -4,7 +4,7 @@ import i18n from 'i18n-js';
 import en from './en.json';
 import fr from './fr.json';
 
-const translations = { en, ru };
+const translations = { en, fr };
 
 const { languageTag } = RNLocalize.findBestAvailableLanguage(
   Object.keys(translations),
