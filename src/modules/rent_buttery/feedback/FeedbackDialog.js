@@ -105,7 +105,7 @@ export default class FeedbackDialog extends React.Component {
               <TouchableOpacity onPress={this.writeReview}>
                 <Text style={[
                   styles.feedbackDialog.desc,
-                  {color: '#35cdfa', fontSize: 12*em}
+                  {color: '#35cdfa', fontSize: 12}
                 ]}>Écrire un commentaire</Text>
               </TouchableOpacity>              
             </View>
@@ -145,9 +145,9 @@ export default class FeedbackDialog extends React.Component {
                 multiline={true} numberOfLines={5}
                 placeholder='Dites nous comment améliorer notre service'
                 style={{
-                  borderRadius: 10*em,
+                  borderRadius: 10,
                   backgroundColor: '#f8f8f8',
-                  padding: 10*em, height: 100*em
+                  padding: 10, height: 100
                 }}
               />
             </View>

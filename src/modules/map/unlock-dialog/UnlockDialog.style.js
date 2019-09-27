@@ -1,36 +1,32 @@
-import { StyleSheet, StatusBar } from 'react-native';
-import Layout, { em } from '~/constants/Layout';
+import { StyleSheet, StatusBar, Platform } from 'react-native';
+import Layout, { W, H, em } from '~/constants/Layout';
 import { fonts, colors } from '../../../styles';
 
 export const styles = StyleSheet.create({
   wrapperContainer: {
     position: 'absolute',
     left: 0, top: 0,
-    width: '100%',
-    height: '100%',
+    width: '100%', height: H,
     zIndex: 10,
   },
   wrapperBg: {
-    width: Layout.window.width,
-    height: Layout.window.height
+    position: 'absolute', left: 0, top: 0,
+    width: W
   },
   topbarContainer: {
-    marginTop:( Platform.OS === 'android') 
-              ? StatusBar.currentHeight 
-              : (Layout.isIPhoneX ? 25 : 0), 
+    position: 'absolute', left: 20, top: Platform.OS==='ios'?40:20
   },
   topbarBackButton: {
     backgroundColor: 'transparent', 
-    width: 40, height: 40, marginTop: 20,
+    width: 40, height: 40, 
     alignItems: 'center', justifyContent: 'center',
     borderWidth: 0
   },
   contentContainer: {
-    padding: 20
+    paddingHorizontal: 20    
   },
   contentDeputeImageContainer: {
     alignItems: 'center', justifyContent: 'center',
-    marginTop: 30, marginBottom: 30
   },
   contentTitleContainer: {
   
@@ -59,11 +55,10 @@ export const styles = StyleSheet.create({
     // position: 'relative',
     // flexDirection: 'row', justifyContent: 'center',
     // top: 20,
-    flex: 1
+    // flex: 1
   }, 
   codeOverText: {
     textAlign: "center",
-    marginBottom: 10,
   },  
   codeShareText: {
     fontSize: 16, lineHeight: 50, color: 'white'

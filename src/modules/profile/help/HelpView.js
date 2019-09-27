@@ -17,36 +17,36 @@ export default class HelpView extends React.Component {
 
         <Text style={styles.paramTitle}>{_t('Need help ?')}</Text>
 
-        <View style={{marginTop: 30*em, flexDirection: 'row', alignItem: 'center'}}>
+        <View style={{marginTop: 30, flexDirection: 'row', alignItem: 'center'}}>
           <TouchableOpacity  >
             <Image source={require('images/guide-utilisation.png')} style={{tintColor: '#49D2FB'}}/>
           </TouchableOpacity>
           
-          <Text style={{marginLeft: 10*em, fontSize: 16*em}}>{_t('User manual')}</Text>
+          <Text style={{marginLeft: 10, fontSize: 16}}>{_t('User manual')}</Text>
         </View>
 
-        <View style={{marginTop: 30*em, flexDirection: 'row', alignItem: 'center'}}>
+        <View style={{marginTop: 30, flexDirection: 'row', alignItem: 'center'}}>
           <TouchableOpacity  >
             <Image source={require('images/signaler-problem.png')} style={{tintColor: '#49D2FB'}}/>
           </TouchableOpacity>
           
-          <Text style={{marginLeft: 10*em, fontSize: 16*em}}>{_t('to report a problem')}</Text>
+          <Text style={{marginLeft: 10, fontSize: 16}}>{_t('to report a problem')}</Text>
         </View>
 
-        <View style={{marginTop: 30*em, flexDirection: 'row', alignItem: 'center'}}>
+        <View style={{marginTop: 30, flexDirection: 'row', alignItem: 'center'}}>
           <TouchableOpacity  >
             <Image source={require('images/discutez-avec-nous.png')} style={{tintColor: '#49D2FB'}}/>
           </TouchableOpacity>
           
-          <Text style={{marginLeft: 10*em, fontSize: 16*em}}>{_t('Chat with us')}</Text>
+          <Text style={{marginLeft: 10, fontSize: 16}}>{_t('Chat with us')}</Text>
         </View>
 
-        <View style={{marginTop: 30*em, flexDirection: 'row', alignItem: 'center'}}>
+        <View style={{marginTop: 30, flexDirection: 'row', alignItem: 'center'}}>
           <TouchableOpacity  >
-            <Image source={require('images/star.png')} style={{tintColor: '#49D2FB', width: 23*em, height: 23*em}}/>
+            <Image source={require('images/star.png')} style={{tintColor: '#49D2FB', width: 23, height: 23}}/>
           </TouchableOpacity>
           
-          <Text style={{marginLeft: 10*em, fontSize: 16*em}}>{_t('Notez notre Application ')}</Text>
+          <Text style={{marginLeft: 10, fontSize: 16}}>{_t('Notez notre Application ')}</Text>
         </View>
 
       </ProfileWrapper>

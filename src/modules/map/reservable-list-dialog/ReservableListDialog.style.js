@@ -6,7 +6,7 @@ const wrapperStyles = StyleSheet.create({
   container: {
     position: 'absolute',
     left: 0, bottom: 0, zIndex: 20,
-    width: W, height: 320,
+    width: W, 
     borderTopLeftRadius: 30, borderTopRightRadius: 30 ,
     backgroundColor: '#fff'
   },
@@ -27,7 +27,7 @@ const descStyles = StyleSheet.create({
     top: -40, color: '#313131', fontSize: 22, fontWeight: 'bold', textAlign: "center"
   },
   content: {
-    top: -30, color: '#313131', fontSize: 14, textAlign: "center"
+    marginHorizontal: 10, color: '#313131', fontSize: 14, textAlign: "center"
   }
 })
 

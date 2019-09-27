@@ -54,13 +54,13 @@ const ActionButtons = ({ onClickClose, onGoToLocation, appActions }) => (
     <View style={styles.actionLayer.container}>
       <Text style={[
         styles.actionLayer.text, 
-        {top: 80*em, fontSize: 24*em, fontWeight: 'bold'}
+        {top: 80, fontSize: 24, fontWeight: 'bold'}
       ]}>
         {appActions._t('Enter the code')}
       </Text>
       <Text style={[
         styles.actionLayer.text, 
-        {top: 120*em}
+        {top: 120}
       ]}>
         {appActions._t('The code is located under the QR Code')}
       </Text>
@@ -68,7 +68,7 @@ const ActionButtons = ({ onClickClose, onGoToLocation, appActions }) => (
         style={[
           styles.actionLayer.button, 
           styles.enterCode.button,
-          {bottom: 280*em, left: 15*em}
+          {bottom: 20, left: 15}
         ]}
         onPress={onClickClose}
       >
@@ -79,7 +79,7 @@ const ActionButtons = ({ onClickClose, onGoToLocation, appActions }) => (
         style={[
           styles.actionLayer.button, 
           styles.enterCode.button,
-          {bottom: 280*em, right: 15*em}
+          {bottom: 20, right: 15}
         ]}
         onPress={onGoToLocation}
       >
@@ -92,7 +92,7 @@ const ActionButtons = ({ onClickClose, onGoToLocation, appActions }) => (
         style={[
           styles.actionLayer.button, 
           styles.enterCode.button,
-          {bottom: 350*em, right: 15*em}
+          {bottom: 90, right: 15}
         ]}
       >
         <Image

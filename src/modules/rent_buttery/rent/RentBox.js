@@ -19,40 +19,42 @@ export default class RentBox extends React.Component {
   };
 
   render = () => {
+    const { _t } = this.props.appActions;
+
     return (
       <RentBoxWrapper>
         <Text 
           style={[
             styles.rentBox.text, 
-            {marginVertical: 10*em}
+            {marginVertical: 10}
           ]}
         >
-          Durée de location
+          {_t('Location duration')}
         </Text>
         <Text 
           style={[
             styles.rentBox.text,
-            {marginVertical: 10*em, fontSize: 34*em, fontWeight: 'bold'}
+            {marginVertical: 10, fontSize: 36, fontWeight: 'bold'}
           ]}
         >
           00:02
         </Text>
-        <View style={styles.rentBox.row}>
+        <View style={[styles.rentBox.row, {marginBottom: 0}]}>
           <Text style={styles.rentBox.leftCol}>
-            Prix de location
+            {_t('Rental price')}
           </Text>
           <Text style={styles.rentBox.rightCol}>
             0,50 €/ 30mn
           </Text>          
         </View>
-        <View style={styles.rentBox.row}>
+        <View style={[styles.rentBox.row, {marginVertical: 2}]}>
           <Text style={styles.rentBox.rightColSmall}>
-            Tarif maximum par jour 3€
+            {_t('Maximum rate per day 3€')}
           </Text>
         </View>
         <View style={styles.rentBox.row}>
           <Text style={styles.rentBox.leftCol}>
-            Crédits gratuits
+            {_t('Free credits')}
           </Text>
           <Text style={styles.rentBox.rightCol}>
             0,00 €
@@ -99,7 +101,7 @@ export default class RentBox extends React.Component {
         </View>
       </View>
     </>
-  )
+  )  
 }
 
 /*

@@ -6,7 +6,7 @@ const wrapperStyles = StyleSheet.create({
   container: {
     position: 'absolute',
     left: 0, bottom: 0, zIndex: 20,
-    width: W, height: 680,
+    width: W, 
     borderTopLeftRadius: 30, borderTopRightRadius: 30 ,
     backgroundColor: '#fff'
   },
@@ -21,17 +21,14 @@ const wrapperStyles = StyleSheet.create({
 })
 
 const descStyles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
-    left: -120, height: 50,
-  },  
-  imageContainer: {
-      
+  row: {
+    flexDirection: 'row', 
+    paddingHorizontal: 20, marginVertical: 10
   },
-  itemOuvert: {
-    fontSize: 16, height: 25,
-    left: 20, marginTop: -5
+  col1: {
+    width: 50,
+  },
+  col2: {
   }
 })
 
@@ -39,11 +36,10 @@ const phoneStyles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     justifyContent: 'flex-end',
-    left: -235, height: 50,
+    height: 50,
   },
   itemView: {
     fontSize: 16, height: 25,
-    left: 20,
   }
 })
 

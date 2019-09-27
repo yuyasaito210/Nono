@@ -8,8 +8,8 @@ const topBoxStyles = StyleSheet.create({
   },
   topBarContainer: {
     backgroundColor: '#35cdfa',
-    height: 80,
-    flexDirection: 'row'
+    flexDirection: 'row',
+    paddingTop: 30, paddingBottom: 20
   },
   topBarImageContainer: {
     marginTop: 20, marginLeft: 20
@@ -43,8 +43,8 @@ const topBoxStyles = StyleSheet.create({
 
 const bottomBoxStyles = StyleSheet.create({
   container: {
-    position: 'absolute', left: 0, bottom: 80, zIndex: 20,
-    width: W, height: 100,
+    position: 'absolute', left: 0, bottom: 0, zIndex: 20,
+    width: W, 
     paddingHorizontal: 20, 
     backgroundColor: '#fff',
     borderTopLeftRadius: 20, borderTopRightRadius: 20
@@ -57,7 +57,8 @@ const bottomBoxStyles = StyleSheet.create({
     width: 40, height: 5
   },
   innerContainer: {
-    flexDirection: 'row', justifyContent: 'space-between'
+    flexDirection: 'row', justifyContent: 'space-between',
+    paddingBottom: 20
   },
   descTitle: {
     color: '#35CDFA', fontSize: 20, fontWeight: 'bold'

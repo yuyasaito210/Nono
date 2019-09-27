@@ -13,26 +13,26 @@ const styles = StyleSheet.create({
 		transform: [{rotate: '180deg'}], tintColor: '#bfbfc4'
 	},
 	summaryRow: {
-		flexDirection: 'row', justifyContent: 'flex-start', marginVertical: 20*em
+		flexDirection: 'row', justifyContent: 'flex-start', marginVertical: 20
 	},
 	summaryCol1: {
-		width: 50*em
+		width: 50
 	},
 	summaryCol2: {
-		width: 240*em
+		width: 240
 	},
 	whiteText: {
-		color: 'white', fontSize: 16*em
+		color: 'white', fontSize: 16
 	},
 	consumeRow: {
 		flexDirection: 'row', justifyContent: 'space-between', 
-		marginVertical: 10*em, marginHorizontal: 20*em
+		marginVertical: 10, marginHorizontal: 20
 	},
 	consumeCol1: {
-		width: 200*em, alignItems: 'flex-start'
+		width: 200, alignItems: 'flex-start'
 	},
 	consumeCol2: {
-		width: 100*em, alignItems: 'flex-end'
+		width: 100, alignItems: 'flex-end'
 	}
 })
 

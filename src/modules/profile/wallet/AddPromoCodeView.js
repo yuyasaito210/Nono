@@ -16,12 +16,12 @@ export default class WalletView extends React.Component {
         <PageTitle title={_t('Add a promo code')} />
         <View>
           <TextInput placeholder='CODE PROMO' style={{
-            fontSize: 26*em, color: 'white', borderColor: '#35cdfa', borderWidth: 1,
-            backgroundColor: '#07e28e', padding: 20*em,
-            borderRadius: 20*em
+            fontSize: 26, color: 'white', borderColor: '#35cdfa', borderWidth: 1,
+            backgroundColor: '#07e28e', padding: 20,
+            borderRadius: 20
           }} />
         </View>
-        <View style={{marginTop: 160*em}}>
+        <View style={{marginTop: 160}}>
           <Button rounded caption={_t('Validate')}
             bgColor='rgba(7, 226, 142, 0.5)' textColor='white'
             onPress={() => Actions.pop()}

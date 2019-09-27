@@ -6,7 +6,7 @@ export const mapStyles = StyleSheet.create({
     position: 'absolute', 
     left: 0, top: 0,
 		width: Layout.window.width, height: Layout.window.height,
-		zIndex: 5
+    zIndex: 5
   },
   markerOfMine: {
     width: 150, height: 150
