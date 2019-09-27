@@ -25,6 +25,7 @@ export default class UnlockBox extends React.Component {
             bgColor='#35cdfa' textColor='#fff'
             icon={require('images/qr-code.png')} iconColor='#fff'
             caption='Déverrouille une nono'
+            onPress={this.props.onGotoFeedback} // For test
           />
         </InnerBoxWrapper>
       </RentBoxWrapper>
