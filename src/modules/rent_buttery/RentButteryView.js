@@ -7,7 +7,7 @@ import EnterQRCodeContainer from './enter-code/EnterQRCodeContainer';
 import MapSection from './map-section/MapSection';
 import MapButtonsLayer from './map-buttons/MapButtonsLayer';
 import RentBoxContainer from './rent/RentBoxContainer';
-import UnlockBox from './rent/UnlockBox';
+import UnlockBoxContainer from './rent/UnlockBoxContainer';
 import FeedbackDialogContainer from './feedback/FeedbackDialogContainer';
 
 export default class RentButterryView extends Component {
@@ -85,7 +85,7 @@ export default class RentButterryView extends Component {
               refresh
               target
             />
-            <UnlockBox />
+            <UnlockBoxContainer />
           </>
         }
         {pageStatus=='openFeedbackDialog' && 

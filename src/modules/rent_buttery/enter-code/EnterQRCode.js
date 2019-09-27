@@ -59,7 +59,7 @@ const ActionButtons = ({ onClickClose, onGoToLocation, appActions }) => (
         style={[
           styles.actionLayer.button, 
           styles.enterCode.button,
-          {bottom: 280, left: 15}
+          {bottom: 20, left: 15}
         ]}
         onPress={onClickClose}
       >
@@ -70,7 +70,7 @@ const ActionButtons = ({ onClickClose, onGoToLocation, appActions }) => (
         style={[
           styles.actionLayer.button, 
           styles.enterCode.button,
-          {bottom: 280, right: 15}
+          {bottom: 20, right: 15}
         ]}
         onPress={onGoToLocation}
       >
@@ -83,7 +83,7 @@ const ActionButtons = ({ onClickClose, onGoToLocation, appActions }) => (
         style={[
           styles.actionLayer.button, 
           styles.enterCode.button,
-          {bottom: 350, right: 15}
+          {bottom: 90, right: 15}
         ]}
       >
         <Image

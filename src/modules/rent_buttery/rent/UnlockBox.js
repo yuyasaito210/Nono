@@ -8,6 +8,7 @@ import { Button } from '~/components';
 
 export default class UnlockBox extends React.Component {
   render = () => {
+    const { _t } = this.props.appActions;
     return (
       <RentBoxWrapper>
         <Text 
@@ -24,7 +25,7 @@ export default class UnlockBox extends React.Component {
             rounded
             bgColor='#35cdfa' textColor='#fff'
             icon={require('images/qr-code.png')} iconColor='#fff'
-            caption='Déverrouille une nono'
+            caption={_t('Unlock a nono')}
           />
         </InnerBoxWrapper>
       </RentBoxWrapper>

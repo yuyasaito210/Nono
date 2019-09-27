@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, FlatList, Image, ImageBackground, TouchableOpacity } from 'react-native';
 import styles from './StationDialog.style';
-import { Button } from '~/components';
+import { Button, Spacer } from '~/components';
 
 export default class StationDialog extends React.Component {
   state = {
@@ -43,70 +43,81 @@ export default class StationDialog extends React.Component {
           />
         </View>
 
-        <View style={styles.desc.container}>
-          <View style={styles.desc.imageContainer}>
+        <View style={styles.desc.row}>
+          <View style={styles.desc.col1}>
             <Image source={require('images/marker.png')} style={{tintColor:'#5ed8fc'}}/>
           </View>
 
-          <View style={styles.desc.desc}>
-              <Text style={styles.desc.itemOuvert}>79 Rue de Seine, 75006 Paris</Text>
-              <Text style={{color: '#C9C9CE', left: 20, fontSize: 16}}>200m</Text>
-             </View>
+          <View style={styles.desc.col2}>
+            <Text style={{fontSize: 16}}>
+              79 Rue de Seine, 75006 Paris
+            </Text>
+            <Text style={{color: '#C9C9CE', fontSize: 16}}>
+              200m
+            </Text>
           </View>
-
-				  <View style={styles.time.container}>
-            <FlatList data={stateTimes} renderItem={({ item }) => <StationTime item={item} />} />
-          </View>
-
-          <View style={styles.phone.container}>
-            <View style={styles.phone.imageContainer}>
-                <Image source={require('images/call.png')} style={{tintColor:'#5ed8fc'}}/>
-            </View>
-
-             <View style={styles.phone.itemView}>
-                <Text style={styles.phone.item}>05 75 43 22 11</Text>
-            </View>
-          </View>
-
-          <View style = { styles.url.container }>
-            <View style={styles.url.imageContainer}>
-              <Image source={require('images/website.png')} style={{tintColor:'#5ed8fc'}}/>
-            </View>
-
-            <View style={styles.url.itemView}>
-              <Text style={styles.url.item}>www.supermarche.fr</Text>
-            </View>
-          </View>
-
-          <View style = { styles.parta.container }>
-            <View style={styles.parta.imageContainer}>
-              <Image source={require('images/share.png')} style={{tintColor:'#5ed8fc'}}/>
-            </View>
-
-            <View style={styles.parta.itemView}>
-              <Text style={styles.parta.item}>Partarger</Text>
-            </View>
-          </View>
-
-          <View style={styles.bottomBar.container}>
-            <View style={styles.bottomBar.searchButtonContainer}>
-              <Button 
-                icon={require('images/go.png')} iconColor='#fff' 
-                primary rounded 
-                bgGradientStart='#FF52A8' bgGradientEnd='#FFDF00' 
-                caption='Go 2 mn · 200m'
-                onPress={(station) => onGoToStation(station)}
-              />
-            </View>
-            <View style={styles.bottomBar.resetButtonContainer}>
-              <Button 
-                rounded textColor='#FF52A8'
-                bgColor='transparent'
-                caption='Réserver'
-                onPress={(station) => onBook(station)}
-              />
-            </View>
         </View>
+
+        <View style={styles.desc.row}>
+          <View style={styles.desc.col1}>
+            <Image source={require('images/hours.png')} style={{tintColor:'#5ed8fc'}}/>
+          </View>
+          <View style={styles.desc.col2}>
+            <FlatList data={stateTimes} renderItem={({ item }) => <StationTime  item={item} />} />
+          </View>
+        </View>
+
+        <View style={styles.desc.row}>
+          <View style={styles.desc.col1}>
+            <Image source={require('images/call.png')} style={{tintColor:'#5ed8fc'}}/>
+          </View>
+
+          <View style={styles.desc.col2}>
+            <Text>05 75 43 22 11</Text>
+          </View>
+        </View>
+
+        <View style={styles.desc.row}>
+          <View style={styles.desc.col1}>
+            <Image source={require('images/website.png')} style={{tintColor:'#5ed8fc'}}/>
+          </View>
+
+          <View style={styles.desc.col2}>
+            <Text>www.supermarche.fr</Text>
+          </View>
+        </View>
+
+        <View style={styles.desc.row}>
+          <View style={styles.desc.col1}>
+            <Image source={require('images/share.png')} style={{tintColor:'#5ed8fc'}}/>
+          </View>
+
+          <View style={styles.desc.col2}>
+            <Text>Partarger</Text>
+          </View>
+        </View>
+
+        <View style={styles.bottomBar.container}>
+          <View style={styles.bottomBar.searchButtonContainer}>
+            <Button 
+              icon={require('images/go.png')} iconColor='#fff' 
+              primary rounded 
+              bgGradientStart='#FF52A8' bgGradientEnd='#FFDF00' 
+              caption='Go 2 mn · 200m'
+              onPress={(station) => onGoToStation(station)}
+            />
+          </View>
+          <View style={styles.bottomBar.resetButtonContainer}>
+            <Button 
+              rounded textColor='#FF52A8'
+              bgColor='transparent'
+              caption='Réserver'
+              onPress={(station) => onBook(station)}
+            />
+          </View>
+        </View>
+
+        <Spacer size={30} />
       </Wrapper>
     )
   }
@@ -116,28 +127,27 @@ const StationItem = ({ item }) => {
   return (
     <View style={styles.item.container}>
 
-        <View style={styles.item.imageContainer}>
-            <Image source={{uri: item.image}} style={styles.item.image} />
+      <View style={styles.item.imageContainer}>
+        <Image source={{uri: item.image}} style={styles.item.image} />
+      </View>
+
+      <View style={styles.item.itemDesc}>
+        <View style={{flexDirection: 'row'}}>
+          <Text style={styles.item.title}>{item.title}</Text>
         </View>
 
-
-        <View style={styles.item.itemDesc}>
-            <View style={{flexDirection: 'row'}}>
-            <Text style={styles.item.title}>{item.title}</Text>
-            </View>
-
-            <View style={styles.item.desc}>
-            <Text style={styles.item.itemOuvert}>Ouvert</Text>
-            <Text style={{color: '#C9C9CE'}}> · Ferme à </Text>
-            <Text style={{color: '#C9C9CE'}}>22:00</Text>
-            </View>
-
-            <View style={styles.item.batteriesAndPlaces}>
-            <Text style={styles.item.batteries}>{item.batteries} batteries</Text>
-            <Text style={styles.item.places}>{item.places} places</Text>
-            </View> 
-
+        <View style={styles.item.desc}>
+          <Text style={styles.item.itemOuvert}>Ouvert</Text>
+          <Text style={{color: '#C9C9CE'}}> · Ferme à </Text>
+          <Text style={{color: '#C9C9CE'}}>22:00</Text>
         </View>
+
+        <View style={styles.item.batteriesAndPlaces}>
+          <Text style={styles.item.batteries}>{item.batteries} batteries</Text>
+          <Text style={styles.item.places}>{item.places} places</Text>
+        </View> 
+
+      </View>
 
     </View>
   )
@@ -145,7 +155,10 @@ const StationItem = ({ item }) => {
 
 const StationTime = ({ item }) => {
 	return (
-		<Text>{item.time}</Text>
+    <View style={{flexDirection: 'row'}}>
+      <Text style={{width: 100}}>{item.title}</Text>
+      <Text>{item.time}</Text>
+    </View>		
 	)
 }
   

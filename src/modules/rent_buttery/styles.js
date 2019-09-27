@@ -4,7 +4,7 @@ import { W, H, em } from '~/constants/Layout';
 
 const pageStyles = StyleSheet.create({
   container: {
-    position: 'relative'
+    position: 'relative', flex: 1
   }
 })
 

@@ -16,17 +16,19 @@ import { ProfileHeader } from './header/header';
 const ProfileStack = (
   <Stack
     key={'profile'}
-    
+    initial
   >
     <Scene
       key='profile_menu'
       hideNavBar
-      component={ProfileViewContainer}      
+      component={ProfileViewContainer}
+      
     />
     <Scene
       key='wallet'
       component={WalletViewContainer}
-      header={ProfileHeader('')}      
+      header={ProfileHeader('')}
+      
     />
     <Scene
       key='add_promocode'
@@ -63,15 +65,18 @@ const ProfileStack = (
       key='setting'
       component={SettingViewContainer}
       header={ProfileHeader('')}
+      
     />
     <Scene
       key='about_us'
       component={AboutViewContainer}
       header={ProfileHeader('')}
+      
     />
     <Scene
       key='help'
       component={HelpViewContainer}
+      initial
     />
   </Stack>
 )
