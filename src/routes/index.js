@@ -21,9 +21,9 @@ const iconCalendar = require('../assets/images/tabbar/calendar.png');
 const iconGrids = require('../assets/images/tabbar/grids.png');
 const iconPages = require('../assets/images/tabbar/pages.png');
 const iconComponents = require('../assets/images/tabbar/components.png');
-const hederBackground = require('../assets/images/topBarBg.png');
 
 import ProfileStack from './profile';
+import RentButteryStack from './rentbuttery';
 
 class TabIcon extends Component {
 	render() {
@@ -105,19 +105,7 @@ class NonoRoutes extends Component {
 									component={MapViewContainer}
 								/>
 							</Stack>
-							<Stack
-								key={'rent_battery'}
-								tabBarLabel="Rent Battery"
-								iconSource={iconGrids}
-								header={GeneralHeader('Rent Battery')}
-								hideNavBar								
-							>
-								<Scene
-									key='_rent_battery'
-									title='Rent Battery'
-									component={RentButteryViewContainer}
-								/>
-							</Stack>
+							{RentButteryStack}
 							{ProfileStack}
 						{/* </Drawer> */}
 					</Stack>

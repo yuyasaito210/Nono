@@ -1,6 +1,7 @@
 import React from 'react';
 import QRCodeScanner from 'react-native-qrcode-scanner';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import { W, H, em } from '~/constants/Layout';
 import styles from './styles';
@@ -13,20 +14,19 @@ export default class ScanQRCode extends React.Component {
     scanBarAnimateReverse: true
   }
 
-  onReadQRCode = (e) => {
-    _this = this;
-    this.setState({qrCode: e.data, scanBarAnimateReverse: false}, () => {
-      _this.props.onReadQRCode && _this.props.onReadQRCode(qrCode);
-    });
-  }
-
   onClickClose = () => {
-    this.setState({qrCode: 'ROT1219-10'});
+    Actions.pop();
+    // this.setState({qrCode: 'ROT1219-10'});
   };
 
   renderTitleBar = () => {
     const { _t } = this.props.appActions;
-    return (
+    const { qrCode } = this.state;
+    return qrCode ? (
+      <Text style={{color:'white',textAlign:'center',padding:16}}>
+        {qrCode}
+      </Text>
+    ) :(
       <View>
         <Text style={{color:'white',textAlign:'center',padding:16}}>
           {_t('Last step')}
@@ -39,9 +39,7 @@ export default class ScanQRCode extends React.Component {
     );
   }
 
-  renderBottom = () => 
-  {
-    const { _t } = this.props.appActions;
+  renderBottom = () => {
     return (
       <View style={styles.bottomContainer}>
         <View style={styles.flashLayer}>
@@ -55,10 +53,10 @@ export default class ScanQRCode extends React.Component {
         </View>
         <Spacer size={15}/>
         <View style={styles.bottomNavigationLayer}>
-          <TouchableOpacity style={styles.bottomCloseImageContainer}>
+          <TouchableOpacity style={styles.bottomCloseImageContainer} onPress={() => this.onClickClose()}>
             <MaterialIcon name="close" style={styles.bottomCloseImage} />
           </TouchableOpacity>
-          <TouchableOpacity style={styles.bottomInputQRCodeImageContainer}>
+          <TouchableOpacity style={styles.bottomInputQRCodeImageContainer} onPress={() => Actions['enter_code']()}>
             <Text style={styles.bottomInputQRCodeImage}>123</Text>
           </TouchableOpacity>
         </View>
@@ -69,11 +67,10 @@ export default class ScanQRCode extends React.Component {
     )
   }
 
-  barcodeReceived = (event) => {
-    console.log('==== Type: ' + event.type + '\nData: ' + event.data)
-    _this = this;
-    this.setState({qrCode: e.data, scanBarAnimateReverse: false}, () => {
-      // _this.props.onReadQRCode && _this.props.onReadQRCode(qrCode);
+  onReceivedQRCode = (event) => {
+    
+    this.setState({qrCode: event.data, scanBarAnimateReverse: false}, () => {
+      Actions['rent_buttery_feedback']();
     });
   };
 
@@ -84,12 +81,11 @@ export default class ScanQRCode extends React.Component {
     return (
       <View style={{flex:1}}>
         < QRScannerView
-          onScanResult={ this.barcodeReceived }
+          onScanResult={ this.onReceivedQRCode }
           renderHeaderView={ this.renderTitleBar }
-          renderFooterView={ this.renderBottom }
+          renderFooterView={ <this.renderBottom onSwitchToQRCodeInput={onSwitchToQRCodeInput}/>}
           scanBarAnimateReverse={ true }
           hintText={`${_t('QR code not detected?')} ${_t('Enter the number of the station')}`}
-          hintTextStyle={styles.hintTextStyle}
         />
       </View>
     )

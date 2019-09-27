@@ -3,7 +3,8 @@ import Layout, { em } from "~/constants/Layout";
 
 export const mapStyles = StyleSheet.create({
   container: {
-    position: 'absolute', left: 0, top: 0,
+    position: 'absolute', 
+    left: 0, top: 0,
 		width: Layout.window.width, height: Layout.window.height,
     zIndex: 5
   },

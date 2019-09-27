@@ -11,6 +11,10 @@ export default class SettingView extends React.Component {
   state = {
 
   }
+  onSignOut = () => {
+    Actions.reset('authorized');
+    Actions['login']();
+  }
   render = () => {
     const { _t } = this.props.appActions;
     return (
@@ -39,7 +43,6 @@ export default class SettingView extends React.Component {
               <Text style={styles.paramInfo2}> {_t('18/06/2000')}</Text>
             </View>
           </View>
-
           <Spacer size={50}/>
           <TouchableOpacity style={styles.row} onPress={() => Actions['about_us']()}>
             <Text style={styles.paramInfo2}>{_t('Terms of use')}</Text>
@@ -56,6 +59,11 @@ export default class SettingView extends React.Component {
             <TouchableOpacity>
               <Image source={require('images/arrow.png')} style={styles.arrowStyle} />
             </TouchableOpacity>
+          </TouchableOpacity>
+
+          <Spacer size={50}/>
+          <TouchableOpacity onPress={() => this.onSignOut()}>
+            <Text style={{textAlign: 'center', color: '#FE000C', fontSize: 18*em}}>{_t('Sign Out')}</Text>
           </TouchableOpacity>
 
           <Spacer size={50}/>

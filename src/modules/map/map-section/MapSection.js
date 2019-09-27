@@ -1,6 +1,7 @@
 import React from 'react';
 import { Image, Platform } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
+import Geolocation from 'react-native-geolocation-service';
 import { mapStyles } from './MapSection.style';
 import styles from '../styles';
 
@@ -27,6 +28,15 @@ const defaultPlaces= [
 	}
 ];
 
+const defaultCurrentPosition = {
+	name: 'My location',
+	coords: {
+		latitude: 37.332096988,
+		longitude: -122.0487472123455,
+	}
+};
+
+
 export default class MapSection extends React.Component {
 	state = {
 		currentLocation: null,
@@ -35,11 +45,28 @@ export default class MapSection extends React.Component {
 	}
 	
 	componentWillMount() {
-		this.setState({region: defaultRegion, places: defaultPlaces})
+		this.setState({region: defaultRegion, places: defaultPlaces, currentLocation: defaultCurrentPosition})
 	}
 
 	componentDidMount() {
-		this.getCurrentPosition();
+		_this = this;
+		Geolocation.getCurrentPosition(
+			(position) => {
+					console.log('====== position: ', position);
+					// For test
+					// this.setState({
+					// 	currentLocation: {
+					// 		name: 'My location',
+					// 		coords: position.coords
+					// 	}
+					// })
+			},
+			(error) => {
+					// See error code charts below.
+					console.log(error.code, error.message);
+			},
+			{ enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 }
+		);
 	}
 
   componentWillReceiveProps = (nextProps) => {
@@ -48,19 +75,27 @@ export default class MapSection extends React.Component {
   };
 
 	render() {
-		const { currentLocation, region, places } = this.state;
+		const { currentLocation, region, } = this.state;
+		const { children } = this.props;
 
 		return (
 			<>
 				<MapView
 					style={mapStyles.container}
 					region={region}
+					showsUserLocation={true}
 					// mapType={Platform.OS == "android" ? "none" : "standard"}
+					showsMyLocationButton={true}
+					followsUserLocation={true}
+					showsCompass={true}
+					showsTraffic={true}
+					rotateEnabled={true}
+					loadingEnabled={true}
+					pitchEnabled={true}
 				>
 					{this.renderMarkers()}
-					{
-						currentLocation && <MarkerOfMine currentLocation={currentLocation} />
-					}
+					{currentLocation && <MarkerOfMine currentLocation={currentLocation} />}
+					{ children && children}
 				</MapView>
 			</>
 		)
@@ -74,30 +109,11 @@ export default class MapSection extends React.Component {
 			</Marker>
     ))
 	}
-	getCurrentPosition() {
-		console.log(navigator.geolocation);
-		return;
-		navigator.geolocation.getCurrentPosition(
-			(position) => {
-				console.log(position)
-			}
-		)
-		return
-		navigator.geolocation.watchPosition(
-      (position) => {
-				return
-				this.setState({
-					...this.state,
-					currentLocation: position.coords
-				})				
-			}
-		)
-	}
 }
 
 const MarkerOfMine = ({currentLocation}) => {
 	return (
-		<Marker coordinate={currentLocation}>
+		<Marker key='my-location' coordinate={currentLocation.coords}>
 			<Image source={require('images/currentLocation.png')} style={mapStyles.markerOfMine} />				
 		</Marker>
 	)

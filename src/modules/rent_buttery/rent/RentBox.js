@@ -7,6 +7,17 @@ import { Button } from '~/components'
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export default class RentBox extends React.Component {
+  
+  onClickBuy = () => {
+    const { onClickBuy } = this.props;
+    onClickBuy && onClickBuy();
+  }
+
+  onClickDeposit = () => {
+    const { onClickDiposite } = this.props;
+    onClickDiposite && onClickDiposite();
+  };
+
   render = () => {
     const { _t } = this.props.appActions;
 
@@ -53,45 +64,44 @@ export default class RentBox extends React.Component {
       </RentBoxWrapper>
     )
   }
-  renderActions = () => {
-    const { _t } = this.props.appActions;
-    return (
-      <>
-        <View 
-          style={{
-            flexDirection: 'row', justifyContent: 'center',
-            marginVertical: 20
-          }}
-        >
-          <TouchableOpacity>
-            <Text style={{fontSize: 20, fontWeight: 'bold', color: '#fff'}}>
-              {_t('Rent another battery')}
-            </Text>
-          </TouchableOpacity>
+  renderActions = () => (
+    <>
+      <View 
+        style={{
+          flexDirection: 'row', justifyContent: 'center',
+          marginVertical: 20*em
+        }}
+      >
+        <TouchableOpacity>
+          <Text style={{fontSize: 20*em, fontWeight: 'bold', color: '#fff'}}>
+            Loue une autre batterie
+          </Text>
+        </TouchableOpacity>
+      </View>
+      <View 
+        style={{
+          flexDirection: 'row', justifyContent: 'space-between',
+          marginTop: 10*em, marginBottom: 30*em, marginHorizontal: 25*em
+        }}
+      >
+        <View style={{width: 140*em}}>
+          <Button 
+            rounded bgColor='transparent' textColor='#fff'
+            caption='Acheter'
+            onPress={() => this.onClickBuy()}
+          />
         </View>
-        <View 
-          style={{
-            flexDirection: 'row', justifyContent: 'space-between',
-            marginTop: 10, marginBottom: 30, marginHorizontal: 25
-          }}
-        >
-          <View style={{width: 140}}>
-            <Button 
-              rounded bgColor='transparent' textColor='#fff'
-              caption={_t('Buy')} 
-            />
-          </View>
-          <View style={{width: 180}}>
-            <Button 
-              rounded bgColor='#fff' textColor='#ff52a8'
-              caption={_t('Deposit')}
-              icon={require('images/arrow-direction.png')} iconColor='#ff52a8' rightIcon
-            />
-          </View>
+        <View style={{width: 180*em}}>
+          <Button 
+            rounded bgColor='#fff' textColor='#ff52a8'
+            caption='Déposer' 
+            icon={require('images/arrow-direction.png')} iconColor='#ff52a8' rightIcon
+            onPress={() => this.onClickDeposit()}
+          />
         </View>
-      </>
-    )
-  }
+      </View>
+    </>
+  )  
 }
 
 /*

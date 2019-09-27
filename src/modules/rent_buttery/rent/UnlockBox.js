@@ -19,7 +19,7 @@ export default class UnlockBox extends React.Component {
         >
           00:02
         </Text>
-        <ForwardButton />
+        <ForwardButton onGotoFeedback={this.props.onGotoFeedback}/>
         <InnerBoxWrapper>
           <Button 
             rounded
@@ -33,7 +33,7 @@ export default class UnlockBox extends React.Component {
   }
 }
 
-const ForwardButton = () => (
+const ForwardButton = ({onGotoFeedback}) => (
   <View style={{
     position: 'absolute', top: 20, right: 20
   }}>
@@ -44,6 +44,7 @@ const ForwardButton = () => (
         alignItems: 'center', justifyContent: 'center',
         backgroundColor: '#fff'
       }}
+      onPress={onGotoFeedback}
     >
       <Image source={require('images/arrow-direction.png')} 
         style={{
