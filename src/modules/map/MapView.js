@@ -65,7 +65,7 @@ export default class MapScreen extends Component {
   };
 
   // Callbacks for ReservableListDialogContainer
-  onBook = (station, bookCount) => {
+  onBookWithCounter = (station, bookCount) => {
     this.setState({pageStatus: 'openFilterDialog'});
   };
 
@@ -156,7 +156,7 @@ export default class MapScreen extends Component {
                 target
                 bottomExtra={320}
               />
-              <ReservableListDialogContainer onBook={this.onBook}/>
+              <ReservableListDialogContainer onBook={this.onBookWithCounter}/>
             </>
           }
           {pageStatus=='openFilterDialog' && 

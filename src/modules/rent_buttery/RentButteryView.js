@@ -6,8 +6,8 @@ import styles from './styles';
 import MapSectionContainer from '~/modules/map/map-section/MapSectionContainer';
 import MapButtonsLayer from '~/modules/map/map-buttons/MapButtonsLayer';
 import RentBoxContainer from './rent/RentBoxContainer';
-import UnlockBox from './rent/UnlockBox';
-import FeedbackDialog from './feedback/FeedbackDialog';
+import UnlockBoxContainer from './rent/UnlockBoxContainer';
+import FeedbackDialogContainer from './feedback/FeedbackDialogContainer';
 
 export default class RentButterryView extends Component {
   state = {
@@ -49,9 +49,12 @@ export default class RentButterryView extends Component {
     this.setState({pageStatus: 'openFeedbackDialog'});
   };
 
-  onClickRaiting = () => {
+  onSendRating = (score) => {
     Actions.reset('authorized');
     // Actions['scan_qr']();
+  }
+  onClickLater = () => {
+    Actions.reset('authorized');
   }
 
   render() {
@@ -69,8 +72,8 @@ export default class RentButterryView extends Component {
           bottomExtra={80}
         />
         {pageStatus=='openRentBox' && <RentBoxContainer onClickDiposite={this.onClickDiposite} />}
-        {pageStatus=='openUnlockBox' && <UnlockBox onGotoFeedback={this.onGotoFeedback}/>}
-        {pageStatus=='openFeedbackDialog' && <FeedbackDialog onClickRaiting={this.onClickRaiting}/>}
+        {pageStatus=='openUnlockBox' && <UnlockBoxContainer onGotoFeedback={this.onGotoFeedback}/>}
+        {pageStatus=='openFeedbackDialog' && <FeedbackDialogContainer onSendRating={this.onSendRating} onClickLater={this.onClickLater}/>}
       </>
     );
   }
