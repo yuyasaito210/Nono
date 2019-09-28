@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
       alignItems: 'flex-start',
       fontSize: 16,
       fontWeight: '400',
-      color: colors.black
+      // color: colors.black
     },
     listItemSubTitle: {
       alignItems: 'flex-end',

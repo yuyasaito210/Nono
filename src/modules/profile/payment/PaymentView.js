@@ -1,10 +1,11 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
-import styles from './styles';
 import { Actions } from 'react-native-router-flux';
 import { Button, Spacer } from '~/components';
-import { W, H, em } from '~/constants/Layout';
+import { W, H } from '~/constants/Layout';
 import { ProfileWrapper } from '../wallet/WalletView';
+import { colors } from '~/styles';
+import styles from './styles';
 
 export default class PaymentView extends React.Component {
 
@@ -55,17 +56,19 @@ export default class PaymentView extends React.Component {
           </View>
         </TouchableOpacity>
 
-        <View style={{left: 20, width: W-40, bottom: 30, position: 'absolute'}}>
+        <View style={styles.buttonGroupContainer}>
           <Button rounded
             caption={_t('Add a Lydia account')}
-            bgColor='#06A2F1' textColor='#FFFFFF'
-            icon={require('images/lydia.png')} iconColor='#FFFFFF'
+            bgColor={colors.darKBlue} textColor={colors.white}
+            icon={require('images/lydia.png')} iconColor={colors.white}
+            style={styles.button}
           />
+          <Spacer size={10} />
           <Button rounded
             caption={_t('Add Apple Pay')}
-            bgColor='#36384A' textColor='#FFFFFF'
-            icon={require('images/apple.png')} iconColor='#FFFFFF'
-            style={{ marginTop: 10}}
+            bgColor={colors.black} textColor={colors.white}
+            icon={require('images/apple.png')} iconColor={colors.white}
+            style={styles.button}
           />
         </View>
       </ProfileWrapper>
