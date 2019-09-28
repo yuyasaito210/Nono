@@ -17,7 +17,8 @@ import { W, H, em } from '~/constants/Layout';
 export default class FeedbackDialog extends React.Component {
   state = {
     status: 'until', rating: 0,
-    isKeyboardVisible: false
+    isKeyboardVisible: false,
+    score: 0,
   }
 
   componentWillMount() {
@@ -45,6 +46,29 @@ export default class FeedbackDialog extends React.Component {
     LayoutAnimation.easeInEaseOut();
     this.setState({ isKeyboardVisible: false });
   }
+
+  setRating = (rating) => {
+    this.setState({rating, status: 'rated'})
+  }
+
+  onClickLater = () => {
+    const { onClickLater } = this.props;
+    onClickLater && onClickLater(this.state.score);
+  };
+
+  onSetRating = () => {
+    const { rating } = this.state;
+    this.setState({status: 'rated'});
+  };
+
+  writeReview = () => {
+    this.setState({status: 'write_review'})
+  };
+
+  onSendRating = () => {
+    const { onSendRating } = this.props;
+    onSendRating && onSendRating();
+  };
 
   render = () => {
     const { status, rating, isKeyboardVisible } = this.state;
@@ -75,7 +99,7 @@ export default class FeedbackDialog extends React.Component {
             <View style={styles.feedbackDialog.buttonContainer}>
               <Button 
                 textColor='#35cdfa' bgColor='transparent' 
-                caption='Plus tard' onPress={this.onSetRating}/>
+                caption='Plus tard' onPress={this.onClickLater}/>
             </View>
           </>
         }
@@ -114,7 +138,7 @@ export default class FeedbackDialog extends React.Component {
                 rounded
                 icon={require('images/send.png')} iconColor='#fff'
                 textColor='#fff' bgColor='#35cdfa' 
-                caption='Envoyer' onPress={this.onSetRating}/>
+                caption='Envoyer' onPress={this.onSendRating}/>
             </View>
           </>
         }
@@ -156,13 +180,14 @@ export default class FeedbackDialog extends React.Component {
                 rounded
                 icon={require('images/send.png')} iconColor='#fff'
                 textColor='#fff' bgColor='#35cdfa' 
-                caption='Envoyer' onPress={this.onSetRating}/>
+                caption='Envoyer' onPress={this.onSendRating}/>
             </View>
           </>
         }
       </View>
     )
   }
+<<<<<<< HEAD
 
   setRating = (rating) => {
     this.setState({rating})
@@ -181,4 +206,6 @@ export default class FeedbackDialog extends React.Component {
   writeReview = () => {
     this.setState({status: 'write_review'})
   }
+=======
+>>>>>>> e95b59803239ab84cf37717600322fde3dbb2cc6
 }

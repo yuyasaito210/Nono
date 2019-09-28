@@ -38,11 +38,11 @@ export default class PayView extends React.Component {
     const { rechargable } = this.state;
 
     return (
-      <ScrollView style={{
-        position: 'relative', backgroundColor: '#5ed8fc', 
-        width: W, height: H,
+      <View style={{
+        backgroundColor: '#5ed8fc', 
+        flex: 1
       }}>
-        <View style={{flexDirection: 'row', marginTop: Platform.OS=='ios'?40:0 }}>
+        <View style={{flexDirection: 'row', paddingTop: Platform.OS === 'ios' ? 50 : 20}}>
           <TouchableOpacity style={{flex: 1}} onPress={() => Actions.pop()}>
             <Image source={require('images/arrow.png')} resizeMode='center'
               style={styles.backButton} />
@@ -57,7 +57,7 @@ export default class PayView extends React.Component {
           </View>
           <View style={{flex: 1}}/>
         </View>
-        <View style={{
+        <ScrollView style={{
           position: 'relative', overflow: 'hidden', marginTop: 20,
           backgroundColor: 'white',
           borderTopLeftRadius: 20, borderTopRightRadius: 20,
@@ -65,7 +65,7 @@ export default class PayView extends React.Component {
         }}>
           <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
             <Text style={{fontSize: 16, lineHeight: 30, color: '#bfbfc4'}}>
-              Automatic recharge
+              {_t('Automatic recharge')}
             </Text>
             <TouchableOpacity onPress={() => this.setState({...this.state, rechargable:!this.state.rechargable})}>
               {rechargable?
@@ -127,8 +127,8 @@ export default class PayView extends React.Component {
             </View>            
           </View>
           {/* Pay box (end) */}
-        </View>        
-      </ScrollView>
+        </ScrollView>        
+      </View>
     )
   }
 }

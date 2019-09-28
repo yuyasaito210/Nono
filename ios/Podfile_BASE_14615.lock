@@ -143,13 +143,13 @@ PODS:
     - React-cxxreact (= 0.60.5)
     - React-jsi (= 0.60.5)
   - React-jsinspector (0.60.5)
-  - react-native-camera (3.4.0):
+  - react-native-camera (3.6.0):
     - React
-    - react-native-camera/RCT (= 3.4.0)
-    - react-native-camera/RN (= 3.4.0)
-  - react-native-camera/RCT (3.4.0):
+    - react-native-camera/RCT (= 3.6.0)
+    - react-native-camera/RN (= 3.6.0)
+  - react-native-camera/RCT (3.6.0):
     - React
-  - react-native-camera/RN (3.4.0):
+  - react-native-camera/RN (3.6.0):
     - React
   - react-native-date-picker (2.7.0):
     - React
@@ -186,7 +186,7 @@ PODS:
     - React
   - RNAwesomeCardIO (0.8.2):
     - React
-  - RNCAsyncStorage (1.6.1):
+  - RNCAsyncStorage (1.6.2):
     - React
   - RNGestureHandler (1.4.1):
     - React
@@ -194,7 +194,7 @@ PODS:
     - React
   - RNRangeSlider (1.2.8):
     - React
-  - RNSVG (9.9.4):
+  - RNSVG (9.9.5):
     - React
   - RNVectorIcons (6.6.0):
     - React
@@ -241,7 +241,7 @@ DEPENDENCIES:
   - yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - boost-for-react-native
     - Firebase
     - FirebaseAnalytics
@@ -331,7 +331,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
-  BVLinearGradient: b0b70acf63ee888829b7c2ebbf6b50e227396e55
+  BVLinearGradient: e3aad03778a456d77928f594a649e96995f1c872
   DoubleConversion: 5805e889d232975c086db112ece9ed034df7a0b2
   Firebase: 9cbe4e5b5eaafa05dc932be58b7c8c3820d71e88
   FirebaseAnalytics: 843c7f64a8f9c79f0d03281197ebe7bb1d58d477
@@ -358,7 +358,6 @@ SPEC CHECKSUMS:
   React-jsinspector: e08662d1bf5b129a3d556eb9ea343a3f40353ae4
   react-native-camera: b6a6a61bcdbd619c19df3df581fcb009131938bf
   react-native-date-picker: 648606a44e21d15725a61cc9f28e864f40ae8cdd
-  react-native-geolocation: a7b94614afbd5fd8350e0233a2025c8228fc8041
   react-native-maps: 190c02ca533fddac5bb49cf17bdece3644612107
   React-RCTActionSheet: b0f1ea83f4bf75fb966eae9bfc47b78c8d3efd90
   React-RCTAnimation: 359ba1b5690b1e87cc173558a78e82d35919333e
@@ -412,8 +411,8 @@ SPEC CHECKSUMS:
   RNSVG: 2e097b92aaa6d4e0f354fd7c49cbf3b17f8b3920
   RNVectorIcons: 66af4d5c8ff4f584c7b7cd9c4b0780920f27fce2
   yoga: 88c514f310aff89b94a14c5fbf44b95735af0cb7
->>>>>>> e95b59803239ab84cf37717600322fde3dbb2cc6
+>>>>>>> b7e074b5398bb03b19a83e7b52645270f52b2483
 
 PODFILE CHECKSUM: 37a0b374ab1990cfac193e37cd9fb5da385b6291
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.8.0
