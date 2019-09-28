@@ -187,7 +187,6 @@ export default class FeedbackDialog extends React.Component {
       </View>
     )
   }
-<<<<<<< HEAD
 
   setRating = (rating) => {
     this.setState({rating})
@@ -206,6 +205,4 @@ export default class FeedbackDialog extends React.Component {
   writeReview = () => {
     this.setState({status: 'write_review'})
   }
-=======
->>>>>>> e95b59803239ab84cf37717600322fde3dbb2cc6
 }

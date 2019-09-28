@@ -124,7 +124,7 @@ const feedbackDialogStyles = StyleSheet.create({
   container: {
     position: 'absolute', zIndex: 15,
     left: 25, bottom: 30,
-    width: 325,
+    width: W-50,
     backgroundColor: '#fff',
     borderRadius: 25,
     padding: 25

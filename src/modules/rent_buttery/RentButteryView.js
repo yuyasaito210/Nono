@@ -66,18 +66,10 @@ export default class RentButterryView extends Component {
         <MapButtonsLayer 
           profile
           gift
-          search
-          refresh
-          target
-          bottomExtra={80}
         />
         {pageStatus=='openRentBox' && <RentBoxContainer onClickDiposite={this.onClickDiposite} />}
         {pageStatus=='openUnlockBox' && <UnlockBoxContainer onGotoFeedback={this.onGotoFeedback}/>}
-<<<<<<< HEAD
-        {pageStatus=='openFeedbackDialog' && <FeedbackDialogContainer onClickRaiting={this.onClickRaiting}/>}
-=======
         {pageStatus=='openFeedbackDialog' && <FeedbackDialogContainer onSendRating={this.onSendRating} onClickLater={this.onClickLater}/>}
->>>>>>> e95b59803239ab84cf37717600322fde3dbb2cc6
       </>
     );
   }

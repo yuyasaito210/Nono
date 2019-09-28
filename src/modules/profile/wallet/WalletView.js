@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, TouchableOpacity, TextInput } from 'react-native';
+import { View, Text, Image, TouchableOpacity, TextInput, Platform } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { W, H, em } from '~/constants/Layout';
 import styles from './styles';
@@ -31,7 +31,7 @@ export default class WalletView extends React.Component {
         {/* Box 1 */}
         <View style={[
           styles.boxContainer,
-          {backgroundColor: '#35cdfa', marginTop: 20}
+          {backgroundColor: '#35cdfa', marginTop: Platform.OS==='ios'?20:0}
         ]}>
           <Image source={require('images/bg17.png')} style={styles.boxBg} />
           <Text style={styles.box1Title}>0,00€</Text>
@@ -109,7 +109,7 @@ export default class WalletView extends React.Component {
           </>
         }
         {/* Pay box */}
-        <Spacer size={140} />
+        <Spacer size={Platform.OS==='ios'?140:60} />
         <View>
           <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginVertical: 5}}>
             <Text style={{color: '#9f9f9f', fontSize: 14}}>
