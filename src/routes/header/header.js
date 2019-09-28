@@ -73,12 +73,12 @@ export function GuideHeader(title) {
 export function ProfileHeader(title) {
   const guideHeaderContainerStyle = [
     styles.headerCommon,
-    styles.guideHeaderContainer,
+    styles.guideHeaderContainer
     // { marginTop: Platform.OS === 'ios' ? 0 : StatusBar.currentHeight },
   ];
 
   return (
-    <Header style={guideHeaderContainerStyle}>
+    <Header style={guideHeaderContainerStyle} noShadow={true}>
       <Left style={styles.commonLeftSection}>
         <Button transparent onPress={() => Actions.pop()}>
           <Icon name="ios-arrow-back" style={[styles.guideHeaderCommon, styles.guideHeaderLeft]}/>

@@ -65,11 +65,6 @@ export default class SettingView extends React.Component {
           <TouchableOpacity onPress={() => this.onSignOut()}>
             <Text style={{textAlign: 'center', color: '#FE000C', fontSize: 18*em}}>{_t('Sign Out')}</Text>
           </TouchableOpacity>
-
-          <Spacer size={50}/>
-          <TouchableOpacity onPress={() => Actions['login']()}>
-            <Text style={{textAlign: 'center', color: '#FE000C', fontSize: 18}}>{_t('Sign Out')}</Text>
-          </TouchableOpacity>
         </ScrollView>
         
       </ProfileWrapper>

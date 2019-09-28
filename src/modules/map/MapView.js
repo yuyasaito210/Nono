@@ -187,7 +187,9 @@ export default class MapScreen extends Component {
             </>            
           }
           {pageStatus=='openFinishDialog' && 
-            <FinishDialogContainer onLeaveStation={this.onLeaveStation} />
+            <>
+              <FinishDialogContainer onLeaveStation={this.onLeaveStation} />
+            </>            
           }
         </View>
       </>

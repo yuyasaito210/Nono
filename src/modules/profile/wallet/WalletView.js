@@ -176,7 +176,7 @@ export default class WalletView extends React.Component {
 
 export const ProfileWrapper = ({ children }) => (
   <View style={styles.pageWrapper}>
-    {/* <BackButton onBack={() => Actions.pop()}/> */}
+    <BackButton onBack={() => Actions.pop()}/>
     {children}
   </View>
 )
@@ -194,7 +194,7 @@ export const PageOption = ({link}) => (
   <View style={styles.pageOptionContainer}>
     <TouchableOpacity onPress={() => link && Actions[link]()}>
       <Image source={require('images/option3.png')} />
-    </TouchableOpacity>    
+    </TouchableOpacity>
   </View>
 )
 

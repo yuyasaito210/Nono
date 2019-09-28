@@ -40,7 +40,7 @@ const BottomBox = ({onPress, appActions}) => {
   return (
     <View style={styles.bottomBox.container}>
       <View style={styles.bottomBox.bgImageContainer}>
-        <Image source={require('images/slide.png')} style={styles.bottomBox.bgImage}/>
+        <Image source={require('images/slide.png')} style={{tintColor: '#bfbfc4'}}/>
       </View>
       <View style={styles.bottomBox.innerContainer}>
         <View>

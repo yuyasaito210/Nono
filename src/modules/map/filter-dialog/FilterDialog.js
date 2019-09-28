@@ -35,7 +35,7 @@ export default class FilterDialog extends React.Component {
             <View style={styles.wrapper.resetFilterButtonContainer}>
               {/* <ResetFilterButton style={styles.wrapper.resetFilterButton}/> */}
               <TouchableOpacity>
-                <Text style={styles.wrapper.resetFilterButtonContainer}>{_t('Effacer')}</Text>
+                <Text style={styles.wrapper.resetFilterButton}>{_t('Effacer')}</Text>
               </TouchableOpacity>
             </View>
           </View>

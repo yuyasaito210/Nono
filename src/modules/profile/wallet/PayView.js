@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, TouchableOpacity, TextInput, ScrollView,Platform } from 'react-native';
+import { View, Text, Image, TouchableOpacity, TextInput, ScrollView, Platform } from 'react-native';
 import { W, H, em } from '~/constants/Layout';
 import styles from './styles';
 import { _t } from '../../AppAction';
@@ -42,7 +42,7 @@ export default class PayView extends React.Component {
         position: 'relative', backgroundColor: '#5ed8fc', 
         width: W, height: H,
       }}>
-        <View style={{flexDirection: 'row'}}>
+        <View style={{flexDirection: 'row', marginTop: Platform.OS=='ios'?40:0 }}>
           <TouchableOpacity style={{flex: 1}} onPress={() => Actions.pop()}>
             <Image source={require('images/arrow.png')} resizeMode='center'
               style={styles.backButton} />

@@ -20,6 +20,9 @@ const styles = StyleSheet.create({
   commonRightSection: {
     flex: 1
   },
+  headerCommon: {
+    borderBottomWidth: 0, shadowOpacity: 0, elevation: 0
+  },
   /////////////////////////
   guideHeaderContainer: {
     height: HEADER_HEIGHT,
