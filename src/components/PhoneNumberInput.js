@@ -1,19 +1,30 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Platform } from 'react-native';
 import PhoneInput from 'react-native-phone-input';
-import CountryPicker from 'react-native-country-picker-modal';
+import CountryPicker, { getAllCountries } from 'react-native-country-picker-modal';
 
 import { fonts, colors } from '../styles';
+
+const VALID_COUNTRIES = ['FR', 'US']
 
 class PhoneNumberInput extends Component {
   constructor() {
     super();
 
-    // this.onPressFlag = this.onPressFlag.bind(this);
-    // this.selectCountry = this.selectCountry.bind(this);
     this.state = {
       cca2: 'FR',
+      callingCode: '33'
     };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    console.log('=====  PhoneNumberInput: nextProps: ', nextProps);
+    const { initialCountry } = nextProps;
+    if (initialCountry) {
+      this.setState({cca2: initialCountry}, () => {
+        this.phone.selectCountry(this.state.cca2.toLowerCase());
+      })
+    }
   }
 
   componentDidMount() {
@@ -31,24 +42,30 @@ class PhoneNumberInput extends Component {
   };
 
   selectCountry = (country) => {
+    console.log('===== PhoneNumberInput: selectCountry: country: ', country)
     this.phone.selectCountry(country.cca2.toLowerCase());
-    this.setState({ cca2: country.cca2 });
+    const { onSelectCountry } = this.props;
+    onSelectCountry && onSelectCountry(country.cca2);
   }
 
   render() {
-    const { dark, style } = this.props;
+    const { dark, style, initialCountry } = this.props;
     const finalStyle = [
       styles.default,
       styles.bordered,
       dark && styles.dark,
       style && style,
     ];
+
+    const { cca2 } = this.state;
+
     return (
       <View style={styles.container}>
         <PhoneInput
           ref={(ref) => {
             this.phone = ref;
           }}
+          initialCountry={initialCountry ? initialCountry : cca2.toLowerCase()}
           onPressFlag={this.onPressFlag}
           onChangePhoneNumber={(number) => this.onChangePhoneNumber(number)}
           style={finalStyle}
@@ -58,6 +75,7 @@ class PhoneNumberInput extends Component {
           ref={(ref) => {
             this.countryPicker = ref;
           }}
+          countryList={VALID_COUNTRIES}
           onChange={value => this.selectCountry(value)}
           translation="eng"
           cca2={this.state.cca2}
