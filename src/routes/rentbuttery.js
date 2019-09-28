@@ -10,21 +10,26 @@ const RentButteryStack = (
     key={'rent_buttery'}
     hideNavBar
     tabBarLabel="Rent Battery"
+    
   >
     <Scene
       key='scan_qr'
       component={ScanQRCodeContainer}
       hideNavBar
+      
     />
     <Scene
       key='enter_code'
       component={EnterQRCodeContainer}
       hideNavBar
+      
     />
     <Scene
       key='rent_buttery_feedback'
       hideNavBar
       component={RentButteryViewContainer}
+      
+      
     />
   </Stack>
 )

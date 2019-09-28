@@ -6,7 +6,7 @@ const wrapperStyles = StyleSheet.create({
   container: {
     position: 'absolute',
     left: 0, bottom: 0, zIndex: 20,
-    width: W, 
+    width: W, paddingBottom: 20,
     borderTopLeftRadius: 30, borderTopRightRadius: 30 ,
     backgroundColor: '#fff'
   },
@@ -33,7 +33,6 @@ const descStyles = StyleSheet.create({
 
 export const listStyles = StyleSheet.create({
   container: {
-
   }
 })
 

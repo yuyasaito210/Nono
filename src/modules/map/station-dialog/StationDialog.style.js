@@ -13,10 +13,10 @@ const wrapperStyles = StyleSheet.create({
   headerBar: {
     position: 'relative',
     width: W, 
-    margin: 20 
+    marginVertical: 8
   },
   closeButton: {
-    position: 'absolute', top: 0, right: 35
+    position: 'absolute', top: 10, right: 35
   }
 })
 

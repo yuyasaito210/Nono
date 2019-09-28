@@ -14,18 +14,16 @@ export default class SummaryView extends React.Component {
     return (
       <ProfileWrapper>
         <PageTitle title={_t('Summary')}/>
-        <View>
+        <View style={{marginHorizontal: 20}}>
           <View style={styles.summaryRow}>
             <View style={styles.summaryCol1}>
               <Image source={require('images/hours.png')} style={{tintColor: '#35cdfa'}} />
             </View>
             <View style={styles.summaryCol2}>
-              <Text style={{color: '#bfbfc4', marginVertical: 5}}>
+              <Text style={{color: '#bfbfc4', marginBottm: 5}}>
                 {_t('Duration')}
               </Text>
-              <Text style={{color: '#36384a', fontSize: 22, fontWeight: 'bold' ,
-                marginVertical: 5
-              }}>
+              <Text style={{color: '#36384a', fontSize: 22, fontWeight: 'bold' }}>
                 30 min
               </Text>
             </View>
@@ -35,7 +33,7 @@ export default class SummaryView extends React.Component {
               <Image source={require('images/line21.png')} />
             </View>
             <View style={styles.summaryCol2}>
-              <Text style={{color: '#bfbfc4', fontSize: 14, marginVertical: 5}}>
+              <Text style={{color: '#bfbfc4', fontSize: 14, marginBottom: 5}}>
                 {_t('Place of taking')}
               </Text>
               <Text style={{color: '#36384a', fontSize: 16
@@ -45,7 +43,7 @@ export default class SummaryView extends React.Component {
               <Text style={{color: '#bfbfc4', marginTop: 14, marginBottom: 5}}>
                 {_t('Place of deposit')}
               </Text>
-              <Text style={{color: '#36384a', fontSize: 16
+              <Text style={{color: '#36384a', fontSize: 16,
               }}>
                 155 Boulevard Saint-Germain 75006 Paris
               </Text>

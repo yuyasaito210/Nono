@@ -1,9 +1,8 @@
 import React from 'react';
 import styles from '../styles';
 import { W, H, em } from '~/constants/Layout';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
 import RentBoxWrapper from './RentBoxWrapper';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Button } from '~/components';
 
 export default class UnlockBox extends React.Component {
@@ -18,9 +17,9 @@ export default class UnlockBox extends React.Component {
           ]}
         >
           00:02
-        </Text>
+        </Text>        
         <ForwardButton onGotoFeedback={this.props.onGotoFeedback}/>
-        <InnerBoxWrapper>
+        <InnerBoxWrapper>          
           <Button 
             rounded
             bgColor='#35cdfa' textColor='#fff'
@@ -35,12 +34,12 @@ export default class UnlockBox extends React.Component {
 }
 
 const ForwardButton = ({onGotoFeedback}) => (
-  <View style={{
-    position: 'absolute', top: 20, right: 20
+  <View style={{    
+    position: 'absolute', top: 20, right: 20, zIndex:25, 
   }}>
     <TouchableOpacity 
       style={{
-        width: 30, height: 30,
+        width: 30, height: 30, 
         borderRadius: 10,
         alignItems: 'center', justifyContent: 'center',
         backgroundColor: '#fff'

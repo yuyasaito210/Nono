@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 import { W, H, em } from '~/constants/Layout';
 import replacePathSepForGlob from 'jest-util/build/replacePathSepForGlob';
 import { colors } from '../../../styles';
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
   },
   pageTitleContainer: {
     flexDirection: 'row',
-    marginTop: 20, marginBottom: 20,
+    marginTop: Platform.OS==='ios'?20:0, marginBottom: 0,
   },
   pageTitle: {
     flex: 3,

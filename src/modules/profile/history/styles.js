@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
 		width: 50
 	},
 	summaryCol2: {
-		width: 240
+		width: 250
 	},
 	whiteText: {
 		color: 'white', fontSize: 16

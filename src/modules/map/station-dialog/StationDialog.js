@@ -165,6 +165,9 @@ const StationTime = ({ item }) => {
 const Wrapper = ({ onClose, children }) => (
   <View style={styles.wrapper.container}>
     <View style={styles.wrapper.headerBar}>
+       <View style={{alignItems: 'center'}}>
+         <Image source={require('images/slide.png')} style={{tintColor: '#bfbfc4'}} />
+       </View>
       <CloseDialogButton style={styles.wrapper.closeButton} onClose={onClose}/>
     </View>
     {children}

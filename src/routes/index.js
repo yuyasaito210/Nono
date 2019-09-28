@@ -85,7 +85,7 @@ class NonoRoutes extends Component {
 					<Stack
 						key={'authorized'}
 						tabs={true}
-						tabBarIcon={TabIcon}						
+						tabBarIcon={TabIcon}
 					>
 						{/* <Drawer
 							key={ 'drawer' }
@@ -102,7 +102,7 @@ class NonoRoutes extends Component {
 								<Scene
 									key='_map'
 									title='Map'
-									component={MapViewContainer}
+									component={MapViewContainer}									
 								/>
 							</Stack>
 							{RentButteryStack}

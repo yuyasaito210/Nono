@@ -5,7 +5,7 @@ const wrapperStyles = StyleSheet.create({
   container: {
     borderTopLeftRadius: 30, borderTopRightRadius: 30 ,
     position: 'absolute', left: 0, bottom: 0, zIndex: 20,
-    width: W, height: 320,
+    width: W, 
     backgroundColor: '#35CDFA'
   },
   headerBar: {
@@ -43,14 +43,14 @@ const filterOptionStyles = StyleSheet.create({
     
   },
   text: {
-    fontSize: 20, color: '#fff'
+    fontSize: 17, color: '#fff'
   }
 })
 
 export const bottomBarStyles = StyleSheet.create({
   container: {
     flexDirection: 'row', justifyContent: 'space-between',
-    marginTop: 20
+    marginTop: 20, marginBottom: 20
   },
   searchButtonContainer: {
     width: 120

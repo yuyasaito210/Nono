@@ -21,14 +21,10 @@ const styles = StyleSheet.create({
   },
   flashImageContainer: {
     flex: 1,
-    width: 30,
-    height: 30,
+    width: 40, height: 40,
     backgroundColor: colors.lightGrayTransparent,
-    borderRadius: 15,
-    marginRight: 15,
-    paddingLeft: 10,
-    paddingTop: 5,
-    paddingBottom: 5
+    borderRadius: 15, marginRight: 15,
+    alignItems: 'center', justifyContent: 'center'
   },
   flashImage: {
     tintColor: colors.white,
@@ -44,14 +40,14 @@ const styles = StyleSheet.create({
   },
   bottomCloseImage: {
     color: colors.white,
-    width: 30,
-    height: 30,
+    width: 40, height: 40,
     backgroundColor: colors.lightGrayTransparent,
     borderRadius: 15,
-    padding: 5,
+    alignItems: 'center', justifyContent: 'center',
     fontSize: 20,
     fontWeight: "400",
-    marginLeft: 15
+    marginLeft: 15,
+    paddingTop: 10, paddingLeft: 10
   },
   bottomInputQRCodeImageContainer: {
     flex: 1,
@@ -59,14 +55,10 @@ const styles = StyleSheet.create({
   },
   bottomInputQRCodeImage: {
     color: colors.white,
-    width: 30,
-    height: 30,
+    width: 40, height: 40,
     backgroundColor: colors.lightGrayTransparent,
+    paddingLeft: 12, paddingTop: 13,
     borderRadius: 15,
-    paddingTop: 9,
-    paddingLeft: 7,
-    paddingRight: 7,
-    paddingBottom: 7,
     fontSize: 10,
     fontWeight: "400",
     marginRight: 15

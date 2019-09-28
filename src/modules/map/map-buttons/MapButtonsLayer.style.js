@@ -3,10 +3,6 @@ import { W, H, em } from '~/constants/Layout';
 
 export const wrapperStyles = StyleSheet.create({
   outerContainer: {
-    position: 'absolute',    
-    left: 0, top: 0,
-    width: W, height: H,
-    zIndex: 10,
   },
   container: {    
     position: 'relative',
@@ -16,7 +12,7 @@ export const wrapperStyles = StyleSheet.create({
 
 export const buttonStyles = StyleSheet.create({
   button: {
-    position: 'absolute', 
+    position: 'absolute', zIndex: 10,
     width: 50, height: 50, 
     borderRadius: 25, backgroundColor: '#fff',
     flexDirection: 'row', alignItems: 'center', justifyContent: 'center',

@@ -72,7 +72,7 @@ export default class FeedbackDialog extends React.Component {
 
   render = () => {
     const { status, rating, isKeyboardVisible } = this.state;
-    keyboardStyle = isKeyboardVisible ? {bottom: 250} : {bottom: 0}
+    keyboardStyle = isKeyboardVisible ? {bottom: 250} : {bottom: 30}
 
     return (
       <View style={[styles.feedbackDialog.container, keyboardStyle]}>      
@@ -186,5 +186,23 @@ export default class FeedbackDialog extends React.Component {
         }
       </View>
     )
+  }
+
+  setRating = (rating) => {
+    this.setState({rating})
+  }
+
+  onSetRating = () => {
+    const { rating } = this.state;
+    this.setState({status: 'rated'}, () => {
+      /*
+      const { onClickRaiting } = this.props;
+      onClickRaiting && onClickRaiting();
+       */
+    })
+  }
+
+  writeReview = () => {
+    this.setState({status: 'write_review'})
   }
 }

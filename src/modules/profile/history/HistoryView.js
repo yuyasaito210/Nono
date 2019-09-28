@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, Image } from 'react-native';
+import { View, Text, TouchableOpacity, Image, Platform, ScrollView } from 'react-native';
 import styles from './styles';
 import { Actions } from 'react-native-router-flux';
 import { Button } from '~/components';
@@ -41,33 +41,35 @@ export default class HistoryView extends React.Component {
     return (
       <ProfileWrapper>
         <PageTitle title={_t('History')}  optionLink={'summary'}/>
-        {histories.map((history, ind) => (
-          <TouchableOpacity 
-            style={[
-              styles.row,
-              {marginVertical: 13}
-            ]}
-            onPress={(history) => Actions['summary']({history})}
-          >
-            <Text style={{color: '#9f9f9f'}}>
-              {history.date}
-            </Text>
-            <TouchableOpacity>
-              <View style={[
+        <ScrollView style={{height: Platform.OS=='ios'?H-60:H-40}}>
+          {histories.map((history, ind) => (
+            <TouchableOpacity 
+              style={[
                 styles.row,
-                {flexDirection: 'row', justifyContent: 'flex-end'}
-              ]}>
-                <Text>
-                  {history.price}
-                </Text>
-                <Image source={require('images/arrow.png')} style={[
-                  styles.nextArrow,
-                  {marginLeft: 10}
-                ]} />
-              </View>
+                {marginVertical: 13}
+              ]}
+              onPress={(history) => Actions['summary']({history})}
+            >
+              <Text style={{color: '#9f9f9f'}}>
+                {history.date}
+              </Text>
+              <TouchableOpacity>
+                <View style={[
+                  styles.row,
+                  {flexDirection: 'row', justifyContent: 'flex-end'}
+                ]}>
+                  <Text>
+                    {history.price}
+                  </Text>
+                  <Image source={require('images/arrow.png')} style={[
+                    styles.nextArrow,
+                    {marginLeft: 10}
+                  ]} />
+                </View>
+              </TouchableOpacity>
             </TouchableOpacity>
-          </TouchableOpacity>
-        ))}
+          ))}
+        </ScrollView>
       </ProfileWrapper>
     )
   }
