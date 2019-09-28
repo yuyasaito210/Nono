@@ -7,6 +7,7 @@ import * as appActions from '../AppAction';
 
 const mapStateToProps = state => ({
   signup: state.signup || {},
+  app: state.app
 });
 
 const mapDispatchToProps = dispatch => ({
