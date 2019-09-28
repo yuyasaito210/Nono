@@ -86,7 +86,6 @@ class NonoRoutes extends Component {
 						key={'authorized'}
 						tabs={true}
 						tabBarIcon={TabIcon}
-						initial
 					>
 						{/* <Drawer
 							key={ 'drawer' }
