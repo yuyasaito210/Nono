@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { View } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import MapSectionContainer from './map-section/MapSectionContainer';
-import MapButtonsLayer from './map-buttons/MapButtonsLayer';
 import UnlockBoxContainer from './unlock-box/UnlockBoxContainer';
 import UnlockDialogContainer from './unlock-dialog/UnlockDialogContainer';
 import SearchDialogContainer from './search-dialog/SearchDialogContainer';
@@ -19,7 +18,7 @@ import MapSection from './map-section/MapSection';
 // openShowNearDialog
 export default class MapScreen extends Component {
   state = {
-    pageStatus: 'openFinishDialog',
+    pageStatus: 'locked',
   };
 
   componentWillReceiveProps = (nextProps) => {
@@ -95,6 +94,7 @@ export default class MapScreen extends Component {
           {pageStatus=='locked' && 
             <>
               <MapSectionContainer 
+                region={region} places={places} 
                 buttons={['profile', 'gift', 'search', 'refresh', 'target']}
                 onSearch={this.onGoToSearch}
               />
@@ -112,6 +112,7 @@ export default class MapScreen extends Component {
           {pageStatus=='openSearchDialog' && 
             <>
               <MapSectionContainer 
+                region={region} places={places} 
                 buttons={['profile', 'gift', 'search', 'refresh', 'target']}
                 onSearch={this.onGoToSearch}
               />
@@ -124,6 +125,7 @@ export default class MapScreen extends Component {
           {pageStatus=='openShowNearDialog' && 
             <>
               <MapSectionContainer 
+                region={region} places={places} 
                 buttons={['profile', 'gift', 'search', 'refresh', 'target']}
                 onSearch={this.onGoToSearch}
               />
@@ -138,6 +140,7 @@ export default class MapScreen extends Component {
           {pageStatus=='openReservableListDialog' && 
             <>
               <MapSectionContainer 
+                region={region} places={places} 
                 buttons={['profile', 'gift', 'search', 'refresh', 'target']}
                 onSearch={this.onGoToSearch}
               />
@@ -147,6 +150,7 @@ export default class MapScreen extends Component {
           {pageStatus=='openFilterDialog' && 
             <>
               <MapSectionContainer 
+                region={region} places={places} 
                 buttons={['profile', 'gift', 'search', 'refresh', 'target']}
                 onSearch={this.onGoToSearch}
               />
@@ -156,6 +160,7 @@ export default class MapScreen extends Component {
           {pageStatus=='openStationDialog' && 
             <>
               <MapSectionContainer 
+                region={region} places={places} 
                 buttons={['profile', 'gift', 'search', 'refresh', 'target']}
                 onSearch={this.onGoToSearch}
               />
@@ -169,6 +174,7 @@ export default class MapScreen extends Component {
           {pageStatus=='openFinishDialog' && 
             <>
               <MapSectionContainer 
+                region={region} places={places} 
                 buttons={['profile', 'gift', 'search', 'refresh', 'target']}
                 onSearch={this.onGoToSearch}
               />

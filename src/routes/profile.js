@@ -75,7 +75,7 @@ const ProfileStack = (
       key='about_us'
       component={AboutViewContainer}
       header={ProfileHeader('')}
-      initial
+      
     />
     <Scene
       key='help'

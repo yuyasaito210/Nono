@@ -4,7 +4,6 @@ import { View } from 'react-native';
 import { Text } from '../../components/StyledText';
 import styles from './styles';
 import MapSectionContainer from '~/modules/map/map-section/MapSectionContainer';
-import MapButtonsLayer from '~/modules/map/map-buttons/MapButtonsLayer';
 import RentBoxContainer from './rent/RentBoxContainer';
 import UnlockBoxContainer from './rent/UnlockBoxContainer';
 import FeedbackDialogContainer from './feedback/FeedbackDialogContainer';
@@ -62,10 +61,10 @@ export default class RentButterryView extends Component {
     const { region, places } = this.state;
     return (
       <>
-        <MapSectionContainer region={region} places={places} />
-        <MapButtonsLayer 
-          profile
-          gift
+        <MapSectionContainer 
+          region={region} places={places} 
+          buttons={['profile', 'gift', 'search', 'refresh', 'target']}
+          onSearch={this.onGoToSearch}
         />
         {pageStatus=='openRentBox' && <RentBoxContainer onClickDiposite={this.onClickDiposite} />}
         {pageStatus=='openUnlockBox' && <UnlockBoxContainer onGotoFeedback={this.onGotoFeedback}/>}
