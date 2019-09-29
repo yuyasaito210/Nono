@@ -13,12 +13,13 @@ import FinishDialogContainer from './finish-dialog/FinishDialogContainer';
 import StationDialogContainer from './station-dialog/StationDialogContainer';
 
 import styles from './styles';
+import MapSection from './map-section/MapSection';
 
 
 // openShowNearDialog
 export default class MapScreen extends Component {
   state = {
-    pageStatus: 'locked',
+    pageStatus: 'openFinishDialog',
   };
 
   componentWillReceiveProps = (nextProps) => {
@@ -91,18 +92,11 @@ export default class MapScreen extends Component {
     return (
       <>
         <View style={styles.container}>
-          {pageStatus!='openUnlockDialog' &&
-            <MapSectionContainer />
-          }
           {pageStatus=='locked' && 
             <>
-              <MapButtonsLayer 
-                profile
-                gift
-                search onSearch={this.onGoToSearch}
-                refresh
-                target
-                bottomExtra={80}
+              <MapSectionContainer 
+                buttons={['profile', 'gift', 'search', 'refresh', 'target']}
+                onSearch={this.onGoToSearch}
               />
               <UnlockBoxContainer 
                 onPressUnlockButton={this.onGoToUnlock}
@@ -117,10 +111,9 @@ export default class MapScreen extends Component {
           }
           {pageStatus=='openSearchDialog' && 
             <>
-              <MapButtonsLayer 
-                profile
-                gift
-                bottomExtra={80}
+              <MapSectionContainer 
+                buttons={['profile', 'gift', 'search', 'refresh', 'target']}
+                onSearch={this.onGoToSearch}
               />
               <SearchDialogContainer
                 onCancel={this.onCancelSearch}
@@ -130,13 +123,9 @@ export default class MapScreen extends Component {
           }
           {pageStatus=='openShowNearDialog' && 
             <>
-              <MapButtonsLayer 
-                profile
-                gift
-                search onSearch={() => this.setPageStatus('openSearchDialog')}
-                refresh
-                target
-                bottomExtra={320}
+              <MapSectionContainer 
+                buttons={['profile', 'gift', 'search', 'refresh', 'target']}
+                onSearch={this.onGoToSearch}
               />
               <ShowNearDialogContainer
                 onGoToStation={(station) => this.onGoTostation(station)}
@@ -148,36 +137,27 @@ export default class MapScreen extends Component {
           }
           {pageStatus=='openReservableListDialog' && 
             <>
-              <MapButtonsLayer 
-                profile
-                gift
-                search onSearch={() => this.setPageStatus('openSearchDialog')}
-                refresh
-                target
-                bottomExtra={320}
+              <MapSectionContainer 
+                buttons={['profile', 'gift', 'search', 'refresh', 'target']}
+                onSearch={this.onGoToSearch}
               />
               <ReservableListDialogContainer onBook={this.onBookWithCounter}/>
             </>
           }
           {pageStatus=='openFilterDialog' && 
             <>
-              <MapButtonsLayer 
-                profile
-                gift
-                search onSearch={() => this.setPageStatus('openSearchDialog')}
-                refresh
-                target
-                bottomExtra={320}
+              <MapSectionContainer 
+                buttons={['profile', 'gift', 'search', 'refresh', 'target']}
+                onSearch={this.onGoToSearch}
               />
               <FilterDialogContainer onCancel={this.onCancelFilter} onSee={this.onSeeFilter}/>
             </>            
           }
           {pageStatus=='openStationDialog' && 
             <>
-              <MapButtonsLayer 
-                profile
-                gift
-                bottomExtra={80}
+              <MapSectionContainer 
+                buttons={['profile', 'gift', 'search', 'refresh', 'target']}
+                onSearch={this.onGoToSearch}
               />
               <StationDialogContainer
                 onCloseStation={this.onCloseStation}
@@ -188,6 +168,10 @@ export default class MapScreen extends Component {
           }
           {pageStatus=='openFinishDialog' && 
             <>
+              <MapSectionContainer 
+                buttons={['profile', 'gift', 'search', 'refresh', 'target']}
+                onSearch={this.onGoToSearch}
+              />
               <FinishDialogContainer onLeaveStation={this.onLeaveStation} />
             </>            
           }

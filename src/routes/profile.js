@@ -17,7 +17,7 @@ import { ProfileHeader } from './header/header';
 const ProfileStack = (
   <Stack
     key={'profile'}
-    initial
+    
   >
     <Scene
       key='profile_menu'
