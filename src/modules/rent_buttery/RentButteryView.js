@@ -35,7 +35,7 @@ export default class RentButterryView extends Component {
     ]
   }
 
-  // pageStatus  - scanQRcode, enterQRCode, openRentBox, openUnlockBox, openFeedbackDialog
+  // pageStatus  - openRentBox, openUnlockBox, openFeedbackDialog
   onClickBuy = () => {
     this.setState({pageStatus: 'openUnlockBox'});
   };
