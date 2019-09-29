@@ -98,7 +98,8 @@ class NonoRoutes extends Component {
 								tabBarLabel="Map"
 								iconSource={iconCalendar}
 								header={GeneralHeader('Map')}
-								hideNavBar								
+								hideNavBar
+								
 							>
 								<Scene
 									key='_map'

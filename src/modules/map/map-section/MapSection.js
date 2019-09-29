@@ -132,12 +132,12 @@ export default class MapSection extends React.Component {
 		return (
 			<>
 				{ buttons && buttons.includes('profile') && 
-					<Button style={[buttonStyles.button, {left: 20, top: 50}]}>
+					<Button style={[buttonStyles.button, {left: 20, top: Platform.OS==='ios'?50:20}]}>
 				 		<Image source={require('images/profile.png')}/>
 			 		</Button>
 				}
 				{ buttons && buttons.includes('gift') && 
-					<Button style={[buttonStyles.button, {right: 20, top: 50}]}>
+					<Button style={[buttonStyles.button, {right: 20, top: Platform.OS==='ios'?50:20}]}>
 				 		<Image source={require('images/gift.png')}/>
 			 		</Button>
 				}
