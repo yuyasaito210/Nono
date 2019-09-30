@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { View } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import MapSectionContainer from './map-section/MapSectionContainer';
-import MapButtonsLayer from './map-buttons/MapButtonsLayer';
 import UnlockBoxContainer from './unlock-box/UnlockBoxContainer';
 import UnlockDialogContainer from './unlock-dialog/UnlockDialogContainer';
 import SearchDialogContainer from './search-dialog/SearchDialogContainer';
@@ -13,6 +12,7 @@ import FinishDialogContainer from './finish-dialog/FinishDialogContainer';
 import StationDialogContainer from './station-dialog/StationDialogContainer';
 
 import styles from './styles';
+import MapSection from './map-section/MapSection';
 
 
 // openShowNearDialog
@@ -91,19 +91,17 @@ export default class MapScreen extends Component {
     return (
       <>
         <View style={styles.container}>
-          {pageStatus!='openUnlockDialog' &&
-            <MapSectionContainer />
+          {pageStatus!='openUnlockDialog' && 
+            <>
+              <MapSectionContainer 
+                region={region} places={places} 
+                buttons={['profile', 'gift', 'search', 'refresh', 'target']}
+                onSearch={this.onGoToSearch}
+              />
+            </>
           }
           {pageStatus=='locked' && 
             <>
-              <MapButtonsLayer 
-                profile
-                gift
-                search onSearch={this.onGoToSearch}
-                refresh
-                target
-                bottomExtra={80}
-              />
               <UnlockBoxContainer 
                 onPressUnlockButton={this.onGoToUnlock}
               />
@@ -117,11 +115,6 @@ export default class MapScreen extends Component {
           }
           {pageStatus=='openSearchDialog' && 
             <>
-              <MapButtonsLayer 
-                profile
-                gift
-                bottomExtra={80}
-              />
               <SearchDialogContainer
                 onCancel={this.onCancelSearch}
                 onSelectStation={this.onSelectStation}
@@ -130,14 +123,6 @@ export default class MapScreen extends Component {
           }
           {pageStatus=='openShowNearDialog' && 
             <>
-              <MapButtonsLayer 
-                profile
-                gift
-                search onSearch={() => this.setPageStatus('openSearchDialog')}
-                refresh
-                target
-                bottomExtra={320}
-              />
               <ShowNearDialogContainer
                 onGoToStation={(station) => this.onGoTostation(station)}
                 onGotoBook={(station) => this.onGotoBook(station)}
@@ -148,37 +133,16 @@ export default class MapScreen extends Component {
           }
           {pageStatus=='openReservableListDialog' && 
             <>
-              <MapButtonsLayer 
-                profile
-                gift
-                search onSearch={() => this.setPageStatus('openSearchDialog')}
-                refresh
-                target
-                bottomExtra={320}
-              />
               <ReservableListDialogContainer onBook={this.onBookWithCounter}/>
             </>
           }
           {pageStatus=='openFilterDialog' && 
             <>
-              <MapButtonsLayer 
-                profile
-                gift
-                search onSearch={() => this.setPageStatus('openSearchDialog')}
-                refresh
-                target
-                bottomExtra={320}
-              />
               <FilterDialogContainer onCancel={this.onCancelFilter} onSee={this.onSeeFilter}/>
             </>            
           }
           {pageStatus=='openStationDialog' && 
             <>
-              <MapButtonsLayer 
-                profile
-                gift
-                bottomExtra={80}
-              />
               <StationDialogContainer
                 onCloseStation={this.onCloseStation}
                 onGoToStation={this.onGoToStation}
