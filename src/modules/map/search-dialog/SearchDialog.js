@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import { Button } from 'native-base';
 import { wrapperStyles, barStyles, resultStyles } from './SearchDialog.style'
-import { em } from '~/constants/Layout';
+import { KeyboardAvoidingViewFix } from '~/components';
 
 export default class SearchDialog extends React.Component {
   // searchResults - temporary variable to hold station infos
@@ -132,10 +132,12 @@ const Wrapper = ({ children, dialogStatus, isShowKeyboard }) => {
       ? [wrapperStyles.container, keyboardStyle] 
       : [wrapperStyles.container, wrapperStyles.containerExpanded, keyboardStyle]}
     >
-    <View style={wrapperStyles.bgImageContainer}>
-      <Image source={require('images/slide.png')} style={wrapperStyles.bgImage}/>
-    </View>
-    {children}
+      <KeyboardAvoidingViewFix>
+        <View style={wrapperStyles.bgImageContainer}>
+          <Image source={require('images/slide.png')} style={wrapperStyles.bgImage}/>
+        </View>
+        {children}
+      </KeyboardAvoidingViewFix>
   </View>
 )}
 

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { StyleSheet, SafeAreaView, View, StatusBar, Platform } from 'react-native';
 import NonoRoutes from '../routes/index';
 import { StyleProvider } from 'native-base';
+import { KeyboardAvoidingViewFix } from '../components';
 import getTheme from '../../native-base-theme/components';
 import material from '../../native-base-theme/variables/material';
 
@@ -23,6 +24,7 @@ export default class AppView extends Component {
   }
 
   render() {
+    const marginBottom = this.props.showTabBar ? StyleConsts.tabBarHeight : 0
     return (
       <View style={styles.safeArea}>
         <StyleProvider style={getTheme(material)}>

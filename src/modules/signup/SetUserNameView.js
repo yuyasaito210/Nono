@@ -9,7 +9,7 @@ import {
 import { Actions } from 'react-native-router-flux';
 
 import { fonts, colors } from '../../styles';
-import { Button, Spacer, TextInput } from '../../components';
+import { Button, Spacer, TextInput, KeyboardAvoidingViewFix } from '../../components';
 import styles from './styles';
 
 
@@ -61,18 +61,13 @@ export default class SetUserNameView extends React.Component {
     //   navigation.navigate('Home');
     // }
     return (
-
-        <ImageBackground
-          source={require('../../assets/images/png/mask-group-28-2x.png')}
-          style={styles.backgroundImage}
-          resizeMode="cover"
-        >
-          <KeyboardAvoidingView
-            style={styles.keyboardScrollViewContainer}
-            behavior="padding"
-            enabled>
-            <View style={styles.container}>
-            {/* <LogoView style={styles.logoViewContainer}/> */}
+      <ImageBackground
+        source={require('../../assets/images/png/mask-group-28-2x.png')}
+        style={styles.backgroundImage}
+        resizeMode="cover"
+      >
+        <KeyboardAvoidingViewFix>
+          <View style={styles.container}>
             <Animated.View
               style={[styles.buttonContainer, this.fadeIn(700, -20)]}
             >
@@ -100,8 +95,8 @@ export default class SetUserNameView extends React.Component {
               />
             </Animated.View>
           </View>
-          </KeyboardAvoidingView>
-        </ImageBackground>
+        </KeyboardAvoidingViewFix>
+      </ImageBackground>
     );
   }
 }

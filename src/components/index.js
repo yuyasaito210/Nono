@@ -13,6 +13,7 @@ import GuideCommonView from './GuideCommonView';
 import CreditCardScanner from './CreditCardScanner';
 import StationItem from './StationItem';
 import QRScannerView, { QRScannerRectView } from './QRScanner';
+import KeyboardAvoidingViewFix from './KeyboardAvoidingViewFix';
 
 export {
   Button,
@@ -29,5 +30,6 @@ export {
   CreditCardScanner,
   StationItem,
   QRScannerView,
-  QRScannerRectView
+  QRScannerRectView,
+  KeyboardAvoidingViewFix
 };
