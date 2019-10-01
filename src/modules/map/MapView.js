@@ -91,17 +91,13 @@ export default class MapScreen extends Component {
     return (
       <>
         <View style={styles.container}>
-          {pageStatus!='openUnlockDialog' && 
+          {pageStatus=='locked' && 
             <>
               <MapSectionContainer 
                 region={region} places={places} 
                 buttons={['profile', 'gift', 'search', 'refresh', 'target']}
                 onSearch={this.onGoToSearch}
               />
-            </>
-          }
-          {pageStatus=='locked' && 
-            <>
               <UnlockBoxContainer 
                 onPressUnlockButton={this.onGoToUnlock}
               />
@@ -115,34 +111,59 @@ export default class MapScreen extends Component {
           }
           {pageStatus=='openSearchDialog' && 
             <>
+              <MapSectionContainer 
+                region={region} places={places} 
+                buttons={['profile', 'gift']}
+                onSearch={this.onGoToSearch}
+              />
               <SearchDialogContainer
                 onCancel={this.onCancelSearch}
                 onSelectStation={this.onSelectStation}
               />
-            </>            
+            </>
           }
           {pageStatus=='openShowNearDialog' && 
             <>
+              <MapSectionContainer 
+                region={region} places={places} 
+                buttons={['profile', 'gift']}
+                onSearch={this.onGoToSearch}
+              />
               <ShowNearDialogContainer
                 onGoToStation={(station) => this.onGoTostation(station)}
                 onGotoBook={(station) => this.onGotoBook(station)}
                 onClose={this.onCloseSearchNearDialog}
                 onResetFilter={this.onResetFilter}
               />
-            </>            
+            </>
           }
           {pageStatus=='openReservableListDialog' && 
             <>
+              <MapSectionContainer 
+                region={region} places={places} 
+                buttons={['profile', 'gift']}
+                onSearch={this.onGoToSearch}
+              />
               <ReservableListDialogContainer onBook={this.onBookWithCounter}/>
             </>
           }
           {pageStatus=='openFilterDialog' && 
             <>
+              <MapSectionContainer 
+                region={region} places={places} 
+                buttons={['profile', 'gift']}
+                onSearch={this.onGoToSearch}
+              />
               <FilterDialogContainer onCancel={this.onCancelFilter} onSee={this.onSeeFilter}/>
-            </>            
+            </>
           }
           {pageStatus=='openStationDialog' && 
             <>
+              <MapSectionContainer 
+                region={region} places={places} 
+                buttons={[]}
+                onSearch={this.onGoToSearch}
+              />
               <StationDialogContainer
                 onCloseStation={this.onCloseStation}
                 onGoToStation={this.onGoToStation}
@@ -152,8 +173,13 @@ export default class MapScreen extends Component {
           }
           {pageStatus=='openFinishDialog' && 
             <>
+              <MapSectionContainer 
+                region={region} places={places} 
+                buttons={['profile', 'gift']}
+                onSearch={this.onGoToSearch}
+              />
               <FinishDialogContainer onLeaveStation={this.onLeaveStation} />
-            </>            
+            </>
           }
         </View>
       </>
