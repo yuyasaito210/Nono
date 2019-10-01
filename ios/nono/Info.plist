@@ -40,7 +40,7 @@
 	<key>NSCameraUsageDescription</key>
 	<string>Are you sure to use camera in this app?</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string>Are you sure to use location in this app?</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Are you sure to use microphone in this app?</string>
 	<key>NSPhotoLibraryUsageDescription</key>

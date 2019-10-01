@@ -208,7 +208,7 @@ DEPENDENCIES:
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
   - Google-Maps-iOS-Utils
   - GoogleMaps
-  - React (from `../node_modules/react-native/`)
+  - React (from `../node_modules/react-native`)
   - React-Core (from `../node_modules/react-native/React`)
   - React-cxxreact (from `../node_modules/react-native/ReactCommon/cxxreact`)
   - React-DevSupport (from `../node_modules/react-native/React`)
@@ -267,7 +267,7 @@ EXTERNAL SOURCES:
   glog:
     :podspec: "../node_modules/react-native/third-party-podspecs/glog.podspec"
   React:
-    :path: "../node_modules/react-native/"
+    :path: "../node_modules/react-native"
   React-Core:
     :path: "../node_modules/react-native/React"
   React-cxxreact:
@@ -380,6 +380,6 @@ SPEC CHECKSUMS:
   RNVectorIcons: 66af4d5c8ff4f584c7b7cd9c4b0780920f27fce2
   yoga: 88c514f310aff89b94a14c5fbf44b95735af0cb7
 
-PODFILE CHECKSUM: 37a0b374ab1990cfac193e37cd9fb5da385b6291
+PODFILE CHECKSUM: 5d416847d3f1079e42a41a5ac18e5578fb092efc
 
 COCOAPODS: 1.5.3
