@@ -6,12 +6,14 @@ import {
   LayoutAnimation,
   TouchableOpacity,
   ImageBackground,
-  Alert
+  Alert,
+  ScrollView,
+  KeyboardAvoidingView
 } from 'react-native';
 import { Actions } from 'react-native-router-flux'
 
 import { fonts, colors } from '../../styles';
-import { Button, Spacer, PhoneNumberInput, LogoView } from '../../components';
+import { Button, Spacer, PhoneNumberInput, LogoView, KeyboardAvoidingViewFix } from '../../components';
 import styles from './styles';
 
 
@@ -91,68 +93,70 @@ export default class SignupView extends React.Component {
         style={styles.backgroundImage}
         resizeMode="cover"
       >
-        <View style={styles.container}>
-          <LogoView style={styles.logoViewContainer}/>
-          <Animated.View
-            style={[styles.buttonContainer, this.fadeIn(700, -20)]}
-          >
-            <Text style={styles.title}>
-              {_t("Register yourself")}
-            </Text>
-            <Spacer size={30} />
-            <PhoneNumberInput initialCountry={country} onSelectCountry={this.onSelectCountry}/>
-            <Spacer size={25} />
-            <Button
-              bgColor="white"
-              textColor={colors.primary}
-              secondary
-              rounded
-              style={styles.nextButton}
-              caption={_t('Next')}
-              onPress={() => this.onClickNext()}
-            />
-            <Text style={styles.descriptionText}>
-              {_t("We will send you an SMS to check your number")}
-            </Text>
-            <Spacer size={10} />
-            <Text style={styles.descriptionText}>
-              {_t("or")}
-            </Text>
-            <Spacer size={10} />
-            <View style={styles.socialLoginContainer}>
-              <Button
-                style={styles.socialButton}
-                bgColor={colors.primaryDark}
-                textColor={colors.white}
-                rounded
-                caption={_t('Continue with facebook')}
-                icon={require('../../assets/images/facebook.png')}
-                onPress={() => this.onClickFacebook()}
-              />
-            </View>
-            <Spacer size={10} />
-            <TouchableOpacity
-              onPress={() => {
-                LayoutAnimation.spring();
-                Actions['login']();
-              }}
-              style={{ flexDirection: 'row' }}
+        <KeyboardAvoidingViewFix>
+          <View style={styles.container}>
+            <LogoView style={styles.logoViewContainer}/>
+            <Animated.View
+              style={[styles.buttonContainer, this.fadeIn(700, -20)]}
             >
+              <Text style={styles.title}>
+                {_t("Register yourself")}
+              </Text>
+              <Spacer size={30} />
+              <PhoneNumberInput initialCountry={country} onSelectCountry={this.onSelectCountry}/>
+              <Spacer size={25} />
+              <Button
+                bgColor="white"
+                textColor={colors.primary}
+                secondary
+                rounded
+                style={styles.nextButton}
+                caption={_t('Next')}
+                onPress={() => this.onClickNext()}
+              />
               <Text style={styles.descriptionText}>
-                {_t("Already have an account?")}
+                {_t("We will send you an SMS to check your number")}
               </Text>
-              <Text
-                style={{
-                  color: colors.white,
-                  //fontFamily: fonts.primaryBold,
-                  marginLeft: 5,
+              <Spacer size={10} />
+              <Text style={styles.descriptionText}>
+                {_t("or")}
+              </Text>
+              <Spacer size={10} />
+              <View style={styles.socialLoginContainer}>
+                <Button
+                  style={styles.socialButton}
+                  bgColor={colors.primaryDark}
+                  textColor={colors.white}
+                  rounded
+                  caption={_t('Continue with facebook')}
+                  icon={require('../../assets/images/facebook.png')}
+                  onPress={() => this.onClickFacebook()}
+                />
+              </View>
+              <Spacer size={10} />
+              <TouchableOpacity
+                onPress={() => {
+                  LayoutAnimation.spring();
+                  Actions['login']();
                 }}
+                style={{ flexDirection: 'row' }}
               >
-                {_t('Connect yourself')}
-              </Text>
-            </TouchableOpacity>
-          </Animated.View>
-        </View>
+                <Text style={styles.descriptionText}>
+                  {_t("Already have an account?")}
+                </Text>
+                <Text
+                  style={{
+                    color: colors.white,
+                    //fontFamily: fonts.primaryBold,
+                    marginLeft: 5,
+                  }}
+                >
+                  {_t('Connect yourself')}
+                </Text>
+              </TouchableOpacity>
+            </Animated.View>
+          </View>
+        </KeyboardAvoidingViewFix>
       </ImageBackground>
     );
   }

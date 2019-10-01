@@ -3,14 +3,13 @@ import {
   View,
   Text,
   Animated,
-  ImageBackground,
-  KeyboardAvoidingView
+  ImageBackground
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import DatePicker from 'react-native-date-picker';
 
 import { fonts, colors } from '../../styles';
-import { Button, Spacer, TextInput } from '../../components';
+import { Button, Spacer, TextInput, KeyboardAvoidingViewFix } from '../../components';
 import styles from './styles';
 
 
@@ -72,47 +71,43 @@ export default class SetBirthdayView extends React.Component {
           style={styles.backgroundImage}
           resizeMode="cover"
         >
-          <KeyboardAvoidingView
-            style={styles.keyboardScrollViewContainer}
-            behavior="padding"
-            enabled>
+          <KeyboardAvoidingViewFix>
             <View style={styles.container}>
-            {/* <LogoView style={styles.logoViewContainer}/> */}
-            <Animated.View
-              style={[styles.buttonContainer, this.fadeIn(700, -20)]}
-            >
-              <Text style={styles.title}>
-                {_t('What is your date of birth?')}
-              </Text>
-              <Spacer size={110} />
-              {/* <DatePicker
-                date={birthday}
-                mode={'date'}
-                textColor={colors.white}
-                onDateChange={date => this.setState({ birthday: date })}
-                style={styles.textInput}
-              /> */}
-              <TextInput
-                placeholder={_t('Birthday')}
-                style={styles.textInput}
-                autoCapitalize="none"
-                autoCorrect={false}
-                value={birthday}
-                onChangeText={birthday => this.setState({birthday})}
-              />
-              <Spacer size={80} />
-              <Button
-                bgColor="white"
-                textColor={colors.primary}
-                secondary
-                rounded
-                style={styles.nextButton}
-                caption={_t('Next')}
-                onPress={() => this.onClickNext()}
-              />
-            </Animated.View>
-          </View>
-          </KeyboardAvoidingView>
+              <Animated.View
+                style={[styles.buttonContainer, this.fadeIn(700, -20)]}
+              >
+                <Text style={styles.title}>
+                  {_t('What is your date of birth?')}
+                </Text>
+                <Spacer size={110} />
+                {/* <DatePicker
+                  date={birthday}
+                  mode={'date'}
+                  textColor={colors.white}
+                  onDateChange={date => this.setState({ birthday: date })}
+                  style={styles.textInput}
+                /> */}
+                <TextInput
+                  placeholder={_t('Birthday')}
+                  style={styles.textInput}
+                  autoCapitalize="none"
+                  autoCorrect={false}
+                  value={birthday}
+                  onChangeText={birthday => this.setState({birthday})}
+                />
+                <Spacer size={80} />
+                <Button
+                  bgColor="white"
+                  textColor={colors.primary}
+                  secondary
+                  rounded
+                  style={styles.nextButton}
+                  caption={_t('Next')}
+                  onPress={() => this.onClickNext()}
+                />
+              </Animated.View>
+            </View>
+          </KeyboardAvoidingViewFix>
         </ImageBackground>
     );
   }

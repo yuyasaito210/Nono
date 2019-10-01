@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { fonts, colors } from '../../styles';
-import { Button, Spacer, ConfirmCodeInput } from '../../components';
+import { Button, Spacer, ConfirmCodeInput, KeyboardAvoidingViewFix } from '../../components';
 import styles from './styles';
 
 
@@ -73,44 +73,40 @@ export default class SetConfirmCodeView extends React.Component {
           style={styles.backgroundImage}
           resizeMode="cover"
         >
-          <KeyboardAvoidingView
-            style={styles.keyboardScrollViewContainer}
-            behavior="padding"
-            enabled>
+          <KeyboardAvoidingViewFix>
             <View style={styles.container}>
-            {/* <LogoView style={styles.logoViewContainer}/> */}
-            <Animated.View
-              style={[styles.buttonContainer, this.fadeIn(700, -20)]}
-            >
-              <Text style={styles.title}>
-                {_t('Phone number validation')}
-              </Text>
-              <Spacer size={10} />
-              <Text style={styles.descriptionText}>
-                {_t('Enter the 4-digit code sent to')}
-              </Text>
-              <Spacer size={30} />
-              <ConfirmCodeInput 
-                compareWithCode='1234'
-                codeLength={4}
-                onFulFill={this.onFulFill} />
-              <Spacer size={50} />
-              <Text style={styles.descriptionText}>
-                {_t('Return the code')}
-              </Text>
-              <Spacer size={15} />
-              <Button
-                bgColor="white"
-                textColor={colors.primary}
-                secondary
-                rounded
-                style={styles.nextButton}
-                caption={_t('Next')}
-                onPress={() => this.onClickNext()}
-              />
-            </Animated.View>
-          </View>
-          </KeyboardAvoidingView>
+              <Animated.View
+                style={[styles.buttonContainer, this.fadeIn(700, -20)]}
+              >
+                <Text style={styles.title}>
+                  {_t('Phone number validation')}
+                </Text>
+                <Spacer size={10} />
+                <Text style={styles.descriptionText}>
+                  {_t('Enter the 4-digit code sent to')}
+                </Text>
+                <Spacer size={30} />
+                <ConfirmCodeInput 
+                  compareWithCode='1234'
+                  codeLength={4}
+                  onFulFill={this.onFulFill} />
+                <Spacer size={50} />
+                <Text style={styles.descriptionText}>
+                  {_t('Return the code')}
+                </Text>
+                <Spacer size={15} />
+                <Button
+                  bgColor="white"
+                  textColor={colors.primary}
+                  secondary
+                  rounded
+                  style={styles.nextButton}
+                  caption={_t('Next')}
+                  onPress={() => this.onClickNext()}
+                />
+              </Animated.View>
+            </View>
+          </KeyboardAvoidingViewFix>
         </ImageBackground>
     );
   }

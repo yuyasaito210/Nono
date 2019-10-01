@@ -3,13 +3,12 @@ import {
   View,
   Text,
   Animated,
-  ImageBackground,
-  KeyboardAvoidingView
+  ImageBackground
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
-import { fonts, colors } from '../../styles';
-import { Button, Spacer, TextInput } from '../../components';
+import { colors } from '../../styles';
+import { Button, Spacer, TextInput, KeyboardAvoidingViewFix } from '../../components';
 import styles from './styles';
 
 
@@ -67,40 +66,36 @@ export default class SetEmailView extends React.Component {
           style={styles.backgroundImage}
           resizeMode="cover"
         >
-          <KeyboardAvoidingView
-            style={styles.keyboardScrollViewContainer}
-            behavior="padding"
-            enabled>
+          <KeyboardAvoidingViewFix>
             <View style={styles.container}>
-            {/* <LogoView style={styles.logoViewContainer}/> */}
-            <Animated.View
-              style={[styles.buttonContainer, this.fadeIn(700, -20)]}
-            >
-              <Text style={styles.title}>
-                {_t('Delighted Theo, what is your email?')}
-              </Text>
-              <Spacer size={110} />
-              <TextInput
-                placeholder={_t('Email')}
-                style={styles.textInput}
-                autoCapitalize="none"
-                autoCorrect={false}
-                value={email}
-                onChangeText={email => this.setState({email})}
-              />
-              <Spacer size={80} />
-              <Button
-                bgColor="white"
-                textColor={colors.primary}
-                secondary
-                rounded
-                style={styles.nextButton}
-                caption={_t('Next')}
-                onPress={() => this.onClickNext()}
-              />
-            </Animated.View>
-          </View>
-          </KeyboardAvoidingView>
+              <Animated.View
+                style={[styles.buttonContainer, this.fadeIn(700, -20)]}
+              >
+                <Text style={styles.title}>
+                  {_t('Delighted Theo, what is your email?')}
+                </Text>
+                <Spacer size={110} />
+                <TextInput
+                  placeholder={_t('Email')}
+                  style={styles.textInput}
+                  autoCapitalize="none"
+                  autoCorrect={false}
+                  value={email}
+                  onChangeText={email => this.setState({email})}
+                />
+                <Spacer size={80} />
+                <Button
+                  bgColor="white"
+                  textColor={colors.primary}
+                  secondary
+                  rounded
+                  style={styles.nextButton}
+                  caption={_t('Next')}
+                  onPress={() => this.onClickNext()}
+                />
+              </Animated.View>
+            </View>
+          </KeyboardAvoidingViewFix>
         </ImageBackground>
     );
   }

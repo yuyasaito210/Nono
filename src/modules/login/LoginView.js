@@ -7,11 +7,12 @@ import {
   TouchableOpacity,
   ImageBackground,
   Alert,
+  ScrollView
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
 import { fonts, colors } from '../../styles';
-import { Button, Spacer, PhoneNumberInput, LogoView } from '../../components';
+import { Button, Spacer, PhoneNumberInput, LogoView, KeyboardAvoidingViewFix } from '../../components';
 import styles from './styles';
 
 
@@ -97,12 +98,14 @@ export default class LoginView extends React.Component {
     //   navigation.navigate('Home');
     // }
     return (
+     
       <ImageBackground
         source={require('../../assets/images/png/mask-group-28-2x.png')}
         style={styles.backgroundImage}
         resizeMode="cover"
       >
-        <View style={styles.container}>
+        <KeyboardAvoidingViewFix>
+          <View style={styles.container}>
           <LogoView style={styles.logoViewContainer}/>
           <Animated.View
             style={[styles.buttonContainer, this.fadeIn(700, -20)]}
@@ -157,7 +160,9 @@ export default class LoginView extends React.Component {
             </TouchableOpacity>
           </Animated.View>
         </View>
+        </KeyboardAvoidingViewFix>
       </ImageBackground>
+      
     );
   }
 }
