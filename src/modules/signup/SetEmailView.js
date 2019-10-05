@@ -11,7 +11,7 @@ import { Actions } from 'react-native-router-flux';
 import { fonts, colors } from '../../styles';
 import { Button, Spacer, TextInput } from '../../components';
 import styles from './styles';
-
+import { signupSetEmail } from './SignupAction';
 
 export default class SetEmailView extends React.Component {
   state = {
@@ -50,6 +50,7 @@ export default class SetEmailView extends React.Component {
   }
 
   onClickNext = () => {
+    this.props.signupActions.signupSetEmail(this.state.email);
     Actions['setBirthday']();
   }
 

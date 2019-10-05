@@ -17,11 +17,11 @@ export const LOGOUT = createRequestTypes('Auth/LOGOUT');
 export const LOGIN_FROM_REGISTRATION = createRequestTypes('AUTH/LOGIN_FROM_REGISTRATION');
 // Sign up
 export const SIGNUP = createRequestTypes('Auth/SIGNUP');
-export const SINGUP_SET_PHONE_NUMBER = 'Auth/SINGUP/SET_PHONE_NUMBER';
-export const SINGUP_SET_CONFIRM_CODE = 'Auth/SINGUP/SET_CONFIRM_CODE';
-export const SINGUP_SET_USER_NAME = 'Auth/SINGUP/SET_USER_NAME';
-export const SINGUP_SET_EMAIL = 'Auth/SINGUP/SET_EMAIL';
-export const SINGUP_SET_BIRTHDAY = 'Auth/SINGUP/SET_BIRTHDAY';
+export const SIGNUP_SET_PHONE_NUMBER = 'Auth/SIGNUP/SET_PHONE_NUMBER';
+export const SIGNUP_SET_CONFIRM_CODE = 'Auth/SIGNUP/SET_CONFIRM_CODE';
+export const SIGNUP_SET_USER_NAME = 'Auth/SIGNUP/SET_USER_NAME';
+export const SIGNUP_SET_EMAIL = 'Auth/SIGNUP/SET_EMAIL';
+export const SIGNUP_SET_BIRTHDAY = 'Auth/SIGNUP/SET_BIRTHDAY';
 // User Info
 export const SET_USER_INFO = 'SET_USER_INFO';
 export const GET_STORE = createRequestTypes('GET_STORE');

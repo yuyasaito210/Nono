@@ -7,7 +7,7 @@ import * as signupActions from './SignupAction';
 import * as appActions from '../AppAction';
 
 const mapStateToProps = state => ({
-  login: state.login || {},
+  signup: state.signup || {},
   app: state.app || {},
 });
 
