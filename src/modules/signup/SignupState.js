@@ -38,6 +38,16 @@ export default function signupReducer(state = initialState, action) {
         isFetching: false,
         errorMessage: action.err,
       });
+    case types.SIGNUP_SET_EMAIL:
+      return {
+        ...state,
+        email: action.email
+      }
+    case types.SIGNUP_SET_USER_NAME:
+      return {
+        ...state,
+        userName: action.userName
+      }
     default:
       return state;
   }

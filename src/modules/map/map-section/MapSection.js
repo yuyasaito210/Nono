@@ -81,26 +81,28 @@ export default class MapSection extends React.Component {
 		const { children } = this.props;
 
 		return (
-			<View style={{position: 'relative', width: W, height: H}}>
-				<MapView
-					style={mapStyles.container}
-					region={region}
-					showsUserLocation={true}
-					// mapType={Platform.OS == "android" ? "none" : "standard"}
-					showsMyLocationButton={true}
-					followsUserLocation={true}
-					showsCompass={true}
-					showsTraffic={true}
-					rotateEnabled={true}
-					loadingEnabled={true}
-					pitchEnabled={true}
-				>
-					{this.renderMarkers()}
-					{this.renderCurrentLocationMarker()}
-					{ children && children}
-				</MapView>
+			<>
+				<View>
+					<MapView
+						style={mapStyles.container}
+						region={region}
+						showsUserLocation={true}
+						// mapType={Platform.OS == "android" ? "none" : "standard"}
+						showsMyLocationButton={true}
+						followsUserLocation={true}
+						showsCompass={true}
+						showsTraffic={true}
+						rotateEnabled={true}
+						loadingEnabled={true}
+						pitchEnabled={true}
+					>
+						{this.renderMarkers()}
+						{this.renderCurrentLocationMarker()}
+						{ children && children}
+					</MapView>
+				</View>
 				{this.renderButtons()}
-			</View>
+			</>
 		)
 	}
 	renderMarkers() {

@@ -11,6 +11,7 @@ import DatePicker from 'react-native-date-picker';
 import { fonts, colors } from '../../styles';
 import { Button, Spacer, TextInput, KeyboardAvoidingViewFix } from '../../components';
 import styles from './styles';
+import {actionSignup} from './SignupAction';
 
 
 export default class SetBirthdayView extends React.Component {
@@ -54,6 +55,7 @@ export default class SetBirthdayView extends React.Component {
   };
 
   onClickNext = () => {
+    this.props.signupActions.actionSignUp(this.props.signup);
     Actions['guideFindStation']();
   }
 

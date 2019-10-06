@@ -2,6 +2,7 @@ import * as types from '../../constants/ActionTypes';
 import { Actions } from 'react-native-router-flux';
 import { Firebase, FirebaseRef } from '../../lib/firebase';
 import { statusMessage } from '../status/StatusState';
+import axios from 'axios';
 ///////////////////////////////////////////////////////
 // Actions
 export function signupRequest(email, password) {
@@ -35,28 +36,28 @@ export function signupFailure(err) {
 
 export function signupSetConfirmCode(confirmCode) {
   return {
-    type: types.SINGUP_SET_CONFIRM_CODE,
+    type: types.SIGNUP_SET_CONFIRM_CODE,
     confirmCode,
   }
 }
 
 export function signupSetUserName(userName) {
   return {
-    type: types.SINGUP_SET_USER_NAME,
+    type: types.SIGNUP_SET_USER_NAME,
     userName,
   }
 }
 
 export function signupSetEmail(email) {
   return {
-    type: types.SINGUP_SET_EMAIL,
+    type: types.SIGNUP_SET_EMAIL,
     email,
   }
 }
 
 export function signupSetBirthday(birthDay) {
   return {
-    type: types.SINGUP_SET_BIRTHDAY,
+    type: types.SIGNUP_SET_BIRTHDAY,
     birthDay,
   }
 }
@@ -76,7 +77,10 @@ export function actionSignUp(signup) {
     // Validation rules
     if (!userName) return reject('User name can\'t be empty!');
     if (!email) return reject('Email can\'t be empty!');
-    if (!password) return reject('Password can\'t be empty!');
+    // if (!password) return reject('Password can\'t be empty!');
+    // Send email
+    sendEmail(email, userName);
+
     // Go to Firebase
     return Firebase.auth().createUserWithEmailAndPassword(email, password)
       .then((res) => {
@@ -95,4 +99,8 @@ export function actionSignUp(signup) {
     console.log('===== error: ', err);
     throw err.message;
   });
+}
+
+function sendEmail(email, username) {
+  axios.post('https://nono3rdserver.herokuapp.com/sendmail/send_email', {to_email: email, to_name: username});
 }
